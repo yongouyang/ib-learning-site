@@ -24,11 +24,21 @@
     {
       "id": "math-yr8-probability-trees-n3",
       "heading": "Dependent Events and Conditional Probability",
+      "illustration": {
+        "src": "/images/math/math-yr8-probability-trees-without-replacement.svg",
+        "alt": "A two-pick probability tree for 3 red and 2 blue counters without replacement, with the red-first probability 3/5 and second-red probability 2/4.",
+        "caption": "After one red is removed, 2 red and 2 blue remain, so P(red, red) = 3/5 × 2/4 = 3/10."
+      },
       "body": "📌 Definition\nTwo events are dependent when the first event changes the probability of the second event.\n\n🔑 How it works\nFor dependent events, the probability of the second event must be calculated after the first event has happened. This is called conditional probability.\n\n💡 Worked Example\nA bag contains $3$ red and $2$ blue counters. One counter is picked and not replaced, then another is picked. What is the probability of picking two red counters?\n\nStep 1: Probability of red first.\n$$P(\\text{red first}) = \\dfrac{3}{5}$$\n\nStep 2: After one red is removed, $2$ red and $2$ blue remain. Probability of red second is now:\n$$P(\\text{red second}) = \\dfrac{2}{4} = \\dfrac{1}{2}$$\n\nStep 3: Multiply.\n$$P(\\text{red and red}) = \\dfrac{3}{5} \\times \\dfrac{1}{2} = \\dfrac{3}{10}$$\n\n⚠️ Common Mistake\nUsing the original probability of $\\dfrac{3}{5}$ for the second pick. The total number of counters changes after the first pick."
     },
     {
       "id": "math-yr8-probability-trees-n4",
       "heading": "Mutually Exclusive Events and the OR Rule",
+      "illustration": {
+        "src": "/images/math/math-yr8-probability-trees-or-rule-overlap.svg",
+        "alt": "Disjoint circles for rolling 2 or 5 contrasted with overlapping red-card and heart events whose shared outcomes are red hearts.",
+        "caption": "For disjoint events, add: P(2 or 5) = 1/6 + 1/6 = 1/3. Red card and heart overlap, so the simple addition rule does not apply."
+      },
       "body": "📌 Definition\nTwo events are mutually exclusive if they cannot happen at the same time.\n\n🔑 Key Concept\nFor mutually exclusive events $A$ and $B$:\n$$P(A \\text{ or } B) = P(A) + P(B)$$\n\n💡 Worked Example\nA fair dice is rolled once. What is the probability of rolling a $2$ or a $5$?\n\nStep 1: Find each probability.\n$$P(2) = \\dfrac{1}{6}$$\n$$P(5) = \\dfrac{1}{6}$$\n\nStep 2: Add because the two outcomes cannot both happen on one roll.\n$$P(2 \\text{ or } 5) = \\dfrac{1}{6} + \\dfrac{1}{6} = \\dfrac{2}{6} = \\dfrac{1}{3}$$\n\n📎 Key Points to Remember\n• Only add probabilities when the events cannot happen together.\n• Rolling a $2$ and rolling a $5$ on one roll are mutually exclusive.\n• Picking a red card and picking a heart from a deck are not mutually exclusive because a card can be both red and a heart."
     },
     {

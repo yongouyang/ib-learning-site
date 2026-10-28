@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title desc">
+  <title id="title">Net of a 3-4-5 triangular prism</title>
+  <desc id="desc">A triangular prism net with three rectangles measuring 3 by 6, 4 by 6 and 5 by 6 centimetres, joined in a row. Two congruent right triangles with sides 3, 4 and 5 centimetres are attached to the middle rectangle.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 14px; fill: #374151; }
+    .face { font-size: 15px; font-weight: 600; fill: #1e293b; }
+  </style>
+  <rect width="900" height="650" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Triangular prism net: 2 triangles + 3 rectangles</text>
+  <polygon points="320,280 440,280 320,190" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <polygon points="320,460 440,460 320,550" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <rect x="230" y="280" width="90" height="180" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <rect x="320" y="280" width="120" height="180" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <rect x="440" y="280" width="150" height="180" fill="#ede9fe" stroke="#7c3aed" stroke-width="2.5"/>
+  <rect x="238" y="352" width="74" height="36" rx="5" fill="#f8fafc"/>
+  <text x="275" y="376" class="face" text-anchor="middle">3 × 6 cm</text>
+  <rect x="340" y="352" width="80" height="36" rx="5" fill="#f8fafc"/>
+  <text x="380" y="376" class="face" text-anchor="middle">4 × 6 cm</text>
+  <rect x="475" y="352" width="80" height="36" rx="5" fill="#f8fafc"/>
+  <text x="515" y="376" class="face" text-anchor="middle">5 × 6 cm</text>
+  <text x="380" y="174" class="label" text-anchor="middle">4 cm</text>
+  <text x="305" y="240" class="label" text-anchor="end">3 cm</text>
+  <text x="397" y="231" class="label">5 cm</text>
+  <path d="M320 264 H336 V280" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="380" y="585" class="label" text-anchor="middle">congruent 3–4–5 triangle</text>
+  <line x1="625" y1="280" x2="625" y2="460" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="618" y1="280" x2="632" y2="280" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="618" y1="460" x2="632" y2="460" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="640" y="343" width="150" height="54" rx="6" fill="#f1f5f9"/>
+  <text x="715" y="366" class="label" text-anchor="middle">prism length</text>
+  <text x="715" y="388" class="face" text-anchor="middle">6 cm</text>
+  <text x="450" y="625" class="label" text-anchor="middle">Each rectangle’s other dimension matches one side of the triangular ends.</text>
+</svg>

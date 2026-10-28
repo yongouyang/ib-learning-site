@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Inverse functions are reflections in y equals x</title>
+  <desc id="desc">The graphs of f(x) equals 3x minus 5 and its inverse (x plus 5) divided by 3 are reflections in the line y equals x. Corresponding points (2, 1) and (1, 2), and (4, 7) and (7, 4), show that coordinates interchange.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <rect width="900" height="560" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Inverse graph: reflect in y = x and swap coordinates</text>
+  <rect x="35" y="65" width="520" height="460" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <path d="M90 85 V510 M120 85 V510 M150 85 V510 M180 85 V510 M210 85 V510 M240 85 V510 M270 85 V510 M330 85 V510 M360 85 V510 M390 85 V510 M420 85 V510 M450 85 V510 M480 85 V510 M510 85 V510 M540 85 V510 M55 110 H540 M55 140 H540 M55 170 H540 M55 200 H540 M55 230 H540 M55 260 H540 M55 290 H540 M55 320 H540 M55 380 H540 M55 410 H540 M55 440 H540 M55 470 H540 M55 500 H540" class="grid"/>
+  <line x1="55" y1="350" x2="540" y2="350" stroke="#334155" stroke-width="1.8"/>
+  <line x1="300" y1="85" x2="300" y2="510" stroke="#334155" stroke-width="1.8"/>
+  <text x="528" y="340" class="small">x</text>
+  <text x="311" y="101" class="small">y</text>
+  <text x="282" y="368" class="small">O</text>
+  <line x1="150" y1="500" x2="510" y2="140" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="7 5"/>
+  <line x1="300" y1="500" x2="420" y2="140" stroke="#2563eb" stroke-width="3"/>
+  <line x1="150" y1="350" x2="510" y2="230" stroke="#16a34a" stroke-width="3"/>
+  <line x1="360" y1="320" x2="330" y2="290" stroke="#d97706" stroke-width="1.7" stroke-dasharray="4 3"/>
+  <line x1="420" y1="140" x2="510" y2="230" stroke="#d97706" stroke-width="1.7" stroke-dasharray="4 3"/>
+  <circle cx="360" cy="320" r="5" fill="#2563eb"/>
+  <circle cx="330" cy="290" r="5" fill="#16a34a"/>
+  <circle cx="420" cy="140" r="5" fill="#2563eb"/>
+  <circle cx="510" cy="230" r="5" fill="#16a34a"/>
+  <rect x="366" y="302" width="74" height="28" rx="5" fill="#f8fafc"/>
+  <text x="403" y="322" class="label" text-anchor="middle">P (2, 1)</text>
+  <rect x="245" y="264" width="82" height="28" rx="5" fill="#f8fafc"/>
+  <text x="286" y="284" class="label" text-anchor="middle">P′ (1, 2)</text>
+  <rect x="426" y="111" width="74" height="28" rx="5" fill="#f8fafc"/>
+  <text x="463" y="131" class="label" text-anchor="middle">Q (4, 7)</text>
+  <rect x="425" y="215" width="82" height="28" rx="5" fill="#f8fafc"/>
+  <text x="466" y="235" class="label" text-anchor="middle">Q′ (7, 4)</text>
+  <rect x="174" y="449" width="62" height="28" rx="5" fill="#f8fafc"/>
+  <text x="205" y="469" class="label" text-anchor="middle" fill="#7c3aed">y = x</text>
+  <rect x="585" y="65" width="280" height="460" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="610" y="105" class="subhead">Original function</text>
+  <text x="610" y="143" class="math">f(x) = 3x − 5</text>
+  <text x="610" y="196" class="subhead">Inverse function</text>
+  <text x="610" y="234" class="math" fill="#15803d">f⁻¹(x) = (x + 5)/3</text>
+  <line x1="610" y1="265" x2="840" y2="265" stroke="#e2e8f0"/>
+  <text x="610" y="306" class="label">Reflection in y = x swaps</text>
+  <text x="610" y="332" class="label">the x- and y-coordinates.</text>
+  <text x="610" y="378" class="math">(a, b) ↔ (b, a)</text>
+  <text x="610" y="424" class="label">The joining segments are</text>
+  <text x="610" y="450" class="label">perpendicular to y = x.</text>
+  <text x="610" y="492" class="label">Domain and range swap.</text>
+</svg>

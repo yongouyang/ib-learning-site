@@ -1,0 +1,322 @@
+{
+  "id": "bio-igcse-inheritance-extended",
+  "subjectId": "biology",
+  "title": "Advanced Inheritance, Variation & Selection (Extended)",
+  "description": "Test crosses, codominance and ABO blood groups, X-linked colour blindness, sources of variation, and natural versus artificial selection, including antibiotic resistance, for IGCSE Biology 0610 Extended.",
+  "stage": "igcse",
+  "course": "0610",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "bio-igcse-inheritance-extended-n1",
+      "heading": "Test Crosses: Inferring an Unknown Genotype",
+      "body": "📌 Definition\nA **test cross** crosses an organism showing a dominant phenotype, but with an unknown genotype, with a **homozygous recessive** organism. If $D$ is dominant to $d$, the unknown is $DD$ or $Dd$ and the tester is $dd$.\n\n🔑 Read the offspring, not just the parents\n• If the unknown is $DD$: every offspring receives $D$ from it and $d$ from the tester, so all are $Dd$ and show the dominant phenotype.\n• If the unknown is $Dd$: half its gametes carry $D$ and half carry $d$, giving $1 Dd : 1 dd$ — a **1 dominant : 1 recessive** phenotype ratio.\n• Even one recessive offspring proves that the unknown parent supplied $d$, so it must be $Dd$.\n\n💡 Worked Example\nA tall plant of unknown genotype is crossed with a short $tt$ plant. Among 36 offspring, 19 are tall and 17 are short. This is close to 1:1, so the unknown plant is $Tt$, not $TT$.\n\n⚠️ Common Mistake\nClaiming that a small group containing only dominant-phenotype offspring PROVES the unknown is homozygous. A $Dd$ parent can produce only $D$ gametes by chance in a finite sample. Many dominant-only offspring support $DD$; they do not make it certain.\n\n📎 Key Points to Remember\n• Test cross = unknown dominant phenotype × homozygous recessive.\n• Recessive offspring → heterozygous unknown; 1:1 offspring ratio → heterozygous unknown."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-n2",
+      "heading": "Codominance and the ABO Genotype–Phenotype Map",
+      "body": "📌 Definition\n**Codominance** occurs when **both alleles are expressed** in the phenotype of a heterozygote. Neither allele masks the other, and the result is not a blended intermediate.\n\n🔑 The three ABO alleles\nThe ABO gene has alleles $I^A$, $I^B$ and $i$. $I^A$ and $I^B$ are **codominant with each other**, and each is dominant to $i$.\n\n💡 Six genotypes, four phenotypes\n• Group A: $I^A I^A$ or $I^A i$\n• Group B: $I^B I^B$ or $I^B i$\n• Group AB: $I^A I^B$ — both A and B features are expressed\n• Group O: $ii$\n\n⚠️ Common Mistake\nCalling $I^A I^B$ a blend of A and B, or saying one allele becomes recessive in this genotype. Both alleles remain fully expressed. Also, group A or B alone does not reveal whether the genotype is homozygous or heterozygous.\n\n📎 Key Points to Remember\n• Codominant = both alleles expressed in the heterozygote.\n• Learn the complete map: two genotypes for A, two for B, one for AB and one for O."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-n3",
+      "heading": "ABO Crosses: Track Alleles into Phenotypes",
+      "body": "🔑 A cross that produces all four blood groups\nFor $I^A i\\times I^B i$, the group A parent produces $I^A$ and $i$ gametes; the group B parent produces $I^B$ and $i$. The four equally likely offspring are $I^A I^B$ (AB), $I^A i$ (A), $I^B i$ (B) and $ii$ (O): **1 AB : 1 A : 1 B : 1 O**, each with probability 25%.\n\n💡 Two contrasting results\n• $I^A I^B\\times ii$ gives $I^A i$ and $I^B i$ only: **1 A : 1 B**, with no AB or O offspring.\n• $I^A I^B\\times I^A I^B$ gives $I^A I^A$, $I^A I^B$, $I^A I^B$ and $I^B I^B$: **1 A : 2 AB : 1 B**, with no O offspring.\n\n🔑 Inferring parental genotypes\nAn O child ($ii$) must have received $i$ from EACH parent. An AB child ($I^A I^B$) must have received $I^A$ from one parent and $I^B$ from the other. Use these required alleles to eliminate impossible parental genotypes before calculating a ratio.\n\n⚠️ Common Mistake\nAssuming two group AB parents can have a group O child. Neither has an $i$ allele, so $ii$ is impossible in that cross.\n\n📎 Key Points to Remember\n• Combine one allele from each gamete, then translate every genotype to its blood group.\n• Offspring ratios are probabilities per child, not guaranteed numbers in a family.",
+      "illustration": {
+        "src": "/images/biology/bio-igcse-inheritance-extended-abo-cross.svg",
+        "alt": "Punnett square for I-A i crossed with I-B i. The four equally likely offspring are I-A I-B with blood group AB, I-A i with group A, I-B i with group B, and i i with group O.",
+        "caption": "Two heterozygous parents with groups A and B can have children of all four ABO blood groups, each with a 25% probability."
+      }
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-n4",
+      "heading": "X-Linked Inheritance: Colour Blindness",
+      "body": "📌 Notation and carriers\nFor X-linked recessive colour blindness, use $X^N$ for the normal-vision allele and $X^n$ for the colour-blindness allele. The Y chromosome does not carry this gene, so write $Y$ without an allele.\n• $X^N X^N$: female with normal vision; $X^N X^n$: carrier female with normal vision; $X^n X^n$: colour-blind female.\n• $X^N Y$: male with normal vision; $X^n Y$: colour-blind male. A male has only one X-linked allele for this gene.\n\n🔑 Carrier mother × normal-vision father\n$X^N X^n\\times X^N Y$ gives $X^N X^N$ (normal female), $X^N X^n$ (carrier female), $X^N Y$ (normal male) and $X^n Y$ (colour-blind male) in a 1:1:1:1 genotype ratio. The probability of a colour-blind child is 1/4; among sons, the probability is 1/2.\n\n💡 Colour-blind father × non-carrier mother\n$X^n Y\\times X^N X^N$ gives carrier daughters ($X^N X^n$) and sons with normal vision ($X^N Y$). Every daughter receives her father's $X^n$; every son receives his Y and instead gets an X from his mother.\n\n⚠️ Common Mistake\nWriting $Y^n$ or saying a father passes his X chromosome to his sons. Sons receive the father's Y. Also distinguish 'probability of a colour-blind son' (1/4 of all children in the carrier-mother cross) from 'probability that a son is colour blind' (1/2).\n\n📎 Key Points to Remember\n• Show the X chromosomes and their alleles; never use N/n alone for an X-linked cross.\n• A carrier is heterozygous and has normal vision but can pass on $X^n$."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-n5",
+      "heading": "Mutation and Sources of Variation",
+      "body": "📌 Mutation creates new alleles\nA **gene mutation** is a **random change in the base sequence of DNA**. It can form a **new allele**, making mutation the ultimate source of new genetic variation. An organism's needs do not direct a useful mutation to appear. **Ionising radiation** and **some chemicals** increase mutation rate.\n\n🔑 New alleles versus new combinations\n• Mutation introduces alleles that did not previously exist.\n• **Meiosis** produces genetically different gametes, **random mating** brings together different parental allele combinations, and **random fertilisation** determines which gametes fuse. Together they produce new COMBINATIONS of existing alleles in sexually reproducing populations without requiring a new mutation in every generation.\n• Environmental conditions can also produce differences between individuals. For example, genetically identical plant cuttings may grow to different sizes under different light intensities.\n\n🔑 What selection can act on\nNatural and artificial selection change allele frequencies only when differences are heritable and affect reproductive success. An environmentally acquired change is not inherited merely because it helped its owner.\n\n⚠️ Common Mistake\nWriting that every mutation is harmful, or that radiation is needed for mutation. Mutations can be harmful, neutral or occasionally beneficial, and they also occur without exposure to these mutagens.\n\n📎 Key Points to Remember\n• Mutation → new alleles; meiosis, random mating and random fertilisation → new allele combinations.\n• Variation can be genetic or environmental, but selection requires heritable differences."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-n6",
+      "heading": "Natural Selection and Antibiotic Resistance",
+      "body": "📌 Adaptive features and selection\nAn **adaptive feature** is an inherited feature that helps an organism survive and reproduce in its environment. Its value depends on the environment: a feature helpful under one set of conditions may be neutral or harmful under another.\n\n🔑 The mechanism\n1. Heritable variation exists in a population.\n2. More offspring are produced than can survive, so individuals compete for limited resources.\n3. Individuals with features better suited to the conditions have greater reproductive success.\n4. They pass on the alleles for those features, so these alleles become more frequent over generations.\n\n💡 Antibiotic resistance is natural selection\nA random mutation may produce a resistance allele BEFORE an antibiotic is present. The antibiotic then acts as a selection pressure: susceptible bacteria are killed or inhibited, resistant bacteria survive and reproduce, and their resistance alleles become more common in later generations. The antibiotic selects existing resistance; it does not instruct bacteria to mutate.\n\n⚠️ Common Mistake\nSaying that an individual bacterium 'evolves' or 'adapts itself' during exposure. Individuals survive or die; the POPULATION's allele frequencies change over generations.\n\n📎 Key Points to Remember\n• Variation → differential survival and reproduction → alleles inherited → allele frequencies change.\n• Antibiotic resistance: random origin, non-random selection."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-n7",
+      "heading": "Natural versus Artificial Selection in Unfamiliar Scenarios",
+      "body": "🔑 Ask: what determines which individuals reproduce?\n• In **natural selection**, environmental conditions cause differential survival and reproduction; better-adapted individuals contribute more offspring.\n• In **artificial selection (selective breeding)**, humans choose parents with desirable heritable features, breed them, select suitable offspring and repeat over generations.\n\n🔑 The shared mechanism\nBoth require heritable variation and differential reproductive success, and both can change allele frequencies. The selector differs: environment versus human choice. Artificial selection does not require humans to create new alleles; they select from variation already present.\n\n💡 Worked Example\nDrought kills many wild plants, but deep-rooted survivors produce seeds. A researcher then collects seeds only from those survivors and deliberately interbreeds them for several generations. The initial differential survival is **natural selection**; the researcher's controlled breeding programme is **artificial selection**.\n\n⚠️ Common Mistake\nClassifying every example involving people as artificial selection. Humans may change an environment that then exerts natural selection, as antibiotics do on bacteria. Conversely, breeding chosen farm animals is artificial even when the chosen feature, such as disease resistance, would also aid survival in the wild.\n\n📎 Key Points to Remember\n• Natural = environmental reproductive advantage; artificial = humans choose the breeding individuals.\n• Both select heritable variation; neither requires organisms to try to adapt."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "bio-igcse-inheritance-extended-f1",
+      "term": "Test cross",
+      "definition": "A cross between an organism with an unknown genotype but dominant phenotype and a homozygous recessive organism.",
+      "example": "Cross an unknown tall plant, $TT$ or $Tt$, with a short $tt$ plant."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f2",
+      "term": "Interpreting a test cross",
+      "definition": "Recessive offspring, or an approximately 1 dominant : 1 recessive ratio, show that the unknown parent is heterozygous.",
+      "example": "$Tt\\times tt$ produces $Tt$ and $tt$ in a 1:1 ratio; $TT\\times tt$ produces only $Tt$."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f3",
+      "term": "Codominance",
+      "definition": "The expression of both alleles in the phenotype of a heterozygote, without either masking the other.",
+      "example": "A person with genotype $I^A I^B$ expresses both A and B features and has blood group AB."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f4",
+      "term": "ABO alleles",
+      "definition": "$I^A$ and $I^B$ are codominant with each other, and each is dominant to $i$.",
+      "example": "$I^A i$ gives group A, whereas $I^A I^B$ gives group AB."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f5",
+      "term": "Six ABO genotypes",
+      "definition": "$I^A I^A$ and $I^A i$ give A; $I^B I^B$ and $I^B i$ give B; $I^A I^B$ gives AB; $ii$ gives O.",
+      "example": "These six genotypes produce exactly four ABO phenotypes."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f6",
+      "term": "X-linked recessive allele",
+      "definition": "A recessive allele carried on the X chromosome; a male with that allele on his only X chromosome shows the trait.",
+      "example": "A male with $X^n Y$ is colour blind, whereas a female with $X^N X^n$ has normal vision."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f7",
+      "term": "Carrier of colour blindness",
+      "definition": "A female with genotype $X^N X^n$, who has normal colour vision but can pass $X^n$ to offspring.",
+      "example": "A carrier mother and normal-vision father can have a colour-blind son, $X^n Y$."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f8",
+      "term": "Carrier mother × normal father",
+      "definition": "$X^N X^n\\times X^N Y$ gives equal proportions of normal females, carrier females, normal males and colour-blind males.",
+      "example": "One quarter of all children are expected to be colour blind; half of sons are expected to be colour blind."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f9",
+      "term": "Mutation",
+      "definition": "A random change in the base sequence of DNA that can form a new allele; ionising radiation and some chemicals increase mutation rate.",
+      "example": "A random mutation can produce a bacterial resistance allele before antibiotic exposure."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f10",
+      "term": "Sources of genetic variation",
+      "definition": "Mutation creates new alleles; meiosis, random mating and random fertilisation create new combinations of existing alleles.",
+      "example": "Sexual offspring can differ genetically even when no new mutation occurs in that generation."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f11",
+      "term": "Antibiotic resistance by natural selection",
+      "definition": "Resistant bacteria survive antibiotic exposure and reproduce, so resistance alleles become more frequent over generations.",
+      "example": "The antibiotic selects a pre-existing random resistance allele rather than causing a directed mutation."
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-f12",
+      "term": "Natural versus artificial selection",
+      "definition": "Natural selection depends on environmental reproductive advantage; artificial selection depends on humans choosing which individuals breed.",
+      "example": "Drought favouring deep roots is natural selection; a breeder selecting those plants as parents is artificial selection."
+    }
+  ],
+  "questions": [
+    {
+      "id": "bio-igcse-inheritance-extended-q1",
+      "stem": "Which observation is an example of codominance?",
+      "choices": [
+        "A person with genotype $I^A I^B$ expresses both A and B features",
+        "A person with genotype $I^A i$ has blood group A",
+        "A red-flowered plant and a white-flowered plant produce only pink-flowered offspring",
+        "A person with genotype $ii$ has blood group O"
+      ],
+      "correctIndex": 0,
+      "explanation": "In codominance both alleles are expressed in a heterozygote, so $I^A I^B$ gives group AB. $I^A i$ shows ordinary dominance, pink flowers suggest blending rather than codominance, and $ii$ is homozygous recessive.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q2",
+      "stem": "What is the ABO blood group of a person with genotype $I^A i$?",
+      "choices": [
+        "Group O",
+        "Group A",
+        "Group AB",
+        "Group B"
+      ],
+      "correctIndex": 1,
+      "explanation": "$I^A$ is dominant to $i$, so $I^A i$ produces blood group A. Group AB requires $I^A I^B$, group B requires $I^B I^B$ or $I^B i$, and group O requires $ii$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q3",
+      "stem": "Which genotype represents a female with normal colour vision who is a carrier of X-linked recessive colour blindness?",
+      "choices": [
+        "$X^N X^N$",
+        "$X^n Y$",
+        "$X^N X^n$",
+        "$X^n X^n$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A carrier is heterozygous: $X^N X^n$. The normal allele gives normal colour vision, but she can pass $X^n$ to offspring. $X^N X^N$ is a non-carrier, and $X^n Y$ is a colour-blind male.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q4",
+      "stem": "A tall plant of unknown genotype is test-crossed with a short $tt$ plant. It produces 18 tall and 17 short offspring. What is the unknown genotype most likely to be?",
+      "choices": [
+        "$TT$",
+        "$tt$",
+        "It cannot be inferred from any offspring ratio",
+        "$Tt$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The offspring ratio is approximately 1 tall : 1 short. $Tt\\times tt$ gives $Tt$ and $tt$ in equal proportions, whereas $TT\\times tt$ would give only tall $Tt$ offspring. The short parent must be $tt$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q5",
+      "stem": "What offspring phenotype ratio is expected from the cross $I^A I^B\\times ii$?",
+      "choices": [
+        "1 group A : 1 group B, with no AB or O",
+        "1 AB : 1 A : 1 B : 1 O",
+        "All group AB",
+        "3 group A : 1 group O"
+      ],
+      "correctIndex": 0,
+      "explanation": "The $I^A I^B$ parent makes $I^A$ and $I^B$ gametes; the $ii$ parent makes only $i$. Offspring are therefore $I^A i$ (A) and $I^B i$ (B) in a 1:1 ratio. Neither AB nor O can form.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q6",
+      "stem": "Which genotype produces blood group B?",
+      "choices": [
+        "$I^A I^B$",
+        "$I^B i$",
+        "$I^A i$",
+        "$ii$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$I^B$ is dominant to $i$, so $I^B i$ gives group B. $I^A I^B$ gives AB, $I^A i$ gives A and $ii$ gives O.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q7",
+      "stem": "A colour-blind man ($X^n Y$) and a non-carrier woman ($X^N X^N$) have children. Which outcome is expected?",
+      "choices": [
+        "All sons are colour blind and all daughters are colour blind",
+        "Half of sons are colour blind and all daughters are non-carriers",
+        "All daughters are carriers with normal vision and all sons have normal vision",
+        "All children are colour blind"
+      ],
+      "correctIndex": 2,
+      "explanation": "Every daughter receives $X^n$ from her father and $X^N$ from her mother, so daughters are $X^N X^n$ carriers. Every son receives Y from his father and $X^N$ from his mother, so sons are $X^N Y$ with normal vision.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q8",
+      "stem": "A carrier woman ($X^N X^n$) and a man with normal vision ($X^N Y$) have a child. What is the probability that the child will be a colour-blind son?",
+      "choices": [
+        "0",
+        "1/2",
+        "1/8",
+        "1/4"
+      ],
+      "correctIndex": 3,
+      "explanation": "The four equally likely genotypes are $X^N X^N$, $X^N X^n$, $X^N Y$ and $X^n Y$. Only the last is a colour-blind son, giving 1/4 of all children. Among sons only, the probability of colour blindness is 1/2.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q9",
+      "stem": "An organism with a dominant phenotype is crossed with a homozygous recessive tester. All 20 offspring show the dominant phenotype. Which conclusion is best?",
+      "choices": [
+        "The results support a homozygous dominant parent, but a heterozygous parent remains possible in a finite sample",
+        "The parent is proved to be homozygous dominant",
+        "The parent must be heterozygous because no offspring are recessive",
+        "The test cross gives no information about genotype"
+      ],
+      "correctIndex": 0,
+      "explanation": "A homozygous dominant parent gives only dominant-phenotype offspring, so the data support that genotype. However, a heterozygote could produce no recessive offspring by chance in 20 trials. A recessive offspring would prove heterozygosity; their absence does not prove homozygosity.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q10",
+      "stem": "Which statement correctly describes mutation?",
+      "choices": [
+        "A directed change that always improves survival",
+        "A genetic change that can form a new allele",
+        "An environmental difference that cannot affect DNA",
+        "A process that occurs only after exposure to ionising radiation"
+      ],
+      "correctIndex": 1,
+      "explanation": "A mutation is a genetic change and may form a new allele. Mutations occur randomly and can be harmful, neutral or beneficial. Radiation and some chemicals increase their rate, but mutations also occur without them.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q11",
+      "stem": "A sexually reproducing population shows new combinations of existing alleles even when no new mutation occurs. What explains this variation?",
+      "choices": [
+        "Mitosis continually creates new alleles",
+        "Environmental conditions always rewrite the same genes",
+        "Meiosis and random fertilisation produce new combinations of existing alleles",
+        "Helpful acquired features are copied directly into gametes"
+      ],
+      "correctIndex": 2,
+      "explanation": "Meiosis, random mating and random fertilisation reshuffle existing alleles into new combinations, generating genetic variation without requiring mutation each generation. Mutation is different: it is the ultimate source of new alleles.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q12",
+      "stem": "Some wild grass plants inherit deeper roots than others. During repeated droughts, deep-rooted plants survive and produce more seeds. What is expected if these conditions continue?",
+      "choices": [
+        "Every plant grows deeper roots and passes this acquired feature on",
+        "Drought directs new root-depth mutations wherever they are needed",
+        "All plants become genetically identical in one generation",
+        "Alleles associated with deeper roots become more frequent over generations"
+      ],
+      "correctIndex": 3,
+      "explanation": "Deep-rooted plants have greater reproductive success under drought, so their heritable alleles are passed on more often and increase in frequency. The drought selects existing variation; it does not direct mutations or make acquired root growth heritable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q13",
+      "stem": "Which sequence best explains how an antibiotic-resistant bacterial population develops?",
+      "choices": [
+        "A random resistance allele exists → antibiotic kills susceptible bacteria → resistant bacteria reproduce → resistance alleles become more common",
+        "Antibiotic causes every bacterium to mutate → all become resistant → resistance stops changing",
+        "Each bacterium deliberately adapts → acquired resistance is inherited → susceptible bacteria increase",
+        "Antibiotic kills resistant bacteria → susceptible bacteria reproduce → resistance alleles become more common"
+      ],
+      "correctIndex": 0,
+      "explanation": "Resistance arises randomly before selection. The antibiotic removes susceptible competitors, resistant bacteria survive and reproduce, and resistance alleles increase in the population. Bacteria do not mutate because they need resistance, nor does an individual population member evolve deliberately.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q14",
+      "stem": "After a drought, a researcher collects seeds only from surviving wild plants and deliberately interbreeds their offspring for several generations to establish a drought-tolerant line. Which description is most accurate?",
+      "choices": [
+        "Both the drought survival and the breeding programme are artificial selection",
+        "The initial drought survival is natural selection; the researcher's breeding programme is artificial selection",
+        "Both stages are natural selection because drought tolerance is useful",
+        "Neither stage is selection because no new mutation is mentioned"
+      ],
+      "correctIndex": 1,
+      "explanation": "The environment initially determines which plants survive and reproduce: natural selection. The researcher then chooses which individuals breed: artificial selection. Both can act on existing heritable variation without a new mutation.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-extended-q15",
+      "stem": "Two parents have children representing all four ABO blood groups. Which parental cross makes this outcome possible?",
+      "choices": [
+        "$I^A I^A\\times I^B I^B$",
+        "$I^A I^B\\times ii$",
+        "$I^A i\\times I^B i$",
+        "$I^A i\\times I^A i$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$I^A i\\times I^B i$ gives $I^A I^B$ (AB), $I^A i$ (A), $I^B i$ (B) and $ii$ (O), each with probability 1/4. The other crosses cannot produce all four groups: they give only AB; A and B; or A and O respectively.",
+      "difficulty": "hard"
+    }
+  ]
+}

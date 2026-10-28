@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Splitting an L-shape into two rectangles</title>
+  <desc id="desc">An L-shaped compound figure is split into a 5 centimetre by 4 centimetre rectangle and a 3 centimetre by 2 centimetre rectangle. Their areas are 20 and 6 square centimetres, giving a total area of 26 square centimetres.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 14px; fill: #374151; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+    .part { font-size: 16px; font-weight: 600; fill: #1e293b; }
+  </style>
+  <rect width="900" height="520" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Compound area: split, calculate, add</text>
+  <path d="M180 220 H405 V310 H540 V400 H180 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <rect x="180" y="220" width="225" height="180" fill="#dbeafe"/>
+  <rect x="405" y="310" width="135" height="90" fill="#dcfce7"/>
+  <path d="M180 220 H405 V310 H540 V400 H180 Z" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <line x1="405" y1="310" x2="405" y2="400" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <rect x="225" y="272" width="135" height="64" rx="6" fill="#f8fafc"/>
+  <text x="292.5" y="298" class="part" text-anchor="middle">Rectangle A</text>
+  <text x="292.5" y="322" class="label" text-anchor="middle">5 cm × 4 cm</text>
+  <rect x="416" y="323" width="113" height="64" rx="6" fill="#f8fafc"/>
+  <text x="472.5" y="349" class="part" text-anchor="middle">Rectangle B</text>
+  <text x="472.5" y="373" class="label" text-anchor="middle">3 cm × 2 cm</text>
+  <text x="292.5" y="204" class="label" text-anchor="middle">5 cm</text>
+  <text x="158" y="315" class="label" text-anchor="end">4 cm</text>
+  <text x="472.5" y="426" class="label" text-anchor="middle">3 cm</text>
+  <text x="558" y="360" class="label">2 cm</text>
+  <rect x="160" y="449" width="580" height="46" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="450" y="479" class="math" text-anchor="middle">Total area = (5 × 4) + (3 × 2) = 20 + 6 = 26 cm²</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Conditional probabilities without replacement</title>
+  <desc id="desc">A tree for two picks from a bag containing 3 red and 2 blue counters without replacement. The first red probability is 3/5; after a red is removed, the second red probability is 2/4. The red-red path has probability 3/5 times 2/4 equals 3/10.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 14px; fill: #374151; }
+    .prob { font-size: 14px; font-weight: 600; fill: #1d4ed8; }
+    .branch { stroke: #64748b; stroke-width: 2; fill: none; }
+  </style>
+  <rect width="900" height="560" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Without replacement: update the second-pick probabilities</text>
+  <text x="45" y="82" class="subhead">Start: 3 red + 2 blue</text>
+  <circle cx="65" cy="112" r="12" fill="#ef4444"/>
+  <circle cx="95" cy="112" r="12" fill="#ef4444"/>
+  <circle cx="125" cy="112" r="12" fill="#ef4444"/>
+  <circle cx="80" cy="143" r="12" fill="#3b82f6"/>
+  <circle cx="110" cy="143" r="12" fill="#3b82f6"/>
+  <circle cx="160" cy="280" r="6" fill="#334155"/>
+  <path d="M160 280 L370 150 M160 280 L370 390 M370 150 L650 70 M370 150 L650 230 M370 390 L650 310 M370 390 L650 470" class="branch"/>
+  <rect x="225" y="174" width="50" height="28" rx="5" fill="#f8fafc"/>
+  <text x="250" y="194" class="prob" text-anchor="middle">3/5</text>
+  <rect x="225" y="346" width="50" height="28" rx="5" fill="#f8fafc"/>
+  <text x="250" y="366" class="prob" text-anchor="middle">2/5</text>
+  <rect x="480" y="77" width="50" height="28" rx="5" fill="#f8fafc"/>
+  <text x="505" y="97" class="prob" text-anchor="middle">2/4</text>
+  <rect x="480" y="176" width="50" height="28" rx="5" fill="#f8fafc"/>
+  <text x="505" y="196" class="prob" text-anchor="middle">2/4</text>
+  <rect x="480" y="316" width="50" height="28" rx="5" fill="#f8fafc"/>
+  <text x="505" y="336" class="prob" text-anchor="middle">3/4</text>
+  <rect x="530" y="426" width="50" height="28" rx="5" fill="#f8fafc"/>
+  <text x="555" y="446" class="prob" text-anchor="middle">1/4</text>
+  <circle cx="370" cy="150" r="7" fill="#ef4444"/>
+  <circle cx="370" cy="390" r="7" fill="#3b82f6"/>
+  <text x="390" y="143" class="label">red first</text>
+  <text x="370" y="425" class="label" text-anchor="middle">blue first</text>
+  <text x="390" y="164" class="label">2 red + 2 blue remain</text>
+  <text x="370" y="445" class="label" text-anchor="middle">3 red + 1 blue remain</text>
+  <circle cx="650" cy="70" r="6" fill="#ef4444"/>
+  <circle cx="650" cy="230" r="6" fill="#3b82f6"/>
+  <circle cx="650" cy="310" r="6" fill="#ef4444"/>
+  <circle cx="650" cy="470" r="6" fill="#3b82f6"/>
+  <text x="675" y="77" class="label">red, red</text>
+  <text x="675" y="237" class="label">red, blue</text>
+  <text x="675" y="317" class="label">blue, red</text>
+  <text x="675" y="477" class="label">blue, blue</text>
+  <rect x="550" y="503" width="320" height="42" rx="7" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="710" y="531" class="prob" text-anchor="middle">P(red, red) = 3/5 × 2/4 = 3/10</text>
+</svg>

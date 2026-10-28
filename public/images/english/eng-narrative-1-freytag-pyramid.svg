@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Freytag's five-stage narrative arc</title>
+  <desc id="desc">A tension arc passes through five labelled stages: exposition introduces characters, setting and situation; rising action develops conflicts; the climax is the highest-tension turning point; falling action unfolds consequences; and resolution resolves conflicts or deliberately leaves them open.</desc>
+  <rect width="900" height="600" fill="#f8fafc"/>
+  <text x="450" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Freytag's Pyramid: pressure rises, turns, then resolves</text>
+  <text x="64" y="102" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748b">TENSION</text>
+  <line x1="80" y1="330" x2="80" y2="120" stroke="#94a3b8" stroke-width="1.5"/>
+  <polygon points="74,126 86,126 80,114" fill="#94a3b8"/>
+  <path d="M100 334 C190 326 264 292 330 230 C382 182 420 128 450 100 C480 128 518 182 570 230 C636 292 710 326 800 334" fill="none" stroke="#6366f1" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="100" cy="334" r="18" fill="#3b82f6"/>
+  <circle cx="300" cy="264" r="18" fill="#0ea5e9"/>
+  <circle cx="450" cy="100" r="20" fill="#dc2626"/>
+  <circle cx="600" cy="264" r="18" fill="#8b5cf6"/>
+  <circle cx="800" cy="334" r="18" fill="#16a34a"/>
+  <g font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <text x="100" y="340">1</text><text x="300" y="270">2</text><text x="450" y="106">3</text><text x="600" y="270">4</text><text x="800" y="340">5</text>
+  </g>
+  <g stroke="#6b7280" stroke-width="1.5">
+    <line x1="100" y1="354" x2="110" y2="402"/><line x1="300" y1="284" x2="280" y2="402"/><line x1="450" y1="122" x2="450" y2="402"/><line x1="600" y1="284" x2="620" y2="402"/><line x1="800" y1="354" x2="790" y2="402"/>
+  </g>
+
+  <rect x="35" y="404" width="150" height="146" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="110" y="434" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#1d4ed8">EXPOSITION</text>
+  <text x="110" y="468" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">characters, setting</text>
+  <text x="110" y="489" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">and situation</text>
+  <text x="110" y="510" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">introduced</text>
+  <rect x="205" y="404" width="150" height="146" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="280" y="434" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#0369a1">RISING ACTION</text>
+  <text x="280" y="468" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">conflicts develop;</text>
+  <text x="280" y="489" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">complications</text>
+  <text x="280" y="510" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">arise</text>
+  <rect x="375" y="404" width="150" height="146" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="450" y="434" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#b91c1c">CLIMAX</text>
+  <text x="450" y="468" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">highest tension;</text>
+  <text x="450" y="489" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">the turning</text>
+  <text x="450" y="510" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">point</text>
+  <rect x="545" y="404" width="150" height="146" rx="8" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="620" y="434" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#6d28d9">FALLING ACTION</text>
+  <text x="620" y="468" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">consequences</text>
+  <text x="620" y="489" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">unfold</text>
+  <rect x="715" y="404" width="150" height="146" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="790" y="434" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#15803d">RESOLUTION</text>
+  <text x="790" y="468" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">conflicts resolved</text>
+  <text x="790" y="489" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">or deliberately</text>
+  <text x="790" y="510" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">left open</text>
+  <text x="450" y="580" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#475569">The climax turns the action; it is not simply the final event.</text>
+</svg>

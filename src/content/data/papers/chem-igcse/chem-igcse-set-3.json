@@ -1,0 +1,100 @@
+{
+  "id": "chem-igcse-set-3",
+  "courseId": "chem-igcse",
+  "title": "Practice Set 3",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "chem-igcse-set-3-q1",
+      "stem": "The symbols $^{79}_{35}\\text{Br}$ and $^{81}_{35}\\text{Br}$ represent two neutral bromine atoms. Explain why they are isotopes, and give the number of neutrons in each atom.",
+      "marks": 2,
+      "markscheme": [
+        "B1: both atoms contain 35 protons but have different numbers of neutrons",
+        "B1: $^{79}_{35}\\text{Br}$ has 44 neutrons and $^{81}_{35}\\text{Br}$ has 46 neutrons"
+      ],
+      "modelAnswer": "Both atoms are bromine because each nucleus contains 35 protons. Their neutron counts differ: $79 - 35 = 44$ for the first atom and $81 - 35 = 46$ for the second. Atoms of one element with unequal neutron counts are isotopes.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-set-3-q2",
+      "stem": "A sodium atom with electronic configuration 2,8,1 reacts with a fluorine atom with configuration 2,7. State the charges of the two ions formed and write the formula of sodium fluoride.",
+      "marks": 2,
+      "markscheme": [
+        "M1: sodium forms Na⁺ by losing one electron and fluorine forms F⁻ by gaining it",
+        "A1: the formula is NaF"
+      ],
+      "modelAnswer": "Sodium loses its single outer electron to become Na⁺. Fluorine accepts that electron to complete its outer shell, becoming F⁻. One positive ion exactly balances one negative ion, so the compound is NaF.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-set-3-q3",
+      "stem": "Petroleum is separated in a fractionating column. Why do different fractions condense at different heights in the column, and where is bitumen collected?",
+      "marks": 2,
+      "markscheme": [
+        "B1: the hydrocarbons have different boiling points, so they condense at different temperatures",
+        "B1: bitumen is collected at the hot bottom of the column"
+      ],
+      "modelAnswer": "Each fraction condenses where the column is cool enough for its boiling range, so fractions with different boiling points leave at different levels. Bitumen has a very high boiling point and remains near the hot base, where it is drawn off.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-set-3-q4",
+      "stem": "Aluminium atoms (2,8,3) react with oxygen atoms (2,6). Use electron transfer to explain why the formula of aluminium oxide is Al₂O₃.",
+      "marks": 3,
+      "markscheme": [
+        "M1: each aluminium atom loses three electrons to form Al³⁺",
+        "M1: each oxygen atom gains two electrons to form O²⁻",
+        "A1: two Al³⁺ ions balance three O²⁻ ions, giving Al₂O₃"
+      ],
+      "modelAnswer": "Each aluminium atom gives up its three outer electrons, forming Al³⁺, while each oxygen atom accepts two electrons, forming O²⁻. Two aluminium atoms therefore supply six electrons, exactly enough for three oxygen atoms. The charges also cancel: $2 \\times 3+ = 6+$ and $3 \\times 2- = 6-$, so the formula is Al₂O₃.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-3-q5",
+      "stem": "Pentane, C₅H₁₂, burns completely in oxygen to form carbon dioxide and water. Write the balanced equation for this reaction, including the coefficients of all four substances.",
+      "marks": 3,
+      "markscheme": [
+        "M1: five carbon atoms require 5CO₂",
+        "M1: twelve hydrogen atoms require 6H₂O",
+        "A1: complete equation C₅H₁₂ + 8O₂ → 5CO₂ + 6H₂O"
+      ],
+      "modelAnswer": "Balance carbon first: five carbons in pentane give 5CO₂. Twelve hydrogens give 6H₂O. The products then contain $(5 \\times 2) + 6 = 16$ oxygen atoms, requiring 8O₂. The balanced equation is C₅H₁₂ + 8O₂ → 5CO₂ + 6H₂O.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-3-q6",
+      "stem": "A student leaves a mixture of glucose solution and yeast open to the air at $60\\,^{\\circ}\\text{C}$. Explain why these conditions produce little ethanol, giving one reason linked to temperature and one linked to oxygen.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $60\\,^{\\circ}\\text{C}$ denatures the yeast enzymes, so fermentation slows or stops",
+        "B1: fermentation needs anaerobic conditions; exposure to air supplies oxygen and prevents ethanol accumulating"
+      ],
+      "modelAnswer": "At $60\\,^{\\circ}\\text{C}$ the yeast enzymes are denatured and can no longer efficiently catalyse fermentation. Leaving the flask open also admits oxygen, whereas ethanol production by fermentation requires anaerobic conditions. Together, these conditions leave little ethanol in the mixture.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-3-q7",
+      "stem": "Copper can be hammered into sheets without shattering, but sodium chloride crystals split when struck. Explain this difference in terms of the particles and attractive forces in each solid.",
+      "marks": 3,
+      "markscheme": [
+        "B1: layers of positive copper ions can slide over one another",
+        "B1: delocalised electrons move with the layers and maintain attraction in the copper",
+        "B1: displacement in the ionic lattice brings like-charged ions together, and repulsion splits the crystal"
+      ],
+      "modelAnswer": "In copper, layers of positive metal ions slide when hammered. The surrounding delocalised electrons remain mobile, so attraction between the ions and electrons persists and the metal changes shape. In sodium chloride, a shifted layer places ions of the same charge next to one another. Their repulsion drives the layers apart, cracking the crystal.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-set-3-q8",
+      "stem": "An ion of the sulfur isotope $^{32}_{16}\\text{S}$ has charge 2−. Deduce its number of neutrons, its number of electrons and its electronic configuration.",
+      "marks": 3,
+      "markscheme": [
+        "B1: number of neutrons $= 32 - 16 = 16$",
+        "M1: number of electrons $= 16 + 2 = 18$",
+        "A1: electronic configuration is 2,8,8"
+      ],
+      "modelAnswer": "The neutron count is the nucleon number minus the proton number: $32 - 16 = 16$. A neutral sulfur atom has 16 electrons, and the 2− ion has gained two more, giving $16 + 2 = 18$ electrons. These fill the shells as 2,8,8.",
+      "difficulty": "hard"
+    }
+  ]
+}

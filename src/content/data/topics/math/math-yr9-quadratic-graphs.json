@@ -14,6 +14,11 @@
     {
       "id": "math-yr9-quadratic-graphs-n2",
       "heading": "Drawing a Quadratic Graph from a Table of Values",
+      "illustration": {
+        "src": "/images/math/math-yr9-quadratic-graphs-table-to-curve.svg",
+        "alt": "A table and graph for y = x² − 2x using the points (−1, 3), (0, 0), (1, −1), (2, 0), (3, 3) and (4, 8), joined by a smooth curve.",
+        "caption": "Calculate every table value, plot the points, then join them with a smooth curve whose minimum is (1, −1)."
+      },
       "body": "🔑 How it works\n1. Choose a range of $x$ values that includes several negative numbers, zero and several positive numbers.\n2. Substitute each $x$ value into the equation to find $y$.\n3. Plot the points $(x, y)$.\n4. Join the points with a smooth curve — never use a ruler.\n\n💡 Worked Example\nDraw the graph of $y = x^2 - 2x$ for $x$ from $-1$ to $4$.\n\n• $x = -1$: $y = (-1)^2 - 2(-1) = 1 + 2 = 3$\n• $x = 0$: $y = 0 - 0 = 0$\n• $x = 1$: $y = 1 - 2 = -1$\n• $x = 2$: $y = 4 - 4 = 0$\n• $x = 3$: $y = 9 - 6 = 3$\n• $x = 4$: $y = 16 - 8 = 8$\n\nPlot $(-1, 3)$, $(0, 0)$, $(1, -1)$, $(2, 0)$, $(3, 3)$ and $(4, 8)$, then draw a smooth curve through them. The curve dips to a lowest point at $(1, -1)$.\n\n📎 Key Points to Remember\n• Work out every $y$ value before plotting — a full table catches arithmetic slips early.\n• Include $x = 0$ and values on both sides of where you expect the curve to turn.\n• If one point looks out of place, recalculate it before drawing the curve.\n\n⚠️ Common Mistake\nJoining the points with straight line segments. A quadratic graph is a smooth curve; a ruler makes the turning point look pointed instead of rounded."
     },
     {
@@ -24,6 +29,11 @@
     {
       "id": "math-yr9-quadratic-graphs-n4",
       "heading": "The Effect of $c$ in $y = x^2 + c$",
+      "illustration": {
+        "src": "/images/math/math-yr9-quadratic-graphs-vertical-shifts.svg",
+        "alt": "Three congruent parabolas y = x² + 2, y = x² and y = x² − 2 with vertices (0, 2), (0, 0) and (0, −2), separated vertically by 2 units.",
+        "caption": "Adding 2 shifts every point up 2 units; subtracting 2 shifts every point down 2. The shape and symmetry line x = 0 stay unchanged."
+      },
       "body": "📌 Definition\nAdding a constant $c$ to $y = x^2$ moves the whole parabola vertically. The shape and the line of symmetry ($x = 0$) stay the same; only the height changes.\n\n🔑 How it works\n• $y = x^2 + c$ is the graph of $y = x^2$ shifted up by $c$ units when $c$ is positive.\n• It is shifted down by $|c|$ units when $c$ is negative.\n• The turning point moves from $(0, 0)$ to $(0, c)$, and the curve crosses the $y$-axis at $(0, c)$.\n\n💡 Worked Example\nCompare $y = x^2$, $y = x^2 + 2$ and $y = x^2 - 2$.\n\n• $y = x^2$ passes through $(-2, 4)$, $(-1, 1)$, $(0, 0)$, $(1, 1)$ and $(2, 4)$.\n• $y = x^2 + 2$ gives the same values plus $2$: $(-2, 6)$, $(-1, 3)$, $(0, 2)$, $(1, 3)$ and $(2, 6)$.\n• $y = x^2 - 2$ gives the same values minus $2$: $(-2, 2)$, $(-1, -1)$, $(0, -2)$, $(1, -1)$ and $(2, 2)$.\n\nAll three curves are identical in shape; $y = x^2 + 2$ sits $2$ units above $y = x^2$, and $y = x^2 - 2$ sits $2$ units below it.\n\n📎 Key Points to Remember\n• The constant term is always the $y$-intercept: $y = ax^2 + bx + c$ crosses the $y$-axis at $(0, c)$.\n• A vertical shift does not change the width or direction of the parabola.\n\n⚠️ Common Mistake\nThinking $y = x^2 + 2$ moves the graph sideways. Adding to the whole equation shifts the graph vertically; a horizontal shift would need the $x$ inside the brackets to change, as in $y = (x + 2)^2$."
     },
     {

@@ -1,0 +1,100 @@
+{
+  "id": "bio-igcse-set-3",
+  "courseId": "bio-igcse",
+  "title": "Practice Set 3",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "bio-igcse-set-3-q1",
+      "stem": "A student writes the scientific name of a species. Give the order of the two names in the binomial system and state the capital-letter convention for each name.",
+      "marks": 2,
+      "markscheme": [
+        "B1: the genus name comes first and begins with a capital letter",
+        "B2: the species name comes second and begins with a lower-case letter"
+      ],
+      "modelAnswer": "The genus name is written first, with an initial capital letter. The species name follows it and starts with a lower-case letter.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-set-3-q2",
+      "stem": "A pancreas cell contains large numbers of ribosomes and mitochondria. State the function of each of these cell structures.",
+      "marks": 2,
+      "markscheme": [
+        "B1: ribosomes are the site of protein synthesis",
+        "B2: mitochondria release energy for the cell by aerobic respiration"
+      ],
+      "modelAnswer": "Ribosomes assemble amino acids into proteins. Mitochondria are sites of aerobic respiration, releasing energy that the cell can use.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-set-3-q3",
+      "stem": "A person walks from a dim corridor into bright sunlight. Describe the change in pupil diameter and explain how this response protects the eye.",
+      "marks": 2,
+      "markscheme": [
+        "B1: the pupils constrict (become smaller in diameter)",
+        "B2: less light enters the eye, protecting the retina from damage"
+      ],
+      "modelAnswer": "The pupils constrict, so their diameter decreases. This admits less light into each eye and protects the retina from damage by the bright light.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-set-3-q4",
+      "stem": "Root hair cells are bathed in very dilute soil water. The concentration of nitrate ions is lower in the soil water than inside the cells. Explain how water and nitrate ions enter the cells.",
+      "marks": 3,
+      "markscheme": [
+        "B1: water enters by osmosis because the soil water has a higher water concentration than the cell contents",
+        "B2: nitrate ions enter by active transport, moving from a lower to a higher concentration (against their concentration gradient)",
+        "B3: active transport uses energy released by respiration"
+      ],
+      "modelAnswer": "The dilute soil water has a higher water concentration than the cell contents, so water enters by osmosis through the partially permeable cell membrane. Nitrate ions move from a lower concentration outside to a higher concentration inside by active transport. This movement against the concentration gradient requires energy released by respiration.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-3-q5",
+      "stem": "A person's pancreatic duct becomes blocked, so pancreatic secretions cannot enter the small intestine. Explain why this reduces fat digestion, and name the products formed when fat is completely digested.",
+      "marks": 2,
+      "markscheme": [
+        "B1: pancreatic lipase cannot reach its site of action in the small intestine, so less fat is broken down",
+        "B2: fatty acids and glycerol"
+      ],
+      "modelAnswer": "The blockage stops pancreatic lipase from reaching the small intestine, where it acts on fat, so fat digestion is reduced. Complete digestion of fat produces fatty acids and glycerol.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-3-q6",
+      "stem": "During exercise, muscle tissue needs to obtain oxygen quickly from the blood. Explain how capillary structure speeds up exchange and describe how oxygen is transported in the blood.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the wall of a capillary consists of a single cell layer, so the diffusion pathway is very short",
+        "B2: branching capillary networks provide a large surface area for exchange",
+        "B3: oxygen binds to haemoglobin inside red blood cells and is released in respiring tissues"
+      ],
+      "modelAnswer": "A capillary wall is only one cell thick, so oxygen has a very short distance to diffuse. The branching network of capillaries also provides a large surface area for exchange. In the blood, oxygen binds to haemoglobin inside red blood cells and is released where tissues are respiring.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-3-q7",
+      "stem": "A mutation changes the base sequence of a gene that codes for an enzyme. The altered enzyme has a differently shaped active site. Explain how the mutation can produce this change, including the roles of mRNA and ribosomes.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the base sequence of a gene determines the amino acid sequence of the protein",
+        "B2: mRNA carries a copy of the base sequence, and a ribosome assembles amino acids in the order specified by the mRNA",
+        "B3: the altered amino acid sequence changes the enzyme's folding (three-dimensional shape), including the shape of its active site"
+      ],
+      "modelAnswer": "The changed DNA base sequence is copied into mRNA. The mRNA passes through a ribosome, which joins amino acids in the order encoded by that sequence. A different amino acid sequence can make the enzyme fold differently, altering its three-dimensional shape and therefore the shape of its active site.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-set-3-q8",
+      "stem": "A baby is born with a hole in the septum of the heart, allowing blood to move between the left and right sides. (a) Explain why this can reduce oxygen delivery to the body tissues. (b) The baby's left and right ventricles are otherwise normal. State which ventricle has the thicker muscular wall and explain why.",
+      "marks": 3,
+      "markscheme": [
+        "B1: blood flow through the hole can mix oxygenated and deoxygenated blood instead of keeping them separate",
+        "B2: blood pumped to the body then has a lower oxygen content, so less oxygen is available for respiration in the tissues",
+        "B3: the left ventricle has thicker muscle to generate the higher pressure needed to pump blood around the whole body"
+      ],
+      "modelAnswer": "An intact septum keeps oxygen-rich blood on the left separate from oxygen-poor blood on the right. Flow through the hole can mix them, lowering the oxygen content of blood sent to the body and reducing the oxygen available for tissue respiration. The left ventricle has the thicker muscular wall because it must generate enough pressure to drive blood around the whole body, whereas the right ventricle supplies the lungs.",
+      "difficulty": "hard"
+    }
+  ]
+}

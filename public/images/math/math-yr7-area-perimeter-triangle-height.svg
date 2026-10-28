@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Triangle area using perpendicular height</title>
+  <desc id="desc">A triangle with base 10 centimetres and perpendicular height 4 centimetres is compared with a rectangle having the same base and height. The rectangle has area 40 square centimetres and the triangle has half that area, 20 square centimetres.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #334155; }
+    .label { font-size: 14px; fill: #374151; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+    .guide { stroke: #6b7280; stroke-width: 1.5; stroke-dasharray: 6 4; }
+  </style>
+  <rect width="900" height="520" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">A triangle is half of its equivalent rectangle</text>
+  <text x="240" y="82" class="subhead" text-anchor="middle">Triangle</text>
+  <text x="660" y="82" class="subhead" text-anchor="middle">Same base and height</text>
+  <polygon points="80,360 400,360 240,232" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+  <line x1="240" y1="232" x2="240" y2="360" class="guide"/>
+  <path d="M240 344 H256 V360" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="250" y="278" width="70" height="30" rx="5" fill="#f8fafc"/>
+  <text x="285" y="299" class="label" text-anchor="middle">h = 4 cm</text>
+  <line x1="80" y1="382" x2="400" y2="382" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="240" y="407" class="label" text-anchor="middle">b = 10 cm</text>
+  <rect x="500" y="232" width="320" height="128" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+  <line x1="500" y1="382" x2="820" y2="382" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="660" y="407" class="label" text-anchor="middle">10 cm</text>
+  <line x1="842" y1="232" x2="842" y2="360" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="855" y="301" class="label">4 cm</text>
+  <rect x="582" y="272" width="156" height="48" rx="6" fill="#f8fafc"/>
+  <text x="660" y="303" class="math" text-anchor="middle">10 × 4 = 40 cm²</text>
+  <rect x="155" y="442" width="590" height="50" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="450" y="475" class="math" text-anchor="middle">Triangle area = ½ × 10 × 4 = 20 cm²</text>
+</svg>

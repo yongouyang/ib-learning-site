@@ -35,11 +35,21 @@
     {
       "id": "math-igcse-histograms-n5",
       "heading": "Reading Frequencies Back from a Histogram",
+      "illustration": {
+        "src": "/images/math/math-igcse-histograms-area-is-frequency.svg",
+        "alt": "Three histogram bars with areas 40, 50 and 20, highlighting the middle bar's calculation of height 2.5 times width 20 equals frequency 50.",
+        "caption": "Frequency = height × class width: the 10 < t ≤ 30 bar has frequency 2.5 × 20 = 50, and all three areas total 110."
+      },
       "body": "📌 Definition\nBecause area represents frequency, recovering a frequency means multiplying the bar's height by its width:\n\n$$\\text{frequency} = \\text{height} \\times \\text{class width}$$\n\n🔑 How it works\nTake the density from the vertical axis and the width from the horizontal axis boundaries, and multiply.\n\n💡 Worked Example 1\nA bar covering $10 < t \\le 30$ has height 2.5. Width $= 20$, so frequency $= 2.5 \\times 20 = 50$.\n\n💡 Worked Example 2\nTo find the total number of data values, work out each bar's area and add: $40 + 50 + 20 = 110$.\n\n⚠️ Common Mistake\nReading the height off the vertical axis and calling it the frequency. It is only the frequency when the width is exactly 1.\n\n📎 Key Points to Remember\n• Height × width = frequency, always.\n• Total frequency = sum of all bar areas.\n\n✅ Check\nA bar of height 3 covering $0 < d \\le 28$ has frequency $3 \\times 28 = 84$."
     },
     {
       "id": "math-igcse-histograms-n6",
       "heading": "The Tallest-Bar Trap",
+      "illustration": {
+        "src": "/images/math/math-igcse-histograms-tallest-bar-trap.svg",
+        "alt": "A tall narrow histogram bar with width 10, height 5 and area 50 beside a shorter wide bar with width 30, height 2 and area 60.",
+        "caption": "The shorter bar has the larger frequency: 30 × 2 = 60 against 10 × 5 = 50. Compare areas when widths differ."
+      },
       "body": "📌 Definition\nOn a histogram the tallest bar is the most **dense** class, not necessarily the class with the most data values.\n\n🔑 How it works\nCompare classes by area (height × width), never by height alone, whenever the widths differ.\n\n💡 Worked Example\nClass $0 < t \\le 10$ has height 5: area $5 \\times 10 = 50$. Class $10 < t \\le 40$ has height 2: area $2 \\times 30 = 60$. The shorter bar actually contains more data — 60 values against 50.\n\n⚠️ Common Mistake\nSaying 'the tallest bar is the most popular'. That is only safe when all bars share one width.\n\n📎 Key Points to Remember\n• Equal widths: heights rank the frequencies correctly.\n• Unequal widths: only areas rank them.\n\n✅ Check\nWidth 10, height 5 versus width 30, height 2: the second class wins 60 to 50."
     },
     {

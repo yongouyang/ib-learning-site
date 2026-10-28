@@ -20,6 +20,11 @@
     {
       "id": "math-dp-voronoi-diagrams-n2",
       "heading": "Perpendicular Bisectors & Construction",
+      "illustration": {
+        "src": "/images/math/math-dp-ai-voronoi-diagrams-perpendicular-bisector.svg",
+        "alt": "Sites A(1, 2) and B(5, 4) with midpoint M(3, 3), segment AB of gradient 1/2 and its perpendicular bisector y = −2x + 9.",
+        "caption": "The bisector passes through M(3, 3) at 90° to AB; its gradient is the negative reciprocal, −2."
+      },
       "body": "To build a Voronoi diagram by hand, you draw perpendicular bisectors between pairs of sites and keep only the parts that form cell boundaries.\n\n📌 Perpendicular Bisector\nFor two points $A(x_1, y_1)$ and $B(x_2, y_2)$, the perpendicular bisector of $AB$ is the line:\n\n1. Passing through the **midpoint** $M = \\left(\\dfrac{x_1+x_2}{2}, \\dfrac{y_1+y_2}{2}\\right)$\n2. Having gradient $m = -\\dfrac{x_2 - x_1}{y_2 - y_1}$ (the negative reciprocal of $AB$'s gradient), provided $y_1 \\neq y_2$\n\nIf $AB$ is horizontal, the perpendicular bisector is vertical; if $AB$ is vertical, the bisector is horizontal.\n\n🔑 Constructing a Voronoi Diagram\n1. Plot all the sites.\n2. For each pair of neighbouring sites, draw the perpendicular bisector.\n3. Erase the parts of each bisector that lie inside another site's cell.\n4. The remaining segments form the Voronoi edges.\n\n💡 Worked Example — Equation of a Perpendicular Bisector\nFind the perpendicular bisector of $A(1, 2)$ and $B(5, 4)$.\n\n  Step 1: Midpoint\n  $M = \\left(\\dfrac{1+5}{2}, \\dfrac{2+4}{2}\\right) = (3, 3)$\n\n  Step 2: Gradient of $AB$\n  $m_{AB} = \\dfrac{4-2}{5-1} = \\dfrac{1}{2}$\n\n  Step 3: Gradient of perpendicular bisector\n  $m = -2$\n\n  Step 4: Equation through $(3, 3)$\n  $y - 3 = -2(x - 3)$, so $y = -2x + 9$\n\n⚠️ Common Mistake\nThe perpendicular bisector's gradient is the **negative reciprocal** of $AB$'s gradient, not just the negative. If $m_{AB} = \\dfrac{1}{2}$, the bisector's gradient is $-2$, not $-\\dfrac{1}{2}$."
     },
     {
@@ -30,6 +35,11 @@
     {
       "id": "math-dp-voronoi-diagrams-n4",
       "heading": "Adding a New Site",
+      "illustration": {
+        "src": "/images/math/math-dp-ai-voronoi-diagrams-add-site.svg",
+        "alt": "Site C(2, 3) added above A(0, 0) and B(4, 0), with new perpendicular-bisector edges meeting at Voronoi vertex V(2, 5/6) and the old AB edge removed above V.",
+        "caption": "The new cell is bounded by the AC and BC bisectors meeting at V(2, 5/6), where VA = VB = VC = 13/6; the AB edge below V remains."
+      },
       "body": "When a new site is added to a Voronoi diagram, only the cells that share a boundary with the new site's cell need to change. This local change is useful in planning and competition problems.\n\n📌 Effect of a New Site\n1. Draw perpendicular bisectors between the new site and each existing site.\n2. The new cell is the intersection of all half-planes that are closer to the new site than to each existing site.\n3. Existing cell boundaries that lie inside the new cell are removed.\n\n🔑 Finding the New Cell\nFor each existing site $S$, the perpendicular bisector of the new site $N$ and $S$ divides the plane into two half-planes:\n• The side containing $N$ is closer to $N$.\n• The side containing $S$ is closer to $S$.\n\nThe new cell is the intersection of all the \"closer to $N$\" half-planes.\n\n💡 Worked Example — Adding a Site\nExisting sites are $A(0,0)$ and $B(4,0)$. Add a new site $C(2,3)$.\n\n  Step 1: Perpendicular bisector of $AC$\n  Midpoint $(1, 1.5)$; gradient of $AC$ is $\\dfrac{3}{2}$, so bisector gradient is $-\\dfrac{2}{3}$.\n\n  Step 2: Perpendicular bisector of $BC$\n  Midpoint $(3, 1.5)$; gradient of $BC$ is $-\\dfrac{3}{2}$, so bisector gradient is $\\dfrac{2}{3}$.\n\n  Step 3: The two bisectors meet at the Voronoi vertex $(2, 0)$?\n  Check: the vertex must be equidistant from $A$, $B$ and $C$.\n  Distance from $(2,0)$ to $A$ is $2$, to $B$ is $2$, to $C$ is $3$.\n  Not equal, so the actual vertex lies above the $x$-axis. Solving the two bisector equations gives the vertex.\n\n📎 Key Points to Remember\n• Adding a site only affects nearby cells; distant cells stay the same.\n• The new cell is always a convex polygon (or an unbounded region near the edge of the diagram)."
     },
     {

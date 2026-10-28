@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">The OR rule and overlapping events</title>
+  <desc id="desc">Two contrasting panels. Rolling a 2 and rolling a 5 on one dice roll are disjoint events, so their probabilities add to one third. Picking a red card and picking a heart overlap because red hearts belong to both events, so the simple mutually-exclusive addition rule does not apply.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 17px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 14px; fill: #374151; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+  </style>
+  <rect width="900" height="500" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Add for disjoint events — check for overlap first</text>
+  <rect x="35" y="65" width="400" height="400" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="235" y="98" class="subhead" text-anchor="middle">Mutually exclusive</text>
+  <text x="235" y="127" class="label" text-anchor="middle">One roll cannot be both 2 and 5</text>
+  <circle cx="145" cy="225" r="72" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <circle cx="325" cy="225" r="72" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="145" y="218" class="subhead" text-anchor="middle">Roll 2</text>
+  <text x="145" y="246" class="math" text-anchor="middle">1/6</text>
+  <text x="325" y="218" class="subhead" text-anchor="middle">Roll 5</text>
+  <text x="325" y="246" class="math" text-anchor="middle">1/6</text>
+  <text x="235" y="330" class="label" text-anchor="middle">No shared outcomes</text>
+  <rect x="80" y="360" width="310" height="58" rx="7" fill="#eff6ff"/>
+  <text x="235" y="397" class="math" text-anchor="middle">P(2 or 5) = 1/6 + 1/6 = 1/3</text>
+  <rect x="465" y="65" width="400" height="400" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="665" y="98" class="subhead" text-anchor="middle">Not mutually exclusive</text>
+  <text x="665" y="127" class="label" text-anchor="middle">One card can be red and a heart</text>
+  <circle cx="610" cy="225" r="85" fill="#fee2e2" fill-opacity="0.8" stroke="#dc2626" stroke-width="2.5"/>
+  <circle cx="720" cy="225" r="85" fill="#fce7f3" fill-opacity="0.75" stroke="#db2777" stroke-width="2.5"/>
+  <text x="550" y="220" class="subhead" text-anchor="middle">Red card</text>
+  <text x="780" y="220" class="subhead" text-anchor="middle">Heart</text>
+  <text x="665" y="213" class="label" text-anchor="middle">both</text>
+  <text x="665" y="239" class="label" text-anchor="middle">red hearts</text>
+  <text x="665" y="330" class="label" text-anchor="middle">The overlap is a shared outcome</text>
+  <rect x="510" y="360" width="310" height="58" rx="7" fill="#fff7ed"/>
+  <text x="665" y="386" class="label" text-anchor="middle">Do not use P(A) + P(B)</text>
+  <text x="665" y="408" class="label" text-anchor="middle">as the simple OR rule here</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" role="img" aria-labelledby="title desc">
+  <title id="title">Foreshadowing, flashback and flash-forward on a narrative timeline</title>
+  <desc id="desc">A chronological timeline runs from past through present to future. Foreshadowing plants an early hint that points to a later event; a flashback moves from the present to reveal past events; a flash-forward moves from the present to glimpse the future.</desc>
+  <rect width="900" height="570" fill="#f8fafc"/>
+  <text x="450" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Three ways a narrative moves through time</text>
+
+  <rect x="70" y="72" width="760" height="120" rx="9" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="95" y="101" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#1d4ed8">FORESHADOWING</text>
+  <text x="95" y="125" font-family="system-ui, sans-serif" font-size="12" fill="#334155">an early hint creates anticipation of a later event</text>
+  <circle cx="205" cy="157" r="9" fill="#3b82f6"/>
+  <text x="225" y="162" font-family="system-ui, sans-serif" font-size="13" fill="#0f172a">hint planted early</text>
+  <line x1="410" y1="157" x2="635" y2="157" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 4"/>
+  <polygon points="629,151 629,163 643,157" fill="#3b82f6"/>
+  <circle cx="665" cy="157" r="9" fill="#dc2626"/>
+  <text x="685" y="162" font-family="system-ui, sans-serif" font-size="13" fill="#0f172a">later event</text>
+
+  <line x1="115" y1="286" x2="790" y2="286" stroke="#475569" stroke-width="3"/>
+  <polygon points="782,278 782,294 800,286" fill="#475569"/>
+  <circle cx="170" cy="286" r="13" fill="#94a3b8"/>
+  <circle cx="450" cy="286" r="15" fill="#0f172a"/>
+  <circle cx="730" cy="286" r="13" fill="#94a3b8"/>
+  <text x="170" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#475569">PAST</text>
+  <text x="450" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a">PRESENT</text>
+  <text x="730" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#475569">FUTURE</text>
+  <text x="805" y="312" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">time</text>
+
+  <rect x="65" y="370" width="370" height="150" rx="9" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="90" y="400" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#6d28d9">FLASHBACK · ANALEPSIS</text>
+  <text x="90" y="426" font-family="system-ui, sans-serif" font-size="12" fill="#334155">present pauses to reveal backstory,</text>
+  <text x="90" y="446" font-family="system-ui, sans-serif" font-size="12" fill="#334155">motivation or hidden information</text>
+  <line x1="365" y1="480" x2="145" y2="480" stroke="#8b5cf6" stroke-width="2.5"/>
+  <polygon points="151,472 151,488 135,480" fill="#8b5cf6"/>
+  <text x="250" y="502" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6d28d9">present → past</text>
+
+  <rect x="465" y="370" width="370" height="150" rx="9" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="490" y="400" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#b45309">FLASH-FORWARD · PROLEPSIS</text>
+  <text x="490" y="426" font-family="system-ui, sans-serif" font-size="12" fill="#334155">the narrative glimpses a future event</text>
+  <text x="490" y="446" font-family="system-ui, sans-serif" font-size="12" fill="#334155">before returning to the present</text>
+  <line x1="535" y1="480" x2="755" y2="480" stroke="#f59e0b" stroke-width="2.5"/>
+  <polygon points="749,472 749,488 765,480" fill="#f59e0b"/>
+  <text x="650" y="502" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#b45309">present → future</text>
+</svg>

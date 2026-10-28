@@ -25,6 +25,11 @@
     {
       "id": "math-dp-aa-functions-n4",
       "heading": "Inverse Functions",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-functions-inverse-reflection.svg",
+        "alt": "The graphs of f(x) = 3x − 5 and its inverse reflected in y = x, with corresponding points (2, 1) and (1, 2), and (4, 7) and (7, 4).",
+        "caption": "Reflection in y = x swaps coordinates: each point (a, b) on f corresponds to (b, a) on f⁻¹."
+      },
       "body": "The inverse $f^{-1}$ undoes $f$: it sends each output back to the input that produced it. It exists exactly when $f$ is **one-to-one** — no horizontal line meets the graph twice.\n\n**Finding the inverse takes three steps:** write $y = f(x)$; interchange $x$ and $y$; solve for $y$.\n\n💡 **Worked Example** — $f(x) = 3x - 5$.\n$$y = 3x - 5 \\;\\Longrightarrow\\; x = 3y - 5 \\;\\Longrightarrow\\; y = \\dfrac{x+5}{3}$$\nso $f^{-1}(x) = \\dfrac{x+5}{3}$. Check: $f^{-1}(f(4)) = f^{-1}(7) = 4$ ✓\n\n🔑 The domain of $f^{-1}$ is the range of $f$, and the range of $f^{-1}$ is the domain of $f$. The graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.\n\n⚠️ $f^{-1}(x)$ means the inverse function, never the reciprocal $\\dfrac{1}{f(x)}$."
     },
     {
@@ -45,6 +50,11 @@
     {
       "id": "math-dp-aa-functions-n7",
       "heading": "Rational Graphs, Asymptotes and Exam Technique",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-functions-rational-asymptotes.svg",
+        "alt": "The two separate branches of y = (2x + 1)/(x − 3) approaching vertical asymptote x = 3 and horizontal asymptote y = 2.",
+        "caption": "The denominator gives x = 3 and the large-x limit gives y = 2; the two branches never join across the vertical asymptote."
+      },
       "body": "For $y = \\dfrac{ax + b}{cx + d}$ the graph has a **vertical asymptote** where the denominator is zero and a **horizontal asymptote** at $y = \\dfrac{a}{c}$, found by dividing both terms by the highest power of $x$.\n\n💡 **Worked Example** — $y = \\dfrac{2x+1}{x-3}$.\n• Denominator zero: $x = 3$ is the vertical asymptote.\n• Large $x$: dividing top and bottom by $x$ gives $\\dfrac{2 + \\frac1x}{1 - \\frac3x} \\to 2$, so $y = 2$ is the horizontal asymptote.\n\n**Checklist for sketching**\n• Find the intercepts: $x = 0$ for the $y$-intercept, $y = 0$ for the $x$-intercept.\n• Mark the asymptotes as dashed lines and state them.\n• Sketch the two branches, which sit on opposite sides of the vertical asymptote.\n\n⚠️ **Common mistakes** — Joining the two branches across an asymptote; forgetting that the graph is undefined at the vertical asymptote; assuming the horizontal asymptote is a value the curve reaches."
     }
   ],

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Face signatures for identifying solids from nets</title>
+  <desc id="desc">Four panels classify solids by their faces: a cube has six squares, a cuboid has six rectangles in three equal opposite pairs, a triangular prism has two triangles and three rectangles, and a square pyramid has one square and four triangles.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 17px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 14px; fill: #374151; }
+    .face { stroke: #2563eb; stroke-width: 2; fill: #dbeafe; }
+  </style>
+  <rect width="900" height="560" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Identify the solid from all of its faces</text>
+  <rect x="35" y="65" width="395" height="215" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="232.5" y="94" class="subhead" text-anchor="middle">Cube</text>
+  <rect x="152" y="147" width="45" height="45" class="face"/>
+  <rect x="197" y="147" width="45" height="45" class="face"/>
+  <rect x="242" y="147" width="45" height="45" class="face"/>
+  <rect x="287" y="147" width="45" height="45" class="face"/>
+  <rect x="197" y="192" width="45" height="45" class="face"/>
+  <rect x="197" y="102" width="45" height="45" class="face"/>
+  <text x="232.5" y="262" class="label" text-anchor="middle">6 identical squares</text>
+  <rect x="470" y="65" width="395" height="215" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="667.5" y="94" class="subhead" text-anchor="middle">Cuboid</text>
+  <rect x="552" y="122" width="70" height="45" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <rect x="622" y="122" width="45" height="45" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <rect x="667" y="122" width="70" height="45" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <rect x="737" y="122" width="45" height="45" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <rect x="622" y="167" width="45" height="70" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <rect x="667" y="167" width="45" height="70" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="667.5" y="258" class="label" text-anchor="middle">6 rectangles; opposite pairs equal</text>
+  <rect x="35" y="305" width="395" height="220" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="232.5" y="335" class="subhead" text-anchor="middle">Triangular prism</text>
+  <polygon points="92,415 132,365 172,415" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <polygon points="92,425 132,475 172,425" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <rect x="190" y="375" width="45" height="90" class="face"/>
+  <rect x="235" y="375" width="60" height="90" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <rect x="295" y="375" width="75" height="90" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="232.5" y="500" class="label" text-anchor="middle">2 triangles + 3 rectangles</text>
+  <rect x="470" y="305" width="395" height="220" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="667.5" y="335" class="subhead" text-anchor="middle">Square pyramid</text>
+  <rect x="627" y="380" width="80" height="80" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <polygon points="627,380 667,345 707,380" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <polygon points="627,460 667,495 707,460" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <polygon points="627,380 592,420 627,460" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <polygon points="707,380 742,420 707,460" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="667.5" y="505" class="label" text-anchor="middle">1 square + 4 triangles</text>
+</svg>

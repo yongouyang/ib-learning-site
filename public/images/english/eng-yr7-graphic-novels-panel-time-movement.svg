@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640" role="img" aria-labelledby="title desc">
+  <title id="title">Panel size, motion lines and gutters controlling time</title>
+  <desc id="desc">Four small moment-to-moment panels show a hand slowly approaching a door handle, stretching a few seconds, while one large panel holds on the reveal behind the door and freezes time. Motion lines suggest a ball moving within one still panel, and a wide gutter between day and night panels lets the reader infer that hours have passed.</desc>
+  <rect width="920" height="640" fill="#f8fafc"/>
+  <text x="460" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Still images can stretch, freeze or skip time</text>
+
+  <rect x="35" y="70" width="520" height="300" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="295" y="99" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#334155">SMALL MOMENT-TO-MOMENT PANELS</text>
+  <g fill="#f1f5f9" stroke="#475569" stroke-width="1.5">
+    <rect x="55" y="122" width="110" height="158"/><rect x="180" y="122" width="110" height="158"/><rect x="305" y="122" width="110" height="158"/><rect x="430" y="122" width="105" height="158"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none">
+    <path d="M150 150 L150 250 M138 190 L150 190"/><path d="M275 150 L275 250 M263 190 L275 190"/><path d="M400 150 L400 250 M388 190 L400 190"/><path d="M522 150 L522 250 M510 190 L522 190"/>
+  </g>
+  <g fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round">
+    <path d="M70 230 L95 210 L119 208"/><path d="M195 230 L220 210 L244 202"/><path d="M320 230 L345 210 L374 194"/><path d="M445 230 L470 210 L505 190"/>
+  </g>
+  <g fill="#f59e0b" stroke="#b45309" stroke-width="1.5">
+    <circle cx="127" cy="208" r="7"/><circle cx="252" cy="202" r="7"/><circle cx="382" cy="194" r="7"/><circle cx="513" cy="190" r="7"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="11" fill="#64748b">
+    <text x="64" y="143">1</text><text x="189" y="143">2</text><text x="314" y="143">3</text><text x="439" y="143">4</text>
+  </g>
+  <text x="295" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#334155">many panels for a few seconds</text>
+  <text x="295" y="338" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">time slows; suspense stretches</text>
+
+  <rect x="580" y="70" width="305" height="300" rx="8" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="732" y="99" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#6d28d9">ONE LARGE PANEL</text>
+  <rect x="602" y="122" width="261" height="158" fill="#ede9fe" stroke="#475569" stroke-width="2"/>
+  <rect x="684" y="140" width="96" height="140" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="780,140 840,156 840,280 780,280" fill="#c4b5fd" stroke="#8b5cf6" stroke-width="2"/>
+  <circle cx="793" cy="212" r="4" fill="#6d28d9"/>
+  <text x="732" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#4c1d95">the reveal holds the reader</text>
+  <text x="732" y="338" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#6d28d9">time freezes; the moment matters</text>
+
+  <rect x="35" y="402" width="405" height="196" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="237" y="432" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">MOTION LINES · INSIDE ONE PANEL</text>
+  <rect x="57" y="452" width="361" height="90" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <circle cx="310" cy="495" r="24" fill="#3b82f6"/>
+  <path d="M271 495 L285 495 M277 481 L287 487 M277 509 L287 503" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round"/>
+  <g stroke="#60a5fa" stroke-width="3" stroke-linecap="round">
+    <line x1="95" y1="477" x2="240" y2="477"/><line x1="78" y1="495" x2="225" y2="495"/><line x1="110" y1="513" x2="245" y2="513"/>
+  </g>
+  <text x="237" y="574" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#1e3a8a">your brain animates the still image</text>
+
+  <rect x="465" y="402" width="420" height="196" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="675" y="432" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">GUTTER · A TIME SKIP</text>
+  <rect x="487" y="452" width="150" height="90" fill="#e0f2fe" stroke="#64748b" stroke-width="1.5"/>
+  <circle cx="562" cy="484" r="20" fill="#f59e0b"/>
+  <rect x="713" y="452" width="150" height="90" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+  <circle cx="788" cy="484" r="20" fill="#fef3c7"/>
+  <circle cx="797" cy="477" r="20" fill="#1e293b"/>
+  <text x="675" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#15803d">HOURS</text>
+  <text x="675" y="514" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#15803d">unseen</text>
+  <text x="675" y="574" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#14532d">the reader fills the gap between panels</text>
+</svg>

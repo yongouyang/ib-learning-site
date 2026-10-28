@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-10-28 — IGCSE science set 3, illustration pilot and Biology wave 2
+Git HEAD: `0450702` (develop, tree dirty)
+Done: added `phys-igcse`/`chem-igcse`/`bio-igcse` set 3 (8 q / 20 marks each; 42 papers /
+  840 points), 40 SVGs across 10 maths + 10 English topics, and Extended digestion /
+  inheritance topics + 2 SVGs. Registry: 300 topics / 5,046 MC questions; all new keys
+  reviewed, paper wording collisions 0; roadmap refreshed with measured usage/next queue.
+Verified: content + audit 0/0; illustrations + layout PASS; 1736/1736 unit; tsc clean;
+  lint 0 errors (35 baseline warnings); build:static 431 URLs + leak HARD/TIGHT; 11 Lambdas;
+  overflow 900 PASS; static e2e Desktop 442/4 skipped, iPhone 429/17, iPad 430/16.
+Next: investigate maths + mixed-review completion; obtain Search Console data; evaluate the
+  pilot, then one demand-led set-3 batch. DP sciences/further maths stay deferred.
+Notes: content-only UX waived; 42 SVGs + 16 shots reviewed; small phone labels waived
+  (captions + alt text carry the takeaway). 30d analytics: 147 events/121 prod, 0 paper or
+  new-science views; Search Console unavailable. No commit/push/deploy. LaTeX hits benign.
+
+---
+
 ## 2026-10-25 — CI security findings and Playwright install timeout fixed
 Git HEAD: `038d238` (develop, tree dirty)
 Done: bumped zod 4.4.3→4.6.7 and transitive undici 7.30.0→7.30.1, clearing

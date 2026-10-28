@@ -24,6 +24,11 @@
     {
       "id": "math-yr7-area-perimeter-ap-n3",
       "heading": "Area of a Triangle",
+      "illustration": {
+        "src": "/images/math/math-yr7-area-perimeter-triangle-height.svg",
+        "alt": "A triangle with base 10 cm and perpendicular height 4 cm beside a rectangle with the same dimensions, showing that the triangle has half the rectangle's area.",
+        "caption": "The height is perpendicular to the base: triangle area = ½ × 10 × 4 = 20 cm², half of the equivalent rectangle's 40 cm²."
+      },
       "body": "Any triangle takes up exactly half the space of a rectangle (or parallelogram) with the same base and height.\n\n📌 Definition\nThe area of a triangle is one half of its base multiplied by the perpendicular height.\n\n$$A = \\dfrac{1}{2} \\times b \\times h$$\n\n🔑 Key Concept\nThe height $h$ must be measured at right angles (perpendicular) to the base. It is not necessarily one of the slanted sides.\n\n💡 Worked Example 1\nFind the area of a triangle with base $10\\text{ cm}$ and perpendicular height $4\\text{ cm}$.\n\n  Step 1: Substitute into the formula\n    $A = \\dfrac{1}{2} \\times 10 \\times 4$\n\n  Step 2: Multiply\n    $A = \\dfrac{1}{2} \\times 40 = 20$\n\n  Step 3: State the units\n    $A = 20\\text{ cm}^2$\n\n💡 Worked Example 2 — Finding a missing height\nA triangle has area $24\\text{ cm}^2$ and base $8\\text{ cm}$. Find the perpendicular height.\n\n  Step 1: Start with $A = \\dfrac{1}{2}bh$\n    $24 = \\dfrac{1}{2} \\times 8 \\times h$\n\n  Step 2: Simplify\n    $24 = 4h$\n\n  Step 3: Solve\n    $h = 6\\text{ cm}$\n\n  ✅ Check: $\\dfrac{1}{2} \\times 8 \\times 6 = 24\\text{ cm}^2$ ✓\n\n⚠️ Common Mistake\nUsing a slanted side as the height. Always look for the right-angle between base and height."
     },
     {
@@ -34,6 +39,11 @@
     {
       "id": "math-yr7-area-perimeter-ap-n5",
       "heading": "Compound Shapes",
+      "illustration": {
+        "src": "/images/math/math-yr7-area-perimeter-l-shape.svg",
+        "alt": "An L-shape split into a 5 cm by 4 cm rectangle and a 3 cm by 2 cm rectangle, labelled with areas 20 and 6 square centimetres.",
+        "caption": "Split the L-shape into rectangles and add their areas: 5 × 4 + 3 × 2 = 20 + 6 = 26 cm²."
+      },
       "body": "A compound shape is made by joining two or more simple shapes together.\n\n📌 Definition\nTo find the area of a compound shape, split it into simple parts (rectangles, triangles, parallelograms), find the area of each part, then add the results.\n\n🔑 Key Concept\nFor the perimeter of a compound shape, only count the outside edges. Some lengths may be missing, but you can work them out from the other measurements.\n\n💡 Worked Example — Area and perimeter of an L-shape\nAn L-shape is made from two rectangles: one $5\\text{ cm}$ by $4\\text{ cm}$ and another $3\\text{ cm}$ by $2\\text{ cm}$.\n\n  Step 1: Area of first rectangle\n    $A_1 = 5 \\times 4 = 20\\text{ cm}^2$\n\n  Step 2: Area of second rectangle\n    $A_2 = 3 \\times 2 = 6\\text{ cm}^2$\n\n  Step 3: Total area\n    $A = 20 + 6 = 26\\text{ cm}^2$\n\n  ✅ Tip: Draw the shape and label every side before calculating.\n\n⚠️ Common Mistake\nFor area: adding side lengths instead of multiplying them for each part. For perimeter: counting an internal line that is not on the outside edge."
     },
     {

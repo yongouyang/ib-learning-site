@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-labelledby="title desc">
+  <title id="title">Ninety-degree clockwise rotation about the origin</title>
+  <desc id="desc">On a coordinate grid, point A at (2, 3) rotates 90 degrees clockwise about the origin to A prime at (3, −2). Radii from the origin have equal length, and the rotation rule is (x, y) maps to (y, −x).</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 14px; fill: #374151; }
+    .small { font-size: 12px; fill: #64748b; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="rotation-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <rect width="900" height="540" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Rotation: centre, angle and direction</text>
+  <rect x="40" y="65" width="540" height="440" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <path d="M130 85 V485 M185 85 V485 M240 85 V485 M295 85 V485 M405 85 V485 M460 85 V485 M515 85 V485 M60 190 H560 M60 245 H560 M60 355 H560 M60 410 H560 M60 465 H560" class="grid"/>
+  <line x1="60" y1="300" x2="560" y2="300" stroke="#334155" stroke-width="1.8"/>
+  <line x1="350" y1="85" x2="350" y2="485" stroke="#334155" stroke-width="1.8"/>
+  <text x="548" y="290" class="small">x</text>
+  <text x="362" y="100" class="small">y</text>
+  <text x="334" y="320" class="small">O</text>
+  <text x="453" y="320" class="small" text-anchor="end">2</text>
+  <text x="508" y="320" class="small" text-anchor="end">3</text>
+  <text x="338" y="140" class="small" text-anchor="end">3</text>
+  <text x="338" y="415" class="small" text-anchor="end">−2</text>
+  <line x1="350" y1="300" x2="460" y2="135" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="350" y1="300" x2="515" y2="410" stroke="#16a34a" stroke-width="2" stroke-dasharray="6 4"/>
+  <path d="M392 222 A75 75 0 0 1 412 341" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#rotation-arrow)"/>
+  <rect x="393" y="260" width="118" height="32" rx="5" fill="#f8fafc"/>
+  <text x="452" y="282" class="label" text-anchor="middle" fill="#7c3aed">90° clockwise</text>
+  <circle cx="460" cy="135" r="6" fill="#2563eb"/>
+  <circle cx="515" cy="410" r="6" fill="#16a34a"/>
+  <rect x="469" y="106" width="91" height="32" rx="5" fill="#eff6ff"/>
+  <text x="514.5" y="128" class="label" text-anchor="middle">A (2, 3)</text>
+  <rect x="426" y="424" width="108" height="32" rx="5" fill="#f0fdf4"/>
+  <text x="480" y="446" class="label" text-anchor="middle">A′ (3, −2)</text>
+  <rect x="610" y="65" width="260" height="440" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="635" y="102" class="subhead">About (0, 0)</text>
+  <text x="635" y="145" class="math">(x, y) → (y, −x)</text>
+  <text x="635" y="194" class="label">A (2, 3)</text>
+  <text x="635" y="222" class="label">→ A′ (3, −2)</text>
+  <line x1="635" y1="250" x2="845" y2="250" stroke="#e2e8f0"/>
+  <text x="635" y="287" class="label">Rotation preserves distance</text>
+  <text x="635" y="315" class="label">from the centre:</text>
+  <text x="635" y="357" class="math">OA = OA′ = √13</text>
+  <text x="635" y="405" class="label">The point moves; the</text>
+  <text x="635" y="431" class="label">origin stays fixed.</text>
+</svg>

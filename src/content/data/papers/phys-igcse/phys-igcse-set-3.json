@@ -1,0 +1,100 @@
+{
+  "id": "phys-igcse-set-3",
+  "courseId": "phys-igcse",
+  "title": "Practice Set 3",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "phys-igcse-set-3-q1",
+      "stem": "A $270$ g sample of cooking oil occupies $300\\text{ cm}^3$. Calculate its density in $\\text{g/cm}^3$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses $\\rho = m/V$ with $270/300$",
+        "A1: $0.90\\text{ g/cm}^3$"
+      ],
+      "modelAnswer": "Use the mass-per-unit-volume relationship: $\\rho = \\dfrac{m}{V} = \\dfrac{270}{300} = 0.90\\text{ g/cm}^3$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-set-3-q2",
+      "stem": "A sound wave has frequency $200\\text{ Hz}$ and wavelength $1.7\\text{ m}$. Calculate the wave speed.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses $v = f\\lambda$",
+        "A1: $v = 200 \\times 1.7 = 340\\text{ m/s}$"
+      ],
+      "modelAnswer": "The wave equation gives $v = f\\lambda = 200 \\times 1.7 = 340\\text{ m/s}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-set-3-q3",
+      "stem": "Smoke particles viewed through a microscope move jerkily and randomly. Name this motion and explain what causes it.",
+      "marks": 2,
+      "markscheme": [
+        "B1: Brownian motion",
+        "B1: uneven collisions from fast-moving, randomly moving air molecules push the smoke particles"
+      ],
+      "modelAnswer": "This is Brownian motion. Air molecules move rapidly and randomly, so their uneven collisions with each smoke particle produce changing resultant forces and jerky movement.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-set-3-q4",
+      "stem": "A $4.0\\,\\Omega$ resistor and an $8.0\\,\\Omega$ resistor are connected in series across a $12\\text{ V}$ supply. Calculate the current in the circuit and the p.d. across the $8.0\\,\\Omega$ resistor.",
+      "marks": 3,
+      "markscheme": [
+        "M1: total resistance $= 4.0 + 8.0 = 12\\,\\Omega$ and current $I = 12/12 = 1.0\\text{ A}$",
+        "M1: uses $V = IR$ for the $8.0\\,\\Omega$ resistor",
+        "A1: p.d. $= 1.0 \\times 8.0 = 8.0\\text{ V}$"
+      ],
+      "modelAnswer": "Series resistances add, so $R = 4.0 + 8.0 = 12\\,\\Omega$. The same current passes through both resistors: $I = V/R = 12/12 = 1.0\\text{ A}$. Across the $8.0\\,\\Omega$ resistor, $V = IR = 1.0 \\times 8.0 = 8.0\\text{ V}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-3-q5",
+      "stem": "An electric heater rated at $60\\text{ W}$ runs for $100$ s inside a $0.50$ kg metal block. The block's temperature rises by $15^\\circ\\text{C}$. Assuming no thermal energy escapes, calculate the specific heat capacity of the metal.",
+      "marks": 3,
+      "markscheme": [
+        "M1: energy supplied $= Pt = 60 \\times 100 = 6000\\text{ J}$",
+        "M1: rearranges $\\Delta E = mc\\Delta\\theta$ to $c = \\Delta E/(m\\Delta\\theta)$",
+        "A1: $c = 6000/(0.50 \\times 15) = 800\\text{ J/(kg}^{\\circ}\\text{C)}$"
+      ],
+      "modelAnswer": "The electrical energy transferred is $\\Delta E = Pt = 60 \\times 100 = 6000\\text{ J}$. Since no energy escapes, this equals the block's energy gain. Therefore $c = \\dfrac{\\Delta E}{m\\Delta\\theta} = \\dfrac{6000}{0.50 \\times 15} = 800\\text{ J/(kg}^{\\circ}\\text{C)}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-3-q6",
+      "stem": "A $500$ W water heater is used for $4.0$ hours. Electricity costs $25$ p per kWh. Calculate the cost of the energy used.",
+      "marks": 2,
+      "markscheme": [
+        "M1: energy used $= 0.500\\text{ kW} \\times 4.0\\text{ h} = 2.0\\text{ kWh}$",
+        "A1: cost $= 2.0 \\times 25 = 50$ p"
+      ],
+      "modelAnswer": "Convert the power: $500\\text{ W} = 0.500\\text{ kW}$. The energy used is $0.500 \\times 4.0 = 2.0\\text{ kWh}$. At $25$ p per kWh, the cost is $2.0 \\times 25 = 50$ p.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-3-q7",
+      "stem": "Resistors of $3.0\\,\\Omega$ and $6.0\\,\\Omega$ are connected in parallel across a $12\\text{ V}$ supply. Calculate the current in each resistor and the total current from the supply.",
+      "marks": 3,
+      "markscheme": [
+        "M1: current in the $3.0\\,\\Omega$ resistor $= 12/3.0 = 4.0\\text{ A}$",
+        "M1: current in the $6.0\\,\\Omega$ resistor $= 12/6.0 = 2.0\\text{ A}$",
+        "A1: total current $= 4.0 + 2.0 = 6.0\\text{ A}$"
+      ],
+      "modelAnswer": "Each parallel branch has the full $12\\text{ V}$ across it. The branch currents are $I_3 = 12/3.0 = 4.0\\text{ A}$ and $I_6 = 12/6.0 = 2.0\\text{ A}$. They recombine at the supply, giving $I = 4.0 + 2.0 = 6.0\\text{ A}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-set-3-q8",
+      "stem": "A sealed gas sample is kept at constant temperature. Initially it occupies $600\\text{ cm}^3$ at a pressure of $100\\text{ kPa}$. It is compressed slowly to $200\\text{ cm}^3$. Calculate the new pressure and explain the pressure increase in terms of molecular collisions with the container walls.",
+      "marks": 3,
+      "markscheme": [
+        "M1: uses $p_1V_1 = p_2V_2$ at constant temperature",
+        "A1: $p_2 = 100 \\times 600/200 = 300\\text{ kPa}$",
+        "B1: at the same average molecular speed, the smaller volume gives more frequent collisions with the walls"
+      ],
+      "modelAnswer": "For a fixed mass at constant temperature, $p_1V_1 = p_2V_2$. Hence $p_2 = 100 \\times 600/200 = 300\\text{ kPa}$. Slow compression keeps the temperature, and therefore the average molecular speed, constant. Molecules travel shorter distances between wall collisions in the smaller volume, so collisions with the walls occur more frequently and the pressure rises.",
+      "difficulty": "hard"
+    }
+  ]
+}

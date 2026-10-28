@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Scale-factor-two enlargement from the origin</title>
+  <desc id="desc">Triangle PQR with vertices P(1, 2), Q(3, 2) and R(1, 5) is enlarged by scale factor 2 about the origin. Rays through corresponding vertices show that distances from the origin double, producing P prime(2, 4), Q prime(6, 4) and R prime(2, 10).</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 15px; font-weight: 600; fill: #1d4ed8; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <rect width="900" height="560" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Enlargement: distances from the centre multiply by k</text>
+  <rect x="30" y="60" width="440" height="470" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <path d="M138 75 V515 M176 75 V515 M214 75 V515 M252 75 V515 M290 75 V515 M328 75 V515 M366 75 V515 M404 75 V515 M442 75 V515 M45 462 H455 M45 424 H455 M45 386 H455 M45 348 H455 M45 310 H455 M45 272 H455 M45 234 H455 M45 196 H455 M45 158 H455 M45 120 H455" class="grid"/>
+  <line x1="45" y1="500" x2="455" y2="500" stroke="#334155" stroke-width="1.8"/>
+  <line x1="100" y1="75" x2="100" y2="515" stroke="#334155" stroke-width="1.8"/>
+  <text x="445" y="490" class="small">x</text>
+  <text x="110" y="90" class="small">y</text>
+  <text x="82" y="518" class="small">O</text>
+  <line x1="100" y1="500" x2="200" y2="310" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="100" y1="500" x2="380" y2="310" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="100" y1="500" x2="190" y2="82" stroke="#94a3b8" stroke-width="1.4"/>
+  <polygon points="138,424 214,424 138,310" fill="#bfdbfe" fill-opacity="0.8" stroke="#2563eb" stroke-width="2.5"/>
+  <polygon points="176,348 328,348 176,120" fill="#bbf7d0" fill-opacity="0.45" stroke="#16a34a" stroke-width="2.5"/>
+  <circle cx="138" cy="424" r="4" fill="#2563eb"/>
+  <circle cx="214" cy="424" r="4" fill="#2563eb"/>
+  <circle cx="138" cy="310" r="4" fill="#2563eb"/>
+  <circle cx="176" cy="348" r="4" fill="#16a34a"/>
+  <circle cx="328" cy="348" r="4" fill="#16a34a"/>
+  <circle cx="176" cy="120" r="4" fill="#16a34a"/>
+  <text x="118" y="444" class="label">P (1, 2)</text>
+  <text x="218" y="444" class="label">Q (3, 2)</text>
+  <text x="112" y="300" class="label">R (1, 5)</text>
+  <text x="185" y="370" class="label">P′ (2, 4)</text>
+  <text x="333" y="370" class="label">Q′ (6, 4)</text>
+  <text x="185" y="112" class="label">R′ (2, 10)</text>
+  <rect x="500" y="60" width="370" height="470" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="525" y="96" class="subhead">Scale factor k = 2, centre (0, 0)</text>
+  <text x="525" y="140" class="math">(x, y) → (2x, 2y)</text>
+  <text x="525" y="184" class="label">P (1, 2) → P′ (2, 4)</text>
+  <text x="525" y="212" class="label">Q (3, 2) → Q′ (6, 4)</text>
+  <text x="525" y="240" class="label">R (1, 5) → R′ (2, 10)</text>
+  <line x1="525" y1="268" x2="845" y2="268" stroke="#e2e8f0"/>
+  <text x="525" y="306" class="label">Each image vertex lies on the ray</text>
+  <text x="525" y="332" class="label">from O through its original vertex.</text>
+  <text x="525" y="374" class="math">OP′ = 2 OP</text>
+  <text x="525" y="402" class="math">OQ′ = 2 OQ</text>
+  <text x="525" y="430" class="math">OR′ = 2 OR</text>
+  <text x="525" y="474" class="label">Side lengths double; angles stay</text>
+  <text x="525" y="500" class="label">the same.</text>
+</svg>

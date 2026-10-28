@@ -34,11 +34,21 @@
     {
       "id": "math-yr8-straight-line-graphs-n5",
       "heading": "Finding the Equation of a Line",
+      "illustration": {
+        "src": "/images/math/math-yr8-straight-line-graphs-equation-from-points.svg",
+        "alt": "The line y = 3x + 1 through (1, 4) and (3, 10), with y-intercept (0, 1) and a gradient triangle showing run 2 and rise 6.",
+        "caption": "The gradient is 6 ÷ 2 = 3; substituting (1, 4) gives c = 1, so the equation is y = 3x + 1."
+      },
       "body": "📌 Key Concept\nIf you know the gradient $m$ and one point $(x_1,y_1)$, you can use point-slope form:\n$$y - y_1 = m(x - x_1)$$\nThen rearrange to $y = mx + c$.\n\nIf you know two points, first find the gradient, then substitute one point to find $c$.\n\n💡 Worked Example 1\nFind the equation of the line with gradient $2$ passing through $(3,7)$.\n$$y - 7 = 2(x - 3)$$\n$$y - 7 = 2x - 6$$\n$$y = 2x + 1$$\n\n💡 Worked Example 2\nFind the equation of the line through $(1,4)$ and $(3,10)$.\nStep 1: gradient.\n$$m = \\dfrac{10 - 4}{3 - 1} = \\dfrac{6}{2} = 3$$\nStep 2: substitute $(1,4)$ into $y = 3x + c$.\n$$4 = 3(1) + c \\Rightarrow c = 1$$\nStep 3: equation.\n$$y = 3x + 1$$\n\n✅ Check\nSubstitute the other point: $10 = 3(3) + 1 = 10$. Correct."
     },
     {
       "id": "math-yr8-straight-line-graphs-n6",
       "heading": "Parallel and Perpendicular Lines",
+      "illustration": {
+        "src": "/images/math/math-yr8-straight-line-graphs-parallel-perpendicular.svg",
+        "alt": "Parallel lines y = 4x + 1 and y = 4x − 3, with perpendicular line y = −¼x + 5 meeting them at a right angle.",
+        "caption": "Parallel lines share gradient 4; the perpendicular gradient is its negative reciprocal, −1/4, and 4 × (−1/4) = −1."
+      },
       "body": "📌 Definition\nTwo lines are parallel if they never meet. They have the same gradient:\n$$m_1 = m_2$$\nTwo lines are perpendicular if they meet at a right angle. Their gradients multiply to $-1$:\n$$m_1 \\times m_2 = -1$$\nSo the perpendicular gradient is the negative reciprocal $-\\dfrac{1}{m}$.\n\n🔑 How it works\nIf a line has gradient $m$:\n• a parallel line also has gradient $m$;\n• a perpendicular line has gradient $-\\dfrac{1}{m}$.\n\n💡 Worked Example\nFor $y = 4x + 1$:\n• a parallel line is $y = 4x - 3$;\n• a perpendicular line is $y = -\\dfrac{1}{4}x + 5$.\n\n⚠️ Common Mistake\nThinking perpendicular gradients are just negatives of each other. The negative reciprocal of $4$ is $-\\dfrac{1}{4}$, not $-4$.\n\n📎 Key Points to Remember\n• Parallel lines share a gradient but have different $y$-intercepts (otherwise they are the same line).\n• Horizontal lines are perpendicular to vertical lines."
     },
     {

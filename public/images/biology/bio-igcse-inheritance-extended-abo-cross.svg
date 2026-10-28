@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">ABO blood group cross: I-A i crossed with I-B i</title>
+  <desc id="desc">A Punnett square for a group A parent with genotype I-A i and a group B parent with genotype I-B i. The four equally likely offspring genotypes are I-A I-B, I-A i, I-B i and i i, giving blood groups AB, A, B and O respectively. Each phenotype has a 25 percent probability, a ratio of 1 to 1 to 1 to 1.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 600; fill: #1f2937; }
+      .big { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; fill: #4b5563; }
+    </style>
+  </defs>
+
+  <rect width="900" height="560" rx="12" fill="#f9fafb"/>
+  <text x="450" y="36" text-anchor="middle" class="title">ABO Blood Groups: Iᴬi × Iᴮi</text>
+  <text x="450" y="62" text-anchor="middle" class="sublabel">Iᴬ and Iᴮ are codominant; each is dominant to i</text>
+
+  <text x="440" y="88" text-anchor="middle" class="sublabel">Group A parent (Iᴬi): gametes</text>
+  <circle cx="380" cy="116" r="20" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="380" y="121" text-anchor="middle" class="label">Iᴬ</text>
+  <circle cx="500" cy="116" r="20" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+  <text x="500" y="121" text-anchor="middle" class="label">i</text>
+
+  <text x="190" y="260" text-anchor="middle" class="sublabel" transform="rotate(-90 190 260)">Group B parent (Iᴮi): gametes</text>
+  <circle cx="260" cy="200" r="20" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="260" y="205" text-anchor="middle" class="label">Iᴮ</text>
+  <circle cx="260" cy="320" r="20" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+  <text x="260" y="325" text-anchor="middle" class="label">i</text>
+
+  <rect x="320" y="140" width="120" height="120" fill="#d1fae5"/>
+  <rect x="440" y="140" width="120" height="120" fill="#dbeafe"/>
+  <rect x="320" y="260" width="120" height="120" fill="#fef3c7"/>
+  <rect x="440" y="260" width="120" height="120" fill="#f3f4f6"/>
+  <rect x="320" y="140" width="240" height="240" fill="none" stroke="#374151" stroke-width="2"/>
+  <line x1="320" y1="260" x2="560" y2="260" stroke="#374151" stroke-width="2"/>
+  <line x1="440" y1="140" x2="440" y2="380" stroke="#374151" stroke-width="2"/>
+
+  <text x="380" y="192" text-anchor="middle" class="big">IᴬIᴮ</text>
+  <text x="380" y="224" text-anchor="middle" class="label">Group AB</text>
+  <text x="500" y="192" text-anchor="middle" class="big">Iᴬi</text>
+  <text x="500" y="224" text-anchor="middle" class="label">Group A</text>
+  <text x="380" y="312" text-anchor="middle" class="big">Iᴮi</text>
+  <text x="380" y="344" text-anchor="middle" class="label">Group B</text>
+  <text x="500" y="312" text-anchor="middle" class="big">ii</text>
+  <text x="500" y="344" text-anchor="middle" class="label">Group O</text>
+
+  <rect x="600" y="140" width="260" height="240" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="2"/>
+  <text x="730" y="172" text-anchor="middle" class="label">Expected offspring</text>
+  <text x="622" y="207" class="sublabel">Each genotype and phenotype:</text>
+  <text x="622" y="234" class="big">1/4 = 25%</text>
+  <text x="622" y="274" class="sublabel">Phenotype ratio:</text>
+  <text x="622" y="302" class="label">1 AB : 1 A : 1 B : 1 O</text>
+  <text x="622" y="338" class="sublabel">All four groups are possible.</text>
+  <text x="622" y="360" class="sublabel">No outcome is guaranteed.</text>
+
+  <rect x="90" y="430" width="720" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="450" y="460" text-anchor="middle" class="label">One allele comes from each parent at fertilisation.</text>
+  <text x="450" y="486" text-anchor="middle" class="sublabel">The ratios predict probabilities per child, not exact numbers in a family.</text>
+</svg>

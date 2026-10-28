@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-labelledby="title desc">
+  <title id="title">Histogram area gives frequency</title>
+  <desc id="desc">Three touching histogram bars have widths 10, 20 and 5, with heights 4, 2.5 and 4. Their areas give frequencies 40, 50 and 20. The middle calculation is height 2.5 times class width 20 equals frequency 50, and the total frequency is 110.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <rect width="900" height="540" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Read frequency back as height × class width</text>
+  <rect x="35" y="65" width="500" height="440" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <line x1="95" y1="170" x2="470" y2="170" class="grid"/>
+  <line x1="95" y1="237.5" x2="470" y2="237.5" class="grid"/>
+  <line x1="95" y1="350" x2="470" y2="350" stroke="#334155" stroke-width="1.8"/>
+  <line x1="95" y1="105" x2="95" y2="350" stroke="#334155" stroke-width="1.8"/>
+  <text x="55" y="113" class="small">frequency</text>
+  <text x="55" y="130" class="small">density</text>
+  <text x="85" y="175" class="small" text-anchor="end">4</text>
+  <text x="85" y="242.5" class="small" text-anchor="end">2.5</text>
+  <rect x="130" y="170" width="80" height="180" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <rect x="210" y="237.5" width="160" height="112.5" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <rect x="370" y="170" width="40" height="180" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="170" y="158" class="label" text-anchor="middle">height 4</text>
+  <text x="290" y="225" class="label" text-anchor="middle">height 2.5</text>
+  <text x="430" y="158" class="label">height 4</text>
+  <rect x="143" y="237" width="54" height="32" rx="5" fill="#f8fafc"/>
+  <text x="170" y="259" class="math" text-anchor="middle">40</text>
+  <rect x="263" y="280" width="54" height="32" rx="5" fill="#f8fafc"/>
+  <text x="290" y="302" class="math" text-anchor="middle">50</text>
+  <rect x="416" y="237" width="54" height="32" rx="5" fill="#f8fafc"/>
+  <text x="443" y="259" class="math" text-anchor="middle">20</text>
+  <text x="170" y="375" class="label" text-anchor="middle">0–10</text>
+  <text x="290" y="375" class="label" text-anchor="middle">10–30</text>
+  <text x="410" y="375" class="label" text-anchor="middle">30–35</text>
+  <text x="170" y="403" class="small" text-anchor="middle">width 10</text>
+  <text x="290" y="403" class="small" text-anchor="middle">width 20</text>
+  <text x="390" y="403" class="small" text-anchor="middle">width 5</text>
+  <text x="285" y="457" class="math" text-anchor="middle">area = frequency</text>
+  <rect x="565" y="65" width="300" height="440" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="590" y="104" class="subhead">Middle bar: 10 &lt; t ≤ 30</text>
+  <text x="590" y="145" class="label">Class width = 30 − 10 = 20</text>
+  <text x="590" y="180" class="label">Height = 2.5</text>
+  <rect x="590" y="210" width="250" height="62" rx="7" fill="#f0fdf4"/>
+  <text x="715" y="250" class="math" text-anchor="middle">2.5 × 20 = 50</text>
+  <text x="590" y="318" class="label">All three areas:</text>
+  <text x="590" y="351" class="math">40 + 50 + 20 = 110</text>
+  <text x="590" y="401" class="label">Total frequency = 110 values.</text>
+  <text x="590" y="451" class="label">Height alone is density,</text>
+  <text x="590" y="477" class="label">not frequency.</text>
+</svg>

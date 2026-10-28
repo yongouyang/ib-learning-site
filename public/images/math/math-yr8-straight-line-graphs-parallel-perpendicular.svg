@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Parallel and perpendicular line families</title>
+  <desc id="desc">The lines y equals 4x plus 1 and y equals 4x minus 3 are parallel because both have gradient 4. The line y equals minus one quarter x plus 5 is perpendicular to them; its gradient is the negative reciprocal of 4, and the gradient product is −1.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 14px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <rect width="900" height="560" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Equal gradients parallel; negative reciprocals perpendicular</text>
+  <rect x="35" y="65" width="400" height="460" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <path d="M75 85 V510 M110 85 V510 M145 85 V510 M180 85 V510 M215 85 V510 M285 85 V510 M320 85 V510 M355 85 V510 M390 85 V510 M55 150 H415 M55 185 H415 M55 220 H415 M55 255 H415 M55 290 H415 M55 325 H415 M55 360 H415 M55 395 H415 M55 465 H415 M55 500 H415" class="grid"/>
+  <line x1="55" y1="430" x2="415" y2="430" stroke="#334155" stroke-width="1.8"/>
+  <line x1="250" y1="85" x2="250" y2="510" stroke="#334155" stroke-width="1.8"/>
+  <text x="402" y="420" class="small">x</text>
+  <text x="261" y="101" class="small">y</text>
+  <text x="232" y="448" class="small">O</text>
+  <line x1="221.3" y1="510" x2="302.5" y2="185" stroke="#2563eb" stroke-width="3"/>
+  <line x1="256.3" y1="510" x2="337.5" y2="185" stroke="#16a34a" stroke-width="3"/>
+  <line x1="197.5" y1="241.9" x2="355" y2="281.3" stroke="#7c3aed" stroke-width="3"/>
+  <path d="M286.8 251.8 L302.4 255.7 L298.5 271.2" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
+  <rect x="83" y="291" width="105" height="32" rx="5" fill="#eff6ff"/>
+  <text x="135.5" y="313" class="label" text-anchor="middle">gradient 4</text>
+  <rect x="270" y="302" width="130" height="32" rx="5" fill="#f5f3ff"/>
+  <text x="335" y="324" class="label" text-anchor="middle">gradient −1/4</text>
+  <rect x="465" y="65" width="400" height="460" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="490" y="103" class="subhead">Parallel family</text>
+  <text x="490" y="143" class="math">y = 4x + 1</text>
+  <text x="490" y="173" class="math">y = 4x − 3</text>
+  <text x="490" y="210" class="label">Same gradient: m₁ = m₂ = 4</text>
+  <line x1="490" y1="238" x2="840" y2="238" stroke="#e2e8f0"/>
+  <text x="490" y="278" class="subhead">Perpendicular line</text>
+  <text x="490" y="318" class="math">y = −¼x + 5</text>
+  <text x="490" y="357" class="label">Negative reciprocal of 4 is −1/4.</text>
+  <rect x="490" y="385" width="230" height="52" rx="7" fill="#f5f3ff"/>
+  <text x="605" y="419" class="math" text-anchor="middle">4 × (−1/4) = −1</text>
+  <text x="490" y="477" class="label">The small square marks 90°.</text>
+</svg>

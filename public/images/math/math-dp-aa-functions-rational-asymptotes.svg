@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Rational function with vertical and horizontal asymptotes</title>
+  <desc id="desc">The two branches of y equals (2x plus 1) divided by (x minus 3) approach the vertical asymptote x equals 3 and the horizontal asymptote y equals 2. The branches remain separate and approach but do not join across either asymptote.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 16px; font-weight: 600; fill: #1d4ed8; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <clipPath id="rational-clip"><rect x="45" y="80" width="495" height="415"/></clipPath>
+  <rect width="900" height="560" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">y = (2x + 1)/(x − 3): two branches, two asymptotes</text>
+  <rect x="35" y="65" width="520" height="460" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <path d="M90 85 V500 M120 85 V500 M150 85 V500 M180 85 V500 M210 85 V500 M240 85 V500 M270 85 V500 M330 85 V500 M360 85 V500 M420 85 V500 M450 85 V500 M480 85 V500 M510 85 V500 M540 85 V500 M55 120 H540 M55 150 H540 M55 180 H540 M55 210 H540 M55 240 H540 M55 270 H540 M55 330 H540 M55 390 H540 M55 420 H540 M55 450 H540 M55 480 H540" class="grid"/>
+  <line x1="50" y1="360" x2="540" y2="360" stroke="#334155" stroke-width="1.8"/>
+  <line x1="300" y1="85" x2="300" y2="495" stroke="#334155" stroke-width="1.8"/>
+  <text x="528" y="350" class="small">x</text>
+  <text x="311" y="101" class="small">y</text>
+  <text x="282" y="378" class="small">O</text>
+  <line x1="390" y1="85" x2="390" y2="495" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5"/>
+  <line x1="50" y1="300" x2="540" y2="300" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5"/>
+  <polyline points="90,321 150,326.3 210,335 270,352.5 285,360 300,370 330,405 360,510 375,720" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" clip-path="url(#rational-clip)"/>
+  <polyline points="405,-120 420,90 450,195 480,230 540,258 600,270" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" clip-path="url(#rational-clip)"/>
+  <circle cx="285" cy="360" r="5" fill="#d97706"/>
+  <circle cx="300" cy="370" r="5" fill="#d97706"/>
+  <rect x="206" y="336" width="75" height="28" rx="5" fill="#f8fafc"/>
+  <text x="243.5" y="356" class="label" text-anchor="middle">(−1/2, 0)</text>
+  <rect x="308" y="368" width="75" height="28" rx="5" fill="#f8fafc"/>
+  <text x="345.5" y="388" class="label" text-anchor="middle">(0, −1/3)</text>
+  <rect x="399" y="450" width="58" height="30" rx="5" fill="#f8fafc"/>
+  <text x="428" y="471" class="math" text-anchor="middle" fill="#7c3aed">x = 3</text>
+  <rect x="450" y="275" width="58" height="30" rx="5" fill="#f8fafc"/>
+  <text x="479" y="296" class="math" text-anchor="middle" fill="#7c3aed">y = 2</text>
+  <rect x="585" y="65" width="280" height="460" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="610" y="105" class="subhead">Vertical asymptote</text>
+  <text x="610" y="141" class="label">Denominator equals zero:</text>
+  <text x="610" y="179" class="math">x − 3 = 0, so x = 3</text>
+  <text x="610" y="233" class="subhead">Horizontal asymptote</text>
+  <text x="610" y="271" class="math">(2 + 1/x)/(1 − 3/x) → 2</text>
+  <text x="610" y="309" class="math">y = 2</text>
+  <line x1="610" y1="340" x2="840" y2="340" stroke="#e2e8f0"/>
+  <text x="610" y="380" class="label">Equivalent form:</text>
+  <text x="610" y="416" class="math">y = 2 + 7/(x − 3)</text>
+  <text x="610" y="462" class="label">The two branches never join</text>
+  <text x="610" y="488" class="label">across x = 3.</text>
+</svg>

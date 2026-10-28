@@ -19,6 +19,11 @@
     {
       "id": "math-yr8-transformations-n2",
       "heading": "Rotation",
+      "illustration": {
+        "src": "/images/math/math-yr8-transformations-rotation-origin.svg",
+        "alt": "Point A(2, 3) rotated 90 degrees clockwise about the origin to A prime(3, −2), with equal radii and the coordinate rule shown.",
+        "caption": "A 90° clockwise rotation about (0, 0) uses (x, y) → (y, −x), so A(2, 3) maps to A′(3, −2)."
+      },
       "body": "📌 Definition\nA rotation turns a shape around a fixed point called the centre of rotation. A full description needs the centre, the angle and the direction (clockwise or anticlockwise).\n\n🔑 Key Concept\nWhen rotating around the origin $(0,0)$:\n• $90^\\circ$ clockwise: $(x,y) \\to (y,-x)$\n• $90^\\circ$ anticlockwise: $(x,y) \\to (-y,x)$\n• $180^\\circ$: $(x,y) \\to (-x,-y)$\nA $180^\\circ$ rotation has no direction because clockwise and anticlockwise give the same result.\n\n💡 Worked Example\nRotate $A(2,3)$ by $90^\\circ$ clockwise around $(0,0)$.\n\nUsing the rule $(x,y) \\to (y,-x)$:\n$A' = (3,-2)$.\n\n✅ Check\nThe distance from $A$ to the origin should equal the distance from $A'$ to the origin.\n$OA = \\sqrt{2^2 + 3^2} = \\sqrt{13}$ and $OA' = \\sqrt{3^2 + (-2)^2} = \\sqrt{13}$, so the answer is consistent.\n\n⚠️ Common Mistake\nConfusing clockwise and anticlockwise. Remember that $90^\\circ$ clockwise is the same as $270^\\circ$ anticlockwise."
     },
     {
@@ -29,6 +34,11 @@
     {
       "id": "math-yr8-transformations-n4",
       "heading": "Enlargement",
+      "illustration": {
+        "src": "/images/math/math-yr8-transformations-enlargement-rays.svg",
+        "alt": "Triangle P(1, 2), Q(3, 2), R(1, 5) enlarged by scale factor 2 about the origin, with rays to P prime(2, 4), Q prime(6, 4) and R prime(2, 10).",
+        "caption": "Each image vertex lies twice as far from O along the same ray; all side lengths double and the angles stay unchanged."
+      },
       "body": "📌 Definition\nAn enlargement changes the size of a shape by a scale factor from a centre of enlargement. It produces an image that is similar to the original.\n\n🔑 Key Concept\nIf the centre is the origin and the scale factor is $k$, each coordinate is multiplied by $k$:\n$$(x,y) \\to (kx,\\; ky)$$\n• $k > 1$ makes the image larger and farther from the centre.\n• $0 < k < 1$ makes the image smaller and closer to the centre.\n• $k < 0$ places the image on the opposite side of the centre.\n\nWhen the centre is not the origin, measure distances from the centre and multiply each distance by $k$.\n\n💡 Worked Example\nEnlarge triangle $P(1,2)$, $Q(3,2)$, $R(1,5)$ by scale factor $2$ about $(0,0)$.\n\n$P' = (1 \\times 2,\\; 2 \\times 2) = (2,4)$\n$Q' = (3 \\times 2,\\; 2 \\times 2) = (6,4)$\n$R' = (1 \\times 2,\\; 5 \\times 2) = (2,10)$\n\nEach side length is doubled but the angles stay the same.\n\n⚠️ Common Mistake\nForgetting that the centre of enlargement may not be the origin. When the centre is a different point, you must use distances from that point, not simply multiply coordinates."
     },
     {

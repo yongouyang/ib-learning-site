@@ -182,19 +182,19 @@ sets + AI marking.
 
 ## 4. Deferred to subject wave 2s (recorded so they are not re-researched)
 
-- **Physics**: sets 3–4 would rebalance toward waves/thermal-gases/measurement (sets 1–2
-  cover 12 of 14 topics).
+- **Physics**: set 3 rebalances toward waves, thermal particle model, circuits and
+  measurement (sets 1–2 actually cover 11 of 14 topics; circuits was also untouched).
 - **Chemistry**: T1 states-of-matter tail (4 Supp objectives — absorb or extend
   `chem-states-1`); `chem-igcse-periodic-table`; `chem-igcse-chemical-analysis`; acids/metals
   Extended tails; possibly `chem-igcse-formulae-equations` (Core).
-- **Biology**: §11–13 gas exchange/respiration/excretion; §16 reproduction; §19–20 ecology;
-  §10 Core + §15 disease/drugs (+ the deferred immunity Extended topic); §21 biotechnology;
-  inheritance Supp (codominance, ABO, sex linkage). **Added at 3c review (2026-10-13):**
-  Extended digestion (Supp 7.4.6–8 pepsin/trypsin/maltase/bile, 7.5.3–5 villi/lacteals) and
-  the remaining inheritance/selection Supp (17.4.13–18 test cross/codominance/ABO/sex
-  linkage, 18.1.9–10, 18.3.4–6) have no topic home — a `bio-igcse-digestion-extended` /
-  `bio-igcse-inheritance-extended` pair would close both. Wave-2 rule: per area, verify the IGCSE
-  treatment is genuinely deeper than the KS3 topic before authoring.
+- **Biology**: wave 2 adds `bio-igcse-digestion-extended` (7.3.7 bile emulsification,
+  7.4.6–8 named enzymes and bile neutralisation, 7.5.3–5 villi/lacteals) and
+  `bio-igcse-inheritance-extended` (17.4.13–18, 18.1.9–10, 18.3.4–6). The official
+  2026–2028 PDF confirms every included objective is Supplement. **18.2.3 hydrophyte /
+  xerophyte adaptations remains explicitly deferred**: KS3 already covers it in depth, so
+  it needs a genuinely distinct exam-application treatment rather than a repeat.
+  Still open: §11–13 gas exchange/respiration/excretion; §16 reproduction; §19–20 ecology;
+  §10 Core + §15 disease/drugs (+ the deferred immunity Extended topic); §21 biotechnology.
 - **English**: speaking & listening (Component 4) is out of scope permanently; coursework
   route is served but not guided.
 

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-labelledby="title desc">
+  <title id="title">From a table of values to a smooth quadratic curve</title>
+  <desc id="desc">A table for y equals x squared minus 2x gives the points (−1, 3), (0, 0), (1, −1), (2, 0), (3, 3) and (4, 8). The same points are plotted and joined by a smooth U-shaped curve with minimum at (1, −1).</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 16px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 15px; font-weight: 600; fill: #1d4ed8; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <rect width="900" height="540" fill="#f8fafc" rx="12"/>
+  <text x="30" y="38" class="heading">Calculate, plot, then join with a smooth curve</text>
+  <rect x="30" y="65" width="245" height="440" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="152.5" y="99" class="subhead" text-anchor="middle">y = x² − 2x</text>
+  <rect x="55" y="122" width="195" height="42" fill="#eff6ff"/>
+  <text x="102.5" y="150" class="math" text-anchor="middle">x</text>
+  <text x="202.5" y="150" class="math" text-anchor="middle">y</text>
+  <path d="M55 164 H250 M55 206 H250 M55 248 H250 M55 290 H250 M55 332 H250 M55 374 H250 M55 416 H250 M152.5 122 V416" stroke="#cbd5e1" fill="none"/>
+  <text x="102.5" y="192" class="label" text-anchor="middle">−1</text>
+  <text x="202.5" y="192" class="label" text-anchor="middle">3</text>
+  <text x="102.5" y="234" class="label" text-anchor="middle">0</text>
+  <text x="202.5" y="234" class="label" text-anchor="middle">0</text>
+  <text x="102.5" y="276" class="label" text-anchor="middle">1</text>
+  <text x="202.5" y="276" class="label" text-anchor="middle">−1</text>
+  <text x="102.5" y="318" class="label" text-anchor="middle">2</text>
+  <text x="202.5" y="318" class="label" text-anchor="middle">0</text>
+  <text x="102.5" y="360" class="label" text-anchor="middle">3</text>
+  <text x="202.5" y="360" class="label" text-anchor="middle">3</text>
+  <text x="102.5" y="402" class="label" text-anchor="middle">4</text>
+  <text x="202.5" y="402" class="label" text-anchor="middle">8</text>
+  <text x="152.5" y="461" class="label" text-anchor="middle">Every y value comes from</text>
+  <text x="152.5" y="484" class="label" text-anchor="middle">substituting its x value.</text>
+  <rect x="300" y="65" width="565" height="440" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <path d="M350 85 V465 M415 85 V465 M480 85 V465 M545 85 V465 M610 85 V465 M675 85 V465 M740 85 V465 M320 175 H840 M320 200 H840 M320 225 H840 M320 250 H840 M320 275 H840 M320 300 H840 M320 325 H840 M320 350 H840 M320 375 H840 M320 425 H840" class="grid"/>
+  <line x1="320" y1="400" x2="840" y2="400" stroke="#334155" stroke-width="1.8"/>
+  <line x1="415" y1="85" x2="415" y2="465" stroke="#334155" stroke-width="1.8"/>
+  <text x="828" y="390" class="small">x</text>
+  <text x="426" y="101" class="small">y</text>
+  <text x="350" y="421" class="small" text-anchor="middle">−1</text>
+  <text x="415" y="421" class="small" text-anchor="middle">0</text>
+  <text x="480" y="421" class="small" text-anchor="middle">1</text>
+  <text x="545" y="421" class="small" text-anchor="middle">2</text>
+  <text x="610" y="421" class="small" text-anchor="middle">3</text>
+  <text x="675" y="421" class="small" text-anchor="middle">4</text>
+  <text x="403" y="155" class="small" text-anchor="end">8</text>
+  <text x="403" y="330" class="small" text-anchor="end">3</text>
+  <text x="403" y="430" class="small" text-anchor="end">−1</text>
+  <path d="M350 325 C371.7 358.3 393.3 383.3 415 400 C436.7 416.7 458.3 425 480 425 C501.7 425 523.3 416.7 545 400 C566.7 383.3 588.3 358.3 610 325 C631.7 291.7 653.3 250 675 200" fill="none" stroke="#2563eb" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="350" cy="325" r="5" fill="#d97706"/>
+  <circle cx="415" cy="400" r="5" fill="#d97706"/>
+  <circle cx="480" cy="425" r="5" fill="#7c3aed"/>
+  <circle cx="545" cy="400" r="5" fill="#d97706"/>
+  <circle cx="610" cy="325" r="5" fill="#d97706"/>
+  <circle cx="675" cy="200" r="5" fill="#d97706"/>
+  <text x="337" y="313" class="label" text-anchor="end">(−1, 3)</text>
+  <text x="395" y="380" class="label" text-anchor="end">(0, 0)</text>
+  <text x="480" y="455" class="label" text-anchor="middle" fill="#7c3aed">minimum (1, −1)</text>
+  <text x="560" y="375" class="label">(2, 0)</text>
+  <text x="620" y="315" class="label">(3, 3)</text>
+  <text x="687" y="196" class="label">(4, 8)</text>
+  <text x="580" y="477" class="label" text-anchor="middle">Rounded turning point — never a pointed V</text>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" role="img" aria-labelledby="title desc">
+  <title id="title">Structure of a villus and its two absorption routes</title>
+  <desc id="desc">A finger-like villus projecting into the small-intestine lumen. Microvilli cover its one-cell-thick epithelium. Inside are a branching blood capillary network and a central blind-ended lacteal. Glucose and amino acids enter the blood capillaries for transport in blood; fatty acids and glycerol enter the lacteal for transport in lymph.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 15px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; fill: #4b5563; }
+      .route { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 600; fill: #1f2937; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .brush { stroke: #047857; stroke-width: 3; stroke-linecap: round; }
+    </style>
+    <marker id="arrow-blood" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrow-lymph" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#a16207"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="800" rx="12" fill="#f9fafb"/>
+  <text x="450" y="36" text-anchor="middle" class="title">A villus: absorption into blood and lymph</text>
+  <text x="450" y="70" text-anchor="middle" class="label">Lumen of the small intestine</text>
+  <text x="450" y="91" text-anchor="middle" class="sublabel">digested food molecules in solution</text>
+
+  <path d="M340 620 C345 550 354 475 360 395 C366 305 370 220 406 162 C423 135 438 120 450 116 C462 120 477 135 494 162 C530 220 534 305 540 395 C546 475 555 550 560 620 Z" fill="#d1fae5" stroke="#047857" stroke-width="3"/>
+  <path d="M362 620 C367 550 376 475 382 395 C388 310 392 236 421 183 C433 160 444 148 450 145 C456 148 467 160 479 183 C508 236 512 310 518 395 C524 475 533 550 538 620 Z" fill="#fff7ed" stroke="#6b7280" stroke-width="1.5"/>
+
+  <g class="brush">
+    <path d="M450 116 L450 98"/>
+    <path d="M435 123 L430 105"/>
+    <path d="M421 134 L412 117"/>
+    <path d="M408 151 L395 137"/>
+    <path d="M396 173 L381 161"/>
+    <path d="M387 198 L370 190"/>
+    <path d="M380 225 L362 219"/>
+    <path d="M375 254 L357 250"/>
+    <path d="M371 284 L352 282"/>
+    <path d="M368 315 L349 314"/>
+    <path d="M364 347 L345 347"/>
+    <path d="M361 380 L342 381"/>
+    <path d="M358 414 L339 417"/>
+    <path d="M355 449 L336 453"/>
+    <path d="M352 485 L333 490"/>
+    <path d="M349 522 L330 529"/>
+    <path d="M346 558 L327 567"/>
+    <path d="M465 123 L470 105"/>
+    <path d="M479 134 L488 117"/>
+    <path d="M492 151 L505 137"/>
+    <path d="M504 173 L519 161"/>
+    <path d="M513 198 L530 190"/>
+    <path d="M520 225 L538 219"/>
+    <path d="M525 254 L543 250"/>
+    <path d="M529 284 L548 282"/>
+    <path d="M532 315 L551 314"/>
+    <path d="M536 347 L555 347"/>
+    <path d="M539 380 L558 381"/>
+    <path d="M542 414 L561 417"/>
+    <path d="M545 449 L564 453"/>
+    <path d="M548 485 L567 490"/>
+    <path d="M551 522 L570 529"/>
+    <path d="M554 558 L573 567"/>
+  </g>
+
+  <g fill="none" stroke="#dc2626" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M410 620 C410 540 405 470 410 390 C414 320 420 255 438 205"/>
+    <path d="M500 620 C500 540 505 470 500 390 C496 320 490 255 472 205"/>
+    <path d="M438 205 C450 190 460 190 472 205"/>
+    <path d="M420 290 C440 310 470 310 490 290"/>
+    <path d="M410 390 C430 370 480 370 500 390"/>
+    <path d="M410 470 C435 450 475 450 500 470"/>
+    <path d="M410 550 C435 530 475 530 500 550"/>
+  </g>
+
+  <path d="M455 620 L455 275" fill="none" stroke="#a16207" stroke-width="20" stroke-linecap="round"/>
+  <path d="M455 620 L455 275" fill="none" stroke="#fef3c7" stroke-width="10" stroke-linecap="round"/>
+
+  <path d="M374 420 C385 420 394 425 403 430" fill="none" stroke="#dc2626" stroke-width="3" marker-end="url(#arrow-blood)"/>
+  <path d="M386 337 C405 338 425 347 444 355" fill="none" stroke="#a16207" stroke-width="3" marker-end="url(#arrow-lymph)"/>
+
+  <text x="55" y="187" class="label">Microvilli</text>
+  <path d="M145 181 H290 L380 194" class="leader"/>
+
+  <text x="55" y="300" class="label">One-cell-thick</text>
+  <text x="55" y="323" class="label">epithelium</text>
+  <path d="M166 314 H300 L367 320" class="leader"/>
+
+  <text x="55" y="460" class="label">Capillary network</text>
+  <path d="M198 454 H320 L404 443" class="leader"/>
+
+  <text x="700" y="285" class="label">Lacteal</text>
+  <path d="M688 278 H580 L467 300" class="leader"/>
+
+  <text x="685" y="575" class="label">Villus core</text>
+  <text x="685" y="598" class="sublabel">connective tissue</text>
+  <path d="M675 568 H590 L530 535" class="leader"/>
+
+  <rect x="55" y="660" width="790" height="45" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="450" y="689" text-anchor="middle" class="route">Glucose + amino acids → blood capillaries → blood</text>
+
+  <rect x="55" y="720" width="790" height="45" rx="8" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+  <text x="450" y="749" text-anchor="middle" class="route">Fatty acids + glycerol → lacteal → lymph</text>
+</svg>

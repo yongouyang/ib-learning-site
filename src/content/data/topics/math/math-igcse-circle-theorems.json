@@ -35,6 +35,11 @@
     {
       "id": "math-igcse-circle-theorems-n5",
       "heading": "Cyclic Quadrilaterals",
+      "illustration": {
+        "src": "/images/math/math-igcse-circle-theorems-cyclic-quadrilateral.svg",
+        "alt": "Cyclic quadrilateral ABCD on a circle with opposite vertices A and C highlighted together and B and D highlighted together.",
+        "caption": "Opposite angles are supplementary: A + C = 180° and B + D = 180°."
+      },
       "body": "📌 Definition\nA quadrilateral with all four vertices on the circle is cyclic. Its opposite angles sum to 180$^\\circ$.\n\n🔑 How it works\nIn cyclic quadrilateral ABCD, angle A + angle C = 180$^\\circ$ and angle B + angle D = 180$^\\circ$. When the angles are given algebraically this produces a linear equation immediately.\n\n💡 Worked Example\nAngle A = (x + 10)$^\\circ$ and angle C = (2x - 40)$^\\circ$. Then (x + 10) + (2x - 40) = 180, so 3x = 210 and x = 70."
     },
     {
@@ -45,6 +50,11 @@
     {
       "id": "math-igcse-circle-theorems-n7",
       "heading": "The Alternate Segment Theorem",
+      "illustration": {
+        "src": "/images/math/math-igcse-circle-theorems-alternate-segment.svg",
+        "alt": "A tangent at A making 58 degrees with chord AB and point C on the major arc AB, with angle ACB also marked 58 degrees.",
+        "caption": "The tangent–chord angle equals the angle in the alternate segment, so angle ACB = 58°."
+      },
       "body": "📌 Definition\nThe angle between a tangent and a chord, measured at the point of contact, equals the angle that the chord subtends in the alternate segment.\n\n🔑 How it works\nThe tangent at A meets chord AB at some angle. Any point C on the far arc gives angle ACB equal to that tangent-chord angle. The chord cuts the circle into two segments, and you use the one on the opposite side from the marked angle. Examiners like wrapping algebra or a centre-angle step around it.\n\n💡 Worked Example\nThe tangent at A makes 58$^\\circ$ with chord AB and C is on the major arc: angle ACB = 58$^\\circ$. If the two angles are given as 3x and x + 40$^\\circ$, then 3x = x + 40 gives x = 20."
     }
   ],
