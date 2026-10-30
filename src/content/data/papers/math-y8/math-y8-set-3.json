@@ -1,0 +1,100 @@
+{
+  "id": "math-y8-set-3",
+  "courseId": "math-y8",
+  "title": "Practice Set 3",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-y8-set-3-q1",
+      "stem": "Share £84 in the ratio $3:4$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: divides £84 by $3 + 4 = 7$ to find one share",
+        "A1: £36 and £48 in the correct order"
+      ],
+      "modelAnswer": "There are $3 + 4 = 7$ equal parts, so one part is £$84 \\div 7 = 12$. The two shares are $3 \\times 12 = 36$ pounds and $4 \\times 12 = 48$ pounds. Answer: £36 and £48. Check: $36 + 48 = 84$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-3-q2",
+      "stem": "Write $0.00072$ in standard form.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $7.2$ identified as the number between $1$ and $10$",
+        "B1: $7.2 \\times 10^{-4}$"
+      ],
+      "modelAnswer": "Move the decimal point four places to the right to obtain $7.2$. Because the original number is less than $1$, the power of ten is negative: $0.00072 = 7.2 \\times 10^{-4}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-3-q3",
+      "stem": "A sequence begins $7, 12, 17, 22, \\ldots$ Find an expression for its $n$th term.",
+      "marks": 2,
+      "markscheme": [
+        "M1: common difference $5$ used to write $5n$",
+        "A1: $5n + 2$"
+      ],
+      "modelAnswer": "The terms increase by $5$ each time, so compare the sequence with the multiples of five: $5, 10, 15, 20, \\ldots$ Each term is $2$ more than the corresponding multiple of five. Therefore the $n$th term is $5n + 2$. Check: when $n = 1$, $5(1) + 2 = 7$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-3-q4",
+      "stem": "Solve $4(2x - 3) = 2x + 18$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: expands the bracket correctly to $8x - 12$",
+        "M1: collects terms to obtain $6x = 30$",
+        "A1: $x = 5$"
+      ],
+      "modelAnswer": "Expand the bracket: $8x - 12 = 2x + 18$. Subtract $2x$ from both sides and add $12$: $6x = 30$. Divide by $6$: $x = 5$. Check: $4(2 \\times 5 - 3) = 28$ and $2 \\times 5 + 18 = 28$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-3-q5",
+      "stem": "Five numbers have a mean of $8$. Four of the numbers are $5, 7, 9$ and $11$. Work out the fifth number.",
+      "marks": 3,
+      "markscheme": [
+        "M1: total of all five numbers $= 5 \\times 8 = 40$",
+        "M1: total of the four known numbers $= 32$",
+        "A1: fifth number $= 8$"
+      ],
+      "modelAnswer": "The five numbers must total $5 \\times 8 = 40$. The four known numbers total $5 + 7 + 9 + 11 = 32$. Therefore the missing number is $40 - 32 = 8$. Check: the five values sum to $40$, giving mean $40 \\div 5 = 8$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-3-q6",
+      "stem": "Triangle $T$ has vertices $(1,1)$, $(3,1)$ and $(1,2)$. It is reflected in the line $y = x$. Write down the coordinates of the three vertices of the image.",
+      "marks": 2,
+      "markscheme": [
+        "B1: at least two image vertices correct: $(1,1)$, $(1,3)$ or $(2,1)$",
+        "B1: all three image vertices correct: $(1,1)$, $(1,3)$ and $(2,1)$"
+      ],
+      "modelAnswer": "Reflection in $y = x$ interchanges the $x$- and $y$-coordinates. Thus $(1,1)$ stays at $(1,1)$, $(3,1)$ maps to $(1,3)$, and $(1,2)$ maps to $(2,1)$. The image has vertices $(1,1)$, $(1,3)$ and $(2,1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-3-q7",
+      "stem": "A metal block has mass $240$ g and volume $80\\text{ cm}^3$. (a) Work out its density. (b) A second block of the same metal has volume $120\\text{ cm}^3$. Work out its mass.",
+      "marks": 3,
+      "markscheme": [
+        "M1: density $=$ mass $\\div$ volume, $240 \\div 80$",
+        "A1: (a) $3\\text{ g/cm}^3$",
+        "A1: (b) mass $= 3 \\times 120 = 360$ g"
+      ],
+      "modelAnswer": "(a) Density $= \\dfrac{240}{80} = 3\\text{ g/cm}^3$. (b) The same metal has the same density, so mass $=$ density $\\times$ volume $= 3 \\times 120 = 360$ g. Answers: $3\\text{ g/cm}^3$ and $360$ g.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-y8-set-3-q8",
+      "stem": "A cylindrical tin with a lid has radius $4$ cm and height $12$ cm. Calculate the total area of metal needed to make it, leaving your answer in terms of $\\pi$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: curved surface area $= 2\\pi rh = 96\\pi$",
+        "M1: area of the lid and base $= 2\\pi r^2 = 32\\pi$",
+        "A1: total metal area $= 128\\pi\\text{ cm}^2$"
+      ],
+      "modelAnswer": "The curved side has area $2\\pi rh = 2\\pi \\times 4 \\times 12 = 96\\pi$. The lid and base together have area $2\\pi r^2 = 2\\pi \\times 4^2 = 32\\pi$. Add the parts: $96\\pi + 32\\pi = 128\\pi$. The tin needs $128\\pi\\text{ cm}^2$ of metal.",
+      "difficulty": "hard"
+    }
+  ]
+}

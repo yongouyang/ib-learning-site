@@ -290,7 +290,7 @@ describe('checkMarkschemePrefixes', () => {
   });
 
   it('holds for every markscheme point in the corpus (the measurement, pinned)', () => {
-    // 840 points across 42 sets: M 160 / A 187 / B 493 (2026-10-27, after the IGCSE science set-3 batch).
+    // 920 points across 46 sets: M 177 / A 201 / B 542 (2026-10-30, after the demand-led set-3 batch).
     // If a future authoring pass breaks the convention, this fails here rather than in an
     // exam marker's prompt.
     const papersDir = path.join(process.cwd(), 'src/content/data/papers');
@@ -307,6 +307,6 @@ describe('checkMarkschemePrefixes', () => {
         expect(checkMarkschemePrefixes(parsed)).toEqual([]);
       }
     }
-    expect(points).toBe(840);
+    expect(points).toBe(920);
   });
 });

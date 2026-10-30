@@ -4,6 +4,24 @@
 
 ---
 
+## 2026-10-30 — Demand-led paper set 3 batch
+Git HEAD: `b1d4e6d` (develop, tree dirty)
+Done: added `math-y8`/`math-dp-ai`/`chin-ks3`/`germ-ks3` set 3 (8 q / 20 marks each;
+  46 papers / 920 points: M177/A201/B542). Refreshed 90d production analytics selected the
+  four: only direct paper starts were Year 8 (4 across 3 sessions); DP AI had 20 relevant
+  page views; Chinese/German had completed quizzes. Registry, count pins and roadmap updated;
+  all numeric keys re-derived; premium/free wording collisions 0.
+Verified: registry check; content + audit 0/0; illustrations + layout PASS; 1736/1736 unit;
+  tsc + focused eslint clean; build:static 431 URLs + leak HARD/TIGHT; static e2e Desktop
+  442/4 skipped; exams/papers iPhone + iPad 9/9 each; all 4 premium pages at 1280/375px
+  (0 KaTeX errors/overflow), plus a complete Year 8 answer→review→results run.
+Next: investigate maths + mixed-review completion; obtain Search Console data; evaluate the
+  illustration pilot and both set-3 batches before more; next subject-specific IGCSE gap wave.
+Notes: demand is small, session-clustered and possibly test traffic, not market-size evidence.
+  Content-only UX pass waived (no chrome); direct browser smoke used. No commit/push/deploy.
+
+---
+
 ## 2026-10-28 — IGCSE science set 3, illustration pilot and Biology wave 2
 Git HEAD: `0450702` (develop, tree dirty)
 Done: added `phys-igcse`/`chem-igcse`/`bio-igcse` set 3 (8 q / 20 marks each; 42 papers /

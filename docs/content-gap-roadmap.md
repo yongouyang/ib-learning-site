@@ -1,7 +1,7 @@
 # Content gap roadmap — the improvement room beyond backlogs A–E
 
-**Measured 2026-10-28** on `develop` @ `0450702` plus this iteration (300 topics / 5,046 MC
-questions / 42 paper sets), by reading `src/content/data/**` directly. This doc is the multi-iteration programme
+**Measured 2026-10-30** on `develop` @ `b1d4e6d` plus this iteration (300 topics / 5,046 MC
+questions / 46 paper sets), by reading `src/content/data/**` directly. This doc is the multi-iteration programme
 view: `docs/content-backlog-review.md` §2's five backlogs (A–E) are all **closed**, and what
 remains is not debt but *headroom* — coverage the product has not grown into yet. Each gap
 below is sized from the corpus, with options and a recommended iteration order. Nothing here
@@ -21,7 +21,7 @@ Read alongside `docs/CONTENT_STYLE.md` (authoring standard), `docs/igcse-pilot-p
 | Stage split | **ks3 197 (66%) · igcse 71 (24%) · dp 32 (11%)** | IGCSE spans math, English, biology, chemistry and physics |
 | MC questions | **5,046** | every question difficulty-tagged; bands remain relative to the topic |
 | Fresh variants on retake | **300 / 300** | generators, authored variant groups, or flashcard-match drills |
-| Paper sets | **42 across 19 courses** | 15 courses × 2; math-igcse and the three IGCSE sciences × 3 |
+| Paper sets | **46 across 19 courses** | 11 courses × 2; eight courses × 3 |
 | Figures | **525 SVGs / 544 illustrated notes** | 300/300 topics illustrated; the 20-topic pilot has 3 figures per selected topic |
 
 Per-subject (topics / stages covered):
@@ -73,12 +73,12 @@ Language subjects keep the poster-style exception (backlog review §2.B).
 
 ## Gap 3 — Paper depth: premium exhausts at set 2
 
-**Measured:** 15 of 19 courses still have exactly 2 sets. The first batch adds a third
-20-mark set to each of `phys-igcse`, `chem-igcse` and `bio-igcse` (60 marks total),
-alongside the existing maths third set. Free-response remains the highest-value premium
-surface (AI-marked), and the thinnest.
+**Measured:** 11 of 19 courses still have exactly 2 sets. The first batch added set 3 to
+`phys-igcse`, `chem-igcse` and `bio-igcse`; the demand-led 2026-10-30 batch adds it to
+`math-y8`, `math-dp-ai`, `chin-ks3` and `germ-ks3` (80 marks total). Free-response remains
+the highest-value premium surface (AI-marked), and the thinnest.
 
-**Iteration shape:** 15 further set-3 opportunities remain, at 8 questions / 20 marks /
+**Iteration shape:** 11 further set-3 opportunities remain, at 8 questions / 20 marks /
 `marks === markscheme.length`, weighted toward under-assessed course topics. Do not author
 them as one blanket batch: low current paper usage means discovery and learner value should
 be checked first. New set wording must not collide with free-corpus explanations *or vice
@@ -121,13 +121,22 @@ Chinese 5 / 2. Starts and completions can cross the window boundary and test tra
 uneven, so do not treat these as true cohort conversion rates. Search Console was unavailable
 (no connected browser session); impressions, CTR and query-level demand remain unmeasured.
 
+**Demand-led set-3 selection (2026-10-30):** the refreshed 90-day production raw-event window
+(2026-08-01…2026-10-30) contains four `math-y8-set-1` starts across three sessions on
+2026-10-29 — the only direct paper-start signal among eligible courses. DP AI has 20 relevant
+page views and two integration-quiz starts; Chinese has four pinyin-quiz starts and one 16/16
+completion; German has two family/home-quiz starts, one 13/16 completion and two completed
+flashcard sessions. These signals selected `math-y8`, `math-dp-ai`, `chin-ks3` and `germ-ks3`.
+They remain small, session-clustered and potentially test-contaminated, not evidence of market
+size or paid conversion.
+
 ## Recommended iteration order
 
 | # | Item | Size | Why first / what it depends on |
 |---|---|---|---|
 | 1 | **Maths + mixed-review completion investigation, then discovery measurement** | small UX/analytics investigation | Locate abandonment in the two largest start buckets and obtain Search Console data before funding another large wave |
 | 2 | **Ship and evaluate the current illustration pilot** | 20 topics / 40 figures, done | All figures reviewed; expand only if the live pilot proves useful |
-| 3 | **Select ONE further paper-set-3 batch from demonstrated demand** | 3–4 sets | 15 courses remain, but current paper usage is too low to justify a blanket programme |
+| 3 | **Evaluate the two set-3 batches before another** | usage review | 11 courses remain, but current paper usage is too low to justify a blanket programme; require fresh demand evidence |
 | 4 | **Next subject-specific IGCSE gap wave** | per-subject | Choose Chemistry/Biology gaps from syllabus value plus demand; fold authored variants into that reread |
 | 5 | DP sciences / further 0580 maths waves | open | Deferred: no measured demand and no Search Console evidence |
 

@@ -72,7 +72,7 @@ describe('content-registry', () => {
 
     it('registry.papers exposes papers with their mark schemes', () => {
       const papers = getAllPapersContent();
-      expect(papers).toHaveLength(42);
+      expect(papers).toHaveLength(46);
       const set = getPaperContent('math-y9', 'math-y9-set-2')!;
       expect(set.questions.length).toBeGreaterThan(0);
       expect(set.questions[0].markscheme.length).toBe(set.questions[0].marks);

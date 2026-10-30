@@ -1,0 +1,100 @@
+{
+  "id": "math-dp-ai-set-3",
+  "courseId": "math-dp-ai",
+  "title": "Practice Set 3",
+  "durationMinutes": 35,
+  "questions": [
+    {
+      "id": "math-dp-ai-set-3-q1",
+      "stem": "Three sites are located at $A(0,0)$, $B(4,0)$ and $C(0,3)$. Use squared distances to determine which site is closest to $P(1,1)$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: calculates $PA^2 = 2$, $PB^2 = 10$ and $PC^2 = 5$",
+        "A1: site $A$ is closest"
+      ],
+      "modelAnswer": "Compare squared distances so no square roots are needed: $PA^2 = 1^2 + 1^2 = 2$, $PB^2 = (1-4)^2 + 1^2 = 10$, and $PC^2 = 1^2 + (1-3)^2 = 5$. Since $2$ is the least of these values, $P$ belongs to $A$'s Voronoi cell and $A$ is the nearest site.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-3-q2",
+      "stem": "A connected graph has five vertices with degrees $2, 2, 3, 3, 4$. (a) Find the number of edges. (b) State whether the graph has an Eulerian circuit, an Eulerian trail that is not a circuit, or neither.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) $7$ edges, using degree sum $14 = 2|E|$",
+        "B1: (b) two odd-degree vertices, so an open Eulerian trail exists but no Eulerian circuit"
+      ],
+      "modelAnswer": "(a) By the handshaking lemma, $2|E| = 2 + 2 + 3 + 3 + 4 = 14$, so $|E| = 7$. (b) Only the two degree-$3$ vertices are odd. An Eulerian trail can start at one of them and finish at the other; a circuit is impossible because that would require every vertex degree to be even.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-3-q3",
+      "stem": "A help desk receives calls independently at a constant average rate of $6$ calls per $20$ minutes. Let $X$ be the number of calls in a $10$-minute period. State the distribution of $X$ and find $P(X=0)$ in exact form.",
+      "marks": 2,
+      "markscheme": [
+        "M1: scales the mean to $3$ and states $X \\sim \\operatorname{Po}(3)$",
+        "A1: $P(X=0) = e^{-3}$"
+      ],
+      "modelAnswer": "Ten minutes is half of twenty minutes, so the mean is $6 \\times \\dfrac{10}{20} = 3$ calls. Therefore $X \\sim \\operatorname{Po}(3)$. For a Poisson variable, $P(X=r) = \\dfrac{e^{-m}m^r}{r!}$, hence $P(X=0) = \\dfrac{e^{-3}3^0}{0!} = e^{-3}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-3-q4",
+      "stem": "For data with $2 \\leq x \\leq 10$, a regression line is $y = 2.4x + 5$. (a) Estimate $y$ when $x = 8$. (b) Comment on the reliability of this estimate.",
+      "marks": 3,
+      "markscheme": [
+        "M1: substitutes $x = 8$ into the regression line",
+        "A1: (a) $y = 24.2$",
+        "B1: (b) relatively reliable as interpolation because $8$ lies inside the observed range"
+      ],
+      "modelAnswer": "(a) Substitute into the regression equation: $y = 2.4(8) + 5 = 19.2 + 5 = 24.2$. (b) The value $x = 8$ lies within the observed interval $2 \\leq x \\leq 10$, so this is interpolation rather than extrapolation. The estimate is therefore relatively reliable, assuming the linear model fits the data well.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-3-q5",
+      "stem": "A two-tailed test concerns whether a population mean has changed. The $p$-value is $0.037$ and the significance level is $1\\%$. State the statistical decision and write a conclusion in context.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $0.037 > 0.01$, so do not reject $H_0$",
+        "B1: there is insufficient evidence at the $1\\%$ level to conclude that the population mean has changed"
+      ],
+      "modelAnswer": "Compare the $p$-value with the significance level: $0.037 > 0.01$. Therefore do not reject $H_0$. At the $1\\%$ significance level there is insufficient evidence to conclude that the population mean has changed; this does not prove that the mean is unchanged.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-3-q6",
+      "stem": "The random variable $X$ follows $B(4,\\dfrac{1}{3})$. Find $P(X=2)$, giving your answer as a simplified fraction.",
+      "marks": 3,
+      "markscheme": [
+        "M1: uses the binomial coefficient $\\binom{4}{2} = 6$",
+        "M1: includes two successes and two failures, $(\\dfrac{1}{3})^2(\\dfrac{2}{3})^2$",
+        "A1: $P(X=2) = \\dfrac{8}{27}$"
+      ],
+      "modelAnswer": "There are $\\binom{4}{2} = 6$ arrangements of two successes among four trials. Each arrangement has probability $(\\dfrac{1}{3})^2(\\dfrac{2}{3})^2$. Therefore $P(X=2) = 6 \\times \\dfrac{1}{9} \\times \\dfrac{4}{9} = \\dfrac{24}{81} = \\dfrac{8}{27}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-3-q7",
+      "stem": "A weighted graph has vertices $A,B,C,D$ and edges $AB=4$, $AC=6$, $BC=5$, $BD=7$ and $CD=8$. Use Kruskal's algorithm to find the minimum spanning tree and its total weight.",
+      "marks": 3,
+      "markscheme": [
+        "M1: considers edges in increasing weight and rejects edges that form cycles",
+        "A1: selects $AB$, $BC$ and $BD$",
+        "A1: total weight $= 16$"
+      ],
+      "modelAnswer": "Order the edges by weight: $AB=4$, $BC=5$, $AC=6$, $BD=7$, $CD=8$. Select $AB$ and $BC$. Reject $AC$ because it would form cycle $A-B-C-A$. Select $BD$ to connect $D$; now all four vertices are joined with no cycle, so $CD$ is unnecessary. The minimum spanning tree has edges $AB,BC,BD$ and weight $4+5+7=16$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-ai-set-3-q8",
+      "stem": "Let $X \\sim \\operatorname{Po}(2)$. Find $P(X \\geq 2)$, giving your answer in exact form.",
+      "marks": 3,
+      "markscheme": [
+        "M1: uses the complement $P(X \\geq 2) = 1 - P(X=0) - P(X=1)$",
+        "M1: obtains $P(X=0) = e^{-2}$ and $P(X=1) = 2e^{-2}$",
+        "A1: $P(X \\geq 2) = 1 - 3e^{-2}$"
+      ],
+      "modelAnswer": "The only non-negative integer outcomes below $2$ are $0$ and $1$, so use the complement. For $X \\sim \\operatorname{Po}(2)$, $P(X=0) = e^{-2}$ and $P(X=1) = \\dfrac{e^{-2}2^1}{1!} = 2e^{-2}$. Hence $P(X \\geq 2) = 1 - e^{-2} - 2e^{-2} = 1 - 3e^{-2}$.",
+      "difficulty": "hard"
+    }
+  ]
+}
