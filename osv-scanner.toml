@@ -10,4 +10,6 @@
 # re-scoped upstream (modified 2026-10-02) and no longer matches braces@3.0.3,
 # so the scanner reported the ignore as unused. Re-add only if a future
 # tailwindcss upgrade brings back a flagged braces. The 2026-10-25 sweep bumped
-# zod -> 4.6.7 and transitive undici -> 7.30.1 for four new OSV findings.)
+# zod -> 4.6.7 and transitive undici -> 7.30.1 for four new OSV findings. The
+# 2026-10-31 sweep overrode transitive minimatch 3.1.5/10.2.6 -> ^11.0.1
+# (resolved 11.0.3) for GHSA-g3hv-75wg-m249; no ignore was added.)

@@ -4,6 +4,19 @@
 
 ---
 
+## 2026-10-31 — Minimatch OSV findings fixed
+Git HEAD: `3f020cf` (develop, tree dirty)
+Done: added a root npm override for transitive `minimatch`, replacing vulnerable
+  3.1.5 and 10.2.6 copies with 11.0.3; no suppression added. Development-only
+  ESLint dependency paths were affected; no application source changed.
+Verified: OSV scanner clean (root + tools); npm audit 0; 1736/1736 unit tests;
+  full ESLint 0 errors (35 pre-existing warnings).
+Next: push and confirm the GitHub OSV gate; investigate maths + mixed-review
+  completion; obtain Search Console data; evaluate illustration/set-3 batches.
+Notes: e2e not rerun (development dependency-only change). No commit/push/deploy.
+
+---
+
 ## 2026-10-30 — Demand-led paper set 3 batch
 Git HEAD: `b1d4e6d` (develop, tree dirty)
 Done: added `math-y8`/`math-dp-ai`/`chin-ks3`/`germ-ks3` set 3 (8 q / 20 marks each;
