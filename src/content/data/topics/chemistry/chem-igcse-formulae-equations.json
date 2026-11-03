@@ -1,0 +1,81 @@
+{
+  "id": "chem-igcse-formulae-equations",
+  "subjectId": "chemistry",
+  "title": "Formulae and Chemical Equations",
+  "description": "Deduce molecular, empirical and ionic formulae from particles and charges; construct word, symbol and ionic equations with balanced atoms, charge and state symbols for Cambridge IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-formulae-equations-n1",
+      "heading": "What a Formula Tells You",
+      "body": "📌 A chemical formula uses element symbols and subscripts to show the relative numbers of atoms or ions. A **molecular formula** gives the actual number and type of each atom in one molecule.\n\n🔑 Reading subscripts and brackets\n• H₂O contains 2 H atoms and 1 O atom.\n• CO₂ contains 1 C atom and 2 O atoms.\n• Ca(OH)₂ contains 1 Ca, 2 O and 2 H atoms: the subscript 2 multiplies everything inside the brackets.\n• 2NH₃ means two ammonia molecules, giving 2 N and 6 H atoms in total.\n\n💡 Worked Example\nA model contains one carbon atom and four hydrogen atoms joined together. Its molecular formula is CH₄, not C₄H.\n\n⚠️ Common Mistake\nChanging subscripts when balancing an equation. H₂O is water; H₄O₂ is not an alternative way to write two water molecules—use 2H₂O.\n\n📎 Key Points to Remember\nSubscripts belong to a formula; coefficients in front show numbers of complete particles."
+    },
+    {
+      "id": "chem-igcse-formulae-equations-n2",
+      "heading": "Molecular and Empirical Formulae",
+      "body": "📌 The **empirical formula** is the simplest whole-number ratio of the different atoms or ions in a compound. The molecular formula may be the same as, or a whole-number multiple of, the empirical formula.\n\n🔑 Reducing a ratio\nDivide every subscript by their largest common factor. C₂H₄ has ratio 2:4 = 1:2, so its empirical formula is CH₂. H₂O has ratio 2:1, which cannot be reduced, so its empirical formula is also H₂O.\n\n💡 Worked Example\nA molecule has formula C₃H₆. Divide both subscripts by 3: the empirical formula is CH₂. Different molecules such as C₂H₄ and C₃H₆ can therefore share an empirical formula.\n\n⚠️ Common Mistake\nWriting an empirical formula with fractional or decimal subscripts. It must use the simplest whole-number ratio.\n\n📎 Key Points to Remember\nMolecular = actual atom counts; empirical = simplest ratio. Ionic compounds are normally written using their simplest ratio."
+    },
+    {
+      "id": "chem-igcse-formulae-equations-n3",
+      "heading": "Ionic Formulae: Balance the Charges",
+      "body": "📌 An ionic compound has no overall charge. Combine positive and negative ions in a ratio whose total charges cancel.\n\n🔑 The charge-balance method\n1. Write each ion and its charge.\n2. Choose numbers of ions so positive charge = negative charge.\n3. Write the simplest ratio, using brackets around a polyatomic ion if more than one is needed.\n\n💡 Worked Examples\n• Mg²⁺ with Cl⁻: MgCl₂, because +2 + 2(−1) = 0.\n• Al³⁺ with O²⁻: Al₂O₃, because 2(+3) + 3(−2) = 0.\n• Ca²⁺ with NO₃⁻: Ca(NO₃)₂.\n\n⚠️ Common Mistake\nCopying the charges as subscripts without simplifying. Ca²⁺ and O²⁻ give CaO, not Ca₂O₂, because the 1:1 ratio already balances.\n\n📎 Key Points to Remember\nCheck both atom ratio and total charge. Never leave a charge on the final neutral formula.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-formulae-equations-charge-balance.svg",
+        "alt": "Charge-balance examples show one magnesium ion with two chloride ions, two aluminium ions with three oxide ions, and one calcium ion with two nitrate ions, each giving zero total charge.",
+        "caption": "Choose the simplest ion ratio that makes total positive and negative charge equal."
+      }
+    },
+    {
+      "id": "chem-igcse-formulae-equations-n4",
+      "heading": "Word and Symbol Equations",
+      "body": "📌 A word equation names reactants and products; a symbol equation uses their correct formulae. Reactants go on the left and products on the right, separated by an arrow.\n\n🔑 Building the equation\nFor magnesium burning in oxygen: magnesium + oxygen → magnesium oxide, then Mg + O₂ → MgO, then balance to 2Mg + O₂ → 2MgO.\n\n🔑 State symbols\nUse (s) solid, (l) liquid, (g) gas and (aq) aqueous—dissolved in water. Add them after the formula, not as subscripts.\n\n💡 Worked Example\nCalcium carbonate solid decomposes into calcium oxide solid and carbon dioxide gas: CaCO₃(s) → CaO(s) + CO₂(g).\n\n⚠️ Common Mistake\nWriting oxygen as O instead of O₂ when it is a gaseous element. Hydrogen, nitrogen, oxygen and the halogens are diatomic in their uncombined states.\n\n📎 Key Points to Remember\nCorrect formulae first, coefficients second, state symbols last."
+    },
+    {
+      "id": "chem-igcse-formulae-equations-n5",
+      "heading": "Balancing Without Changing Substances",
+      "body": "📌 Atoms are conserved in a chemical reaction. Balance by changing only coefficients—the numbers in front of complete formulae.\n\n🔑 A reliable method\n1. Count each element on both sides.\n2. Balance one element at a time, leaving elements that appear in only one reactant and one product until useful.\n3. Reduce coefficients if they share a common factor.\n4. Recount every atom.\n\n💡 Worked Example\nCH₄ + O₂ → CO₂ + H₂O. Carbon is balanced. Four H atoms need 2H₂O; the products then contain four O atoms, so use 2O₂:\nCH₄ + 2O₂ → CO₂ + 2H₂O.\n\n⚠️ Common Mistake\nChanging CO₂ to CO₄ to balance oxygen. That creates a different substance and invalidates the equation.\n\n📎 Key Points to Remember\nThe final equation must have the same number of every element on each side and the smallest whole-number coefficients."
+    },
+    {
+      "id": "chem-igcse-formulae-equations-n6",
+      "heading": "Ionic Equations and Spectator Ions",
+      "body": "📌 An ionic equation shows only the particles that change. Ions present unchanged on both sides are **spectator ions** and are cancelled.\n\n🔑 Constructing one\n1. Write the balanced full equation.\n2. Split soluble ionic compounds into aqueous ions; keep solids, liquids, gases and molecules intact.\n3. Cancel spectators.\n4. Balance atoms AND total charge, with state symbols.\n\n💡 Worked Example\nAgNO₃(aq) + NaCl(aq) → AgCl(s) + NaNO₃(aq) becomes Ag⁺(aq) + Cl⁻(aq) → AgCl(s). Na⁺ and NO₃⁻ are spectators.\n\n⚠️ Common Mistake\nSplitting an insoluble precipitate such as AgCl(s) into ions. A solid remains together in the ionic equation.\n\n📎 Key Points to Remember\nA correct ionic equation is balanced in both atom counts and electrical charge."
+    },
+    {
+      "id": "chem-igcse-formulae-equations-n7",
+      "heading": "Deducing an Equation from Information",
+      "body": "📌 Extended questions may describe an unfamiliar reaction. Use names, ion charges, observations and conservation to deduce the equation rather than memorising it.\n\n🔑 The sequence\nIdentify every reactant and product → write correct formulae → add states from the description → balance atoms → for an ionic equation, remove spectators and check charge.\n\n💡 Worked Example\nAqueous barium chloride reacts with aqueous sodium sulfate to form a white barium sulfate precipitate and aqueous sodium chloride. The ionic equation is Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s). The Na⁺ and Cl⁻ ions remain unchanged.\n\n⚠️ Common Mistake\nForgetting the 2+ charge on barium or writing sulfate as SO₄⁻. Total charge on the left is 2+ + 2− = 0, matching the neutral solid.\n\n📎 Key Points to Remember\nTreat unfamiliar equations as a deduction problem: formula, states, atoms, charge."
+    }
+  ],
+  "flashcards": [
+    {"id":"chem-igcse-formulae-equations-f1","term":"Molecular formula","definition":"The actual number and type of each atom in one molecule of a compound.","example":"C₂H₄ has two carbon atoms and four hydrogen atoms per molecule."},
+    {"id":"chem-igcse-formulae-equations-f2","term":"Empirical formula","definition":"The simplest whole-number ratio of the different atoms or ions in a compound.","example":"C₂H₄ and C₃H₆ both have empirical formula CH₂."},
+    {"id":"chem-igcse-formulae-equations-f3","term":"Brackets in formulae","definition":"A subscript outside brackets multiplies every atom inside the brackets.","example":"Ca(OH)₂ contains one Ca, two O and two H atoms."},
+    {"id":"chem-igcse-formulae-equations-f4","term":"Ionic formula rule","definition":"Use the simplest ion ratio that makes total positive and negative charges cancel.","example":"Al³⁺ and O²⁻ combine as Al₂O₃."},
+    {"id":"chem-igcse-formulae-equations-f5","term":"Polyatomic ion brackets","definition":"Use brackets when more than one of a polyatomic ion appears in a formula.","example":"Ca²⁺ with NO₃⁻ gives Ca(NO₃)₂, not CaNO₃₂."},
+    {"id":"chem-igcse-formulae-equations-f6","term":"Coefficient","definition":"A number before a formula that multiplies the complete particle; used to balance equations.","example":"3H₂ represents six hydrogen atoms in three hydrogen molecules."},
+    {"id":"chem-igcse-formulae-equations-f7","term":"State symbols","definition":"(s) solid, (l) liquid, (g) gas and (aq) aqueous or dissolved in water.","example":"NaCl(aq) is dissolved sodium chloride; AgCl(s) is a solid precipitate."},
+    {"id":"chem-igcse-formulae-equations-f8","term":"Conservation of atoms","definition":"A balanced equation has equal numbers of each type of atom on both sides.","example":"CH₄ + 2O₂ → CO₂ + 2H₂O balances C, H and O."},
+    {"id":"chem-igcse-formulae-equations-f9","term":"Balancing rule","definition":"Change coefficients only, never the subscripts within a correct chemical formula.","example":"Balance hydrogen with 2H₂O, not by changing water to H₄O."},
+    {"id":"chem-igcse-formulae-equations-f10","term":"Spectator ion","definition":"An aqueous ion that remains unchanged on both sides and is omitted from the ionic equation.","example":"Na⁺ and NO₃⁻ are spectators when Ag⁺ and Cl⁻ form AgCl(s)."},
+    {"id":"chem-igcse-formulae-equations-f11","term":"Precipitation ionic equation","definition":"Include the aqueous ions that combine and the insoluble solid formed, balancing atoms and charge.","example":"Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)."},
+    {"id":"chem-igcse-formulae-equations-f12","term":"Diatomic elements","definition":"H₂, N₂, O₂ and the halogens exist as diatomic molecules when uncombined.","example":"Oxygen gas is written O₂(g), not O(g)."}
+  ],
+  "questions": [
+    {"id":"chem-igcse-formulae-equations-q1","stem":"How many oxygen atoms are represented by 3Ca(NO₃)₂?","choices":["6","12","18","24"],"correctIndex":2,"explanation":"Each NO₃ group has 3 O atoms and there are 2 groups per formula unit, giving 6. The coefficient 3 gives 3 × 6 = 18 oxygen atoms.","difficulty":"hard"},
+    {"id":"chem-igcse-formulae-equations-q2","stem":"What is the empirical formula of C₄H₈?","choices":["CH₂","C₂H₄","C₄H₈","CH₄"],"correctIndex":0,"explanation":"The atom ratio 4:8 simplifies to 1:2 by dividing by 4, so the empirical formula is CH₂.","difficulty":"easy","variantOf":"empirical-formula"},
+    {"id":"chem-igcse-formulae-equations-q3","stem":"Which formula results from Mg²⁺ and Cl⁻ ions?","choices":["MgCl","Mg₂Cl","MgCl₂","Mg₂Cl₂"],"correctIndex":2,"explanation":"Two Cl⁻ ions balance one Mg²⁺ ion, giving MgCl₂ with zero total charge.","difficulty":"easy","variantOf":"ionic-charge-balance"},
+    {"id":"chem-igcse-formulae-equations-q4","stem":"Which state symbol means dissolved in water?","choices":["(l)","(aq)","(g)","(s)"],"correctIndex":1,"explanation":"(aq) means aqueous: dissolved in water. (l) is a pure liquid, not a solution.","difficulty":"easy"},
+    {"id":"chem-igcse-formulae-equations-q5","stem":"What is the formula of aluminium oxide, formed from Al³⁺ and O²⁻?","choices":["AlO","Al₂O₃","Al₃O₂","AlO₂"],"correctIndex":1,"explanation":"Two Al³⁺ ions give +6 and three O²⁻ ions give −6, so the neutral formula is Al₂O₃.","difficulty":"easy","variantOf":"ionic-charge-balance"},
+    {"id":"chem-igcse-formulae-equations-q6","stem":"Which equation is correctly balanced for methane combustion?","choices":["CH₄ + O₂ → CO₂ + 2H₂O","CH₄ + 2O₂ → CO₂ + 2H₂O","CH₄ + 2O₂ → CO₂ + H₂O","2CH₄ + O₂ → 2CO₂ + 4H₂O"],"correctIndex":1,"explanation":"CH₄ + 2O₂ → CO₂ + 2H₂O has 1 C, 4 H and 4 O atoms on both sides.","difficulty":"medium","variantOf":"balance-combustion"},
+    {"id":"chem-igcse-formulae-equations-q7","stem":"What is the empirical formula of C₆H₁₂O₆?","choices":["C₆H₁₂O₆","C₃H₆O₃","CH₂O","CHO"],"correctIndex":2,"explanation":"All three subscripts divide by 6, giving the simplest whole-number ratio C:H:O = 1:2:1, or CH₂O.","difficulty":"easy","variantOf":"empirical-formula"},
+    {"id":"chem-igcse-formulae-equations-q8","stem":"Which formula correctly combines Ca²⁺ with NO₃⁻?","choices":["CaNO₃","Ca₂NO₃","Ca(NO₃)₂","Ca(NO₂)₂"],"correctIndex":2,"explanation":"Two nitrate ions balance one calcium ion. Brackets are essential: Ca(NO₃)₂ contains two complete NO₃ groups.","difficulty":"medium"},
+    {"id":"chem-igcse-formulae-equations-q9","stem":"In the reaction AgNO₃(aq) + NaCl(aq) → AgCl(s) + NaNO₃(aq), which are spectator ions?","choices":["Ag⁺ and Cl⁻","Ag⁺ and Na⁺","Cl⁻ and NO₃⁻","Na⁺ and NO₃⁻"],"correctIndex":3,"explanation":"Na⁺ and NO₃⁻ remain aqueous and unchanged. Ag⁺ and Cl⁻ combine to form solid AgCl.","difficulty":"medium","variantOf":"spectator-ions"},
+    {"id":"chem-igcse-formulae-equations-q10","stem":"Which ionic equation represents the formation of barium sulfate precipitate?","choices":["Ba⁺(aq) + SO₄⁻(aq) → BaSO₄(aq)","Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)","Ba(s) + SO₄(s) → BaSO₄(s)","Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(aq)"],"correctIndex":1,"explanation":"Aqueous Ba²⁺ and SO₄²⁻ ions combine to form insoluble BaSO₄(s). Charges balance to zero and the precipitate is solid.","difficulty":"medium"},
+    {"id":"chem-igcse-formulae-equations-q11","stem":"A model of one molecule contains 2 nitrogen atoms and 4 oxygen atoms. What are its molecular and empirical formulae?","choices":["Molecular N₂O₄; empirical NO₂","Molecular NO₂; empirical N₂O₄","Molecular N₄O₂; empirical N₂O","Molecular N₂O₄; empirical N₂O₄"],"correctIndex":0,"explanation":"The actual counts give N₂O₄. Dividing both subscripts by 2 gives the empirical formula NO₂.","difficulty":"hard"},
+    {"id":"chem-igcse-formulae-equations-q12","stem":"Which change correctly balances N₂ + H₂ → NH₃?","choices":["Change NH₃ to N₂H₃","Use N₂ + 3H₂ → 2NH₃","Use N₂ + 2H₂ → 2NH₃","Change N₂ to N and H₂ to H"],"correctIndex":1,"explanation":"N₂ + 3H₂ → 2NH₃ has 2 N and 6 H atoms on each side. Subscripts must not be altered.","difficulty":"medium"},
+    {"id":"chem-igcse-formulae-equations-q13","stem":"Which full equation follows from the ionic equation H⁺(aq) + OH⁻(aq) → H₂O(l)?","choices":["CuO(s) + 2HCl(aq) → CuCl₂(aq) + H₂O(l)","HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)","Na₂CO₃(aq) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + CO₂(g)","Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)"],"correctIndex":1,"explanation":"In HCl + NaOH, Na⁺ and Cl⁻ are spectators, leaving H⁺ + OH⁻ → H₂O. The other reactions include additional changes.","difficulty":"medium","variantOf":"spectator-ions"},
+    {"id":"chem-igcse-formulae-equations-q14","stem":"Which equation has balanced atoms AND balanced charge?","choices":["Fe²⁺(aq) + 2OH⁻(aq) → Fe(OH)₂(s)","Fe³⁺(aq) + OH⁻(aq) → Fe(OH)₃(s)","Ag⁺(aq) + Cl₂(aq) → AgCl(s)","Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(aq)"],"correctIndex":0,"explanation":"Fe²⁺ + 2OH⁻ → Fe(OH)₂(s) balances Fe, O and H and has zero net charge on both sides.","difficulty":"hard"},
+    {"id":"chem-igcse-formulae-equations-q15","stem":"Which equation correctly represents hydrogen burning in oxygen?","choices":["H₂(g) + O₂(g) → H₂O(l)","2H₂(g) + O₂(g) → 2H₂O(l)","2H(g) + O(g) → H₂O(l)","H₂(g) + 2O₂(g) → 2H₂O(l)"],"correctIndex":1,"explanation":"2H₂ + O₂ → 2H₂O conserves 4 H and 2 O atoms and uses the correct diatomic reactant formulae.","difficulty":"medium","variantOf":"balance-combustion"}
+  ]
+}

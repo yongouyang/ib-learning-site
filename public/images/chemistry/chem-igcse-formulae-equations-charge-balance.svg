@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 475" role="img" aria-labelledby="title desc">
+  <title id="title">Balancing charges in ionic formulae</title>
+  <desc id="desc">Mg2+ with two Cl- gives MgCl2; two Al3+ with three O2- gives Al2O3; Ca2+ with two NO3- gives Ca(NO3)2.</desc>
+  <defs><style>.title{font:700 20px system-ui,sans-serif;fill:#111827}.head{font:700 17px system-ui,sans-serif;fill:#111827}.ion{font:700 16px system-ui,sans-serif;fill:#1e3a8a}.formula{font:700 18px system-ui,sans-serif;fill:#166534}.small{font:13px system-ui,sans-serif;fill:#4b5563}</style></defs>
+  <rect width="800" height="475" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Ionic Formulae: Total Charge Must Be Zero</text>
+  <g><rect x="35" y="70" width="730" height="105" rx="12" fill="#eff6ff" stroke="#93c5fd"/><text x="65" y="102" class="head">Magnesium chloride</text><text x="65" y="137" class="ion">Mg²⁺ + 2Cl⁻</text><text x="340" y="137" class="small">+2 + 2(−1) = 0</text><text x="650" y="137" text-anchor="middle" class="formula">MgCl₂</text></g>
+  <g><rect x="35" y="195" width="730" height="105" rx="12" fill="#f0fdf4" stroke="#86efac"/><text x="65" y="227" class="head">Aluminium oxide</text><text x="65" y="262" class="ion">2Al³⁺ + 3O²⁻</text><text x="340" y="262" class="small">2(+3) + 3(−2) = 0</text><text x="650" y="262" text-anchor="middle" class="formula">Al₂O₃</text></g>
+  <g><rect x="35" y="320" width="730" height="105" rx="12" fill="#fff7ed" stroke="#fdba74"/><text x="65" y="352" class="head">Calcium nitrate</text><text x="65" y="387" class="ion">Ca²⁺ + 2NO₃⁻</text><text x="340" y="387" class="small">+2 + 2(−1) = 0</text><text x="650" y="387" text-anchor="middle" class="formula">Ca(NO₃)₂</text></g>
+  <text x="400" y="455" text-anchor="middle" class="small">Use the simplest neutral ratio; brackets keep each nitrate group intact.</text>
+</svg>

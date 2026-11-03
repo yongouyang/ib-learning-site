@@ -2,7 +2,7 @@
   "id": "chem-igcse-acids-bases-salts",
   "subjectId": "chemistry",
   "title": "Acids, Bases and Salts",
-  "description": "The reactions of acids with metals, bases and carbonates; indicator colours and the pH scale; the neutralisation ionic equation; preparing a pure soluble salt; and the solubility rules — Core content for Cambridge IGCSE Chemistry 0620.",
+  "description": "Acid and base reactions, indicators, pH, salt preparation and solubility, plus Extended proton transfer, acid strength, amphoteric oxides, precipitation and water of crystallisation for Cambridge IGCSE Chemistry 0620.",
   "stage": "igcse",
   "course": "0620",
   "notes": [
@@ -45,6 +45,16 @@
       "id": "chem-igcse-acids-bases-salts-n7",
       "heading": "Solubility Rules for Common Salts",
       "body": "Whether a salt is soluble decides which preparation method is possible and which observations you should predict. The Core rules:\n\n📌 Always soluble\n• ALL sodium, potassium and ammonium salts.\n• ALL nitrates.\n\n📌 Mostly soluble — learn the exceptions\n• **Chlorides** are soluble EXCEPT silver chloride AgCl and lead(II) chloride PbCl₂.\n• **Sulfates** are soluble EXCEPT barium sulfate BaSO₄, lead(II) sulfate PbSO₄ (and calcium sulfate CaSO₄ is only sparingly soluble).\n\n📌 Mostly insoluble — learn the exceptions\n• **Carbonates** are insoluble EXCEPT sodium, potassium and ammonium carbonates.\n• **Hydroxides** are insoluble EXCEPT sodium and potassium hydroxides (calcium hydroxide is sparingly soluble).\n\n💡 Worked Example\nPredict the solubility of KNO₃, AgCl and MgCO₃: KNO₃ — soluble (all nitrates and all potassium salts); AgCl — insoluble (the named chloride exception); MgCO₃ — insoluble (carbonates are insoluble unless Na/K/NH₄).\n\n⚠️ Common Mistake\nThinking 'insoluble' means 'does not react'. Insoluble carbonates still react with acids — insolubility only describes whether the solid dissolves in water.\n\n📎 Key Points to Remember\n• Na⁺/K⁺/NH₄⁺ salts and nitrates: always soluble.\n• Chloride exceptions: AgCl, PbCl₂. Sulfate exceptions: BaSO₄, PbSO₄ (CaSO₄ sparingly).\n• Carbonates and hydroxides: insoluble except Na/K/NH₄."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n8",
+      "heading": "Extended: Proton Transfer and Acid Strength",
+      "body": "📌 Acids are **proton donors** and bases are **proton acceptors**; here proton means H⁺.\n\n🔑 Strength is dissociation, not concentration\nA strong acid is completely dissociated in aqueous solution: HCl(aq) → H⁺(aq) + Cl⁻(aq). A weak acid is partially dissociated: CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq). A dilute strong acid and a concentrated weak acid are both possible.\n\n⚠️ Common Mistake\nUsing 'strong' to mean concentrated or counting every H atom in a formula. Only the extent of ion formation in water defines strength.\n\n📎 Key Points to Remember\nOne-way arrow for complete dissociation; equilibrium arrows for partial dissociation."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n9",
+      "heading": "Extended: Amphoteric Oxides, Precipitation and Hydrates",
+      "body": "📌 Al₂O₃ and ZnO are **amphoteric oxides**: each reacts with acids and with bases to produce a salt and water.\n\n🔑 Insoluble salts by precipitation\nMix aqueous solutions supplying the two ions, then **filter** the precipitate, **wash** it with distilled water and **dry** it. For example, Pb²⁺(aq) + SO₄²⁻(aq) → PbSO₄(s).\n\n🔑 Water of crystallisation\nHydrated crystals contain water molecules in a fixed ratio. CuSO₄•5H₂O and CoCl₂•6H₂O contain 5 and 6 water molecules per formula unit. An anhydrous substance contains no water.\n\n⚠️ Common Mistake\nTrying to crystallise an insoluble salt from its 'solution'. Use precipitation and filtration instead.\n\n📎 Key Points to Remember\nSolubility selects the preparation method; the dot formula shows chemically incorporated water."
     }
   ],
   "flashcards": [
@@ -315,6 +325,73 @@
       ],
       "correctIndex": 3,
       "explanation": "CO₂ turns limewater milky (cloudy) — the standard test. A squeaky pop is the test for hydrogen, which comes from acid + metal, not acid + carbonate.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q16",
+      "stem": "Which statement distinguishes a strong acid from a weak acid of the same concentration?",
+      "choices": [
+        "A strong acid is completely dissociated in aqueous solution; a weak acid is only partially dissociated",
+        "A strong acid always has a higher concentration",
+        "A weak acid contains no hydrogen ions",
+        "A strong acid is always more corrosive at every concentration"
+      ],
+      "correctIndex": 0,
+      "explanation": "Strength describes the extent of dissociation, not concentration. Hydrochloric acid is completely dissociated; ethanoic acid establishes an equilibrium with only partial dissociation.",
+      "difficulty": "medium",
+      "variantOf": "acid-strength"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q17",
+      "stem": "Which statement about ethanoic acid is correct?",
+      "choices": [
+        "It is a strong acid because it contains four H atoms per molecule",
+        "It is completely dissociated as CH₃COOH(aq) → H⁺(aq) + CH₃COO⁻(aq)",
+        "It is weak because CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq) is only partially dissociated",
+        "It cannot donate protons"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ethanoic acid is a proton donor but only partially dissociates in water, shown by the reversible arrow. Acid strength is not determined by counting all H atoms in the molecular formula.",
+      "difficulty": "medium",
+      "variantOf": "acid-strength"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q18",
+      "stem": "Which oxide is amphoteric?",
+      "choices": [
+        "CO₂",
+        "SO₂",
+        "CuO",
+        "Al₂O₃"
+      ],
+      "correctIndex": 3,
+      "explanation": "Al₂O₃ reacts with both acids and bases to form a salt and water, so it is amphoteric. ZnO is the other required example.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q19",
+      "stem": "How can pure lead(II) sulfate be prepared?",
+      "choices": [
+        "Mix solutions containing Pb²⁺ and SO₄²⁻, filter the precipitate, wash and dry it",
+        "Evaporate a lead(II) sulfate solution to dryness",
+        "Add excess lead metal to sulfuric acid and collect the filtrate",
+        "Neutralise sodium hydroxide with sulfuric acid"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lead(II) sulfate is insoluble, so prepare it by precipitation. Filtering separates the solid; washing removes soluble impurities and drying gives the pure salt.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q20",
+      "stem": "What does the •5H₂O in CuSO₄•5H₂O represent?",
+      "choices": [
+        "Five water molecules present in each formula unit of the hydrated crystals",
+        "Five hydroxide ions bonded to copper",
+        "Five separate copper atoms",
+        "Water contamination that must always be removed"
+      ],
+      "correctIndex": 0,
+      "explanation": "The water of crystallisation is chemically incorporated into hydrated copper(II) sulfate crystals in a fixed ratio: five H₂O per CuSO₄ unit.",
       "difficulty": "easy"
     }
   ]

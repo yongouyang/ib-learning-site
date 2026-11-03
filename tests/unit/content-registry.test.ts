@@ -13,7 +13,7 @@ import type { SubjectId } from '@/content/types';
 const EXPECTED_TOPIC_COUNTS: Partial<Record<SubjectId, number>> = {
   math: 104,
   biology: 30,
-  chemistry: 28,
+  chemistry: 31,
   english: 44,
   physics: 28,
   geography: 10,

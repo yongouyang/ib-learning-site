@@ -184,9 +184,10 @@ sets + AI marking.
 
 - **Physics**: set 3 rebalances toward waves, thermal particle model, circuits and
   measurement (sets 1–2 actually cover 11 of 14 topics; circuits was also untouched).
-- **Chemistry**: T1 states-of-matter tail (4 Supp objectives — absorb or extend
-  `chem-states-1`); `chem-igcse-periodic-table`; `chem-igcse-chemical-analysis`; acids/metals
-  Extended tails; possibly `chem-igcse-formulae-equations` (Core).
+- **Chemistry — targeted wave CLOSED 2026-11-03**: added `chem-igcse-periodic-table`,
+  `chem-igcse-chemical-analysis` and `chem-igcse-formulae-equations`; closed the acids/metals
+  Extended tails. The T1 states-of-matter Supplement objectives were already housed in
+  `chem-states-1`, so no duplicate topic or revision was needed.
 - **Biology**: wave 2 adds `bio-igcse-digestion-extended` (7.3.7 bile emulsification,
   7.4.6–8 named enzymes and bile neutralisation, 7.5.3–5 villi/lacteals) and
   `bio-igcse-inheritance-extended` (17.4.13–18, 18.1.9–10, 18.3.4–6). The official

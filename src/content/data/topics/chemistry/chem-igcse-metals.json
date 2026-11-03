@@ -2,7 +2,7 @@
   "id": "chem-igcse-metals",
   "subjectId": "chemistry",
   "title": "Metals: Reactivity, Rusting and Extraction",
-  "description": "The reactivity series with evidence from reactions with water, steam and dilute acid; rusting and its prevention by barrier methods; extraction methods matched to reactivity; the blast furnace and aluminium from bauxite — Core content for Cambridge IGCSE Chemistry 0620.",
+  "description": "Reactivity, extraction and rusting, plus Extended displacement, aluminium's protective oxide, galvanising and sacrificial protection for Cambridge IGCSE Chemistry 0620.",
   "stage": "igcse",
   "course": "0620",
   "notes": [
@@ -44,7 +44,17 @@
     {
       "id": "chem-igcse-metals-n7",
       "heading": "Aluminium: From Bauxite by Electrolysis",
-      "body": "📌 The Core facts\n• The main ore of aluminium is **bauxite**, which contains aluminium oxide (alumina, Al₂O₃).\n• Aluminium is **too high in the reactivity series** for carbon reduction — it is above carbon — so it is extracted by **electrolysis** of molten aluminium oxide.\n\n🔑 How it works (state-level)\nThe aluminium oxide must be molten so its ions can move and carry the current; electrolysis then splits it into aluminium (collected molten) and oxygen. The fine detail — cryolite, the electrodes, the half-equations — is Extended tier and is not required here.\n\n💡 Why this matters economically\nElectrolysis consumes huge amounts of electricity, which is why aluminium smelters sit near cheap power and why **recycling aluminium** saves about 95% of the energy of extracting it from bauxite.\n\n⚠️ Common Mistake\nPairing the wrong ore or method: iron ← haematite ← blast furnace with carbon; aluminium ← bauxite ← electrolysis. Swapping 'bauxite' and 'haematite' is a classic lost mark.\n\n📎 Key Points to Remember\n• Bauxite is the ore; electrolysis is the method.\n• Aluminium is above carbon, so heating with carbon cannot work."
+      "body": "📌 The Core facts\n• The main ore of aluminium is **bauxite**, which contains aluminium oxide (alumina, Al₂O₃).\n• Aluminium is **too high in the reactivity series** for carbon reduction — it is above carbon — so it is extracted by **electrolysis** of molten aluminium oxide.\n\n🔑 How it works (state-level)\nThe aluminium oxide must be molten so its ions can move and carry the current; electrolysis then splits it into aluminium (collected molten) and oxygen. The fine detail — cryolite, the electrodes and the half-equations — is Extended tier.\n\n💡 Why this matters economically\nElectrolysis consumes huge amounts of electricity, which is why aluminium smelters sit near cheap power and why **recycling aluminium** saves about 95% of the energy of extracting it from bauxite.\n\n⚠️ Common Mistake\nPairing the wrong ore or method: iron ← haematite ← blast furnace with carbon; aluminium ← bauxite ← electrolysis. Swapping 'bauxite' and 'haematite' is a classic lost mark.\n\n📎 Key Points to Remember\n• Bauxite is the ore; electrolysis is the method.\n• Aluminium is above carbon, so heating with carbon cannot work."
+    },
+    {
+      "id": "chem-igcse-metals-n8",
+      "heading": "Extended: Displacement and Aluminium's Oxide Layer",
+      "body": "📌 A more reactive metal has a greater tendency to form positive ions and displaces a less reactive metal from aqueous ions of its salt.\n\n💡 Worked Example\nZn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s). Zinc loses electrons; Cu²⁺ gains them. Iron in magnesium nitrate gives no reaction because Mg²⁺ belongs to the more reactive metal.\n\n🔑 Aluminium's apparent unreactivity\nA thin, dense and adherent aluminium oxide layer protects the metal beneath, delaying reaction with water or dilute acid even though aluminium is high in the series.\n\n⚠️ Common Mistake\nSaying every metal-salt mixture reacts. No displacement is the correct result when the added metal is less reactive.\n\n📎 Key Points to Remember\nCompare the metals first, then use electron loss to explain a successful displacement."
+    },
+    {
+      "id": "chem-igcse-metals-n9",
+      "heading": "Extended: Galvanising and Sacrificial Protection",
+      "body": "📌 **Galvanising** coats iron or steel with zinc. The zinc first acts as a barrier to oxygen and water.\n\n🔑 Protection after a scratch\nZinc is more reactive than iron, so it loses electrons and is oxidised preferentially: Zn → Zn²⁺ + 2e⁻. Iron receives protection even where exposed. This is **sacrificial protection**.\n\n⚠️ Common Mistake\nClaiming the barrier explanation is enough for a scratched coating. The second marking idea is preferential oxidation of the more reactive zinc.\n\n📎 Key Points to Remember\nGalvanising = zinc barrier + sacrificial protection. Link sacrificial behaviour to the reactivity series and electron loss."
     }
   ],
   "flashcards": [
@@ -315,6 +325,60 @@
       ],
       "correctIndex": 2,
       "explanation": "Only metals above hydrogen in the series can displace hydrogen ions from an acid. Copper, silver and gold are below hydrogen, so there is no reaction with dilute acids at all.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-metals-q16",
+      "stem": "Zinc is placed in aqueous copper(II) sulfate. What happens?",
+      "choices": [
+        "No reaction because both are metals",
+        "Zinc displaces copper because zinc forms positive ions more readily; blue copper(II) sulfate fades as copper forms",
+        "Copper displaces zinc and zinc metal forms",
+        "The solution becomes redder because zinc(II) ions are blue"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zinc is more reactive than copper: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s). Zinc loses electrons and copper(II) ions gain them.",
+      "difficulty": "medium",
+      "variantOf": "metal-displacement"
+    },
+    {
+      "id": "chem-igcse-metals-q17",
+      "stem": "Iron is placed in aqueous magnesium nitrate. What is the result?",
+      "choices": [
+        "Magnesium is displaced because iron gains electrons",
+        "Iron dissolves and hydrogen forms",
+        "No displacement because magnesium forms positive ions more readily than iron",
+        "Iron(III) nitrate and magnesium metal form"
+      ],
+      "correctIndex": 2,
+      "explanation": "Magnesium is more reactive than iron and remains as aqueous Mg²⁺. A less reactive metal cannot displace a more reactive metal from its salt solution.",
+      "difficulty": "medium",
+      "variantOf": "metal-displacement"
+    },
+    {
+      "id": "chem-igcse-metals-q18",
+      "stem": "Why does galvanising protect iron even when the zinc coating is scratched?",
+      "choices": [
+        "Zinc is more reactive and loses electrons instead of iron, providing sacrificial protection",
+        "Zinc removes all water from the surrounding air",
+        "Zinc changes iron into an alloy",
+        "Zinc is less reactive and attracts oxygen away from iron"
+      ],
+      "correctIndex": 0,
+      "explanation": "The intact zinc layer is a barrier. Where iron is exposed, more-reactive zinc is oxidised preferentially, supplying electrons so the iron does not rust.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-metals-q19",
+      "stem": "Why does aluminium appear unreactive despite its high position in the reactivity series?",
+      "choices": [
+        "It has no outer-shell electrons",
+        "Its dense, adherent oxide layer protects the metal underneath",
+        "It cannot form positive ions",
+        "It is always covered in oil"
+      ],
+      "correctIndex": 1,
+      "explanation": "A thin but coherent aluminium oxide layer forms rapidly and prevents further reaction with water or dilute acid until the layer is penetrated.",
       "difficulty": "hard"
     }
   ]

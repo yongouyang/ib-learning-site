@@ -4,6 +4,38 @@
 
 ---
 
+## 2026-11-03 — IGCSE Chemistry targeted gap wave shipped
+Git HEAD: `d06bbd9` (develop, tree dirty)
+Done: added `chem-igcse-periodic-table`, `chem-igcse-formulae-equations` and
+  `chem-igcse-chemical-analysis` (7 notes/12 cards/15 q + reviewed SVG each); Extended acids
+  (+2 notes/+5 q) and metals (+2 notes/+4 q); registry 303 topics/5,100 q/46 papers.
+Verified: official 0620 PDF mapping; content + audit 0/0; illustrations + layout PASS;
+  1736/1736 unit; tsc + focused eslint clean; build:static 434 URLs + leak HARD/TIGHT;
+  static e2e Desktop 445/4 skipped; three new study pages iPhone 3/3; overflow 375px PASS.
+Next: investigate maths + mixed-review completion; obtain Search Console data; evaluate
+  illustration/set-3 batches; assess Biology only after discovery review. DP sciences and
+  further 0580 maths stay deferred.
+Notes: 30d production Chemistry/Biology events 0, so no demand lead claimed. States needed no
+  change. Variant groups stayed subject-local. Chrome UX pass waived (content-only); 12 study
+  + 4 answered-quiz shots reviewed. No commit/push/deploy.
+
+---
+
+## 2026-11-03 — Main promoted; targeted Chemistry wave planned
+Git HEAD: `d06bbd9` (develop, tree dirty — docs only)
+Done: fast-forwarded and pushed `main` from `0450702` to `d06bbd9`; selected the next
+  IGCSE gap wave in `content-gap-roadmap.md`: Chemistry 0620 periodic table, chemical
+  analysis, conditional formulae/equations, plus bounded states/acids/metals rereads.
+Verified: branch fast-forward and push succeeded; local `main` and `origin/main` matched at
+  `d06bbd9` before returning to develop. Docs-only planning change; no tests rerun.
+Next: refresh demand/Search Console evidence and verify the official 0620 PDF before
+  authoring; investigate maths + mixed-review completion; evaluate illustration/set-3 batches.
+Notes: no Chemistry-vs-Biology demand advantage is measured; Chemistry is selected for
+  syllabus value and bounded scope. Variants belong only to this subject review. Biology is
+  next IGCSE candidate; DP sciences and further 0580 maths remain deferred.
+
+---
+
 ## 2026-10-31 — Minimatch OSV findings fixed
 Git HEAD: `3f020cf` (develop, tree dirty)
 Done: added a root npm override for transitive `minimatch`, replacing vulnerable

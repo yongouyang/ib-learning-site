@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Calculating an Rf value from a chromatogram</title>
+  <desc id="desc">The substance spot is 4.0 cm from the baseline and the solvent front is 8.0 cm from the baseline. Rf equals 0.50.</desc>
+  <defs><style>.title{font:700 20px system-ui,sans-serif;fill:#111827}.head{font:700 18px system-ui,sans-serif;fill:#111827}.label{font:600 14px system-ui,sans-serif;fill:#1f2937}.small{font:13px system-ui,sans-serif;fill:#4b5563}.measure{stroke:#475569;stroke-width:2;marker-start:url(#a);marker-end:url(#a)}</style><marker id="a" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#475569"/></marker></defs>
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Rf = Substance Distance ÷ Solvent Distance</text>
+  <rect x="150" y="70" width="300" height="375" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="150" y1="400" x2="450" y2="400" stroke="#334155" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="150" y1="120" x2="450" y2="120" stroke="#0284c7" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="300" y="426" text-anchor="middle" class="label">pencil baseline</text><text x="300" y="105" text-anchor="middle" class="label">solvent front</text>
+  <ellipse cx="300" cy="260" rx="22" ry="14" fill="#a855f7" opacity=".8"/><text x="335" y="238" class="label">centre of spot</text>
+  <line x1="200" y1="400" x2="200" y2="260" class="measure"/><text x="178" y="335" text-anchor="middle" class="label" transform="rotate(-90 178 335)">4.0 cm</text>
+  <line x1="410" y1="400" x2="410" y2="120" class="measure"/><text x="435" y="270" text-anchor="middle" class="label" transform="rotate(-90 435 270)">8.0 cm</text>
+  <rect x="495" y="140" width="260" height="190" rx="14" fill="#eff6ff" stroke="#93c5fd"/><text x="625" y="185" text-anchor="middle" class="head">Measure from baseline</text><text x="625" y="225" text-anchor="middle" class="label">substance = 4.0 cm</text><text x="625" y="255" text-anchor="middle" class="label">solvent = 8.0 cm</text><text x="625" y="300" text-anchor="middle" class="head">Rf = 4.0 ÷ 8.0 = 0.50</text>
+  <text x="625" y="365" text-anchor="middle" class="small">Rf has no units.</text><text x="625" y="392" text-anchor="middle" class="small">Compare under identical conditions.</text>
+</svg>
