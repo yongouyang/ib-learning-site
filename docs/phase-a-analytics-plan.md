@@ -40,7 +40,7 @@ One ingest write = 1 Put (raw) + 1 Update (aggregate ADD) per event. Dashboard r
 
 ## Event schema (`src/lib/analytics/types.ts`, zod)
 
-- `name`: enum of the §5.3 taxonomy (`page_view`, `quiz_started`, `quiz_completed`, `flashcard_session_started`, `flashcard_session_completed`, `diagnostic_started`, `diagnostic_completed`, `exam_started`, `exam_completed`, `paper_marked_with_ai`, `cta_clicked`, `search_performed`, `auth_otp_requested`, `auth_login_completed`, `auth_logout`, `pwa_installed`, `pwa_offline_banner_shown`).
+- `name`: enum of the §5.3 taxonomy (`page_view`, `quiz_started`, `quiz_question_answered`, `quiz_completed`, `flashcard_session_started`, `flashcard_session_completed`, `diagnostic_started`, `diagnostic_completed`, `exam_started`, `exam_completed`, `paper_marked_with_ai`, `cta_clicked`, `search_performed`, `auth_otp_requested`, `auth_login_completed`, `auth_logout`, `pwa_installed`, `pwa_offline_banner_shown`).
 - `props`: per-name zod schemas mirroring §5.3 fields (bounded: strings ≤ 120 chars, numbers sane-capped, no free-form PII-shaped fields; `auth_otp_requested` carries `emailDomain` only, never the address).
 - Envelope: `{ name, props, url, referrer, sessionId, clientTs }` — `clientTs` gets the same now+24h guard as progress; `url` is reduced to path-only server-side.
 
@@ -75,7 +75,7 @@ One ingest write = 1 Put (raw) + 1 Update (aggregate ADD) per event. Dashboard r
 
 ### A4 — Instrument the taxonomy (~1 day)
 
-- `quiz_started`/`quiz_completed` — quiz runner component (source prop: topic_page|diagnostic|mixed_review|ladder).
+- `quiz_started`/`quiz_completed` — quiz runner component (source prop: topic_page|diagnostic|mixed_review|ladder|custom_test).
 - `flashcard_session_started`/`flashcard_session_completed` — flashcards page.
 - `diagnostic_started`/`diagnostic_completed` — diagnostics flow.
 - `exam_started`/`exam_completed` — exams/paper runner (incl. `timedOut`).

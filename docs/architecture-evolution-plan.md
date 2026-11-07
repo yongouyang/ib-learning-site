@@ -614,6 +614,9 @@ page_view:
 quiz_started:
   subjectId, topicId, source: "topic_page" | "diagnostic" | "mixed_review" | "ladder"
 
+quiz_question_answered:
+  subjectId, topicId, source, questionNumber, totalCount, correct: boolean
+
 quiz_completed:
   subjectId, topicId, correctCount, totalCount, durationSeconds
 

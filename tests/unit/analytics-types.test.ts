@@ -29,6 +29,7 @@ function envelope(overrides: Record<string, unknown> = {}): unknown {
 const validProps: Record<(typeof ANALYTICS_EVENT_NAMES)[number], Record<string, unknown>> = {
   page_view: {},
   quiz_started: { subjectId: 'math', topicId: 'math-yr7-algebra-1', source: 'topic_page' },
+  quiz_question_answered: { subjectId: 'math', topicId: 'math-yr7-algebra-1', source: 'topic_page', questionNumber: 1, totalCount: 10, correct: true },
   quiz_completed: { subjectId: 'math', topicId: 'math-yr7-algebra-1', correctCount: 8, totalCount: 10, durationSeconds: 42 },
   flashcard_session_started: { subjectId: 'biology', topicId: 'bio-cell-1', filter: 'due' },
   flashcard_session_completed: { subjectId: 'biology', topicId: 'bio-cell-1', cardsReviewed: 12, knownCount: 9, learningCount: 3 },

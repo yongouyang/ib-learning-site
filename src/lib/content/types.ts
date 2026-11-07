@@ -60,6 +60,7 @@ export const CONTENT_PUBLIC_CACHE_CONTROL = 'public, max-age=300, s-maxage=3600'
 
 export const PREMIUM_PAPERS_PATH = '/api/content/premium/papers';
 export const PUBLIC_MIXED_REVIEW_PATH = '/api/content/public/mixed-review';
+export const PUBLIC_CUSTOM_TEST_PATH = '/api/content/public/custom-test';
 export const CONTENT_HEALTH_PATH = '/api/content/_health';
 
 // --- Path parsing (pure — shared by the Next route and the Lambda) ---------------
@@ -99,6 +100,21 @@ export function parseMixedReviewPath(
   if (topicIds.length === 0 || topicIds.length > CONTENT_MAX_TOPIC_IDS) return null;
   if (!topicIds.every((id) => TOPIC_ID_RE.test(id))) return null;
   return { seed, topicIds };
+}
+
+export function parseCustomTestPath(
+  pathname: string,
+): { seed: string; topicIds: string[]; count: 5 | 10 | 15 | 20; difficulty: 'all' | 'easy' | 'medium' | 'hard' } | null {
+  if (!pathname.startsWith(`${PUBLIC_CUSTOM_TEST_PATH}/`)) return null;
+  const parts = pathname.slice(PUBLIC_CUSTOM_TEST_PATH.length + 1).split('/');
+  if (parts.length !== 4) return null;
+  const [seed, rawCount, difficulty, ids] = parts;
+  const count = Number(rawCount);
+  if (!SEED_RE.test(seed) || ![5, 10, 15, 20].includes(count)) return null;
+  if (!['all', 'easy', 'medium', 'hard'].includes(difficulty)) return null;
+  const topicIds = [...new Set(ids.split(','))];
+  if (topicIds.length === 0 || topicIds.length > 12 || !topicIds.every((id) => TOPIC_ID_RE.test(id))) return null;
+  return { seed, topicIds, count: count as 5 | 10 | 15 | 20, difficulty: difficulty as 'all' | 'easy' | 'medium' | 'hard' };
 }
 
 // --- Response payloads -----------------------------------------------------------

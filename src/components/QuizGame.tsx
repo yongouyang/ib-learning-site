@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw, Calculator, Shuffle } from 'lucide-react';
-import type { Question } from '@/content/types';
+import type { Question, QuestionResult } from '@/content/types';
 import { seededShuffle } from '@/lib/quiz-utils';
 import { DIFFICULTY_CHIP_CLASSES } from './difficulty-chip';
 import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
@@ -39,24 +39,13 @@ interface QuizGameProps {
   questions: Question[];
   enableTimer?: boolean;
   timerSeconds?: number;
-  /**
-   * 'per-question' (default): countdown resets each question, timeout marks the
-   * current question incorrect. 'overall': one countdown for the whole quiz
-   * (exam mode) — on expiry all unanswered questions count as incorrect and
-   * the quiz auto-completes.
-   */
   timerMode?: 'per-question' | 'overall';
   shuffleSeed?: string;
-  /** `timedOut` is true when the overall-mode countdown expired (exam mode). */
   onComplete: (correctCount: number, totalCount: number, timedOut?: boolean) => void;
-  /** Called once per answered question (correct=false on timeout). */
-  onQuestionResult?: (questionId: string, correct: boolean) => void;
-  /**
-   * When provided, the results screen shows a "New Question Set" button that
-   * requests a freshly sampled session (variant-group topics). Unlike
-   * "Try Again", which replays the same questions.
-   */
+  onQuestionResult?: (questionId: string, correct: boolean, questionNumber: number, totalCount: number, result: QuestionResult) => void;
   onNewSet?: () => void;
+  /** Draw new questions practising the same skills as the supplied mistakes. */
+  onSimilarQuestions?: (mistakes: Question[]) => void;
 }
 
 export default function QuizGame({
@@ -72,68 +61,91 @@ export default function QuizGame({
   onComplete,
   onQuestionResult,
   onNewSet,
+  onSimilarQuestions,
 }: QuizGameProps) {
-  const [shuffledQuestions] = useState(() =>
+  const [sessionQuestions, setSessionQuestions] = useState(() =>
     questions.length > 0 ? seededShuffle([...questions], shuffleSeed) : []
   );
+  const [results, setResults] = useState<QuestionResult[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [answerState, setAnswerState] = useState<'unanswered' | 'correct' | 'incorrect'>('unanswered');
   const [correctCount, setCorrectCount] = useState(0);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [showReview, setShowReview] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timerSeconds);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
-  const currentQuestion = shuffledQuestions[currentIndex];
-  const progress = shuffledQuestions.length > 0 ? ((currentIndex + (isComplete ? 1 : 0)) / shuffledQuestions.length) * 100 : 0;
-  const scorePercent = shuffledQuestions.length > 0 ? Math.round((correctCount / shuffledQuestions.length) * 100) : 0;
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, [isComplete, sessionQuestions]);
+
+  const currentQuestion = sessionQuestions[currentIndex];
+  const progress = sessionQuestions.length > 0 ? ((currentIndex + (isComplete ? 1 : 0)) / sessionQuestions.length) * 100 : 0;
+  const scorePercent = sessionQuestions.length > 0 ? Math.round((correctCount / sessionQuestions.length) * 100) : 0;
   const stars = scorePercent >= 90 ? 3 : scorePercent >= 70 ? 2 : scorePercent >= 40 ? 1 : 0;
+  const mistakes = results.filter((result) => !result.correct && result.question);
+
+  const recordResult = useCallback((question: Question, correct: boolean, choice: number, position: number) => {
+    const result: QuestionResult = { questionId: question.id, correct, selectedIndex: choice, question };
+    setResults((current) => [...current, result]);
+    onQuestionResult?.(question.id, correct, position, sessionQuestions.length, result);
+  }, [onQuestionResult, sessionQuestions.length]);
+
+  const resetSession = (nextQuestions: Question[]) => {
+    setSessionQuestions(nextQuestions);
+    setResults([]);
+    setCurrentIndex(0);
+    setSelectedIndex(null);
+    setAnswerState('unanswered');
+    setCorrectCount(0);
+    setIsComplete(false);
+    setShowExplanation(false);
+    setShowReview(false);
+    setTimeLeft(timerSeconds);
+  };
 
   const handleSelect = useCallback((index: number) => {
     if (answerState !== 'unanswered' || !currentQuestion) return;
+    const correct = index === currentQuestion.correctIndex;
     setSelectedIndex(index);
-    if (index === currentQuestion.correctIndex) {
-      setAnswerState('correct');
-      setCorrectCount((c) => c + 1);
-      onQuestionResult?.(currentQuestion.id, true);
-    } else {
-      setAnswerState('incorrect');
-      onQuestionResult?.(currentQuestion.id, false);
-    }
+    setAnswerState(correct ? 'correct' : 'incorrect');
+    if (correct) setCorrectCount((c) => c + 1);
+    recordResult(currentQuestion, correct, index, currentIndex + 1);
     setShowExplanation(true);
-  }, [answerState, currentQuestion, onQuestionResult]);
+  }, [answerState, currentIndex, currentQuestion, recordResult]);
 
   const handleTimeout = useCallback(() => {
     if (answerState !== 'unanswered' || !currentQuestion) return;
     setSelectedIndex(-1);
     setAnswerState('incorrect');
-    onQuestionResult?.(currentQuestion.id, false);
+    recordResult(currentQuestion, false, -1, currentIndex + 1);
     setShowExplanation(true);
-  }, [answerState, currentQuestion, onQuestionResult]);
+  }, [answerState, currentIndex, currentQuestion, recordResult]);
 
   const handleNext = useCallback(() => {
-    if (currentIndex < shuffledQuestions.length - 1) {
+    if (currentIndex < sessionQuestions.length - 1) {
       setCurrentIndex((i) => i + 1);
       setSelectedIndex(null);
       setAnswerState('unanswered');
       setShowExplanation(false);
       if (timerMode === 'per-question') setTimeLeft(timerSeconds);
     } else if (!isComplete) {
-      onComplete(correctCount, shuffledQuestions.length);
+      onComplete(correctCount, sessionQuestions.length);
       setIsComplete(true);
     }
-  }, [currentIndex, isComplete, correctCount, shuffledQuestions.length, timerSeconds, timerMode, onComplete]);
+  }, [currentIndex, isComplete, correctCount, sessionQuestions.length, timerSeconds, timerMode, onComplete]);
 
-  // Overall mode (exams): the countdown never resets; on expiry every
-  // unanswered question counts as incorrect and the quiz auto-completes.
   const handleOverallTimeout = useCallback(() => {
     if (isComplete) return;
-    for (let i = currentIndex; i < shuffledQuestions.length; i++) {
-      onQuestionResult?.(shuffledQuestions[i].id, false);
+    const firstUnanswered = answerState === 'unanswered' ? currentIndex : currentIndex + 1;
+    for (let i = firstUnanswered; i < sessionQuestions.length; i++) {
+      recordResult(sessionQuestions[i], false, -1, i + 1);
     }
-    onComplete(correctCount, shuffledQuestions.length, true);
+    onComplete(correctCount, sessionQuestions.length, true);
     setIsComplete(true);
-  }, [isComplete, currentIndex, shuffledQuestions, correctCount, onComplete, onQuestionResult]);
+  }, [isComplete, answerState, currentIndex, sessionQuestions, correctCount, onComplete, recordResult]);
 
   // Timer effect — overall mode: single countdown for the whole quiz.
   useEffect(() => {
@@ -170,7 +182,7 @@ export default function QuizGame({
     return () => clearInterval(interval);
   }, [enableTimer, timerMode, timerSeconds, currentIndex, answerState, isComplete, currentQuestion, handleTimeout]);
 
-  if (shuffledQuestions.length === 0) {
+  if (sessionQuestions.length === 0) {
     return (
       <div className="max-w-lg mx-auto px-4 py-8 text-center">
         <p className="text-gray-500 dark:text-gray-400">No questions available.</p>
@@ -183,43 +195,110 @@ export default function QuizGame({
 
   if (isComplete) {
     return (
-      <div className="max-w-lg mx-auto px-4 py-8 text-center">
-        <div className="text-5xl mb-4">{stars >= 3 ? '🎉' : stars >= 2 ? '👍' : stars >= 1 ? '📚' : '💪'}</div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2">Quiz Complete!</h1>
-        {subtitle && <p className="text-gray-500 dark:text-gray-400 mb-6">{subtitle}</p>}
-        <div className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2">{scorePercent}%</div>
-        <div className="flex justify-center gap-1 mb-6">
-          {[0, 1, 2].map((i) => (
-            <span key={i} className={`text-2xl ${i < stars ? 'text-yellow-500' : 'text-gray-300 dark:text-gray-600'}`}>
-              {i < stars ? '★' : '☆'}
-            </span>
-          ))}
-        </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-          {correctCount} out of {shuffledQuestions.length} correct
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <button onClick={() => { setCurrentIndex(0); setSelectedIndex(null); setAnswerState('unanswered'); setCorrectCount(0); setIsComplete(false); setShowExplanation(false); setTimeLeft(timerSeconds); }}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">
-            <RotateCcw className="w-4 h-4" /> Try Again
-          </button>
-          {onNewSet && (
-            <button onClick={onNewSet}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-green-600 text-white font-medium text-sm hover:bg-green-700 transition-colors">
-              <Shuffle className="w-4 h-4" /> New Question Set
+      <div className="max-w-lg mx-auto px-4 pt-16 pb-8 md:py-8">
+        <div className="text-center">
+          <div aria-hidden="true" className="text-5xl mb-4">{stars >= 3 ? '🎉' : stars >= 2 ? '👍' : stars >= 1 ? '📚' : '💪'}</div>
+          <h1 ref={headingRef} tabIndex={-1} className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2 outline-none">Quiz Complete!</h1>
+          {subtitle && <p className="text-gray-500 dark:text-gray-400 mb-6">{subtitle}</p>}
+          <div className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2">{scorePercent}%</div>
+          <div aria-hidden="true" className="flex justify-center gap-1 mb-6">
+            {[0, 1, 2].map((i) => (
+              <span key={i} className={`text-2xl ${i < stars ? 'text-yellow-500' : 'text-gray-300 dark:text-gray-600'}`}>
+                {i < stars ? '★' : '☆'}
+              </span>
+            ))}
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            {correctCount} out of {sessionQuestions.length} correct
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {mistakes.length > 0 && (
+              <button onClick={() => resetSession(mistakes.map((result) => result.question!))}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">
+                <RotateCcw className="w-4 h-4" /> Retry mistakes ({mistakes.length})
+              </button>
+            )}
+            {mistakes.length > 0 && onSimilarQuestions && (
+              <button onClick={() => onSimilarQuestions(mistakes.map((result) => result.question!))}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-green-600 text-white font-medium text-sm hover:bg-green-700 transition-colors">
+                <Shuffle className="w-4 h-4" /> Practise similar questions
+              </button>
+            )}
+            <button onClick={() => resetSession(sessionQuestions)}
+              className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+              <RotateCcw className="w-4 h-4" /> Try Again
             </button>
+            {onNewSet && (
+              <button onClick={onNewSet}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <Shuffle className="w-4 h-4" /> New Question Set
+              </button>
+            )}
+            <Link href={backHref}
+              className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+              {backLabel}
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-8 text-left">
+          <button
+            type="button"
+            aria-expanded={showReview}
+            onClick={() => setShowReview((visible) => !visible)}
+            className="w-full card p-4 flex items-center justify-between font-semibold text-gray-900 dark:text-gray-50"
+          >
+            Review answers
+            <span className="text-sm text-gray-500 dark:text-gray-400">{showReview ? 'Hide' : `${results.length} questions`}</span>
+          </button>
+          {showReview && (
+            <div className="mt-3 space-y-3">
+              <h2 className="sr-only">Review your answers</h2>
+              {results.map((result, index) => {
+                const question = result.question;
+                if (!question) return null;
+                return (
+                  <article key={`${result.questionId}:${index}`} className="card p-4">
+                    <div className="flex items-start gap-2 mb-3">
+                      {result.correct
+                        ? <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0 text-green-600 dark:text-green-400" />
+                        : <XCircle className="w-5 h-5 mt-0.5 shrink-0 text-red-600 dark:text-red-400" />}
+                      <h3 className="font-semibold text-gray-900 dark:text-gray-50">
+                        <span className="text-gray-500 dark:text-gray-400">Question {index + 1}. </span>
+                        <InlineMath text={question.stem} />
+                      </h3>
+                    </div>
+                    <div className="space-y-2 text-sm">
+                      <p className={result.correct ? 'text-green-700 dark:text-green-300' : 'text-red-700 dark:text-red-300'}>
+                        <span className="font-semibold">Your answer: </span>
+                        {result.selectedIndex !== undefined && result.selectedIndex >= 0
+                          ? <><span>{String.fromCharCode(65 + result.selectedIndex)}. </span><InlineMath text={question.choices[result.selectedIndex]} /></>
+                          : 'No answer — time expired'}
+                      </p>
+                      {!result.correct && (
+                        <p className="text-green-700 dark:text-green-300">
+                          <span className="font-semibold">Correct answer: </span>
+                          <span>{String.fromCharCode(65 + question.correctIndex)}. </span>
+                          <InlineMath text={question.choices[question.correctIndex]} />
+                        </p>
+                      )}
+                      <p className="pt-2 border-t border-gray-100 dark:border-gray-800 text-gray-700 dark:text-gray-300">
+                        <InlineMath text={question.explanation} />
+                      </p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           )}
-          <Link href={backHref}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-            {backLabel}
-          </Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-lg mx-auto px-4 py-6 pb-24 md:pb-6">
+    <div className="max-w-lg mx-auto px-4 pt-16 pb-24 md:py-6 md:pb-6">
+      <h1 ref={headingRef} tabIndex={-1} className="sr-only">Practice test</h1>
       {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">
@@ -236,7 +315,7 @@ export default function QuizGame({
             transition={{ duration: 0.4, ease: 'easeOut' }}
           />
         </div>
-        <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{currentIndex + 1}/{shuffledQuestions.length}</span>
+        <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{currentIndex + 1}/{sessionQuestions.length}</span>
       </div>
 
       {/* Question */}
@@ -333,7 +412,7 @@ export default function QuizGame({
           onClick={handleNext}
           className="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98]"
         >
-          {currentIndex < shuffledQuestions.length - 1 ? (
+          {currentIndex < sessionQuestions.length - 1 ? (
             <span className="inline-flex items-center justify-center gap-1.5">
               Next Question <ArrowRight className="w-4 h-4" />
             </span>

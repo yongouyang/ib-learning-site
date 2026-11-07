@@ -159,6 +159,23 @@ describe('POST /api/progress/sync', () => {
     expect(snapshot.userProgress.lastStudyDate).toBe('2026-08-15T10:00:00.000Z');
   });
 
+  it('round-trips selected answers and exact generated-question snapshots', async () => {
+    const profileId = user.childProfiles[0].profileId;
+    const question = {
+      id: 'tpl:0:addition', stem: 'What is 4 + 5?', choices: ['7', '8', '9', '10'],
+      correctIndex: 2, explanation: 'Four plus five is nine.', difficulty: 'easy',
+    };
+    const event = quizEvent(profileId, 'attempt-rich', {
+      questionResults: [{ questionId: question.id, correct: false, selectedIndex: 0, question }],
+    });
+    expect((await sync(syncBody([event]))).status).toBe(200);
+    const get = await handleProgressGet(new Request('https://x.test/api/progress', { headers: { cookie } }), t.progressDeps);
+    const snapshot = (await get.json()).profiles[profileId];
+    expect(snapshot.topicProgress['math:math-yr7-algebra-1'].attempts[0].questionResults[0]).toEqual({
+      questionId: question.id, correct: false, selectedIndex: 0, question,
+    });
+  });
+
   it('is idempotent: replaying the same batch does not duplicate attempts', async () => {
     const profileId = user.childProfiles[0].profileId;
     const batch = syncBody([quizEvent(profileId, 'attempt-1')]);

@@ -171,13 +171,13 @@ test.describe('Quiz flow', () => {
 });
 
 test.describe('Navigation & breadcrumbs', () => {
-  test('main nav has a Review link that opens mixed review', async ({ page }) => {
+  test('main nav has a Test link that opens the custom test builder', async ({ page }) => {
     await page.goto('/');
-    const reviewLink = page.getByRole('link', { name: 'Review' }).first();
-    await expect(reviewLink).toBeVisible();
-    await reviewLink.click();
-    await page.waitForURL('/mixed-review');
-    await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+    const testLink = page.getByRole('link', { name: 'Test', exact: true }).first();
+    await expect(testLink).toBeVisible();
+    await testLink.click();
+    await page.waitForURL('/custom-test');
+    await expect(page.getByRole('heading', { name: 'Build a Test' })).toBeVisible();
   });
 
   test('study page breadcrumb links back to subject and home', async ({ page }) => {

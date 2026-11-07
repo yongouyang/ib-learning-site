@@ -176,8 +176,8 @@ describe('QuizGame', () => {
       });
 
       expect(onComplete).toHaveBeenCalledWith(1, 2, true);
-      expect(onQuestionResult).toHaveBeenCalledWith('q1', true);
-      expect(onQuestionResult).toHaveBeenCalledWith('q2', false);
+      expect(onQuestionResult).toHaveBeenCalledWith('q1', true, 1, 2, expect.objectContaining({ selectedIndex: 1 }));
+      expect(onQuestionResult).toHaveBeenCalledWith('q2', false, 2, 2, expect.objectContaining({ selectedIndex: -1 }));
       expect(screen.getByRole('heading', { name: /Quiz Complete!/i })).toBeInTheDocument();
     } finally {
       vi.useRealTimers();
@@ -224,5 +224,38 @@ describe('QuizGame onNewSet', () => {
     await user.click(screen.getAllByRole('button')[2]);
     await user.click(screen.getByRole('button', { name: /See Results/i }));
     expect(screen.queryByRole('button', { name: /New Question Set/i })).not.toBeInTheDocument();
+  });
+});
+
+
+describe('QuizGame mistake review', () => {
+  it('reviews the selected answer and retries only mistakes', async () => {
+    const user = userEvent.setup();
+    const onComplete = vi.fn();
+    render(<QuizGame questions={questions} backHref="/back" onComplete={onComplete} />);
+
+    await user.click(screen.getAllByRole('button')[0]);
+    await user.click(screen.getByRole('button', { name: /Next Question/i }));
+    await user.click(screen.getAllByRole('button')[2]);
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+
+    await user.click(screen.getByRole('button', { name: /Review answers/i }));
+    expect(screen.getAllByText('Your answer:')).toHaveLength(2);
+    expect(screen.getByText('Correct answer:')).toBeInTheDocument();
+    expect(screen.getByText('Two plus two equals four.')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /Retry mistakes \(1\)/i }));
+    expect(screen.getByRole('heading', { name: /What is 2 \+ 2\?/i })).toBeInTheDocument();
+    expect(screen.getByText('1/1')).toBeInTheDocument();
+  });
+
+  it('passes mistakes to the similar-question action', async () => {
+    const user = userEvent.setup();
+    const onSimilarQuestions = vi.fn();
+    render(<QuizGame questions={[questions[0]]} backHref="/back" onComplete={vi.fn()} onSimilarQuestions={onSimilarQuestions} />);
+    await user.click(screen.getAllByRole('button')[0]);
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+    await user.click(screen.getByRole('button', { name: /Practise similar questions/i }));
+    expect(onSimilarQuestions).toHaveBeenCalledWith([questions[0]]);
   });
 });

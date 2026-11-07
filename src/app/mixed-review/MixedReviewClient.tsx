@@ -229,7 +229,17 @@ export default function MixedReviewClient() {
         backLabel="Back to Progress"
         questions={questions.map((q) => q.question)}
         shuffleSeed={questions.map((q) => q.question.id).join(',')}
-        onQuestionResult={() => { touchedRef.current = true; }}
+        onQuestionResult={(_questionId, correct, questionNumber, totalCount) => {
+          touchedRef.current = true;
+          trackEvent('quiz_question_answered', {
+            subjectId: MIXED_REVIEW_SUBJECT_ID,
+            topicId: MIXED_REVIEW_TOPIC_ID,
+            source: 'mixed_review',
+            questionNumber,
+            totalCount,
+            correct,
+          });
+        }}
         enableTimer={false}
         onComplete={handleComplete}
       />

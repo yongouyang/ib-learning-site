@@ -1,4 +1,6 @@
 import { z } from 'zod';
+import { questionSchema } from '@/content/schema';
+import type { Question } from '@/content/types';
 import type { SessionRecord, UserRecord } from '../auth/types';
 
 // Phase C — progress sync types (docs/architecture-evolution-plan.md §3.2).
@@ -39,6 +41,8 @@ export interface ProgressMetaItem {
 export interface QuestionResultItem {
   questionId: string;
   correct: boolean;
+  selectedIndex?: number;
+  question?: Question;
 }
 
 export interface TopicAttemptItem {
@@ -202,9 +206,19 @@ export interface ProgressStorage {
 
 // --- Wire schemas (POST /api/progress/sync) ------------------------------------
 
+const questionSnapshotSchema = questionSchema.extend({
+  id: z.string().regex(/^[A-Za-z0-9_:-]+$/).min(1).max(PROGRESS_MAX_ID_LENGTH),
+  stem: z.string().min(1).max(2000),
+  choices: z.array(z.string().min(1).max(1000)).length(4),
+  explanation: z.string().min(1).max(4000),
+  variantOf: z.string().min(1).max(128).optional(),
+});
+
 export const questionResultSchema = z.object({
-  questionId: z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(PROGRESS_MAX_ID_LENGTH),
+  questionId: z.string().regex(/^[A-Za-z0-9_:-]+$/).min(1).max(PROGRESS_MAX_ID_LENGTH),
   correct: z.boolean(),
+  selectedIndex: z.number().int().min(-1).max(3).optional(),
+  question: questionSnapshotSchema.optional(),
 });
 
 // Charset-restricted ids (round 2): '#' (and ':' for topic/subject composites)

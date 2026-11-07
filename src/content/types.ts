@@ -181,6 +181,10 @@ export interface QuizAttempt {
 export interface QuestionResult {
   questionId: string;
   correct: boolean;
+  /** The selected choice; -1 means the question timed out. Absent on legacy attempts. */
+  selectedIndex?: number;
+  /** Exact content answered, including generated instances. Absent on legacy attempts. */
+  question?: Question;
 }
 
 export interface TopicProgress {

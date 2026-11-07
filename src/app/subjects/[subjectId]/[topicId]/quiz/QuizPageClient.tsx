@@ -9,6 +9,7 @@ import type { Flashcard, Question, QuestionResult, SubjectId, TopicTemplate } fr
 import {
   DIFFICULTY_LEVELS,
   filterQuestionsByDifficulty,
+  groupKeyOf,
   hasVariantGroups,
   orderQuestionsByDifficulty,
   parseDifficultyFilter,
@@ -60,6 +61,7 @@ export default function QuizPageClient({
   // reseeded client-side on mount for grouped topics so every visit — and every
   // "new question set" — samples fresh variants (docs/question-variations-plan.md).
   const [sessionSeed, setSessionSeed] = useState(`${topicId}:${difficulty}`);
+  const [similarGroups, setSimilarGroups] = useState<string[] | null>(null);
   useEffect(() => {
     if (grouped) setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
   }, [grouped, topicId, difficulty]);
@@ -74,17 +76,26 @@ export default function QuizPageClient({
 
   const handleNewSet = () => {
     resultsRef.current = [];
+    setSimilarGroups(null);
     setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
   };
 
-  // Authored questions plus one materialized instance per template (seeded by
-  // sessionSeed, so "new question set" redraws fresh values). Difficulty chip
-  // counts below intentionally cover authored questions only.
+  const handleSimilarQuestions = (mistakes: Question[]) => {
+    resultsRef.current = [];
+    setSimilarGroups([...new Set(mistakes.map(groupKeyOf))]);
+    setSessionSeed(`${topicId}:${difficulty}:similar:${randomSeed()}`);
+  };
+
   const pool = [...questions, ...materializeTemplates({ id: topicId, templates, flashcards }, sessionSeed)];
   const filtered = filterQuestionsByDifficulty(pool, difficulty);
-  // Grouped topics: one question per variant group (~10 per session). Topics
-  // without groups keep the legacy behavior — every question, every session.
-  const sessionQuestions = grouped ? sampleVariantGroups(filtered, sessionSeed) : filtered;
+  const scoped = similarGroups ? filtered.filter((question) => similarGroups.includes(groupKeyOf(question))) : filtered;
+  const groupSizes = new Map<string, number>();
+  for (const question of pool) {
+    const key = groupKeyOf(question);
+    groupSizes.set(key, (groupSizes.get(key) ?? 0) + 1);
+  }
+  const canOfferSimilar = grouped || [...groupSizes.values()].some((size) => size > 1);
+  const sessionQuestions = grouped || similarGroups ? sampleVariantGroups(scoped, sessionSeed) : scoped;
   // Easy -> hard with a deterministic intra-band shuffle; QuizGame receives the
   // final order (no shuffleSeed), and keying on filter+seed forces a remount
   // when the user switches difficulty or requests a new set.
@@ -142,8 +153,16 @@ export default function QuizPageClient({
         ]}
         enableTimer={true}
         timerSeconds={60}
-        onQuestionResult={(questionId, correct) => {
-          resultsRef.current.push({ questionId, correct });
+        onQuestionResult={(questionId, correct, questionNumber, totalCount, result) => {
+          resultsRef.current.push(result);
+          trackEvent('quiz_question_answered', {
+            subjectId,
+            topicId,
+            source: 'topic_page',
+            questionNumber,
+            totalCount,
+            correct,
+          });
         }}
         onComplete={(correctCount, totalCount) => {
           recordAttempt(topicId, subjectId as SubjectId, topicTitle, subjectId, correctCount, totalCount, resultsRef.current);
@@ -157,6 +176,7 @@ export default function QuizPageClient({
           resultsRef.current = [];
         }}
         onNewSet={grouped ? handleNewSet : undefined}
+        onSimilarQuestions={canOfferSimilar ? handleSimilarQuestions : undefined}
       />
     </div>
   );

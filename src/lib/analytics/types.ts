@@ -32,6 +32,7 @@ export const ANALYTICS_TOP_REFERRERS = 10;
 export const ANALYTICS_EVENT_NAMES = [
   'page_view',
   'quiz_started',
+  'quiz_question_answered',
   'quiz_completed',
   'flashcard_session_started',
   'flashcard_session_completed',
@@ -84,7 +85,15 @@ const perNameProps: Record<AnalyticsEventName, z.ZodTypeAny> = {
   quiz_started: z.object({
     subjectId: idField(),
     topicId: idField(),
-    source: z.enum(['topic_page', 'diagnostic', 'mixed_review', 'ladder']),
+    source: z.enum(['topic_page', 'diagnostic', 'mixed_review', 'ladder', 'custom_test']),
+  }),
+  quiz_question_answered: z.object({
+    subjectId: idField(),
+    topicId: idField(),
+    source: z.enum(['topic_page', 'diagnostic', 'mixed_review', 'ladder', 'custom_test']),
+    questionNumber: z.number().int().min(1).max(500),
+    totalCount: z.number().int().min(1).max(500),
+    correct: z.boolean(),
   }),
   quiz_completed: z.object({
     subjectId: idField(),

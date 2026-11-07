@@ -36,6 +36,11 @@ test.describe('Mixed review', () => {
   });
 
   test('completes a mixed review and shows results', async ({ page }) => {
+    const events: string[] = [];
+    await page.route('**/api/analytics/event', async (route) => {
+      events.push((route.request().postDataJSON() as { name: string }).name);
+      await route.fulfill({ status: 204 });
+    });
     await page.goto('/mixed-review');
     for (let i = 0; i < 10; i++) {
       const choice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
@@ -46,5 +51,7 @@ test.describe('Mixed review', () => {
       await nextBtn.click();
     }
     await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible();
+    await expect.poll(() => events.filter((name) => name === 'quiz_question_answered').length).toBe(10);
+    await expect.poll(() => events).toContain('quiz_completed');
   });
 });

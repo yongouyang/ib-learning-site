@@ -4,6 +4,7 @@ import { isFreePaperSet } from '../entitlements/exam-access';
 import { getPaperContent } from '@/content/registry.papers';
 import { getAllContentTopics } from '@/content/registry.content';
 import { drawMixedReviewQuestions } from '../mixed-review-draw';
+import { drawCustomTest } from '../custom-test-draw';
 import { getContentDeps, type ContentDeps } from './deps';
 import {
   CONTENT_HEALTH_PATH,
@@ -19,6 +20,7 @@ import {
   contentIpScope,
   contentWindowResetAt,
   maskEmail,
+  parseCustomTestPath,
   parseMixedReviewPath,
   parsePremiumPaperPath,
   type PremiumPaperPayload,
@@ -188,6 +190,25 @@ export async function handlePublicMixedReviewGet(
   return json({ questions }, 200, CONTENT_PUBLIC_CACHE_CONTROL);
 }
 
+export async function handlePublicCustomTestGet(
+  req: Request,
+  deps: ContentDeps = getContentDeps(),
+  input: NonNullable<ReturnType<typeof parseCustomTestPath>>
+): Promise<Response> {
+  const budget = await deps.storage.incrementContentRequestCount(
+    contentIpScope(clientIp(req)),
+    CONTENT_PUBLIC_REQUESTS_PER_WINDOW,
+    CONTENT_PUBLIC_WINDOW_SECONDS
+  );
+  if (!budget.allowed) {
+    return json({ error: 'quota_exceeded' }, 429, CONTENT_PRIVATE_CACHE_CONTROL);
+  }
+
+  const questions = drawCustomTest({ ...input, mode: 'practice' });
+  if (questions.length === 0) return json({ error: 'no_questions' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
+  return json({ questions }, 200, CONTENT_PUBLIC_CACHE_CONTROL);
+}
+
 /**
  * The whole GET surface as one router, so both entry points (Next route, Lambda adapter) stay thin
  * and the path parsing is tested once.
@@ -205,6 +226,9 @@ export async function handleContentGet(
 
   const mixed = parseMixedReviewPath(pathname);
   if (mixed) return handlePublicMixedReviewGet(req, deps, mixed);
+
+  const custom = parseCustomTestPath(pathname);
+  if (custom) return handlePublicCustomTestGet(req, deps, custom);
 
   return json({ error: 'Not found' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
 }

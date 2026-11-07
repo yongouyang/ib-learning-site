@@ -49,6 +49,7 @@ test.describe('analytics', () => {
     await completeQuiz(page);
 
     await expect.poll(() => events).toContain('quiz_started');
+    await expect.poll(() => events).toContain('quiz_question_answered');
     await expect.poll(() => events).toContain('quiz_completed');
   });
 

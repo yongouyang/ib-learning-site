@@ -15,6 +15,7 @@ import {
   contentWindowResetAt,
   accountRef,
   maskEmail,
+  parseCustomTestPath,
   parseMixedReviewPath,
   parsePremiumPaperPath,
 } from '@/lib/content/types';
@@ -102,6 +103,15 @@ describe('content API — path parsing', () => {
     expect(parseMixedReviewPath(`/api/content/public/mixed-review/seed/${tooMany}`)).toBeNull();
     expect(parseMixedReviewPath('/api/content/public/mixed-review/bad seed')).toBeNull();
     expect(parseMixedReviewPath('/api/content/premium/papers/a/b')).toBeNull();
+  });
+
+  it('parses and bounds custom-test settings', () => {
+    expect(parseCustomTestPath('/api/content/public/custom-test/seed:1/10/all/math-yr7-angles,math-fractions-1')).toEqual({
+      seed: 'seed:1', count: 10, difficulty: 'all', topicIds: ['math-yr7-angles', 'math-fractions-1'],
+    });
+    expect(parseCustomTestPath('/api/content/public/custom-test/seed/7/all/math-yr7-angles')).toBeNull();
+    expect(parseCustomTestPath('/api/content/public/custom-test/seed/10/impossible/math-yr7-angles')).toBeNull();
+    expect(parseCustomTestPath('/api/content/public/custom-test/seed/10/all/')).toBeNull();
   });
 });
 
@@ -414,5 +424,35 @@ describe('content API — health and routing', () => {
   it('404s an unknown path under the content prefix', async () => {
     const res = await handleContentGet(get('/api/content/nope'), deps(new InMemoryContentStorage()));
     expect(res.status).toBe(404);
+  });
+});
+
+
+describe('content API — custom tests', () => {
+  it('draws a deterministic, topic-scoped public test', async () => {
+    const path = '/api/content/public/custom-test/seed:1/10/all/math-yr7-angles,math-fractions-1';
+    const first = await handleContentGet(get(path), deps(new InMemoryContentStorage()));
+    const second = await handleContentGet(get(path), deps(new InMemoryContentStorage()));
+    expect(first.status).toBe(200);
+    expect(first.headers.get('Cache-Control')).toBe(CONTENT_PUBLIC_CACHE_CONTROL);
+    const body = await first.json() as { questions: { topicId: string; question: { difficulty: string } }[] };
+    expect(body.questions).toHaveLength(10);
+    expect(new Set(body.questions.map((entry) => entry.topicId))).toEqual(new Set(['math-yr7-angles', 'math-fractions-1']));
+    expect(await second.json()).toEqual(body);
+  });
+
+  it('filters difficulty and refuses an empty topic selection', async () => {
+    const hard = await handleContentGet(
+      get('/api/content/public/custom-test/seed/5/hard/math-yr7-angles'),
+      deps(new InMemoryContentStorage())
+    );
+    const hardBody = await hard.json() as { questions: { question: { difficulty: string } }[] };
+    expect(hardBody.questions.every((entry) => entry.question.difficulty === 'hard')).toBe(true);
+
+    const missing = await handleContentGet(
+      get('/api/content/public/custom-test/seed/5/all/not-a-topic'),
+      deps(new InMemoryContentStorage())
+    );
+    expect(missing.status).toBe(404);
   });
 });

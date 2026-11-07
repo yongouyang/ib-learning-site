@@ -4,6 +4,64 @@
 
 ---
 
+## 2026-11-07 — Exam preparation Phase 1
+Git HEAD: `c4ac793` (develop, tree dirty)
+Done: documented `exam-preparation-implementation-plan.md`; added `/custom-test` with
+  subject/year/topic/count/difficulty/timing controls and server-side balanced draws;
+  shared quizzes now review exact answers, retry mistakes and drill similar variants.
+  New attempts optionally sync selected choices + question snapshots; legacy rows unchanged.
+Verified: 1742/1742 unit; static build + 435 sitemap URLs + leak HARD/TIGHT; content/audit,
+  illustrations/layout, Lambda builds, tsc, links and 375px overflow PASS; lint 0 errors
+  (35 baseline warnings). Static e2e: Desktop 447/4 skipped, iPhone 434/17, iPad 435/16.
+Next: Phase 2 derived mistake notebook, weak-topic test creation and retry improvement;
+  then Phase 3 contextual AI help. Continue queued analytics/funnel and SEO evaluation.
+Notes: fresh UX review passed 12 screenshots at 375/1280, light/dark; Test/Quiz/Exam wording
+  and Test replacing Review in main nav consciously retained. Pre-existing analytics/planning
+  edits preserved. No commit, push or deploy; no data migration required.
+
+---
+
+## 2026-11-06 — Develop and main CI restored
+Git HEAD: `c4ac793` (develop, tree dirty)
+Done: committed and pushed the Playwright 1.64.1 upgrade; fast-forwarded main to the
+  same commit, restoring both branches and deploying dev and prod successfully.
+Verified: develop run 42225768258 and main run 42228565172 both SUCCESS; build,
+  Semgrep, OSV, illustrations, all three e2e devices and the applicable deploy green.
+Next: deploy the queued analytics work and continue the question-funnel analysis;
+  obtain Search Console data and evaluate the illustration/set-3 batches before more content.
+Notes: unrelated pre-existing analytics and planning edits remain uncommitted and untouched.
+
+---
+
+## 2026-11-05 — Playwright Ubuntu 26.04 CI compatibility
+Git HEAD: `99a1c1a` (develop, tree dirty)
+Done: upgraded `@playwright/test`, `playwright` and `playwright-core` from 1.60.0
+  to 1.64.1 in package.json/package-lock.json; 1.64.1 explicitly supports ubuntu26.04,
+  fixing the four CI jobs that failed before browser installation completed.
+Verified: Chromium install PASS; illustrations + layout PASS; 1736/1736 unit;
+  Desktop Chrome e2e 439 passed/10 skipped with `--workers=1`; diff check PASS.
+Next: commit and push the dependency upgrade, then confirm the develop CI/CD run;
+  deploy the queued analytics work and continue the question-funnel analysis.
+Notes: dependency-only change; no UX review needed; pre-existing workspace edits preserved.
+
+---
+
+## 2026-11-04 — Quiz abandonment investigation and question funnel
+Git HEAD: `99a1c1a` (develop, tree dirty)
+Done: queried 90d production raw events by session: 14 maths/mixed sessions (9 mixed,
+  5 topic), 21 starts/0 completions; topic starts double on the initial grouped reseed.
+  Static maths + mixed-review journeys complete on Desktop/iPhone, so no general blocker.
+  Added anonymous `quiz_question_answered` (position/total/correct/source) to both flows,
+  schema/report labels, callback position data, taxonomy docs and unit/e2e coverage.
+Verified: 1736/1736 unit; tsc PASS; focused eslint 0 errors (6 baseline warnings);
+  build:static 434 URLs + leak HARD/TIGHT; focused static e2e 2/2 Desktop + 2/2 iPhone.
+Next: deploy site + analytics Lambda together, then compare sessions reaching Q1/each step/
+  results; keep Search Console and illustration/set-3 evaluation ahead of more content.
+Notes: starts remain mount/redraw events; Try Again still completes without a new start or
+  timer reset. No UX change/waiver needed. No commit/push/deploy; production data unchanged.
+
+---
+
 ## 2026-11-03 — IGCSE Chemistry targeted gap wave shipped
 Git HEAD: `d06bbd9` (develop, tree dirty)
 Done: added `chem-igcse-periodic-table`, `chem-igcse-formulae-equations` and

@@ -105,6 +105,7 @@ function assessmentEntries(): Entry[] {
   const hub = gitDate('src/app/exams/page.tsx');
   const entries: Entry[] = [
     { url: abs('/diagnostics'), lastmod: gitDate('src/app/diagnostics/page.tsx'), changeFrequency: 'monthly', priority: 0.6 },
+    { url: abs('/custom-test'), lastmod: gitDate('src/app/custom-test/page.tsx'), changeFrequency: 'monthly', priority: 0.7 },
     { url: abs('/exams'), lastmod: hub, changeFrequency: 'monthly', priority: 0.6 },
     // /papers is its own hub (free-response sets), NOT a child of /exams — it was missing
     // until the sitemap-vs-out/ cross-check found an indexable page with no feed entry.
