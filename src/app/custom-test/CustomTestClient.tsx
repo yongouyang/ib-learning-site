@@ -1,7 +1,8 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
-import { ClipboardList, RotateCcw } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { ClipboardList, RotateCcw, Target } from 'lucide-react';
 import QuizGame from '@/components/QuizGame';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { getSubject, getSubjects } from '@/content/registry';
@@ -10,12 +11,15 @@ import { useProgress } from '@/context/ProgressContext';
 import { CUSTOM_TEST_COUNTS, customTestSeconds, type CustomTestCount, type CustomTestMode, type CustomTestPayload, type CustomTestSettings } from '@/lib/custom-test';
 import type { MixedReviewQuestion } from '@/lib/mixed-review';
 import { randomSeed, type DifficultyFilter } from '@/lib/quiz-utils';
+import { getWeakTopics } from '@/lib/weak-point-analyzer';
 import { trackEvent } from '@/lib/analytics';
 
 type Scope = 'all' | '7' | '8' | '9' | 'igcse' | 'dp';
 
 export default function CustomTestClient() {
   const subjects = getSubjects();
+  const searchParams = useSearchParams();
+  const weakMode = searchParams.get('mode') === 'weak';
   const [subjectId, setSubjectId] = useState<SubjectId>('math');
   const [scope, setScope] = useState<Scope>('all');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
@@ -28,7 +32,11 @@ export default function CustomTestClient() {
   const [error, setError] = useState('');
   const resultsRef = useRef<QuestionResult[]>([]);
   const startedAtRef = useRef(0);
-  const { recordAttempt } = useProgress();
+  const { recordAttempt, topicProgress, loaded } = useProgress();
+  const weakTopics = weakMode && loaded ? getWeakTopics(topicProgress).slice(0, 12) : [];
+  useEffect(() => {
+    if (settings) startedAtRef.current = Date.now();
+  }, [settings]);
 
   const topics = useMemo(() => getSubject(subjectId)?.topics.filter((topic) => {
     if (scope === 'all') return true;
@@ -52,8 +60,7 @@ export default function CustomTestClient() {
       const body = await response.json() as CustomTestPayload;
       setQuestions(body.questions);
       setSettings(next);
-      startedAtRef.current = Date.now();
-      trackEvent('quiz_started', { subjectId, topicId: 'custom-test', source: 'custom_test' });
+      trackEvent('quiz_started', { subjectId: body.questions[0].subjectId, topicId: 'custom-test', source: 'custom_test' });
     } catch {
       setQuestions([]);
       setError('Could not load your test. Check your connection and try again.');
@@ -66,6 +73,10 @@ export default function CustomTestClient() {
     void loadTest({ topicIds: selectedTopics, count, difficulty, mode, seed: `custom:${randomSeed()}` });
   };
 
+  const startWeakTest = () => {
+    void loadTest({ topicIds: weakTopics.map((topic) => topic.topicId), count: 10, difficulty: 'all', mode: 'practice', seed: `custom:weak:${randomSeed()}` });
+  };
+
   const anotherTest = () => {
     if (settings) void loadTest({ ...settings, seed: `custom:${randomSeed()}` });
   };
@@ -73,22 +84,22 @@ export default function CustomTestClient() {
   const completeTest = (correctCount: number, totalCount: number) => {
     if (!settings) return;
     const byId = new Map(questions.map((entry) => [entry.question.id, entry]));
-    const perTopic = new Map<string, { topic: TopicMeta; results: QuestionResult[] }>();
+    const perTopic = new Map<string, { topic: TopicMeta; source: MixedReviewQuestion; results: QuestionResult[] }>();
     for (const result of resultsRef.current) {
       const source = byId.get(result.questionId);
       if (!source) continue;
       const topic = getSubject(source.subjectId)?.topics.find((item) => item.id === source.topicId);
       if (!topic) continue;
-      const current = perTopic.get(topic.id) ?? { topic, results: [] };
+      const current = perTopic.get(topic.id) ?? { topic, source, results: [] };
       current.results.push(result);
       perTopic.set(topic.id, current);
     }
-    for (const { topic, results } of perTopic.values()) {
-      recordAttempt(topic.id, subjectId, topic.title, getSubject(subjectId)?.name ?? subjectId,
+    for (const { topic, source, results } of perTopic.values()) {
+      recordAttempt(topic.id, source.subjectId, topic.title, getSubject(source.subjectId)?.name ?? source.subjectId,
         results.filter((result) => result.correct).length, results.length, results);
     }
     trackEvent('quiz_completed', {
-      subjectId,
+      subjectId: questions[0].subjectId,
       topicId: 'custom-test',
       correctCount,
       totalCount,
@@ -120,6 +131,23 @@ export default function CustomTestClient() {
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
         Choose exactly what you need to practise. Every question comes from our reviewed question bank.
       </p>
+
+      {weakMode && (
+        <div className="card p-4 mb-5 border-orange-200 dark:border-orange-900">
+          <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Weak-area test</h2>
+          <p role={!loaded ? 'status' : undefined} className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+            {!loaded
+              ? 'Loading your recent results…'
+              : weakTopics.length > 0
+                ? `${weakTopics.length} topic${weakTopics.length === 1 ? '' : 's'} selected: ${weakTopics.slice(0, 3).map((topic) => topic.topicTitle).join(', ')}${weakTopics.length > 3 ? ` and ${weakTopics.length - 3} more` : ''}.`
+                : 'No weak topics found yet. Complete a quiz first, or build a test below.'}
+          </p>
+          <button type="button" onClick={startWeakTest} disabled={!loaded || weakTopics.length === 0 || loading}
+            className="w-full min-h-11 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-orange-700 text-white font-semibold hover:bg-orange-800 disabled:opacity-50">
+            <Target className="w-4 h-4" /> Practise my weak areas
+          </button>
+        </div>
+      )}
 
       <div className="card p-5 space-y-5">
         <div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList, FileText, FileSignature } from 'lucide-react';
+import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList, FileText, FileSignature, BookMarked } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects } from '@/content/registry';
 import { getRecentAverageScore } from '@/lib/progress-store';
@@ -50,25 +50,29 @@ export default function ProgressPage() {
       {/* Mixed review actions */}
       <div className="card p-4 mb-6">
         <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-50 mb-3">Practice</h2>
-        <div className="flex flex-col sm:flex-row gap-2">
-          <Link href="/mixed-review?mode=weak"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-orange-600 text-white font-medium text-sm hover:bg-orange-700 transition-colors">
-            <Target className="w-4 h-4" /> Practice Weak Areas
+        <div className="grid sm:grid-cols-2 gap-2">
+          <Link href="/mistakes"
+            className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">
+            <BookMarked className="w-4 h-4" /> Mistake Notebook
+          </Link>
+          <Link href="/custom-test?mode=weak"
+            className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-orange-700 text-white font-medium text-sm hover:bg-orange-800 transition-colors">
+            <Target className="w-4 h-4" /> Practise Weak Areas
           </Link>
           <Link href="/mixed-review"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+            className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
             <Dices className="w-4 h-4" /> Mixed Review
           </Link>
           <Link href="/diagnostics"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+            className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
             <ClipboardList className="w-4 h-4" /> Diagnostics
           </Link>
           <Link href="/exams"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+            className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
             <FileText className="w-4 h-4" /> Mock Exams
           </Link>
           <Link href="/papers"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+            className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
             <FileSignature className="w-4 h-4" /> Practice Papers
           </Link>
         </div>

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { completeQuiz } from './quiz-session';
 
 test.describe('Mixed review', () => {
   test('loads random mixed review and shows a question', async ({ page }) => {
@@ -26,13 +27,13 @@ test.describe('Mixed review', () => {
     await page.waitForURL('/mixed-review');
   });
 
-  test('loads weak-area mixed review from progress page', async ({ page }) => {
+  test('opens weak-area custom tests from progress page', async ({ page }) => {
     await page.goto('/progress');
-    const weakBtn = page.getByRole('link', { name: /Practice Weak Areas/i });
+    const weakBtn = page.getByRole('link', { name: /Practise Weak Areas/i });
     await expect(weakBtn).toBeVisible();
     await weakBtn.click();
-    await page.waitForURL('/mixed-review?mode=weak');
-    await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+    await page.waitForURL('/custom-test?mode=weak');
+    await expect(page.getByRole('heading', { name: 'Weak-area test' })).toBeVisible();
   });
 
   test('completes a mixed review and shows results', async ({ page }) => {
@@ -42,15 +43,7 @@ test.describe('Mixed review', () => {
       await route.fulfill({ status: 204 });
     });
     await page.goto('/mixed-review');
-    for (let i = 0; i < 10; i++) {
-      const choice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
-      await expect(choice).toBeVisible();
-      await choice.click();
-      const nextBtn = page.getByRole('button', { name: /Next Question|See Results/ });
-      await expect(nextBtn).toBeVisible();
-      await nextBtn.click();
-    }
-    await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible();
+    await completeQuiz(page);
     await expect.poll(() => events.filter((name) => name === 'quiz_question_answered').length).toBe(10);
     await expect.poll(() => events).toContain('quiz_completed');
   });

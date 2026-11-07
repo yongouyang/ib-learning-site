@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-11-08 — Exam preparation Phase 2
+Git HEAD: `4b754d9` (develop, tree dirty)
+Done: added `/mistakes`, derived from attempts with legacy-safe snapshots, two-correct
+  resolution and first/latest improvement; weak-topic custom tests and Progress links.
+  No second mistake store or migration; cross-subject attempts retain real subjects.
+Verified: 1747/1747 unit; static build + 435 sitemap URLs + leak HARD/TIGHT; content/audit,
+  illustrations/layout, Lambda, overflow, tsc and lint 0 errors. Desktop e2e 449/4 skipped;
+  iPhone timeout rerun 312/1; iPad 266 + isolated illustration rerun 303/303; UX review clean.
+Next: Phase 3 contextual AI help with a separate quota/provider contract and privacy update;
+  then Phase 4 richer written exams. Continue queued Search Console/funnel evaluation.
+Notes: iOS illustration/mixed-review timeouts passed in isolation; mixed-review now uses the
+  shared `completeQuiz` helper. No commit/push yet in this entry; no production data changes.
+
+---
+
 ## 2026-11-07 — Exam preparation Phase 1
 Git HEAD: `c4ac793` (develop, tree dirty)
 Done: documented `exam-preparation-implementation-plan.md`; added `/custom-test` with

@@ -139,7 +139,7 @@ test.describe('SEO metadata wiring', () => {
   });
 
   test('app and internal surfaces are noindex, follow', async ({ page }) => {
-    for (const path of ['/login', '/mixed-review', '/leaderboard', '/account', '/progress', '/offline']) {
+    for (const path of ['/login', '/mixed-review', '/leaderboard', '/account', '/progress', '/mistakes', '/offline']) {
       const h = await head(page, path);
       expect(h.robots, `${path} must be noindex`).toContain('noindex');
       expect(h.robots, `${path} must be follow`).toContain('follow');
