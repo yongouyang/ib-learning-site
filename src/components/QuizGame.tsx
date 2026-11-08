@@ -49,6 +49,7 @@ interface QuizGameProps {
   onSimilarQuestions?: (mistakes: Question[]) => void;
   getHelpContext?: (question: Question) => { subjectId: SubjectId; topicId: string };
   onContinue?: { label: string; onClick: () => void };
+  onBack?: () => void;
 }
 
 export default function QuizGame({
@@ -67,6 +68,7 @@ export default function QuizGame({
   onSimilarQuestions,
   getHelpContext,
   onContinue,
+  onBack,
 }: QuizGameProps) {
   const [sessionQuestions, setSessionQuestions] = useState(() =>
     questions.length > 0 ? seededShuffle([...questions], shuffleSeed) : []
@@ -200,7 +202,7 @@ export default function QuizGame({
     return (
       <div className="max-w-lg mx-auto px-4 py-8 text-center">
         <p className="text-gray-500 dark:text-gray-400">No questions available.</p>
-        <Link href={backHref} className="mt-4 inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400">
+        <Link href={backHref} onClick={onBack} className="mt-4 inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400">
           <ArrowLeft className="w-4 h-4" /> Back
         </Link>
       </div>
@@ -254,7 +256,7 @@ export default function QuizGame({
                 <Shuffle className="w-4 h-4" /> New Question Set
               </button>
             )}
-            <Link href={backHref}
+            <Link href={backHref} onClick={onBack}
               className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
               {backLabel}
             </Link>
@@ -323,7 +325,7 @@ export default function QuizGame({
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">
         {!breadcrumbs && (
-          <Link href={backHref} className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 shrink-0">
+          <Link href={backHref} onClick={onBack} className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 shrink-0">
             <ArrowLeft className="w-4 h-4" /> Back
           </Link>
         )}

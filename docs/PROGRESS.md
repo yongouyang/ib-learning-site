@@ -4,6 +4,17 @@
 
 ---
 
+## 2026-11-08 — Custom-test Back navigation fix
+Git HEAD: `4797210` (develop, tree dirty)
+Done: added an explicit reset callback to shared quiz back links; `/custom-test` now clears
+  active question/results state before same-route navigation, preserving builder selections.
+Verified: reproduced broken Back on dev; new question-1 + results regression passes locally
+  and static. 1754 unit; build/leak green. Desktop e2e 453, iPhone 440, iPad 439 + 14 isolated.
+Next: verify both exits on dev after CI deploy, then continue normal rollout monitoring.
+Notes: iPad AI-marking/full-topic timeouts passed in isolation. No data changes required.
+
+---
+
 ## 2026-11-08 — Exam preparation Phase 4
 Git HEAD: `c88f921` (develop, tree dirty)
 Done: added Year 7 mixed custom exams (MC then topic-tagged written section) through the

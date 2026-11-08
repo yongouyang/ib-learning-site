@@ -91,6 +91,14 @@ export default function CustomTestClient() {
     if (settings) void loadTest({ ...settings, seed: `custom:${randomSeed()}` });
   };
 
+  const resetBuilder = () => {
+    setSettings(null);
+    setQuestions([]);
+    setWrittenQuestions([]);
+    setPhase('multiple-choice');
+    setError('');
+  };
+
   const completeTest = (correctCount: number, totalCount: number) => {
     if (!settings) return;
     const byId = new Map(questions.map((entry) => [entry.question.id, entry]));
@@ -136,6 +144,7 @@ export default function CustomTestClient() {
         subtitle={`${getSubject(subjectId)?.name ?? subjectId} · ${settings.topicIds.length} topic${settings.topicIds.length === 1 ? '' : 's'}${settings.questionType === 'mixed' ? ` · ${writtenQuestions.length} written question${writtenQuestions.length === 1 ? '' : 's'} next` : ''}`}
         backHref="/custom-test"
         backLabel="Back to Test Builder"
+        onBack={resetBuilder}
         questions={questions.map((entry) => entry.question)}
         enableTimer={settings.mode === 'timed'}
         timerMode="overall"
