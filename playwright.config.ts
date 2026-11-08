@@ -41,20 +41,29 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL,
+    reducedMotion: 'reduce',
     trace: 'on-first-retry',
   },
   projects: [
     {
       name: 'iPhone SE',
+      testIgnore: /(?:illustrations|full-topic-journey)\.spec\.ts$/,
       use: { ...devices['iPhone SE'], defaultBrowserType: 'chromium' },
     },
     {
       name: 'iPad Pro',
+      testIgnore: /(?:illustrations|full-topic-journey)\.spec\.ts$/,
       use: { ...devices['iPad Pro 11'], defaultBrowserType: 'chromium' },
     },
     {
       name: 'Desktop Chrome',
+      testIgnore: /(?:illustrations|full-topic-journey)\.spec\.ts$/,
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'Journey checks',
+      testMatch: /(?:illustrations|full-topic-journey)\.spec\.ts$/,
+      use: { ...devices['Desktop Chrome'], defaultBrowserType: 'chromium' },
     },
   ],
   webServer: {

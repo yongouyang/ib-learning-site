@@ -4,6 +4,19 @@
 
 ---
 
+## 2026-11-08 — E2E journey parallelisation measured
+Git HEAD: `37d980e` (develop, tree dirty)
+Done: split illustration/full-topic suites from device projects into four-worker CI
+  `e2e-journeys` gate; reduced motion everywhere; kept full desktop coverage plus mobile
+  samples. Removed illustration serial mode; both deploys require the new job.
+Verified: before iPad JSON 398.4s; after main 89.4s + parallel journeys 65.6s = 155.0s
+  (61.1% total saving, 77.6% main-run saving). Main Desktop 141, iPhone 128, iPad 129;
+  journeys 314 all PASS. 1754 unit, lint 0 errors, static build/sitemap/leak PASS.
+Next: confirm the new CI job/deploy gate on this push; continue normal feature validation.
+Notes: measurement JSON lives outside the repo under /tmp. No application code changed.
+
+---
+
 ## 2026-11-08 — Custom-test Back navigation fix
 Git HEAD: `4797210` (develop, tree dirty)
 Done: added an explicit reset callback to shared quiz back links; `/custom-test` now clears

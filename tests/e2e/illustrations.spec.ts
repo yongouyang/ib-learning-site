@@ -37,8 +37,7 @@ function discoverTopicsWithIllustrations(): TopicInfo[] {
 }
 
 const topics = discoverTopicsWithIllustrations();
-
-test.describe.configure({ mode: 'serial' });
+const mobileSampleIds = new Set(['math-yr7-nets-3d-shapes', 'bio-cell-1', 'eng-igcse-accuracy-style']);
 
 test.describe('Study page illustrations', () => {
   for (const topic of topics) {
@@ -91,6 +90,16 @@ test.describe('Study page illustrations', () => {
           `image ${i} overflows the right edge of the viewport`
         ).toBeLessThanOrEqual(viewport!.width + 1);
         expect(box!.x, `image ${i} is positioned off the left edge of the viewport`).toBeGreaterThanOrEqual(-1);
+      }
+
+      if (mobileSampleIds.has(topic.topicId)) {
+        await page.setViewportSize({ width: 375, height: 667 });
+        for (let i = 0; i < count; i++) {
+          const box = await images.nth(i).boundingBox();
+          expect(box, `mobile image ${i} has no bounding box`).not.toBeNull();
+          expect(box!.x, `mobile image ${i} is off the left edge`).toBeGreaterThanOrEqual(-1);
+          expect(box!.x + box!.width, `mobile image ${i} overflows the viewport`).toBeLessThanOrEqual(376);
+        }
       }
     });
   }

@@ -82,3 +82,10 @@ for (const sample of SAMPLES) {
     await completeTopicJourney(page, sample.subjectId, sample.topicId, sample.title);
   });
 }
+
+for (const sample of SAMPLES.filter((item) => item.topicId === 'math-yr7-calculations' || item.topicId === 'bio-cell-1')) {
+  test(`${sample.subjectId} › ${sample.title}: full clickable journey on mobile`, async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await completeTopicJourney(page, sample.subjectId, sample.topicId, sample.title);
+  });
+}

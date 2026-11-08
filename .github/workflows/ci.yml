@@ -121,6 +121,43 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
+  # Independent illustration and complete-topic journeys run in parallel with the
+  # three device suites. They have no shared-auth/OTP dependency, so four workers
+  # are safe here while the main suite stays sequential per device.
+  e2e-journeys:
+    name: e2e (journeys)
+    if: ${{ inputs.deploy_only != true }}
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Cache Playwright browsers
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('package-lock.json') }}
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+        timeout-minutes: 15
+      - name: Run illustration and topic journeys
+        run: npx playwright test --project="Journey checks" --workers=4
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report-journeys
+          path: playwright-report/
+          retention-days: 7
+
   # Illustration gates (validate:illustrations + validate:illustration-layout)
   # run in parallel with e2e so deploy doesn't spend ~3 min on them.
   illustrations:
@@ -213,7 +250,7 @@ jobs:
   # cloudfront.net URL. Shares one terraform state with deploy-prod; the
   # common concurrency group serializes the two jobs so applies never race.
   deploy-dev:
-    needs: [build-and-test, e2e, illustrations, semgrep, osv-scanner]
+    needs: [build-and-test, e2e, e2e-journeys, illustrations, semgrep, osv-scanner]
     # Pushes/dispatches on develop only — never PRs, never main.
     # always()+!failure() so the deploy_only dispatch (gates skipped) still
     # runs, while any real gate failure on a normal run still blocks it.
@@ -497,7 +534,7 @@ jobs:
   # distribution (docs/custom-domain-cutover-plan.md). Same terraform state
   # and apply as deploy-dev; only the sync/invalidation/smoke targets differ.
   deploy-prod:
-    needs: [build-and-test, e2e, illustrations, semgrep, osv-scanner]
+    needs: [build-and-test, e2e, e2e-journeys, illustrations, semgrep, osv-scanner]
     # Pushes/dispatches on main only — never PRs, never develop.
     if: >-
       always() && !failure() && !cancelled() &&
