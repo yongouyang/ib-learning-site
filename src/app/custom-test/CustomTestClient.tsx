@@ -4,11 +4,12 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { ClipboardList, RotateCcw, Target } from 'lucide-react';
 import QuizGame from '@/components/QuizGame';
+import PaperRunnerClient from '@/app/papers/[courseId]/[setId]/PaperRunnerClient';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { getSubject, getSubjects } from '@/content/registry';
-import type { QuestionResult, SubjectId, TopicMeta } from '@/content/types';
+import type { FreeResponseQuestion, QuestionResult, SubjectId, TopicMeta } from '@/content/types';
 import { useProgress } from '@/context/ProgressContext';
-import { CUSTOM_TEST_COUNTS, customTestSeconds, type CustomTestCount, type CustomTestMode, type CustomTestPayload, type CustomTestSettings } from '@/lib/custom-test';
+import { CUSTOM_TEST_COUNTS, customTestSeconds, MIXED_EXAM_TOPIC_IDS, type CustomQuestionType, type CustomTestCount, type CustomTestMode, type CustomTestPayload, type CustomTestSettings } from '@/lib/custom-test';
 import type { MixedReviewQuestion } from '@/lib/mixed-review';
 import { randomSeed, type DifficultyFilter } from '@/lib/quiz-utils';
 import { getWeakTopics } from '@/lib/weak-point-analyzer';
@@ -26,7 +27,10 @@ export default function CustomTestClient() {
   const [count, setCount] = useState<CustomTestCount>(10);
   const [difficulty, setDifficulty] = useState<DifficultyFilter>('all');
   const [mode, setMode] = useState<CustomTestMode>('practice');
+  const [questionType, setQuestionType] = useState<CustomQuestionType>('multiple-choice');
+  const [phase, setPhase] = useState<'multiple-choice' | 'written'>('multiple-choice');
   const [questions, setQuestions] = useState<MixedReviewQuestion[]>([]);
+  const [writtenQuestions, setWrittenQuestions] = useState<FreeResponseQuestion[]>([]);
   const [settings, setSettings] = useState<CustomTestSettings | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -43,13 +47,17 @@ export default function CustomTestClient() {
     if (scope === 'igcse' || scope === 'dp') return topic.stage === scope;
     return topic.year === Number(scope);
   }) ?? [], [subjectId, scope]);
+  const mixedAvailable = subjectId === 'math' && (scope === 'all' || scope === '7') && selectedTopics.every((id) => (MIXED_EXAM_TOPIC_IDS as readonly string[]).includes(id));
+  useEffect(() => {
+    if (!mixedAvailable && questionType === 'mixed') setQuestionType('multiple-choice');
+  }, [mixedAvailable, questionType]);
 
   const loadTest = async (next: CustomTestSettings) => {
     setLoading(true);
     setError('');
     resultsRef.current = [];
     try {
-      const path = `/api/content/public/custom-test/${next.seed}/${next.count}/${next.difficulty}/${next.topicIds.join(',')}`;
+      const path = `/api/content/public/custom-test/${next.seed}/${next.count}/${next.difficulty}/${next.topicIds.join(',')}/${next.questionType}`;
       const response = await fetch(path);
       if (response.status === 404) {
         setQuestions([]);
@@ -59,6 +67,8 @@ export default function CustomTestClient() {
       if (!response.ok) throw new Error(String(response.status));
       const body = await response.json() as CustomTestPayload;
       setQuestions(body.questions);
+      setWrittenQuestions(body.writtenQuestions);
+      setPhase('multiple-choice');
       setSettings(next);
       trackEvent('quiz_started', { subjectId: body.questions[0].subjectId, topicId: 'custom-test', source: 'custom_test' });
     } catch {
@@ -70,11 +80,11 @@ export default function CustomTestClient() {
   };
 
   const startTest = () => {
-    void loadTest({ topicIds: selectedTopics, count, difficulty, mode, seed: `custom:${randomSeed()}` });
+    void loadTest({ topicIds: selectedTopics, count, difficulty, mode, questionType, seed: `custom:${randomSeed()}` });
   };
 
   const startWeakTest = () => {
-    void loadTest({ topicIds: weakTopics.map((topic) => topic.topicId), count: 10, difficulty: 'all', mode: 'practice', seed: `custom:weak:${randomSeed()}` });
+    void loadTest({ topicIds: weakTopics.map((topic) => topic.topicId), count: 10, difficulty: 'all', mode: 'practice', questionType: 'multiple-choice', seed: `custom:weak:${randomSeed()}` });
   };
 
   const anotherTest = () => {
@@ -107,11 +117,23 @@ export default function CustomTestClient() {
     });
   };
 
+  if (settings && phase === 'written' && writtenQuestions.length > 0) {
+    return (
+      <PaperRunnerClient
+        paper={{ id: 'custom-mixed-exam', courseId: 'math-y7', title: 'Written section', questions: writtenQuestions }}
+        journey={{
+          backHref: '/custom-test', backLabel: 'Build another test', resultTitle: 'Mixed Exam Complete!',
+          authExitWarning: 'Select See Results to save your exam before signing in, or your current written answers may be lost.',
+        }}
+      />
+    );
+  }
+
   if (settings && questions.length > 0) {
     return (
       <QuizGame
         key={settings.seed}
-        subtitle={`${getSubject(subjectId)?.name ?? subjectId} · ${settings.topicIds.length} topic${settings.topicIds.length === 1 ? '' : 's'}`}
+        subtitle={`${getSubject(subjectId)?.name ?? subjectId} · ${settings.topicIds.length} topic${settings.topicIds.length === 1 ? '' : 's'}${settings.questionType === 'mixed' ? ` · ${writtenQuestions.length} written question${writtenQuestions.length === 1 ? '' : 's'} next` : ''}`}
         backHref="/custom-test"
         backLabel="Back to Test Builder"
         questions={questions.map((entry) => entry.question)}
@@ -121,6 +143,7 @@ export default function CustomTestClient() {
         onQuestionResult={(_id, _correct, _number, _total, result) => { resultsRef.current.push(result); }}
         onComplete={completeTest}
         onNewSet={anotherTest}
+        onContinue={settings.questionType === 'mixed' ? { label: 'Continue to written section', onClick: () => setPhase('written') } : undefined}
         getHelpContext={(question) => {
           const source = questions.find((entry) => entry.question.id === question.id);
           return { subjectId: source?.subjectId ?? subjectId, topicId: source?.topicId ?? '' };
@@ -205,9 +228,19 @@ export default function CustomTestClient() {
           <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">{selectedTopics.length} selected · up to 12 topics</p>
         </fieldset>
 
+        <div>
+          <label htmlFor="test-question-type" className="block text-sm font-semibold mb-2">Question type</label>
+          <select id="test-question-type" value={questionType} onChange={(event) => setQuestionType(event.target.value as CustomQuestionType)}
+            disabled={!mixedAvailable} className="w-full min-h-11 px-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 disabled:opacity-60">
+            <option value="multiple-choice">Multiple choice only</option>
+            <option value="mixed">Multiple choice + written</option>
+          </select>
+          <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Written sections are available for supported Year 7 maths topics and are completed after the multiple-choice section.</p>
+        </div>
+
         <div className="grid sm:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="test-count" className="block text-sm font-semibold mb-2">Questions</label>
+            <label htmlFor="test-count" className="block text-sm font-semibold mb-2">Multiple-choice questions</label>
             <select id="test-count" value={count} onChange={(event) => setCount(Number(event.target.value) as CustomTestCount)} className="w-full min-h-11 px-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
               {CUSTOM_TEST_COUNTS.map((value) => <option key={value} value={value}>{value}</option>)}
             </select>
@@ -225,7 +258,7 @@ export default function CustomTestClient() {
             <label htmlFor="test-mode" className="block text-sm font-semibold mb-2">Mode</label>
             <select id="test-mode" value={mode} onChange={(event) => setMode(event.target.value as CustomTestMode)} className="w-full min-h-11 px-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
               <option value="practice">Untimed practice</option>
-              <option value="timed">Timed test · {customTestSeconds(count) / 60} minutes</option>
+              <option value="timed">Timed MC · {customTestSeconds(count) / 60} minutes</option>
             </select>
           </div>
         </div>

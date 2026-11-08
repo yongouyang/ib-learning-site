@@ -48,6 +48,7 @@ interface QuizGameProps {
   /** Draw new questions practising the same skills as the supplied mistakes. */
   onSimilarQuestions?: (mistakes: Question[]) => void;
   getHelpContext?: (question: Question) => { subjectId: SubjectId; topicId: string };
+  onContinue?: { label: string; onClick: () => void };
 }
 
 export default function QuizGame({
@@ -65,6 +66,7 @@ export default function QuizGame({
   onNewSet,
   onSimilarQuestions,
   getHelpContext,
+  onContinue,
 }: QuizGameProps) {
   const [sessionQuestions, setSessionQuestions] = useState(() =>
     questions.length > 0 ? seededShuffle([...questions], shuffleSeed) : []
@@ -224,6 +226,12 @@ export default function QuizGame({
             {correctCount} out of {sessionQuestions.length} correct
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
+            {onContinue && (
+              <button onClick={onContinue.onClick}
+                className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">
+                {onContinue.label} <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
             {mistakes.length > 0 && (
               <button onClick={() => resetSession(mistakes.map((result) => result.question!))}
                 className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">

@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { questionSchema } from '@/content/schema';
-import type { Question } from '@/content/types';
+import { freeResponseQuestionSchema, questionSchema } from '@/content/schema';
+import type { Question, WrittenQuestionResult } from '@/content/types';
 import type { SessionRecord, UserRecord } from '../auth/types';
 
 // Phase C — progress sync types (docs/architecture-evolution-plan.md §3.2).
@@ -70,6 +70,7 @@ export interface ExamAttemptItem {
   correctCount: number;
   totalCount: number;
   secondsUsed: number;
+  questionResults?: WrittenQuestionResult[];
 }
 
 export interface LadderItem {
@@ -221,6 +222,14 @@ export const questionResultSchema = z.object({
   question: questionSnapshotSchema.optional(),
 });
 
+export const writtenQuestionResultSchema = z.object({
+  question: freeResponseQuestionSchema,
+  studentAnswer: z.string().max(2000),
+  ticks: z.array(z.boolean()).max(10),
+  aiComments: z.array(z.string().max(280)).max(10).optional(),
+  aiFeedback: z.string().max(1000).optional(),
+});
+
 // Charset-restricted ids (round 2): '#' (and ':' for topic/subject composites)
 // would break the server's SK parsing and the read-side grouping — reject
 // anything outside [A-Za-z0-9_-] rather than let a hostile id re-trigger
@@ -260,6 +269,7 @@ export const examResultEventSchema = z.object({
   totalCount: z.number().int().min(1).max(500),
   secondsUsed: z.number().int().min(0).max(86_400),
   date: clientDate(),
+  questionResults: z.array(writtenQuestionResultSchema).max(20).optional(),
 });
 
 export const ladderResultEventSchema = z.object({
@@ -346,6 +356,7 @@ export interface ProfileProgressSnapshot {
     correctCount: number;
     totalCount: number;
     secondsUsed: number;
+    questionResults?: WrittenQuestionResult[];
   }[];
   ladderProgress: Record<string, Record<string, { bestScore: number; completedAt: string }>>;
   flashcardProgress: Record<string, { status: 'known' | 'learning'; lastReviewed: string; knownStreak: number }>;

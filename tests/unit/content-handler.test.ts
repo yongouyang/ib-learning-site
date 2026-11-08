@@ -107,7 +107,7 @@ describe('content API — path parsing', () => {
 
   it('parses and bounds custom-test settings', () => {
     expect(parseCustomTestPath('/api/content/public/custom-test/seed:1/10/all/math-yr7-angles,math-fractions-1')).toEqual({
-      seed: 'seed:1', count: 10, difficulty: 'all', topicIds: ['math-yr7-angles', 'math-fractions-1'],
+      seed: 'seed:1', count: 10, difficulty: 'all', topicIds: ['math-yr7-angles', 'math-fractions-1'], questionType: 'multiple-choice',
     });
     expect(parseCustomTestPath('/api/content/public/custom-test/seed/7/all/math-yr7-angles')).toBeNull();
     expect(parseCustomTestPath('/api/content/public/custom-test/seed/10/impossible/math-yr7-angles')).toBeNull();
@@ -454,5 +454,28 @@ describe('content API — custom tests', () => {
       deps(new InMemoryContentStorage())
     );
     expect(missing.status).toBe(404);
+  });
+});
+
+
+describe('content API — mixed custom exams', () => {
+  it('returns only written questions belonging to selected topics', async () => {
+    const response = await handleContentGet(
+      get('/api/content/public/custom-test/seed/5/all/math-yr7-angles,math-fractions-1/mixed'),
+      deps(new InMemoryContentStorage())
+    );
+    expect(response.status).toBe(200);
+    const body = await response.json() as { questions: unknown[]; writtenQuestions: { topicId: string; marks: number }[] };
+    expect(body.questions).toHaveLength(5);
+    expect(new Set(body.writtenQuestions.map((question) => question.topicId))).toEqual(new Set(['math-yr7-angles', 'math-fractions-1']));
+    expect(body.writtenQuestions.reduce((sum, question) => sum + question.marks, 0)).toBe(6);
+  });
+
+  it('rejects mixed mode when no selected topic has a written section', async () => {
+    const response = await handleContentGet(
+      get('/api/content/public/custom-test/seed/5/all/math-yr7-decimals/mixed'),
+      deps(new InMemoryContentStorage())
+    );
+    expect(response.status).toBe(404);
   });
 });

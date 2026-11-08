@@ -55,6 +55,7 @@ function examEventFor(e: LocalExamResult, profileId: string): ProgressEvent {
     totalCount: e.totalCount,
     secondsUsed: e.secondsUsed,
     date: e.date,
+    ...(e.questionResults ? { questionResults: e.questionResults } : {}),
   };
 }
 
@@ -262,6 +263,7 @@ export function extractLocalEventsForProfile(data: StoredDataLike, profileId: st
       totalCount: e.totalCount,
       secondsUsed: e.secondsUsed,
       date: e.date,
+      ...(e.questionResults ? { questionResults: e.questionResults } : {}),
     });
   }
 

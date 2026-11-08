@@ -151,6 +151,7 @@ export interface PaperMeta {
 // Phase 4 — free-response practice sets (past-paper-style, original questions).
 export interface FreeResponseQuestion {
   id: string;
+  topicId?: string;
   stem: string;
   marks: number;
   /** One tickable point per mark (M1/A1/B1 style); length === marks. */
@@ -201,12 +202,21 @@ export interface UserProgress {
   lastStudyDate: string | null; // ISO string
 }
 
+export interface WrittenQuestionResult {
+  question: FreeResponseQuestion;
+  studentAnswer: string;
+  ticks: boolean[];
+  aiComments?: string[];
+  aiFeedback?: string;
+}
+
 export interface ExamResult {
   examId: string; // `${courseId}:${paperId}`
   date: string; // ISO string
   correctCount: number;
   totalCount: number;
   secondsUsed: number;
+  questionResults?: WrittenQuestionResult[];
 }
 
 export interface LadderLevelResult {

@@ -274,6 +274,7 @@ export function recordExamResult(result: ExamResult): void {
       totalCount: result.totalCount,
       secondsUsed: result.secondsUsed,
       date: result.date,
+      ...(result.questionResults ? { questionResults: result.questionResults } : {}),
     });
   }
 }

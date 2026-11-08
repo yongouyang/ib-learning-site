@@ -176,6 +176,22 @@ describe('POST /api/progress/sync', () => {
     });
   });
 
+  it('round-trips detailed written-answer exam results', async () => {
+    const profileId = user.childProfiles[0].profileId;
+    const result = {
+      question: { id: 'written-1', stem: 'Work out 347 + 586.', marks: 2, markscheme: ['M1 method', 'A1 answer'], modelAnswer: '933', difficulty: 'easy' },
+      studentAnswer: '947', ticks: [true, false], aiComments: ['method ok', 'value wrong'], aiFeedback: 'Check carrying.',
+    };
+    const event = {
+      type: 'examResult', profileId, attemptId: 'written-attempt', examId: 'math-y7-set-1',
+      correctCount: 1, totalCount: 2, secondsUsed: 120, date: '2026-08-15T10:00:00.000Z', questionResults: [result],
+    };
+    expect((await sync(syncBody([event]))).status).toBe(200);
+    const get = await handleProgressGet(new Request('https://x.test/api/progress', { headers: { cookie } }), t.progressDeps);
+    const snapshot = (await get.json()).profiles[profileId];
+    expect(snapshot.examResults[0].questionResults).toEqual([result]);
+  });
+
   it('is idempotent: replaying the same batch does not duplicate attempts', async () => {
     const profileId = user.childProfiles[0].profileId;
     const batch = syncBody([quizEvent(profileId, 'attempt-1')]);

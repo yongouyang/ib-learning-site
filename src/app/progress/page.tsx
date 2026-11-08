@@ -2,18 +2,31 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList, FileText, FileSignature, BookMarked } from 'lucide-react';
+import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList, FileText, FileSignature, BookMarked, ChevronRight } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
-import { getSubjects } from '@/content/registry';
+import { getAllPapers, getSubjects } from '@/content/registry';
+import { getCourse } from '@/lib/courses';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { getCardStats } from '@/lib/flashcard-scheduler';
 import DualRingDonut from '@/components/DualRingDonut';
+import InlineMath from '@/components/InlineMath';
 import { InstallAppButton } from '@/components/InstallAppButton';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { subjectEmoji } from '@/lib/subject-emoji';
 
+function examLabel(examId: string): string {
+  if (examId === 'custom-mixed-exam') return 'Custom mixed exam · Year 7 maths';
+  const paper = getAllPapers().find((item) => item.id === examId);
+  if (paper) return `${getCourse(paper.courseId)?.title ?? paper.courseId} · ${paper.title}`;
+  return examId;
+}
+
+function examDuration(seconds: number): string {
+  return seconds < 60 ? `${seconds}s` : `${Math.round(seconds / 60)} min`;
+}
+
 export default function ProgressPage() {
-  const { userProgress, topicProgress, flashcardProgress } = useProgress();
+  const { userProgress, topicProgress, flashcardProgress, examResults } = useProgress();
   const subjects = getSubjects();
 
   const attemptedTopics = new Set(topicProgress.filter(tp => tp.attempts.length > 0).map(tp => tp.topicId)).size;
@@ -138,6 +151,46 @@ export default function ProgressPage() {
           </div>
         );
       })}
+
+      {examResults.length > 0 && (
+        <section className="mt-6" aria-labelledby="exam-history-heading">
+          <h2 id="exam-history-heading" className="text-sm font-semibold text-gray-900 dark:text-gray-50 mb-3">Exam history</h2>
+          <div className="space-y-3">
+            {examResults.slice(-5).reverse().map((result, index) => (
+              <details key={`${result.examId}:${result.date}:${index}`} className="card p-4 group">
+                <summary className="min-h-11 flex items-center cursor-pointer font-semibold text-gray-900 dark:text-gray-50">
+                  <ChevronRight className="w-4 h-4 mr-2 shrink-0 transition-transform group-open:rotate-90" aria-hidden="true" />
+                  <span>{examLabel(result.examId)} · {result.correctCount}/{result.totalCount} marks</span>
+                  <span className="ml-auto pl-3 text-xs font-normal text-gray-500 dark:text-gray-400">{new Date(result.date).toLocaleDateString('en-GB')} · {examDuration(result.secondsUsed)}</span>
+                </summary>
+                {result.questionResults ? (
+                  <div className="mt-4 space-y-3">
+                    {result.questionResults.map((outcome) => (
+                      <article key={outcome.question.id} className="rounded-xl border border-gray-200 dark:border-gray-700 p-3">
+                        <h3 className="font-semibold text-sm text-gray-900 dark:text-gray-50"><InlineMath text={outcome.question.stem} /></h3>
+                        <p className="mt-2 text-xs font-semibold text-gray-500 dark:text-gray-400">{outcome.ticks.filter(Boolean).length}/{outcome.question.marks} marks</p>
+                        <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap break-words [overflow-wrap:anywhere]"><span className="font-semibold">Your answer: </span>{outcome.studentAnswer || '(no answer)'}</p>
+                        <p className="mt-2 text-sm text-gray-700 dark:text-gray-300"><span className="font-semibold">Model answer: </span><InlineMath text={outcome.question.modelAnswer} /></p>
+                        <ul className="mt-3 space-y-1">
+                          {outcome.question.markscheme.map((point, pointIndex) => (
+                            <li key={pointIndex} className={`text-sm ${outcome.ticks[pointIndex] ? 'text-green-700 dark:text-green-300' : 'text-gray-500 dark:text-gray-400'}`}>
+                              {outcome.ticks[pointIndex] ? '✓' : '○'} <InlineMath text={point} />
+                              {outcome.aiComments?.[pointIndex] && <span className="block pl-5 text-blue-700 dark:text-blue-300">AI: {outcome.aiComments[pointIndex]}</span>}
+                            </li>
+                          ))}
+                        </ul>
+                        {outcome.aiFeedback && <p className="mt-2 text-sm text-blue-700 dark:text-blue-300"><span className="font-semibold">AI feedback: </span>{outcome.aiFeedback}</p>}
+                      </article>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">This earlier exam recorded only its overall score.</p>
+                )}
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Install entry point — renders only when the browser can install
           (or on iOS, where it shows manual instructions). */}

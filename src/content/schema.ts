@@ -100,6 +100,7 @@ export const topicSchema = z.object({
 export const freeResponseQuestionSchema = z
   .object({
     id: z.string().min(1),
+    topicId: z.string().min(1).optional(),
     stem: z.string().min(1),
     marks: z.number().int().min(1).max(10),
     // One tickable point per mark (M1/A1/B1 style — see docs/CONTENT_STYLE.md).

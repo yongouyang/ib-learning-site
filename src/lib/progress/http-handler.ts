@@ -130,6 +130,7 @@ function buildSnapshots(items: ProgressItem[]): Record<string, ProfileProgressSn
           correctCount: exam.correctCount,
           totalCount: exam.totalCount,
           secondsUsed: exam.secondsUsed,
+          ...(exam.questionResults ? { questionResults: exam.questionResults } : {}),
         });
       } else if (item.dataType.startsWith('LADDER#')) {
         const ladder = item as LadderItem;
@@ -204,6 +205,7 @@ async function applyEvent(
         correctCount: event.correctCount,
         totalCount: event.totalCount,
         secondsUsed: event.secondsUsed,
+        ...(event.questionResults ? { questionResults: event.questionResults } : {}),
       };
       const applied = await storage.putExamAttempt(item);
       return { type: event.type, applied };

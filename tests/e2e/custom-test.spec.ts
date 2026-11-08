@@ -9,7 +9,7 @@ test('builds a scoped test and reviews and retries mistakes', async ({ page }) =
   await page.getByLabel('Year group or course').selectOption('7');
   await page.getByRole('checkbox', { name: /^Angles / }).check();
   await page.getByRole('checkbox', { name: /^Fractions / }).check();
-  await page.getByLabel('Questions', { exact: true }).selectOption('5');
+  await page.getByLabel('Multiple-choice questions', { exact: true }).selectOption('5');
   await page.getByRole('button', { name: 'Start my test' }).click();
 
   await expect(page.getByText('1/5')).toBeVisible();

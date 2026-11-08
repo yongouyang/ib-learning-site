@@ -206,7 +206,13 @@ export async function handlePublicCustomTestGet(
 
   const questions = drawCustomTest({ ...input, mode: 'practice' });
   if (questions.length === 0) return json({ error: 'no_questions' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
-  return json({ questions }, 200, CONTENT_PUBLIC_CACHE_CONTROL);
+  const paper = input.questionType === 'mixed' ? getPaperContent('math-y7', 'math-y7-set-1') : null;
+  const selected = new Set(input.topicIds);
+  const writtenQuestions = paper?.questions.filter((question) => question.topicId && selected.has(question.topicId)) ?? [];
+  if (input.questionType === 'mixed' && writtenQuestions.length === 0) {
+    return json({ error: 'no_questions' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
+  }
+  return json({ questions, writtenQuestions }, 200, CONTENT_PUBLIC_CACHE_CONTROL);
 }
 
 /**

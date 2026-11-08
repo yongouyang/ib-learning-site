@@ -128,7 +128,7 @@ Free-response sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n
 
 - **Original questions only.** Past-paper-*style* is the goal; never copy or adapt real exam questions (legal constraint).
 - Set shape: `{ id, courseId, title, durationMinutes?, questions[] }`; 6–10 questions, **exactly 20 marks** total, ≥ 5 distinct topics per set, difficulty ramped easy → hard (tag every question; the MC rubric applies).
-- Each question: `{ id: "<courseId>-set-<n>-q<i>", stem, marks, markscheme, modelAnswer, difficulty }`.
+- Each question: `{ id: "<courseId>-set-<n>-q<i>", topicId?, stem, marks, markscheme, modelAnswer, difficulty }`. `topicId` is optional for ordinary papers and required on any question offered in a mixed custom exam; it must exactly match the topic's reviewed JSON id.
 - **`marks` must equal `markscheme.length`** — one tickable point per mark (schema-enforced).
 - **Markscheme style**: short point per mark, prefixed by type — `M1`/`M2` method, `A1`/`A2` accuracy (depends on the method mark), `B1`/`B2` independent fact or content point. Points must be independently awardable (no double-counting; every essential step covered). Keep each point ≥ 8 characters.
 - **Model answers** are fully worked (≥ 40 characters) and must be re-derived for correctness before merge; every quotation referenced by a markscheme point must appear verbatim in the stimulus.

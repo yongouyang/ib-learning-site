@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-11-08 — Exam preparation Phase 4
+Git HEAD: `c88f921` (develop, tree dirty)
+Done: added Year 7 mixed custom exams (MC then topic-tagged written section) through the
+  existing content API and PaperRunner; detailed written results sync with answers, ticks,
+  AI comments and legacy aggregate compatibility. Added read-only review and exam history.
+Verified: 1754/1754 unit; static build + 435 sitemap URLs + leak HARD/TIGHT; content/audit,
+  illustrations/layout, Lambda, overflow, tsc, lint 0 errors; final UX review clean. Static
+  e2e Desktop 452/4 skipped, iPhone 439/17, iPad 440/16 — all green.
+Next: monitor CI/dev deployment and real mixed-exam/AI-help usage; consider more reviewed
+  topicId mappings before extending mixed exams. Continue Search Console/funnel evaluation.
+Notes: custom journey preserves navigation/focus and post-completion review is read-only.
+  No production data migration; old exam records stay summary-only.
+
+---
+
 ## 2026-11-08 — Exam preparation Phase 3
 Git HEAD: `078d3bc` (develop, tree dirty)
 Done: added post-answer AI help (simpler/hint/example/why-wrong) to topic/custom quizzes;
