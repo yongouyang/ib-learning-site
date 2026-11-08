@@ -177,6 +177,7 @@ export default function QuizPageClient({
         }}
         onNewSet={grouped ? handleNewSet : undefined}
         onSimilarQuestions={canOfferSimilar ? handleSimilarQuestions : undefined}
+        getHelpContext={() => ({ subjectId: subjectId as SubjectId, topicId })}
       />
     </div>
   );

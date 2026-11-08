@@ -121,6 +121,10 @@ export default function CustomTestClient() {
         onQuestionResult={(_id, _correct, _number, _total, result) => { resultsRef.current.push(result); }}
         onComplete={completeTest}
         onNewSet={anotherTest}
+        getHelpContext={(question) => {
+          const source = questions.find((entry) => entry.question.id === question.id);
+          return { subjectId: source?.subjectId ?? subjectId, topicId: source?.topicId ?? '' };
+        }}
       />
     );
   }

@@ -1,4 +1,5 @@
 import { handleFeedbackGet, handleFeedbackPost } from '../../src/lib/feedback/http-handler';
+import { handleAiHelpPost } from '../../src/lib/ai-help/http-handler';
 import {
   toLambdaResult,
   toWebRequest,
@@ -27,7 +28,10 @@ export const handler = async (event: FunctionUrlEvent): Promise<LambdaHttpResult
     if (method === 'GET') {
       response = await handleFeedbackGet(new Request(url, { method, headers }));
     } else if (method === 'POST') {
-      response = await handleFeedbackPost(new Request(url, { method, headers, body }));
+      const request = new Request(url, { method, headers, body });
+      response = new URL(url).pathname === '/api/ai-help'
+        ? await handleAiHelpPost(request)
+        : await handleFeedbackPost(request);
     } else {
       response = Response.json({ error: 'Method not allowed' }, { status: 405 });
     }

@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-11-08 — Exam preparation Phase 3
+Git HEAD: `078d3bc` (develop, tree dirty)
+Done: added post-answer AI help (simpler/hint/example/why-wrong) to topic/custom quizzes;
+  separate `/api/ai-help` + 60/1000 monthly quota through feedback Lambda, grounded topic
+  notes, no stored chat; dummy/e2e, analytics, privacy §6.7 and mobile a11y/scroll handling.
+Verified: 1751/1751 unit; static build + 435 sitemap URLs + leak HARD/TIGHT; content/audit,
+  illustrations/layout, Lambda, overflow, tsc and lint 0 errors; UX review clean. Desktop
+  273 + isolated illustration 303/papers 4; iPhone rerun 312/1; iPad rerun 314 all PASS.
+Next: Phase 4 mixed written exams, per-question exam-result history and review; then final
+  quality/deploy verification. Continue queued Search Console/funnel evaluation.
+Notes: programmatic scrolling made immediate to avoid quiz races; illustration decode waits
+  raised to 30s after varying valid-image timeouts. No production data migration required.
+
+---
+
 ## 2026-11-08 — Exam preparation Phase 2
 Git HEAD: `4b754d9` (develop, tree dirty)
 Done: added `/mistakes`, derived from attempts with legacy-safe snapshots, two-correct

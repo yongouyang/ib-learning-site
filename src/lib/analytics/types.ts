@@ -41,6 +41,7 @@ export const ANALYTICS_EVENT_NAMES = [
   'exam_started',
   'exam_completed',
   'paper_marked_with_ai',
+  'ai_help_requested',
   'cta_clicked',
   'search_performed',
   'auth_otp_requested',
@@ -135,6 +136,7 @@ const perNameProps: Record<AnalyticsEventName, z.ZodTypeAny> = {
     questionCount: boundedCount(10_000),
     totalMarks: boundedCount(10_000),
   }),
+  ai_help_requested: z.object({ action: z.enum(['simpler', 'hint', 'worked-example', 'why-wrong']) }),
   cta_clicked: z.object({ ctaId: boundedString() }),
   search_performed: z.object({ query: boundedString(), resultCount: boundedCount(10_000) }),
   auth_otp_requested: z.object({

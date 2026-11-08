@@ -101,4 +101,6 @@ export interface FeedbackStorage {
    * deliberately does not implement it.
    */
   setAiMarkCount?(userId: string, monthKey: string, count: number): Promise<void>;
+  incrementAiHelpCount(userId: string, limit: number, monthKey: string): Promise<boolean>;
+  setAiHelpCount?(userId: string, monthKey: string, count: number): Promise<void>;
 }

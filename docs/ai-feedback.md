@@ -94,3 +94,9 @@ GET  /api/feedback → { configured, remaining, resetAt }            (with sessi
 `perPoint.length === markscheme.length` and `marks === count(awarded)` are enforced by the route — the LLM cannot inflate scores. Students can always override AI ticks in the UI; self-marking remains the source of truth for recorded marks.
 
 Phase E2 (entitlements): POST requires a session and charges a durable monthly quota — bucket `aimark:<userId>:<YYYY-MM>` in `octav-rate-limits`, 30 marks/calendar-month free tier, 1,000/month premium safety cap (checked BEFORE any LLM call, so an exhausted quota never spends money). Deps seam: `src/lib/feedback/deps.ts` (`FEEDBACK_STORAGE=dummy|dynamodb`, fail-closed in Lambda like the auth/progress deps; dummy joins the shared in-memory universe). Test-mode injection keys `_testAiMarkUsed` / `_testTier` (alongside `_testResponse`) are honored ONLY with `FEEDBACK_TEST_MODE=1` + dummy storage. The feedback Lambda's IAM gained users GetItem, sessions Get/Update/Delete, rate-limits Get/Update (terraform/modules/feedback_api).
+
+## Contextual AI help
+
+`POST /api/ai-help` is a separate post-answer help contract, dispatched by the same feedback Lambda in production. It accepts one of `simpler`, `hint`, `worked-example` or `why-wrong`, plus the question, selected choice and topic ids. The handler resolves the topic and notes server-side; there is no free-form chat input and no stored conversation.
+
+It uses the existing `FEEDBACK_PROVIDER` configuration and `FeedbackDeps`, with a separate `aihelp:<userId>:<YYYY-MM>` monthly bucket (60 free / 1000 premium safety cap). `_testResponse`, `_testAiHelpUsed` and `_testTier` work only under `FEEDBACK_TEST_MODE=1` with dummy storage. `tests/unit/ai-help.test.ts` covers auth, validation, output and quota separation; `tests/e2e/ai-help.spec.ts` covers the student flow.

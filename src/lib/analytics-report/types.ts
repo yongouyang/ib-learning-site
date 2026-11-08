@@ -111,6 +111,7 @@ export const ANALYTICS_REPORT_EVENT_LABELS: Record<string, string> = {
   exam_started: 'Exams started',
   exam_completed: 'Exams completed',
   paper_marked_with_ai: 'Papers marked with AI',
+  ai_help_requested: 'AI help requests',
   cta_clicked: 'CTA clicks',
   search_performed: 'Searches',
   auth_otp_requested: 'Sign-in codes requested',

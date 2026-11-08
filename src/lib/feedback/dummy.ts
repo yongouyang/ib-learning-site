@@ -1,4 +1,5 @@
 import { InMemoryAnalyticsStorage } from '../analytics/dummy';
+import { aiHelpBucket } from '../ai-help/types';
 import { aiMarkBucket, type FeedbackProvider, type FeedbackStorage, type MarkRequest, type MarkResult } from './types';
 
 // Dummy AI feedback provider (Phase 5 testing mindset): deterministic,
@@ -69,5 +70,17 @@ export class InMemoryFeedbackStorage extends InMemoryAnalyticsStorage implements
   // state without 30 real marks.
   async setAiMarkCount(userId: string, monthKey: string, count: number): Promise<void> {
     this.aiMarkCounts.set(aiMarkBucket(userId, monthKey), count);
+  }
+
+  async incrementAiHelpCount(userId: string, limit: number, monthKey: string): Promise<boolean> {
+    const key = aiHelpBucket(userId, monthKey);
+    const count = this.aiMarkCounts.get(key) ?? 0;
+    if (count >= limit) return false;
+    this.aiMarkCounts.set(key, count + 1);
+    return true;
+  }
+
+  async setAiHelpCount(userId: string, monthKey: string, count: number): Promise<void> {
+    this.aiMarkCounts.set(aiHelpBucket(userId, monthKey), count);
   }
 }

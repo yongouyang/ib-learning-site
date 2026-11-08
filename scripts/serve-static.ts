@@ -214,6 +214,14 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
+  if (url.pathname === '/api/ai-help') {
+    handleApiRoute('../src/app/api/ai-help/route', '/api/ai-help', req, res).catch((err) => {
+      console.error('[serve-static] /api/ai-help error:', err);
+      res.writeHead(500, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Internal error' }));
+    });
+    return;
+  }
   const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname] ?? LEADERBOARD_ROUTES[url.pathname] ?? ADMIN_ROUTES[url.pathname] ?? CONTACT_ROUTES[url.pathname] ?? SUBSCRIPTIONS_ROUTES[url.pathname];
   if (authRoute) {
     handleApiRoute(authRoute, url.pathname + url.search, req, res).catch((err) => {

@@ -43,6 +43,7 @@ test.describe.configure({ mode: 'serial' });
 test.describe('Study page illustrations', () => {
   for (const topic of topics) {
     test(`${topic.topicId}: ${topic.title} renders ${topic.illustrationCount} illustration(s)`, async ({ page }) => {
+      test.setTimeout(60_000);
       await page.goto(`/subjects/${topic.subjectId}/${topic.topicId}/study`);
 
       // Wait for the topic heading to ensure the page has rendered
@@ -71,7 +72,7 @@ test.describe('Study page illustrations', () => {
             async () => {
               return await img.evaluate((el) => (el as HTMLImageElement).naturalWidth);
             },
-            { message: `image ${i} failed to load (naturalWidth stayed 0)`, timeout: 10000 }
+            { message: `image ${i} failed to load (naturalWidth stayed 0)`, timeout: 30000 }
           )
           .toBeGreaterThan(0);
 

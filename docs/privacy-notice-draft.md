@@ -113,6 +113,7 @@ name it. Your rights and the way we handle your data do not change because of it
 | Child-profile name(s) and stage (KS3 / IGCSE / IB DP) | Adding a profile | So one account can track several students separately and show stage-appropriate material |
 | Leaderboard handle and opt-in state | Turning the leaderboard on | To show you on the leaderboard — only if you opt in |
 | Free-response answers you submit for AI marking | Using "Mark with AI" | To mark the answer (see §6.3) |
+| Multiple-choice question, selected answer and requested help action | Using contextual AI help | To explain the answer in the way you requested (see §6.7) |
 | Message, name and email address | Using the contact form | To reply to you |
 | Billing details | Subscribing to Premium | Handled directly by Stripe — we never receive your card number (§7) |
 
@@ -149,7 +150,7 @@ limitation in §4 is the substantive promise either way.
 |---|---|
 | Creating and securing your account; signing you in | Performance of a contract |
 | Providing notes, quizzes, diagnostics and progress sync | Performance of a contract |
-| Marking your answers with AI, and enforcing the free monthly quota | Performance of a contract (where you have used the free or paid allowance we promised) |
+| Marking your answers with AI, providing contextual AI help, and enforcing the free monthly quotas | Performance of a contract (where you have used the free or paid allowance we promised) |
 | Taking payment, managing subscriptions and refunds | Performance of a contract |
 | Sending service emails (sign-in codes, receipts, trial-ending and renewal reminders) | Performance of a contract |
 | Keeping the Service available, secure and free of abuse (rate limits, fraud and scraping defence, blocking malicious traffic) | Legitimate interests (running a safe, working service), and in some cases legal obligation |
@@ -188,11 +189,12 @@ on the account holder's confirmation, and we may ask for evidence and close an a
 confirmation turns out to be untrue. We state the model rather than implying a check we do not
 perform.
 
-**5.5 AI marking and children's free text.** Answers a child submits are sent to a
-third-party AI provider (§6.3, §7). What we send is the question, the markscheme or model
+**5.5 AI marking, AI help and children's content.** Answers a child submits are sent to a
+third-party AI provider (§6.3, §6.7, §7). What we send is the question, the markscheme or model
 answer and the text of the answer — **no name, no email address, nothing that identifies the
 child.** It is still free text written by a child, so please do not put personal details in an
-answer: that text leaves our system and we cannot recall it once it has.
+answer: that text leaves our system and we cannot recall it once it has. Contextual AI help
+uses the question, selected answer, reviewed explanation and topic notes instead of free-form chat.
 
 **5.6 The leaderboard is opt-in and off by default.** It shows a generated or chosen
 handle and a score, not a real name, and is never enabled for a child profile unless the
@@ -243,6 +245,14 @@ ending, upcoming renewal, payment failure, cancellation confirmation). These are
 the Service and are not marketing. **We do not send marketing email, and we do not sell
 or rent contact details to anyone.**
 
+**6.7 Contextual AI help.** When you ask for help after answering a multiple-choice
+question, we send the question, choices, correct answer, your selected answer, the reviewed
+explanation and relevant topic notes to the AI provider. The help action (for example,
+"Explain differently") is also sent. We do not send your name, email address or account
+identifier, and the generated help is not stored against your progress. We count help
+requests per account per calendar month to apply the free-tier quota. Do not include
+personal information in content you submit for AI help.
+
 ### 7. Who we share it with
 
 We share personal data only with the providers that make the Service work. Each is bound
@@ -253,7 +263,7 @@ by a data-processing agreement and may use your data only to provide its service
 | **Amazon Web Services** (`ap-east-1` — Hong Kong) | Hosting: static site delivery (S3 + CloudFront), and the databases and functions behind accounts, progress, analytics, leaderboard, contact and subscriptions | Everything we hold, at rest and in transit |
 | **Resend** | Delivers sign-in codes and service emails | Your email address and the content of the email |
 | **Stripe** (and its consumer product **Link**) | **Merchant of record** for Managed Payments transactions: checkout, billing, invoices, receipts, trial and renewal emails, refunds, disputes, fraud prevention and payment support. Because it is the merchant of record it is **not merely our processor** for the payment itself — Stripe's and Link's own terms and privacy notice govern that part of the transaction (§4.5 of the Terms of Use). | Your email address, name, billing address, payment method details, subscription state, and the transaction history Link keeps so you can manage orders at <https://link.com>. You can also ask Stripe to delete your transaction data and Link account: that cancels any subscription and prompts Stripe to tell us. |
-| **AI marking provider** — the AI service we use; **currently DeepSeek, a provider established in the PRC** | Generates the feedback for "Mark with AI" | The question, markscheme/model answer and your answer text — never your identity |
+| **AI provider** — the AI service we use; **currently DeepSeek, a provider established in the PRC** | Generates feedback for "Mark with AI" and contextual help after multiple-choice answers | For marking: the question, markscheme/model answer and your answer text. For help: the question, choices, correct and selected answers, reviewed explanation, topic notes and help action — never your identity |
 | **Cloudflare Email Routing** | Forwards mail sent to our `info@` address | Sender address and message content |
 | **GitHub** | Code hosting and automated deployment. No customer data is stored here. | Build and deployment metadata only |
 | **IndexNow / search engines** | Tells search engines when pages change, so new content can be found | URLs only |
@@ -304,7 +314,8 @@ personal into an answer.
 | Sign-in codes | Minutes — they expire and are deleted automatically |
 | Sessions | Deleted on sign-out, and they expire automatically after a period of inactivity |
 | Study activity (progress, exam results, ladder, flashcards) | Until you delete the account or the profile |
-| AI-mark quota counters | Until the end of the month they cover, plus a short tail (about 40 days) |
+| AI-mark and AI-help quota counters | Until the end of the month they cover, plus a short tail (about 40 days) |
+| Contextual AI help responses | Not stored against your progress; returned to your browser for the current question only |
 | Leaderboard entries | Per weekly season; previous seasons expire about 14 days after the week ends. Opting out removes your row immediately. |
 | Analytics events | Raw events: 90 days. Daily aggregates: about 400 days. |
 | Contact-form messages | 365 days |

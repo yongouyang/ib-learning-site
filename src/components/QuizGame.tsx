@@ -4,7 +4,8 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw, Calculator, Shuffle } from 'lucide-react';
-import type { Question, QuestionResult } from '@/content/types';
+import type { Question, QuestionResult, SubjectId } from '@/content/types';
+import AiHelpPanel from './AiHelpPanel';
 import { seededShuffle } from '@/lib/quiz-utils';
 import { DIFFICULTY_CHIP_CLASSES } from './difficulty-chip';
 import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
@@ -46,6 +47,7 @@ interface QuizGameProps {
   onNewSet?: () => void;
   /** Draw new questions practising the same skills as the supplied mistakes. */
   onSimilarQuestions?: (mistakes: Question[]) => void;
+  getHelpContext?: (question: Question) => { subjectId: SubjectId; topicId: string };
 }
 
 export default function QuizGame({
@@ -62,6 +64,7 @@ export default function QuizGame({
   onQuestionResult,
   onNewSet,
   onSimilarQuestions,
+  getHelpContext,
 }: QuizGameProps) {
   const [sessionQuestions, setSessionQuestions] = useState(() =>
     questions.length > 0 ? seededShuffle([...questions], shuffleSeed) : []
@@ -76,10 +79,19 @@ export default function QuizGame({
   const [isComplete, setIsComplete] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timerSeconds);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     headingRef.current?.focus();
   }, [isComplete, sessionQuestions]);
+
+  useEffect(() => {
+    if (!showExplanation) return;
+    const timer = window.setTimeout(() => {
+      nextButtonRef.current?.scrollIntoView?.({ block: 'end', behavior: 'auto' });
+    }, 250);
+    return () => window.clearTimeout(timer);
+  }, [showExplanation, currentIndex]);
 
   const currentQuestion = sessionQuestions[currentIndex];
   const progress = sessionQuestions.length > 0 ? ((currentIndex + (isComplete ? 1 : 0)) / sessionQuestions.length) * 100 : 0;
@@ -402,6 +414,9 @@ export default function QuizGame({
               )}
             </p>
             <p className="text-sm text-gray-700 dark:text-gray-300"><InlineMath text={currentQuestion.explanation} /></p>
+            {getHelpContext && (
+              <AiHelpPanel key={currentIndex} question={currentQuestion} selectedIndex={selectedIndex} context={getHelpContext(currentQuestion)} />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -409,6 +424,7 @@ export default function QuizGame({
       {/* Next button */}
       {showExplanation && (
         <button
+          ref={nextButtonRef}
           onClick={handleNext}
           className="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98]"
         >
