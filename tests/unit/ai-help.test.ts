@@ -1,11 +1,12 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { handleAiHelpPost } from '@/lib/ai-help/http-handler';
-import { AI_HELP_FREE_MONTHLY_QUOTA } from '@/lib/ai-help/types';
+import { OpenAICompatibleHelpProvider } from '@/lib/ai-help/openai-compatible';
+import { AI_HELP_FREE_MONTHLY_QUOTA, type AiHelpRequest } from '@/lib/ai-help/types';
 import { InMemoryFeedbackStorage } from '@/lib/feedback/dummy';
 import type { FeedbackDeps } from '@/lib/feedback/deps';
 import { hashSessionToken, type UserRecord } from '@/lib/auth/types';
 
-const BODY = {
+const BODY: AiHelpRequest = {
   action: 'why-wrong', subjectId: 'math', topicId: 'math-yr7-angles', selectedIndex: 0,
   question: { id: 'q1', stem: 'Which angle is reflex?', choices: ['150°', '90°', '200°', '45°'], correctIndex: 2, explanation: 'Reflex angles are between 180 and 360 degrees.' },
 };
@@ -33,7 +34,10 @@ async function post(body: unknown, deps?: FeedbackDeps, cookie?: string) {
 }
 
 describe('AI help', () => {
-  afterEach(() => vi.unstubAllEnvs());
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
+  });
 
   it('requires a session', async () => {
     vi.stubEnv('FEEDBACK_PROVIDER', 'dummy');
@@ -66,5 +70,19 @@ describe('AI help', () => {
     expect((await post({ ...BODY, _testResponse: { wrong: true } }, deps, cookie)).status).toBe(502);
     expect((await post({ ...BODY, topicId: 'not-real' }, deps, cookie)).status).toBe(404);
     expect((await post({ action: 'chat' }, deps, cookie)).status).toBe(400);
+  });
+
+  it('captures provider token usage for cost reporting', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      choices: [{ message: { content: '{"help":"Try another angle."}' } }],
+      usage: { prompt_tokens: 500, completion_tokens: 40, total_tokens: 540 },
+    })));
+    vi.stubGlobal('fetch', fetchMock);
+    const provider = new OpenAICompatibleHelpProvider({ apiKey: 'test', model: 'test-model', baseUrl: 'https://provider.test/v1' });
+    await expect(provider.help(BODY, { topicTitle: 'Angles', year: 7, notes: 'Reflex angles are over 180 degrees.' })).resolves.toEqual({
+      help: 'Try another angle.',
+      usage: { inputTokens: 500, outputTokens: 40, totalTokens: 540 },
+    });
+    vi.unstubAllGlobals();
   });
 });

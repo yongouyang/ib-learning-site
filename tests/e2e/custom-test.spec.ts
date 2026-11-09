@@ -1,7 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { completeQuiz } from './quiz-session';
 
-test('builds a scoped test and reviews and retries mistakes', async ({ page }) => {
+test('builds a scoped test and measures its complete review and retry funnel', async ({ page }) => {
+  const events: Array<{ name: string; props: Record<string, unknown> }> = [];
+  await page.route('**/api/analytics/event', async (route) => {
+    events.push(route.request().postDataJSON() as { name: string; props: Record<string, unknown> });
+    await route.fulfill({ status: 204 });
+  });
   await page.goto('/custom-test');
   await expect(page.getByRole('heading', { name: 'Build a Test' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Start my test' })).toBeDisabled();
@@ -15,12 +20,32 @@ test('builds a scoped test and reviews and retries mistakes', async ({ page }) =
   await expect(page.getByText('1/5')).toBeVisible();
   await completeQuiz(page);
   await expect(page.getByRole('button', { name: /Retry mistakes/ })).toBeVisible();
+  await expect.poll(() => events.filter((event) => event.name === 'quiz_question_answered').length).toBe(5);
+  const start = events.find((event) => event.name === 'quiz_started');
+  const completion = events.find((event) => event.name === 'quiz_completed');
+  expect(start?.props.attemptId).toEqual(expect.any(String));
+  expect(completion?.props.attemptId).toBe(start?.props.attemptId);
+  expect(events.filter((event) => event.name === 'quiz_question_answered').every((event) => event.props.attemptId === start?.props.attemptId)).toBe(true);
 
   await page.getByRole('button', { name: /Review answers/ }).click();
   await expect(page.getByText('Correct answer:').first()).toBeVisible();
+  await expect.poll(() => events.some((event) => event.name === 'quiz_review_opened' && event.props.attemptId === start?.props.attemptId)).toBe(true);
   await page.getByRole('button', { name: /Retry mistakes/ }).click();
   await expect(page.getByRole('button', { name: /Review answers/ })).toHaveCount(0);
   await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+  await expect.poll(() => events.some((event) => event.name === 'quiz_retry_started' && event.props.kind === 'mistakes' && event.props.attemptId !== start?.props.attemptId)).toBe(true);
+  await completeQuiz(page);
+  const attempts = await page.evaluate(() => {
+    const stored = JSON.parse(localStorage.getItem('iblearn_progress') ?? '{}') as {
+      topicProgress: Record<string, { attempts: Array<{ totalCount: number }> }>;
+    };
+    return Object.values(stored.topicProgress).map((topic) => topic.attempts.map((attempt) => attempt.totalCount));
+  });
+  expect(attempts.some((topicAttempts) => topicAttempts.length === 2)).toBe(true);
+  for (const topicAttempts of attempts) {
+    expect(topicAttempts.length).toBeLessThanOrEqual(2);
+    if (topicAttempts.length === 2) expect(topicAttempts[1]).toBeLessThanOrEqual(topicAttempts[0]);
+  }
 });
 
 

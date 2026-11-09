@@ -6,7 +6,7 @@ import { aiMarkMonthKey, aiMarkResetAt } from '@/lib/feedback/types';
 import { FeedbackNotConfiguredError } from '@/lib/feedback/types';
 import { tierSchema } from '@/lib/entitlements/features';
 import { getAiHelpProvider } from './index';
-import { aiHelpQuotaForTier, aiHelpRequestSchema, aiHelpResultSchema } from './types';
+import { aiHelpQuotaForTier, aiHelpRequestSchema, aiHelpResultSchema, aiHelpUsageSchema } from './types';
 
 function json(body: unknown, status = 200): Response {
   const response = Response.json(body, { status });
@@ -63,10 +63,22 @@ export async function handleAiHelpPost(req: Request, deps: FeedbackDeps = getFee
   }
 
   try {
-    const raw = deps.testMode && deps.dummyMode && _testResponse !== undefined
+    const injected = deps.testMode && deps.dummyMode && _testResponse !== undefined;
+    const startedAt = deps.clock();
+    const raw = injected
       ? _testResponse
       : await provider.help(parsed.data, { topicTitle: topic.title, year: topic.year, notes });
     const result = aiHelpResultSchema.parse(raw);
+    if (!injected) {
+      const usage = aiHelpUsageSchema.safeParse((raw as { usage?: unknown }).usage);
+      console.info('[ai-help] completion', JSON.stringify({
+        action: parsed.data.action,
+        subjectId: parsed.data.subjectId,
+        topicId: parsed.data.topicId,
+        latencyMs: Math.max(0, deps.clock() - startedAt),
+        ...(usage.success ? usage.data : {}),
+      }));
+    }
     return withCookie(json(result), auth.refreshCookie);
   } catch (error) {
     return withCookie(json({

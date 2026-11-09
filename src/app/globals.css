@@ -124,3 +124,42 @@
     --math-scroll-shadow: rgb(0 0 0 / 0.55);
   }
 }
+
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  body:has(.revision-sheet) {
+    background: #fff !important;
+    color: #111827 !important;
+  }
+
+  body:has(.revision-sheet) header:not(.revision-sheet header),
+  body:has(.revision-sheet) footer,
+  body:has(.revision-sheet) nav,
+  body:has(.revision-sheet) .fixed,
+  body:has(.revision-sheet) .revision-screen {
+    display: none !important;
+  }
+
+  body:has(.revision-sheet) main {
+    padding: 0 !important;
+  }
+
+  body:has(.revision-sheet) .revision-sheet {
+    display: block !important;
+  }
+
+  body:has(.revision-sheet) .revision-sheet * {
+    color: #111827 !important;
+    background: transparent !important;
+    border-color: #d1d5db !important;
+    box-shadow: none !important;
+  }
+
+  .revision-sheet .revision-item {
+    break-inside: avoid;
+  }
+}

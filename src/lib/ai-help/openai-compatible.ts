@@ -1,4 +1,4 @@
-import { aiHelpResultSchema, type AiHelpProvider, type AiHelpRequest, type AiHelpResult } from './types';
+import { aiHelpResultSchema, aiHelpUsageSchema, type AiHelpProvider, type AiHelpProviderResult, type AiHelpRequest } from './types';
 
 interface Options {
   apiKey: string;
@@ -17,7 +17,7 @@ const ACTION_LABELS = {
 export class OpenAICompatibleHelpProvider implements AiHelpProvider {
   constructor(private readonly opts: Options) {}
 
-  async help(req: AiHelpRequest, context: { topicTitle: string; year?: number; notes: string }): Promise<AiHelpResult> {
+  async help(req: AiHelpRequest, context: { topicTitle: string; year?: number; notes: string }): Promise<AiHelpProviderResult> {
     const selected = req.selectedIndex >= 0 ? req.question.choices[req.selectedIndex] : 'No answer — time expired';
     const userPrompt = [
       `Topic: ${context.topicTitle}`,
@@ -55,6 +55,12 @@ Return ONLY JSON: {"help":"..."}.`;
     } catch {
       throw new Error('provider returned malformed JSON');
     }
-    return aiHelpResultSchema.parse(parsed);
+    const result = aiHelpResultSchema.parse(parsed);
+    const usage = aiHelpUsageSchema.safeParse({
+      inputTokens: body?.usage?.prompt_tokens,
+      outputTokens: body?.usage?.completion_tokens,
+      totalTokens: body?.usage?.total_tokens,
+    });
+    return usage.success ? { ...result, usage: usage.data } : result;
   }
 }

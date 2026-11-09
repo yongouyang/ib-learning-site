@@ -35,12 +35,8 @@ export default function CustomTestClient() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const resultsRef = useRef<QuestionResult[]>([]);
-  const startedAtRef = useRef(0);
   const { recordAttempt, topicProgress, loaded } = useProgress();
   const weakTopics = weakMode && loaded ? getWeakTopics(topicProgress).slice(0, 12) : [];
-  useEffect(() => {
-    if (settings) startedAtRef.current = Date.now();
-  }, [settings]);
 
   const topics = useMemo(() => getSubject(subjectId)?.topics.filter((topic) => {
     if (scope === 'all') return true;
@@ -70,7 +66,9 @@ export default function CustomTestClient() {
       setWrittenQuestions(body.writtenQuestions);
       setPhase('multiple-choice');
       setSettings(next);
-      trackEvent('quiz_started', { subjectId: body.questions[0].subjectId, topicId: 'custom-test', source: 'custom_test' });
+      if (next.seed.startsWith('custom:weak:')) {
+        trackEvent('weak_area_test_started', { topicCount: next.topicIds.length });
+      }
     } catch {
       setQuestions([]);
       setError('Could not load your test. Check your connection and try again.');
@@ -99,7 +97,7 @@ export default function CustomTestClient() {
     setError('');
   };
 
-  const completeTest = (correctCount: number, totalCount: number) => {
+  const completeTest = () => {
     if (!settings) return;
     const byId = new Map(questions.map((entry) => [entry.question.id, entry]));
     const perTopic = new Map<string, { topic: TopicMeta; source: MixedReviewQuestion; results: QuestionResult[] }>();
@@ -116,13 +114,7 @@ export default function CustomTestClient() {
       recordAttempt(topic.id, source.subjectId, topic.title, getSubject(source.subjectId)?.name ?? source.subjectId,
         results.filter((result) => result.correct).length, results.length, results);
     }
-    trackEvent('quiz_completed', {
-      subjectId: questions[0].subjectId,
-      topicId: 'custom-test',
-      correctCount,
-      totalCount,
-      durationSeconds: Math.round((Date.now() - startedAtRef.current) / 1000),
-    });
+    resultsRef.current = [];
   };
 
   if (settings && phase === 'written' && writtenQuestions.length > 0) {
@@ -146,6 +138,7 @@ export default function CustomTestClient() {
         backLabel="Back to Test Builder"
         onBack={resetBuilder}
         questions={questions.map((entry) => entry.question)}
+        analytics={{ subjectId: questions[0].subjectId, topicId: 'custom-test', source: 'custom_test' }}
         enableTimer={settings.mode === 'timed'}
         timerMode="overall"
         timerSeconds={customTestSeconds(settings.count)}

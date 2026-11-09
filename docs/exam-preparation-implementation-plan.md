@@ -81,3 +81,5 @@ Compare before/after behaviour using existing anonymous analytics and add only n
 - Improvement on targeted retries
 
 Do not use AI message volume as a success measure. Phase 3 additionally measures helpfulness, retry success, failures and cost.
+
+**Implemented 2026-11-09:** attempt-linked quiz events power `npm run analyze:funnel`; review, mistake/full retry, similar-question, weak-area-test and revision-print actions are measured. AI help measures success/failure/latency, anonymous helpfulness ratings, the next related-answer outcome, and provider token usage. The live fixed-action quality review remains a release follow-up when real provider credentials are available; dummy harness runs are not quality evidence.

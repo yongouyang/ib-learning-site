@@ -612,13 +612,28 @@ page_view:
 
 # User journey events (custom)
 quiz_started:
-  subjectId, topicId, source: "topic_page" | "diagnostic" | "mixed_review" | "ladder"
+  subjectId, topicId, source: "topic_page" | "diagnostic" | "mixed_review" | "ladder" | "custom_test", attemptId?, kind?
 
 quiz_question_answered:
-  subjectId, topicId, source, questionNumber, totalCount, correct: boolean
+  subjectId, topicId, source, attemptId?, questionNumber, totalCount, correct: boolean
 
 quiz_completed:
-  subjectId, topicId, correctCount, totalCount, durationSeconds
+  subjectId, topicId, attemptId?, correctCount, totalCount, durationSeconds
+
+quiz_review_opened:
+  subjectId, topicId, source, attemptId, questionCount
+
+quiz_retry_started:
+  subjectId, topicId, source, attemptId, questionCount, kind: "mistakes" | "all"
+
+quiz_similar_started:
+  subjectId, topicId, source, attemptId, questionCount
+
+weak_area_test_started:
+  topicCount
+
+revision_sheet_printed:
+  mistakeCount, topicCount
 
 flashcard_session_started:
   subjectId, topicId, filter: "all" | "learning" | "due"

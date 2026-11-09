@@ -25,8 +25,16 @@ export const aiHelpResultSchema = z.object({
 export type AiHelpRequest = z.infer<typeof aiHelpRequestSchema>;
 export type AiHelpResult = z.infer<typeof aiHelpResultSchema>;
 
+export const aiHelpUsageSchema = z.object({
+  inputTokens: z.number().int().min(0),
+  outputTokens: z.number().int().min(0),
+  totalTokens: z.number().int().min(0),
+});
+export type AiHelpUsage = z.infer<typeof aiHelpUsageSchema>;
+export type AiHelpProviderResult = AiHelpResult & { usage?: AiHelpUsage };
+
 export interface AiHelpProvider {
-  help(req: AiHelpRequest, context: { topicTitle: string; year?: number; notes: string }): Promise<AiHelpResult>;
+  help(req: AiHelpRequest, context: { topicTitle: string; year?: number; notes: string }): Promise<AiHelpProviderResult>;
 }
 
 export function aiHelpQuotaForTier(tier: Tier): number {

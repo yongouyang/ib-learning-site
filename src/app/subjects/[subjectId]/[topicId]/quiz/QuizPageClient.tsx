@@ -18,7 +18,6 @@ import {
   type DifficultyFilter,
 } from '@/lib/quiz-utils';
 import { materializeTemplates } from '@/lib/generators';
-import { trackEvent } from '@/lib/analytics';
 
 /**
  * Phase 1a: authored questions and templates arrive from the server page, so the quiz no longer
@@ -48,42 +47,39 @@ export default function QuizPageClient({
   const searchParams = useSearchParams();
   const difficulty = parseDifficultyFilter(searchParams.get('difficulty'));
   const { recordAttempt } = useProgress();
-  // Per-question outcomes for the current session, flushed into recordAttempt
-  // on completion (feeds variant-group mastery in src/lib/mastery.ts).
   const resultsRef = useRef<QuestionResult[]>([]);
-  const startedAtRef = useRef<number>(Date.now());
 
   // Templates make a topic grouped even without authored variantOf groups —
   // each template instance occupies a group slot (its variantOf, or solo).
   const grouped = hasVariantGroups(questions) || (templates?.length ?? 0) > 0;
 
-  // Session seed: deterministic during SSR/first render (hydration-safe), then
-  // reseeded client-side on mount for grouped topics so every visit — and every
-  // "new question set" — samples fresh variants (docs/question-variations-plan.md).
-  const [sessionSeed, setSessionSeed] = useState(`${topicId}:${difficulty}`);
+  // Do not mount the initial deterministic grouped draw: its immediate reseed
+  // would otherwise create two measurable attempts before the student answers.
+  const [session, setSession] = useState<{ topicId: string; difficulty: DifficultyFilter; seed: string } | null>(
+    grouped ? null : { topicId, difficulty, seed: `${topicId}:${difficulty}` }
+  );
   const [similarGroups, setSimilarGroups] = useState<string[] | null>(null);
   useEffect(() => {
-    if (grouped) setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
+    setSession({
+      topicId,
+      difficulty,
+      seed: grouped ? `${topicId}:${difficulty}:${randomSeed()}` : `${topicId}:${difficulty}`,
+    });
   }, [grouped, topicId, difficulty]);
 
-  // A quiz session begins on mount and again whenever the question set changes
-  // (difficulty switch or "new question set") — the same boundaries QuizGame's
-  // key remounts on.
-  useEffect(() => {
-    startedAtRef.current = Date.now();
-    trackEvent('quiz_started', { subjectId, topicId, source: 'topic_page' });
-  }, [subjectId, topicId, difficulty, sessionSeed]);
+  const sessionReady = session?.topicId === topicId && session.difficulty === difficulty;
+  const sessionSeed = sessionReady ? session.seed : `${topicId}:${difficulty}`;
 
   const handleNewSet = () => {
     resultsRef.current = [];
     setSimilarGroups(null);
-    setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
+    setSession({ topicId, difficulty, seed: `${topicId}:${difficulty}:${randomSeed()}` });
   };
 
   const handleSimilarQuestions = (mistakes: Question[]) => {
     resultsRef.current = [];
     setSimilarGroups([...new Set(mistakes.map(groupKeyOf))]);
-    setSessionSeed(`${topicId}:${difficulty}:similar:${randomSeed()}`);
+    setSession({ topicId, difficulty, seed: `${topicId}:${difficulty}:similar:${randomSeed()}` });
   };
 
   const pool = [...questions, ...materializeTemplates({ id: topicId, templates, flashcards }, sessionSeed)];
@@ -96,9 +92,6 @@ export default function QuizPageClient({
   }
   const canOfferSimilar = grouped || [...groupSizes.values()].some((size) => size > 1);
   const sessionQuestions = grouped || similarGroups ? sampleVariantGroups(scoped, sessionSeed) : scoped;
-  // Easy -> hard with a deterministic intra-band shuffle; QuizGame receives the
-  // final order (no shuffleSeed), and keying on filter+seed forces a remount
-  // when the user switches difficulty or requests a new set.
   const ordered = orderQuestionsByDifficulty(sessionQuestions, sessionSeed);
 
   const filters: { key: DifficultyFilter; label: string }[] = [
@@ -126,7 +119,6 @@ export default function QuizPageClient({
               <Link
                 key={f.key}
                 href={quizHref(f.key)}
-                // URL-driven Link — aria-current, not aria-pressed (role=link ignores the latter).
                 aria-current={active ? 'page' : undefined}
                 className={`flex-1 inline-flex items-center justify-center py-2 rounded-lg text-xs font-semibold transition-colors ${
                   active
@@ -140,45 +132,33 @@ export default function QuizPageClient({
           })}
         </div>
       </div>
-      <QuizGame
-        key={`${difficulty}:${sessionSeed}`}
-        questions={ordered}
-        backHref={`/subjects/${subjectId}`}
-        backLabel="Back to Topics"
-        breadcrumbs={[
-          { href: '/', label: 'Home' },
-          { href: `/subjects/${subjectId}`, label: subjectName },
-          { href: `/subjects/${subjectId}/${topicId}/study`, label: topicTitle },
-          { label: 'Quiz' },
-        ]}
-        enableTimer={true}
-        timerSeconds={60}
-        onQuestionResult={(questionId, correct, questionNumber, totalCount, result) => {
-          resultsRef.current.push(result);
-          trackEvent('quiz_question_answered', {
-            subjectId,
-            topicId,
-            source: 'topic_page',
-            questionNumber,
-            totalCount,
-            correct,
-          });
-        }}
-        onComplete={(correctCount, totalCount) => {
-          recordAttempt(topicId, subjectId as SubjectId, topicTitle, subjectId, correctCount, totalCount, resultsRef.current);
-          trackEvent('quiz_completed', {
-            subjectId,
-            topicId,
-            correctCount,
-            totalCount,
-            durationSeconds: Math.round((Date.now() - startedAtRef.current) / 1000),
-          });
-          resultsRef.current = [];
-        }}
-        onNewSet={grouped ? handleNewSet : undefined}
-        onSimilarQuestions={canOfferSimilar ? handleSimilarQuestions : undefined}
-        getHelpContext={() => ({ subjectId: subjectId as SubjectId, topicId })}
-      />
+      {sessionReady && (
+        <QuizGame
+          key={`${difficulty}:${sessionSeed}`}
+          questions={ordered}
+          backHref={`/subjects/${subjectId}`}
+          backLabel="Back to Topics"
+          breadcrumbs={[
+            { href: '/', label: 'Home' },
+            { href: `/subjects/${subjectId}`, label: subjectName },
+            { href: `/subjects/${subjectId}/${topicId}/study`, label: topicTitle },
+            { label: 'Quiz' },
+          ]}
+          analytics={{ subjectId, topicId, source: 'topic_page' }}
+          enableTimer={true}
+          timerSeconds={60}
+          onQuestionResult={(_questionId, _correct, _questionNumber, _totalCount, result) => {
+            resultsRef.current.push(result);
+          }}
+          onComplete={(correctCount, totalCount) => {
+            recordAttempt(topicId, subjectId as SubjectId, topicTitle, subjectId, correctCount, totalCount, resultsRef.current);
+            resultsRef.current = [];
+          }}
+          onNewSet={grouped ? handleNewSet : undefined}
+          onSimilarQuestions={canOfferSimilar ? handleSimilarQuestions : undefined}
+          getHelpContext={() => ({ subjectId: subjectId as SubjectId, topicId })}
+        />
+      )}
     </div>
   );
 }

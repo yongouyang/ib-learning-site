@@ -30,8 +30,8 @@ test('shows unresolved mistakes, improvement and weak-topic test creation', asyn
   await page.goto('/mistakes');
   await expect(page.getByRole('heading', { name: 'Mistake Notebook' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Which angle is reflex?' })).toBeVisible();
-  await expect(page.getByText('150°', { exact: true })).toBeVisible();
-  await expect(page.getByText('200°', { exact: true })).toBeVisible();
+  await expect(page.locator('.revision-screen').getByText('150°', { exact: true })).toBeVisible();
+  await expect(page.locator('.revision-screen').getByText('200°', { exact: true })).toBeVisible();
   await expect(page.getByText('First attempt 0% → latest 100% (+100 points)')).toBeVisible();
   await expect(page.getByText('One related correction — one more resolves this mistake')).toBeVisible();
 
@@ -47,4 +47,30 @@ test('empty notebook explains the next action', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'No unresolved mistakes' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Build a practice test' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Turn weak areas into your next test' })).toHaveCount(0);
+});
+
+
+test('prints a revision sheet from existing mistakes', async ({ page }) => {
+  const events: Array<{ name: string; props: Record<string, unknown> }> = [];
+  await page.route('**/api/analytics/event', async (route) => {
+    events.push(route.request().postDataJSON() as { name: string; props: Record<string, unknown> });
+    await route.fulfill({ status: 204 });
+  });
+  await seedAttempts(page);
+  await page.goto('/mistakes');
+  await page.evaluate(() => {
+    window.print = () => { document.documentElement.dataset.printed = 'true'; };
+  });
+  await page.getByRole('button', { name: 'Print revision sheet' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-printed', 'true');
+  await expect.poll(() => events.some((event) => event.name === 'revision_sheet_printed' && event.props.mistakeCount === 1)).toBe(true);
+
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('.revision-screen')).toBeHidden();
+  const sheet = page.locator('.revision-sheet');
+  await expect(sheet).toBeVisible();
+  await expect(sheet.getByRole('heading', { name: 'My revision sheet' })).toBeVisible();
+  await expect(sheet).toContainText('Which angle is reflex?');
+  await expect(sheet).toContainText('Correct answer: C. 200°');
+  await expect(sheet).toContainText('A reflex angle is between 180° and 360°.');
 });

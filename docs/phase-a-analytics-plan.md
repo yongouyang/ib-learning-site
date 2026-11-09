@@ -43,6 +43,7 @@ One ingest write = 1 Put (raw) + 1 Update (aggregate ADD) per event. Dashboard r
 - `name`: enum of the §5.3 taxonomy (`page_view`, `quiz_started`, `quiz_question_answered`, `quiz_completed`, `flashcard_session_started`, `flashcard_session_completed`, `diagnostic_started`, `diagnostic_completed`, `exam_started`, `exam_completed`, `paper_marked_with_ai`, `cta_clicked`, `search_performed`, `auth_otp_requested`, `auth_login_completed`, `auth_logout`, `pwa_installed`, `pwa_offline_banner_shown`).
 - `props`: per-name zod schemas mirroring §5.3 fields (bounded: strings ≤ 120 chars, numbers sane-capped, no free-form PII-shaped fields; `auth_otp_requested` carries `emailDomain` only, never the address).
 - Envelope: `{ name, props, url, referrer, sessionId, clientTs }` — `clientTs` gets the same now+24h guard as progress; `url` is reduced to path-only server-side.
+- **2026-11-09 exam-preparation extension:** quiz start/answer/completion events carry an optional `attemptId` (optional for rolling-deploy compatibility); review, retry, similar-question, weak-area-test and revision-print events use bounded IDs/counts. AI help has request/success/failure/rating/retry-outcome events with no account ID, question text, generated response or free-form feedback. `npm run analyze:funnel -- --days=30 --host=octavlearning.com` reads raw production events and joins the funnel by attempt ID; legacy tab/topic groups remain explicitly marked.
 
 ## API surface (shared handler `src/lib/analytics/http-handler.ts`)
 

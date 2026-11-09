@@ -250,8 +250,11 @@ question, we send the question, choices, correct answer, your selected answer, t
 explanation and relevant topic notes to the AI provider. The help action (for example,
 "Explain differently") is also sent. We do not send your name, email address or account
 identifier, and the generated help is not stored against your progress. We count help
-requests per account per calendar month to apply the free-tier quota. Do not include
-personal information in content you submit for AI help.
+requests per account per calendar month to apply the free-tier quota. Anonymous analytics
+record the requested action, success or failure, optional helpful/not-helpful rating and
+whether a later related answer was correct; they do not contain the generated help, your
+account identifier or free-form feedback. Analytics retention is described in §9. Do not
+include personal information in content you submit for AI help.
 
 ### 7. Who we share it with
 

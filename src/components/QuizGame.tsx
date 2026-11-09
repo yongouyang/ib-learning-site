@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw, Calculator, Shuffle } from 'lucide-react';
 import type { Question, QuestionResult, SubjectId } from '@/content/types';
-import AiHelpPanel from './AiHelpPanel';
-import { seededShuffle } from '@/lib/quiz-utils';
+import AiHelpPanel, { type AiHelpAction } from './AiHelpPanel';
+import { groupKeyOf, randomSeed, seededShuffle } from '@/lib/quiz-utils';
+import { trackEvent } from '@/lib/analytics';
 import { DIFFICULTY_CHIP_CLASSES } from './difficulty-chip';
 import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
 import InlineMath from './InlineMath';
@@ -32,6 +33,12 @@ function QuestionBadges({ question }: { question: Question }) {
   );
 }
 
+interface QuizAnalytics {
+  subjectId: string;
+  topicId: string;
+  source: 'topic_page' | 'diagnostic' | 'mixed_review' | 'ladder' | 'custom_test';
+}
+
 interface QuizGameProps {
   subtitle?: string;
   backHref: string;
@@ -42,6 +49,7 @@ interface QuizGameProps {
   timerSeconds?: number;
   timerMode?: 'per-question' | 'overall';
   shuffleSeed?: string;
+  analytics?: QuizAnalytics;
   onComplete: (correctCount: number, totalCount: number, timedOut?: boolean) => void;
   onQuestionResult?: (questionId: string, correct: boolean, questionNumber: number, totalCount: number, result: QuestionResult) => void;
   onNewSet?: () => void;
@@ -62,6 +70,7 @@ export default function QuizGame({
   timerSeconds = 60,
   timerMode = 'per-question',
   shuffleSeed,
+  analytics,
   onComplete,
   onQuestionResult,
   onNewSet,
@@ -84,6 +93,35 @@ export default function QuizGame({
   const [timeLeft, setTimeLeft] = useState(timerSeconds);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const attemptIdRef = useRef('');
+  const startedAtRef = useRef(0);
+  const mountedRef = useRef(false);
+  const helpedSkillsRef = useRef(new Map<string, { action: AiHelpAction; subjectId: SubjectId; topicId: string }>());
+  const analyticsSubject = analytics?.subjectId;
+  const analyticsTopic = analytics?.topicId;
+  const analyticsSource = analytics?.source;
+
+  const startSession = useCallback((kind: 'initial' | 'mistakes' | 'all') => {
+    const attemptId = randomSeed();
+    attemptIdRef.current = attemptId;
+    startedAtRef.current = Date.now();
+    if (analyticsSubject && analyticsTopic && analyticsSource) {
+      trackEvent('quiz_started', {
+        subjectId: analyticsSubject,
+        topicId: analyticsTopic,
+        source: analyticsSource,
+        attemptId,
+        kind,
+      });
+    }
+    return attemptId;
+  }, [analyticsSubject, analyticsTopic, analyticsSource]);
+
+  useEffect(() => {
+    if (mountedRef.current) return;
+    mountedRef.current = true;
+    startSession('initial');
+  }, [startSession]);
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -106,10 +144,27 @@ export default function QuizGame({
   const recordResult = useCallback((question: Question, correct: boolean, choice: number, position: number) => {
     const result: QuestionResult = { questionId: question.id, correct, selectedIndex: choice, question };
     setResults((current) => [...current, result]);
+    if (analyticsSubject && analyticsTopic && analyticsSource) {
+      trackEvent('quiz_question_answered', {
+        subjectId: analyticsSubject,
+        topicId: analyticsTopic,
+        source: analyticsSource,
+        attemptId: attemptIdRef.current,
+        questionNumber: position,
+        totalCount: sessionQuestions.length,
+        correct,
+      });
+    }
+    const helped = helpedSkillsRef.current.get(groupKeyOf(question));
+    if (helped) {
+      trackEvent('ai_help_retry_outcome', { ...helped, correct });
+      helpedSkillsRef.current.delete(groupKeyOf(question));
+    }
     onQuestionResult?.(question.id, correct, position, sessionQuestions.length, result);
-  }, [onQuestionResult, sessionQuestions.length]);
+  }, [analyticsSubject, analyticsTopic, analyticsSource, onQuestionResult, sessionQuestions.length]);
 
-  const resetSession = (nextQuestions: Question[]) => {
+  const resetSession = (nextQuestions: Question[], kind: 'mistakes' | 'all') => {
+    const attemptId = startSession(kind);
     setSessionQuestions(nextQuestions);
     setResults([]);
     setCurrentIndex(0);
@@ -120,7 +175,32 @@ export default function QuizGame({
     setShowExplanation(false);
     setShowReview(false);
     setTimeLeft(timerSeconds);
+    if (analyticsSubject && analyticsTopic && analyticsSource) {
+      trackEvent('quiz_retry_started', {
+        subjectId: analyticsSubject,
+        topicId: analyticsTopic,
+        source: analyticsSource,
+        attemptId,
+        questionCount: nextQuestions.length,
+        kind,
+      });
+    }
   };
+
+  const completeSession = useCallback((timedOut = false) => {
+    if (analyticsSubject && analyticsTopic) {
+      trackEvent('quiz_completed', {
+        subjectId: analyticsSubject,
+        topicId: analyticsTopic,
+        attemptId: attemptIdRef.current,
+        correctCount,
+        totalCount: sessionQuestions.length,
+        durationSeconds: Math.min(86_400, Math.max(0, Math.round((Date.now() - startedAtRef.current) / 1000))),
+      });
+    }
+    if (timedOut) onComplete(correctCount, sessionQuestions.length, true);
+    else onComplete(correctCount, sessionQuestions.length);
+  }, [analyticsSubject, analyticsTopic, correctCount, sessionQuestions.length, onComplete]);
 
   const handleSelect = useCallback((index: number) => {
     if (answerState !== 'unanswered' || !currentQuestion) return;
@@ -148,10 +228,10 @@ export default function QuizGame({
       setShowExplanation(false);
       if (timerMode === 'per-question') setTimeLeft(timerSeconds);
     } else if (!isComplete) {
-      onComplete(correctCount, sessionQuestions.length);
+      completeSession();
       setIsComplete(true);
     }
-  }, [currentIndex, isComplete, correctCount, sessionQuestions.length, timerSeconds, timerMode, onComplete]);
+  }, [currentIndex, isComplete, sessionQuestions.length, timerSeconds, timerMode, completeSession]);
 
   const handleOverallTimeout = useCallback(() => {
     if (isComplete) return;
@@ -159,9 +239,9 @@ export default function QuizGame({
     for (let i = firstUnanswered; i < sessionQuestions.length; i++) {
       recordResult(sessionQuestions[i], false, -1, i + 1);
     }
-    onComplete(correctCount, sessionQuestions.length, true);
+    completeSession(true);
     setIsComplete(true);
-  }, [isComplete, answerState, currentIndex, sessionQuestions, correctCount, onComplete, recordResult]);
+  }, [isComplete, answerState, currentIndex, sessionQuestions, completeSession, recordResult]);
 
   // Timer effect — overall mode: single countdown for the whole quiz.
   useEffect(() => {
@@ -235,18 +315,29 @@ export default function QuizGame({
               </button>
             )}
             {mistakes.length > 0 && (
-              <button onClick={() => resetSession(mistakes.map((result) => result.question!))}
+              <button onClick={() => resetSession(mistakes.map((result) => result.question!), 'mistakes')}
                 className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">
                 <RotateCcw className="w-4 h-4" /> Retry mistakes ({mistakes.length})
               </button>
             )}
             {mistakes.length > 0 && onSimilarQuestions && (
-              <button onClick={() => onSimilarQuestions(mistakes.map((result) => result.question!))}
+              <button onClick={() => {
+                if (analyticsSubject && analyticsTopic && analyticsSource) {
+                  trackEvent('quiz_similar_started', {
+                    subjectId: analyticsSubject,
+                    topicId: analyticsTopic,
+                    source: analyticsSource,
+                    attemptId: attemptIdRef.current,
+                    questionCount: mistakes.length,
+                  });
+                }
+                onSimilarQuestions(mistakes.map((result) => result.question!));
+              }}
                 className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-green-600 text-white font-medium text-sm hover:bg-green-700 transition-colors">
                 <Shuffle className="w-4 h-4" /> Practise similar questions
               </button>
             )}
-            <button onClick={() => resetSession(sessionQuestions)}
+            <button onClick={() => resetSession(sessionQuestions, 'all')}
               className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
               <RotateCcw className="w-4 h-4" /> Try Again
             </button>
@@ -267,7 +358,18 @@ export default function QuizGame({
           <button
             type="button"
             aria-expanded={showReview}
-            onClick={() => setShowReview((visible) => !visible)}
+            onClick={() => {
+              if (!showReview && analyticsSubject && analyticsTopic && analyticsSource) {
+                trackEvent('quiz_review_opened', {
+                  subjectId: analyticsSubject,
+                  topicId: analyticsTopic,
+                  source: analyticsSource,
+                  attemptId: attemptIdRef.current,
+                  questionCount: results.length,
+                });
+              }
+              setShowReview((visible) => !visible);
+            }}
             className="w-full card p-4 flex items-center justify-between font-semibold text-gray-900 dark:text-gray-50"
           >
             Review answers
@@ -425,7 +527,16 @@ export default function QuizGame({
             </p>
             <p className="text-sm text-gray-700 dark:text-gray-300"><InlineMath text={currentQuestion.explanation} /></p>
             {getHelpContext && (
-              <AiHelpPanel key={currentIndex} question={currentQuestion} selectedIndex={selectedIndex} context={getHelpContext(currentQuestion)} />
+              <AiHelpPanel
+                key={currentIndex}
+                question={currentQuestion}
+                selectedIndex={selectedIndex}
+                context={getHelpContext(currentQuestion)}
+                onHelp={(action) => {
+                  const context = getHelpContext(currentQuestion);
+                  helpedSkillsRef.current.set(groupKeyOf(currentQuestion), { action, ...context });
+                }}
+              />
             )}
           </motion.div>
         )}

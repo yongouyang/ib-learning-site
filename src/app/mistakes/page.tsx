@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, BookOpen, CheckCircle2, Target } from 'lucide-react';
+import { ArrowRight, BookOpen, CheckCircle2, Printer, Target } from 'lucide-react';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
+import RevisionSheet from '@/components/RevisionSheet';
+import { trackEvent } from '@/lib/analytics';
 import { useProgress } from '@/context/ProgressContext';
 import { deriveMistakes, deriveTopicImprovement, type MistakeEntry } from '@/lib/mistake-notebook';
 import { subjectEmoji } from '@/lib/subject-emoji';
@@ -56,11 +58,22 @@ export default function MistakesPage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-6">
+    <>
+    <div className="revision-screen max-w-2xl mx-auto px-4 py-6">
       <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/progress', label: 'My Progress' }, { label: 'Mistake Notebook' }]} currentAsHeading />
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
-        Mistakes stay here until you answer two related questions correctly in a row.
-      </p>
+      <div className="mb-5 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          Mistakes stay here until you answer two related questions correctly in a row.
+        </p>
+        {loaded && mistakes.length > 0 && (
+          <button type="button" onClick={() => {
+            trackEvent('revision_sheet_printed', { mistakeCount: mistakes.length, topicCount: byTopic.size });
+            window.print();
+          }} className="inline-flex items-center justify-center gap-2 min-h-11 px-4 py-2 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 shrink-0">
+            <Printer className="w-4 h-4" /> Print revision sheet
+          </button>
+        )}
+      </div>
 
       {loaded && topicProgress.some((topic) => topic.attempts.length > 0) && (
         <div className="card p-4 mb-6 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
@@ -113,5 +126,7 @@ export default function MistakesPage() {
         </div>
       )}
     </div>
+    {loaded && mistakes.length > 0 && <RevisionSheet mistakes={mistakes} />}
+    </>
   );
 }

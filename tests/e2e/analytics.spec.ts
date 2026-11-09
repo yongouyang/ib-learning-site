@@ -51,6 +51,7 @@ test.describe('analytics', () => {
     await expect.poll(() => events).toContain('quiz_started');
     await expect.poll(() => events).toContain('quiz_question_answered');
     await expect.poll(() => events).toContain('quiz_completed');
+    await expect.poll(() => events.filter((name) => name === 'quiz_started').length).toBe(1);
   });
 
   test('admin dashboard: logged out shows the sign-in prompt', async ({ page }) => {

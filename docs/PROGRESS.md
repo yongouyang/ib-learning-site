@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-11-09 — Exam funnel, AI quality telemetry and printable revision
+Git HEAD: `e097a82` (develop, tree dirty)
+Done: joined quiz start/answer/completion/review/retry events by anonymous attempt ID;
+  fixed grouped-reseed duplicate starts, retry timers and custom-retry result duplication.
+  Added `analyze:funnel`; AI success/failure/rating/retry-outcome + token/latency logging,
+  `evaluate:ai-help`; printable unresolved-mistake sheets with no new progress store.
+Verified: 1758 unit; tsc/lint 0 errors (35 baseline warnings); content/audit, illustrations/
+  layout, 11 Lambdas, static 435 URLs + leak PASS. Static e2e Desktop 142/4 skipped,
+  iPhone 129/17, iPad 130/16, journeys 314; overflow 147 pages PASS. Fresh UX review's
+  print-overflow/focus/target findings fixed and rechecked; no waivers.
+Next: commit/deploy, then collect attempt-linked funnel data and review AI ratings/outcomes;
+  run the live AI quality sample when real provider credentials are available.
+Notes: 30d production had five legacy groups and no question-position events, so no new
+  abandonment cause was inferred. Live AI quality was NOT run; dummy harness only. No migration.
+
+---
+
 ## 2026-11-08 — E2E journey parallelisation measured
 Git HEAD: `37d980e` (develop, tree dirty)
 Done: split illustration/full-topic suites from device projects into four-worker CI

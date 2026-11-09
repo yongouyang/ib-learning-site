@@ -3,7 +3,11 @@ import { describe, it, expect, vi, beforeAll, afterAll, beforeEach, type Mock } 
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import QuizGame from '@/components/QuizGame';
+import { trackEvent } from '@/lib/analytics';
 import type { Question } from '@/content/types';
+
+vi.mock('@/lib/analytics', () => ({ trackEvent: vi.fn() }));
+vi.mock('next/navigation', () => ({ usePathname: () => '/quiz' }));
 
 const motionPropKeys = new Set([
   'initial',
@@ -257,5 +261,33 @@ describe('QuizGame mistake review', () => {
     await user.click(screen.getByRole('button', { name: /See Results/i }));
     await user.click(screen.getByRole('button', { name: /Practise similar questions/i }));
     expect(onSimilarQuestions).toHaveBeenCalledWith([questions[0]]);
+  });
+
+  it('reports the first related answer after AI help as its retry outcome', async () => {
+    const user = userEvent.setup();
+    vi.mocked(trackEvent).mockClear();
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify({ help: 'Try regrouping the numbers.' }))));
+    try {
+      render(
+        <QuizGame
+          questions={[questions[0]]}
+          backHref="/back"
+          onComplete={vi.fn()}
+          analytics={{ subjectId: 'math', topicId: 'math-addition', source: 'topic_page' }}
+          getHelpContext={() => ({ subjectId: 'math', topicId: 'math-addition' })}
+        />
+      );
+      await user.click(screen.getAllByRole('button')[0]);
+      await user.click(screen.getByRole('button', { name: 'Explain differently' }));
+      expect(await screen.findByText('Try regrouping the numbers.')).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: /See Results/i }));
+      await user.click(screen.getByRole('button', { name: /Try Again/i }));
+      await user.click(screen.getAllByRole('button')[1]);
+      expect(trackEvent).toHaveBeenCalledWith('ai_help_retry_outcome', {
+        action: 'simpler', subjectId: 'math', topicId: 'math-addition', correct: true,
+      });
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

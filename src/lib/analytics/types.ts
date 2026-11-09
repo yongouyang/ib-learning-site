@@ -34,6 +34,11 @@ export const ANALYTICS_EVENT_NAMES = [
   'quiz_started',
   'quiz_question_answered',
   'quiz_completed',
+  'quiz_review_opened',
+  'quiz_retry_started',
+  'quiz_similar_started',
+  'weak_area_test_started',
+  'revision_sheet_printed',
   'flashcard_session_started',
   'flashcard_session_completed',
   'diagnostic_started',
@@ -42,6 +47,10 @@ export const ANALYTICS_EVENT_NAMES = [
   'exam_completed',
   'paper_marked_with_ai',
   'ai_help_requested',
+  'ai_help_succeeded',
+  'ai_help_failed',
+  'ai_help_rated',
+  'ai_help_retry_outcome',
   'cta_clicked',
   'search_performed',
   'auth_otp_requested',
@@ -76,6 +85,19 @@ const idField = () => z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64);
 
 const boundedString = (max = ANALYTICS_MAX_STRING) => z.string().min(1).max(max);
 const boundedCount = (max: number) => z.number().int().min(0).max(max);
+const quizSource = () => z.enum(['topic_page', 'diagnostic', 'mixed_review', 'ladder', 'custom_test']);
+const quizContext = {
+  subjectId: idField(),
+  topicId: idField(),
+  source: quizSource(),
+  // Optional so a Lambda deployed before the static site still accepts old clients.
+  attemptId: idField().optional(),
+};
+const aiHelpContext = {
+  action: z.enum(['simpler', 'hint', 'worked-example', 'why-wrong']),
+  subjectId: idField(),
+  topicId: idField(),
+};
 
 // Per-name props from architecture-evolution-plan.md §5.3, bounded: strings
 // ≤120 chars, counts sane-capped, no free-form PII-shaped fields.
@@ -83,15 +105,9 @@ const boundedCount = (max: number) => z.number().int().min(0).max(max);
 // is rejected so an email can never leak through analytics.
 const perNameProps: Record<AnalyticsEventName, z.ZodTypeAny> = {
   page_view: z.object({}),
-  quiz_started: z.object({
-    subjectId: idField(),
-    topicId: idField(),
-    source: z.enum(['topic_page', 'diagnostic', 'mixed_review', 'ladder', 'custom_test']),
-  }),
+  quiz_started: z.object({ ...quizContext, kind: z.enum(['initial', 'mistakes', 'all']).optional() }),
   quiz_question_answered: z.object({
-    subjectId: idField(),
-    topicId: idField(),
-    source: z.enum(['topic_page', 'diagnostic', 'mixed_review', 'ladder', 'custom_test']),
+    ...quizContext,
     questionNumber: z.number().int().min(1).max(500),
     totalCount: z.number().int().min(1).max(500),
     correct: z.boolean(),
@@ -99,10 +115,20 @@ const perNameProps: Record<AnalyticsEventName, z.ZodTypeAny> = {
   quiz_completed: z.object({
     subjectId: idField(),
     topicId: idField(),
+    attemptId: idField().optional(),
     correctCount: boundedCount(500),
     totalCount: boundedCount(500),
     durationSeconds: boundedCount(86_400),
   }),
+  quiz_review_opened: z.object({ ...quizContext, questionCount: boundedCount(500) }),
+  quiz_retry_started: z.object({
+    ...quizContext,
+    questionCount: boundedCount(500),
+    kind: z.enum(['mistakes', 'all']),
+  }),
+  quiz_similar_started: z.object({ ...quizContext, questionCount: boundedCount(500) }),
+  weak_area_test_started: z.object({ topicCount: z.number().int().min(1).max(40) }),
+  revision_sheet_printed: z.object({ mistakeCount: boundedCount(10_000), topicCount: boundedCount(1_000) }),
   flashcard_session_started: z.object({
     subjectId: idField(),
     topicId: idField(),
@@ -136,7 +162,23 @@ const perNameProps: Record<AnalyticsEventName, z.ZodTypeAny> = {
     questionCount: boundedCount(10_000),
     totalMarks: boundedCount(10_000),
   }),
-  ai_help_requested: z.object({ action: z.enum(['simpler', 'hint', 'worked-example', 'why-wrong']) }),
+  ai_help_requested: z.object({
+    action: aiHelpContext.action,
+    subjectId: idField().optional(),
+    topicId: idField().optional(),
+  }),
+  ai_help_succeeded: z.object({
+    ...aiHelpContext,
+    latencyMs: boundedCount(120_000),
+    helpChars: z.number().int().min(1).max(2_000),
+  }),
+  ai_help_failed: z.object({
+    ...aiHelpContext,
+    latencyMs: boundedCount(120_000),
+    reason: z.enum(['login_required', 'quota_exceeded', 'provider', 'network']),
+  }),
+  ai_help_rated: z.object({ ...aiHelpContext, rating: z.enum(['helpful', 'not_helpful']) }),
+  ai_help_retry_outcome: z.object({ ...aiHelpContext, correct: z.boolean() }),
   cta_clicked: z.object({ ctaId: boundedString() }),
   search_performed: z.object({ query: boundedString(), resultCount: boundedCount(10_000) }),
   auth_otp_requested: z.object({
