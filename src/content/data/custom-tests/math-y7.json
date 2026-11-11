@@ -1,0 +1,201 @@
+{
+  "id": "math-y7-custom-written",
+  "courseId": "math-y7",
+  "title": "Mixed Custom Exam Written Question Bank",
+  "questions": [
+    {
+      "id": "math-y7-custom-written-q1",
+      "topicId": "math-yr7-calculations",
+      "stem": "Work out $724 - 358$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: correct column-subtraction method with exchanging shown or implied",
+        "A1: $366$"
+      ],
+      "modelAnswer": "Align the digits by place value. Subtracting the ones requires exchanging a ten, and subtracting the tens requires exchanging a hundred. $724 - 358 = 366$. Check: $366 + 358 = 724$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-custom-written-q2",
+      "topicId": "math-yr7-calculations",
+      "stem": "Work out $36 \\times 24$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: correct partial products $36 \\times 20 = 720$ and $36 \\times 4 = 144$",
+        "A1: $864$"
+      ],
+      "modelAnswer": "Partition $24$ into $20 + 4$. Then $36 \\times 20 = 720$ and $36 \\times 4 = 144$. Add the partial products: $720 + 144 = 864$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q3",
+      "topicId": "math-algebra-1",
+      "stem": "Simplify $4a + 2b - a + 5b$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $3a$ from collecting the $a$ terms",
+        "B1: $7b$ from collecting the $b$ terms"
+      ],
+      "modelAnswer": "Collect like terms: $4a - a = 3a$ and $2b + 5b = 7b$. The simplified expression is $3a + 7b$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-custom-written-q4",
+      "topicId": "math-algebra-1",
+      "stem": "Expand $3(2x - 5)$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $6x$",
+        "B1: $-15$"
+      ],
+      "modelAnswer": "Multiply both terms inside the brackets by $3$: $3 \\times 2x = 6x$ and $3 \\times (-5) = -15$. Therefore $3(2x - 5) = 6x - 15$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q5",
+      "topicId": "math-yr7-area-perimeter",
+      "stem": "A rectangle measures $11$ cm by $5$ cm. Work out its area.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $11 \\times 5$",
+        "A1: $55\\text{ cm}^2$"
+      ],
+      "modelAnswer": "The area of a rectangle is length multiplied by width. $11 \\times 5 = 55$, so the area is $55\\text{ cm}^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-custom-written-q6",
+      "topicId": "math-yr7-area-perimeter",
+      "stem": "A triangle has base $10$ cm and perpendicular height $6$ cm. Work out its area.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $\\dfrac{1}{2} \\times 10 \\times 6$",
+        "A1: $30\\text{ cm}^2$"
+      ],
+      "modelAnswer": "Use the triangle area formula $A = \\dfrac{1}{2}bh$. Substituting gives $\\dfrac{1}{2} \\times 10 \\times 6 = 30$, so the area is $30\\text{ cm}^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q7",
+      "topicId": "math-yr7-equations",
+      "stem": "Solve $5x + 4 = 24$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $5x = 20$ after subtracting $4$ from both sides",
+        "A1: $x = 4$"
+      ],
+      "modelAnswer": "Subtract $4$ from both sides to obtain $5x = 20$. Divide both sides by $5$, giving $x = 4$. Check: $5 \\times 4 + 4 = 24$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q8",
+      "topicId": "math-yr7-equations",
+      "stem": "Solve $\\dfrac{x}{3} + 2 = 9$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $\\dfrac{x}{3} = 7$ after subtracting $2$ from both sides",
+        "A1: $x = 21$"
+      ],
+      "modelAnswer": "Subtract $2$ from both sides: $\\dfrac{x}{3} = 7$. Multiply both sides by $3$ to obtain $x = 21$. Check: $21 \\div 3 + 2 = 9$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q9",
+      "topicId": "math-yr7-angles",
+      "stem": "Two angles on a straight line are $47^\\circ$ and $x$. Work out $x$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $x = 180 - 47$",
+        "A1: $x = 133^\\circ$"
+      ],
+      "modelAnswer": "Angles on a straight line sum to $180^\\circ$. Therefore $x = 180^\\circ - 47^\\circ = 133^\\circ$. The two angles sum to $180^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-custom-written-q10",
+      "topicId": "math-yr7-angles",
+      "stem": "The angles of a quadrilateral are $80^\\circ$, $95^\\circ$, $110^\\circ$ and $x$. Work out $x$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $x = 360 - (80 + 95 + 110)$",
+        "A1: $x = 75^\\circ$"
+      ],
+      "modelAnswer": "The interior angles of a quadrilateral sum to $360^\\circ$. The three known angles total $285^\\circ$, so $x = 360^\\circ - 285^\\circ = 75^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q11",
+      "topicId": "math-fractions-1",
+      "stem": "Work out $\\dfrac{2}{3} + \\dfrac{1}{6}$. Give your answer in its simplest form.",
+      "marks": 2,
+      "markscheme": [
+        "M1: common denominator of $6$ used to obtain $\\dfrac{4}{6} + \\dfrac{1}{6}$",
+        "A1: $\\dfrac{5}{6}$"
+      ],
+      "modelAnswer": "Write $\\dfrac{2}{3}$ as $\\dfrac{4}{6}$. Then $\\dfrac{4}{6} + \\dfrac{1}{6} = \\dfrac{5}{6}$, which is already in its simplest form.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-custom-written-q12",
+      "topicId": "math-fractions-1",
+      "stem": "Work out $\\dfrac{5}{6} - \\dfrac{1}{4}$. Give your answer in its simplest form.",
+      "marks": 2,
+      "markscheme": [
+        "M1: common denominator of $12$ used to obtain $\\dfrac{10}{12} - \\dfrac{3}{12}$",
+        "A1: $\\dfrac{7}{12}$"
+      ],
+      "modelAnswer": "The lowest common denominator is $12$. Convert to $\\dfrac{10}{12} - \\dfrac{3}{12}$, then subtract the numerators to get $\\dfrac{7}{12}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q13",
+      "topicId": "math-yr7-sequences",
+      "stem": "A sequence begins $3, 8, 13, 18, \\ldots$ Find the $30$th term.",
+      "marks": 3,
+      "markscheme": [
+        "M1: common difference $5$ identified and used to build an nth-term rule",
+        "A1: nth term $= 5n - 2$",
+        "A1: $148$"
+      ],
+      "modelAnswer": "The common difference is $5$, so the rule starts $5n$. The first term is $3$, and $5(1) - 2 = 3$, giving nth term $= 5n - 2$. For $n = 30$: $5(30) - 2 = 148$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-y7-custom-written-q14",
+      "topicId": "math-yr7-sequences",
+      "stem": "A sequence begins $20, 16, 12, 8, \\ldots$ Find the $15$th term.",
+      "marks": 3,
+      "markscheme": [
+        "M1: common difference $-4$ identified and used to build an nth-term rule",
+        "A1: nth term $= 24 - 4n$",
+        "A1: $-36$"
+      ],
+      "modelAnswer": "The terms decrease by $4$, so the rule contains $-4n$. Since the first term is $20$, the rule is $24 - 4n$. For $n = 15$: $24 - 4(15) = 24 - 60 = -36$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-y7-custom-written-q15",
+      "topicId": "math-yr7-percentages",
+      "stem": "Increase $80$ by $35\\%$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: multiplier $1.35$ used, or $35\\%$ of $80 = 28$ found",
+        "A1: $108$"
+      ],
+      "modelAnswer": "An increase of $35\\%$ corresponds to the multiplier $1.35$. Calculate $80 \\times 1.35 = 108$. Equivalently, add the increase of $28$ to the original $80$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-custom-written-q16",
+      "topicId": "math-yr7-percentages",
+      "stem": "After a $10\\%$ price increase, a game costs £66. Work out its original price.",
+      "marks": 2,
+      "markscheme": [
+        "M1: recognises that £66 is $110\\%$ of the original and divides by $1.10$",
+        "A1: original price £60"
+      ],
+      "modelAnswer": "The increased price is $110\\%$ of the original price. Divide £66 by $1.10$ to find $100\\%$: $66 \\div 1.10 = 60$. The original price was £60.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -138,12 +138,12 @@
       "id": "math-igcse-percentages-pcti-q2",
       "stem": "Write $0.7$ as a percentage.",
       "choices": [
-        "70%",
         "7%",
+        "70%",
         "0.7%",
         "700%"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "To convert a decimal to a percentage, multiply by 100: 0.7 x 100 = 70%.",
       "difficulty": "easy"
     },
@@ -151,12 +151,12 @@
       "id": "math-igcse-percentages-pcti-q3",
       "stem": "Which fraction is equal to $40\\%$?",
       "choices": [
-        "$\\dfrac{2}{5}$",
         "$\\dfrac{4}{25}$",
         "$\\dfrac{2}{3}$",
+        "$\\dfrac{2}{5}$",
         "$\\dfrac{40}{25}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "40% = 40/100 = 2/5 after dividing top and bottom by 20. Note 4/25 is 16%, a common distractor from halving incorrectly.",
       "difficulty": "easy"
     },
@@ -164,12 +164,12 @@
       "id": "math-igcse-percentages-pcti-q4",
       "stem": "Work out $5\\%$ of $180$.",
       "choices": [
-        "9",
         "18",
         "36",
-        "90"
+        "90",
+        "9"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "10% of 180 is 18, and 5% is half of 10%, so the answer is 9.",
       "difficulty": "easy"
     },
@@ -190,12 +190,12 @@
       "id": "math-igcse-percentages-pcti-q6",
       "stem": "Increase $250$ by $24\\%$.",
       "choices": [
-        "310",
         "274",
+        "310",
         "290",
         "314"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The multiplier is 1.24, and 250 x 1.24 = 310. Check: 10% of 250 is 25, so 24% is a bit under a quarter, 60, and 250 + 60 = 310.",
       "difficulty": "medium"
     },
@@ -203,12 +203,12 @@
       "id": "math-igcse-percentages-pcti-q7",
       "stem": "Reduce $320$ by $15\\%$.",
       "choices": [
-        "272",
         "270",
         "280",
+        "272",
         "48"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The multiplier is 0.85, and 320 x 0.85 = 272. Finding 15% of 320 gives 48, but that is the decrease, not the final amount.",
       "difficulty": "medium"
     },
@@ -216,12 +216,12 @@
       "id": "math-igcse-percentages-pcti-q8",
       "stem": "A student scores $42$ out of $60$. What is this as a percentage?",
       "choices": [
-        "70%",
         "14%",
         "72%",
-        "84%"
+        "84%",
+        "70%"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Divide the part by the whole and multiply by 100: (42/60) x 100 = 0.7 x 100 = 70%.",
       "difficulty": "medium"
     },
@@ -242,12 +242,12 @@
       "id": "math-igcse-percentages-pcti-q10",
       "stem": "Write $\\dfrac{3}{8}$ as a percentage.",
       "choices": [
-        "37.5%",
         "38%",
+        "37.5%",
         "3.75%",
         "62.5%"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "3 divided by 8 is 0.375, and 0.375 x 100 = 37.5%. Remember that 1/8 = 12.5%, so 3/8 = 3 x 12.5% = 37.5%.",
       "difficulty": "medium"
     },
@@ -255,12 +255,12 @@
       "id": "math-igcse-percentages-pcti-q11",
       "stem": "Work out $7.5\\%$ of $360$.",
       "choices": [
-        "27",
         "2.7",
         "270",
+        "27",
         "45"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "7.5% = 0.075, and 360 x 0.075 = 27. Check: 10% of 360 is 36 and 2.5% is 9, and 36 - 9 = 27.",
       "difficulty": "medium"
     },
@@ -268,12 +268,12 @@
       "id": "math-igcse-percentages-pcti-q12",
       "stem": "A shop buys a radio for £80 and sells it for £100. What is the percentage profit?",
       "choices": [
-        "25%",
         "20%",
         "80%",
-        "125%"
+        "125%",
+        "25%"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Profit = 100 - 80 = 20. Percentage profit uses the cost price: (20/80) x 100 = 25%. The distractor 20% comes from dividing by the selling price.",
       "difficulty": "hard"
     },
@@ -294,12 +294,12 @@
       "id": "math-igcse-percentages-pcti-q14",
       "stem": "A jacket priced at £200 is reduced by 10%, and then the reduced price is reduced by a further 20%. What is the final price?",
       "choices": [
-        "£144",
         "£140",
+        "£144",
         "£150",
         "£160"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Multiply the multipliers: 0.9 x 0.8 = 0.72, so the final price is 200 x 0.72 = £144. Simply adding the percentages (30% off, giving £140) ignores that the second reduction applies to the smaller price.",
       "difficulty": "hard"
     },
@@ -307,12 +307,12 @@
       "id": "math-igcse-percentages-pcti-q15",
       "stem": "A price increases by $25\\%$ and then decreases by $25\\%$. What is the overall percentage change?",
       "choices": [
-        "A decrease of 6.25%",
         "No change",
         "An increase of 6.25%",
+        "A decrease of 6.25%",
         "A decrease of 5%"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The overall multiplier is 1.25 x 0.75 = 0.9375, which is 93.75% of the original, a decrease of 6.25%. The two changes do not cancel because the decrease is taken from the larger, increased amount.",
       "difficulty": "hard"
     }

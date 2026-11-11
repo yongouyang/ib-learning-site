@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { checkControlChars, checkMarkschemePrefixes, checkStageConsistency, checkTemplates, checkVariantGroups } from '../../scripts/validate-content';
-import type { ValidatedTopic } from '@/content/schema';
+import { checkControlChars, checkCustomTestBank, checkMarkschemePrefixes, checkStageConsistency, checkTemplates, checkVariantGroups } from '../../scripts/validate-content';
+import type { ValidatedCustomTestBank, ValidatedTopic } from '@/content/schema';
 import fs from 'fs';
 import path from 'path';
 
@@ -308,5 +308,31 @@ describe('checkMarkschemePrefixes', () => {
       }
     }
     expect(points).toBe(920);
+  });
+});
+
+describe('checkCustomTestBank', () => {
+  const bank = (topicId?: string): ValidatedCustomTestBank => ({
+    id: 'math-y7-custom-written',
+    courseId: 'math-y7',
+    title: 'Custom written bank',
+    questions: [{
+      id: 'custom-q1',
+      ...(topicId ? { topicId } : {}),
+      stem: 'Work out 1 + 1.',
+      marks: 1,
+      markscheme: ['A1: 2'],
+      modelAnswer: 'Add the two ones to obtain 2.',
+      difficulty: 'easy',
+    }],
+  });
+
+  it('accepts a reviewed topic id', () => {
+    expect(checkCustomTestBank(bank('math-yr7-angles'), new Set(['math-yr7-angles']))).toEqual([]);
+  });
+
+  it('requires a known topic id for every custom-exam question', () => {
+    expect(checkCustomTestBank(bank(), new Set())).toEqual(['custom-q1: topicId is required for a custom-exam question']);
+    expect(checkCustomTestBank(bank('unknown-topic'), new Set())).toEqual(['custom-q1: unknown topicId "unknown-topic"']);
   });
 });

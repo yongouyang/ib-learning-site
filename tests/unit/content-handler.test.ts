@@ -476,16 +476,19 @@ describe('content API — custom tests', () => {
 
 
 describe('content API — mixed custom exams', () => {
-  it('returns only written questions belonging to selected topics', async () => {
+  it('returns original and custom-bank written questions only for selected topics', async () => {
     const response = await handleContentGet(
       get('/api/content/public/custom-test/seed/5/all/math-yr7-angles,math-fractions-1/mixed'),
       deps(new InMemoryContentStorage())
     );
     expect(response.status).toBe(200);
-    const body = await response.json() as { questions: unknown[]; writtenQuestions: { topicId: string; marks: number }[] };
+    const body = await response.json() as { questions: unknown[]; writtenQuestions: { id: string; topicId: string; marks: number }[] };
     expect(body.questions).toHaveLength(5);
     expect(new Set(body.writtenQuestions.map((question) => question.topicId))).toEqual(new Set(['math-yr7-angles', 'math-fractions-1']));
-    expect(body.writtenQuestions.reduce((sum, question) => sum + question.marks, 0)).toBe(6);
+    expect(body.writtenQuestions).toHaveLength(6);
+    expect(body.writtenQuestions.filter((question) => question.id.startsWith('math-y7-custom-written-'))).toHaveLength(4);
+    expect(body.writtenQuestions.some((question) => question.id.startsWith('math-y7-set-2-'))).toBe(false);
+    expect(body.writtenQuestions.reduce((sum, question) => sum + question.marks, 0)).toBe(14);
   });
 
   it('rejects mixed mode when no selected topic has a written section', async () => {

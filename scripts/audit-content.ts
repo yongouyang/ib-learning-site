@@ -5,6 +5,7 @@ import { ORDER_FILE } from "./topic-order";
 import {
   topicSchema,
   paperSchema,
+  customTestBankSchema,
   type ValidatedTopic,
   type ValidatedPaper,
 } from "../src/content/schema";
@@ -23,6 +24,7 @@ export type IssueType =
   | "unbalanced_bold"
   | "missing_difficulty"
   | "difficulty_distribution"
+  | "answer_position"
   | "variant_group"
   | "paper_quality"
   | "unreadable_topic";
@@ -422,6 +424,20 @@ export function auditContent(input: AuditInput): AuditResult {
     }
   }
 
+  for (const topic of topics) {
+    if (topic.questions.length < 12) continue;
+    const positions = new Set(topic.questions.map((q) => q.correctIndex));
+    if (positions.size === 1) {
+      const [position] = positions;
+      issues.push({
+        type: "answer_position",
+        severity: "warning",
+        location: location(topic),
+        message: `All ${topic.questions.length} correct answers use option ${String.fromCharCode(65 + position)}; rotate the choices across all four positions`,
+      });
+    }
+  }
+
   // Variant-group hygiene: an explicit variantOf with a single member is
   // almost always a mistyped group key (a question that should have joined an
   // existing group). Mixed-difficulty groups are a validate-content error.
@@ -738,6 +754,34 @@ export function loadPapersFromDisk(papersDir: string): {
   return { papers, unreadable };
 }
 
+function loadCustomTestBanksFromDisk(customTestsDir: string): {
+  papers: AuditPaper[];
+  unreadable: Array<{ filePath: string; error: string }>;
+} {
+  const papers: AuditPaper[] = [];
+  const unreadable: Array<{ filePath: string; error: string }> = [];
+  if (!fs.existsSync(customTestsDir)) return { papers, unreadable };
+
+  for (const file of fs.readdirSync(customTestsDir).filter((name) => name.endsWith(".json"))) {
+    const filePath = path.join(customTestsDir, file);
+    const relativePath = path.relative(process.cwd(), filePath);
+    try {
+      const result = customTestBankSchema.safeParse(JSON.parse(fs.readFileSync(filePath, "utf8")));
+      if (!result.success) {
+        unreadable.push({ filePath: relativePath, error: result.error.message });
+        continue;
+      }
+      papers.push({ ...result.data, filePath: relativePath, folderCourseId: result.data.courseId });
+    } catch (err) {
+      unreadable.push({
+        filePath: relativePath,
+        error: err instanceof Error ? err.message : String(err),
+      });
+    }
+  }
+  return { papers, unreadable };
+}
+
 function groupByType(issues: AuditIssue[]): Record<IssueType, AuditIssue[]> {
   const grouped = {} as Record<IssueType, AuditIssue[]>;
   for (const issue of issues) {
@@ -771,6 +815,8 @@ function issueTypeLabel(type: IssueType): string {
       return "Questions without a difficulty tag";
     case "difficulty_distribution":
       return "Difficulty distribution below minimum";
+    case "answer_position":
+      return "Fixed correct-answer positions";
     case "variant_group":
       return "Variant group issues";
     case "paper_quality":
@@ -845,10 +891,12 @@ export function formatReport(
 export function main(): void {
   const topicsDir = path.resolve(__dirname, "../src/content/data/topics");
   const papersDir = path.resolve(__dirname, "../src/content/data/papers");
+  const customTestsDir = path.resolve(__dirname, "../src/content/data/custom-tests");
   const { input, unreadable } = loadTopicsFromDisk(topicsDir);
   const papersResult = loadPapersFromDisk(papersDir);
-  input.papers = papersResult.papers;
-  const allUnreadable = [...unreadable, ...papersResult.unreadable];
+  const customTestsResult = loadCustomTestBanksFromDisk(customTestsDir);
+  input.papers = [...papersResult.papers, ...customTestsResult.papers];
+  const allUnreadable = [...unreadable, ...papersResult.unreadable, ...customTestsResult.unreadable];
   const result = auditContent(input);
 
   console.log(formatReport(result, allUnreadable));

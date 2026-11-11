@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-11-11 — Answer-key balance and richer custom exams
+Git HEAD: `599f67d` (develop, tree dirty)
+Done: rotated choices in all 11 fixed-position banks without changing correct answers; added the
+  `answer_position` content-audit gate. Added 16 public custom written questions, giving three
+  candidates per supported topic with no premium-paper import. Expanded negative-numbers and
+  factors-multiples to 28 questions each (15 skill groups; 7/7/7/7 answer positions).
+Verified: registry generate/check, content/audit 0/0 (5152 questions), 1767 unit, tsc,
+  lint 0 errors (35 baseline warnings), illustrations/layout, 11 Lambdas, static 435 URLs + leak PASS.
+  Static e2e Desktop 144/4 skipped, iPhone 131/17, iPad 132/16, journeys 314; overflow 147 PASS.
+  Ten focused dev browser tests passed, including forced-repeat written-question avoidance.
+Next: review/commit/push this batch; verify rotated choices and written non-repetition on dev.
+  Collect new attempt-linked funnel data and run live AI quality when provider credentials are available.
+Notes: custom banks live in data/custom-tests, require topicIds and have no 20-mark total; set 1 stays
+  20 marks and set 2 stays premium. Previous commit 599f67d completed CI and deploy-dev successfully.
+
+---
+
 ## 2026-11-10 — Custom-test templates and non-repetition
 Git HEAD: `61d9d90` (develop, tree dirty)
 Done: custom MC tests now include templates through bounded `pool-1`…`pool-4` API draws;

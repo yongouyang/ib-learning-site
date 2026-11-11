@@ -133,7 +133,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$42 \\div 7 = 6$ exactly, so 7 is a factor. The other choices leave a remainder.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "factor-recognition"
     },
     {
       "id": "math-yr7-factors-multiples-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$20 = 1 \\times 20 = 2 \\times 10 = 4 \\times 5$, so the factors are 1, 2, 4, 5, 10 and 20.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "list-factors"
     },
     {
       "id": "math-yr7-factors-multiples-q3",
@@ -172,7 +174,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$21 = 3 \\times 7$, so it has more than two factors and is not prime.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "identify-composite"
     },
     {
       "id": "math-yr7-factors-multiples-q5",
@@ -185,7 +188,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Multiples of 8 are 8, 16, 24, 32, 40, 48, 56, 64, ... The first one greater than 50 is 56.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "next-multiple"
     },
     {
       "id": "math-yr7-factors-multiples-q6",
@@ -198,7 +202,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$48 = 16 \\times 3 = 2^4 \\times 3$. All factors must be prime, and 24 and 16 are not prime.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "prime-factorisation"
     },
     {
       "id": "math-yr7-factors-multiples-q7",
@@ -211,7 +216,8 @@
       ],
       "correctIndex": 1,
       "explanation": "24 is divisible by 4 (last two digits 24) and by 3 (digit sum $2 + 4 = 6$).",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "divisibility"
     },
     {
       "id": "math-yr7-factors-multiples-q8",
@@ -224,7 +230,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$36 = 6 \\times 6 = 6^2$, so 36 is a square number.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "square-number"
     },
     {
       "id": "math-yr7-factors-multiples-q9",
@@ -237,7 +244,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$12 \\times 12 = 144$, so $\\sqrt{144} = 12$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "square-root"
     },
     {
       "id": "math-yr7-factors-multiples-q10",
@@ -250,7 +258,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Factors of 18 are 1, 2, 3, 6, 9, 18. Factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The highest common factor is 6.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "hcf-list"
     },
     {
       "id": "math-yr7-factors-multiples-q11",
@@ -263,7 +272,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Multiples of 6 are 6, 12, 18, 24, 30, ... Multiples of 10 are 10, 20, 30, ... The lowest common multiple is 30.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "lcm-list"
     },
     {
       "id": "math-yr7-factors-multiples-q12",
@@ -276,7 +286,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$36 = 2^2 \\times 3^2$ and $60 = 2^2 \\times 3 \\times 5$. Take the lowest power of each common prime: $2^2 \\times 3 = 12$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "hcf-prime-factors"
     },
     {
       "id": "math-yr7-factors-multiples-q13",
@@ -289,7 +300,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$12 = 2^2 \\times 3$ and $18 = 2 \\times 3^2$. Take the highest power of each prime: $2^2 \\times 3^2 = 4 \\times 9 = 36$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "lcm-prime-factors"
     },
     {
       "id": "math-yr7-factors-multiples-q14",
@@ -302,7 +314,8 @@
       ],
       "correctIndex": 3,
       "explanation": "This asks for the LCM of 8 and 12. Multiples of 8 are 8, 16, 24, ... and multiples of 12 are 12, 24, ... The LCM is 24, so they next leave together 24 minutes after 9:00 am.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "shared-event-lcm"
     },
     {
       "id": "math-yr7-factors-multiples-q15",
@@ -316,9 +329,191 @@
       "correctIndex": 2,
       "explanation": "The largest square that divides both 24 and 30 exactly has side length equal to the HCF of 24 and 30. Factors of 24 are 1, 2, 3, 4, 6, 8, 12, 24; factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The HCF is 6 m.",
       "difficulty": "hard"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q16",
+      "stem": "Which of these is a factor of 36?",
+      "choices": [
+        "9",
+        "8",
+        "10",
+        "14"
+      ],
+      "correctIndex": 0,
+      "explanation": "$36 \\div 9 = 4$ exactly, so 9 is a factor. The other choices leave a remainder.",
+      "difficulty": "easy",
+      "variantOf": "factor-recognition"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q17",
+      "stem": "Which list shows all the factors of 28?",
+      "choices": [
+        "1, 2, 3, 7, 14, 28",
+        "2, 4, 7, 14, 28",
+        "1, 28, 56, 84",
+        "1, 2, 4, 7, 14, 28"
+      ],
+      "correctIndex": 3,
+      "explanation": "$28 = 1 \\times 28 = 2 \\times 14 = 4 \\times 7$, so the six factors are 1, 2, 4, 7, 14 and 28.",
+      "difficulty": "medium",
+      "variantOf": "list-factors"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q18",
+      "stem": "Which of these numbers is NOT prime?",
+      "choices": [
+        "39",
+        "31",
+        "37",
+        "41"
+      ],
+      "correctIndex": 0,
+      "explanation": "$39 = 3 \\times 13$, so 39 has more than two factors and is not prime.",
+      "difficulty": "easy",
+      "variantOf": "identify-composite"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q19",
+      "stem": "What is the first multiple of 7 that is greater than 60?",
+      "choices": [
+        "60",
+        "67",
+        "70",
+        "63"
+      ],
+      "correctIndex": 3,
+      "explanation": "Multiples of 7 near 60 are 56, 63 and 70. The first multiple greater than 60 is 63.",
+      "difficulty": "medium",
+      "variantOf": "next-multiple"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q20",
+      "stem": "What is the prime factorisation of 72?",
+      "choices": [
+        "$2^3 \\times 3^2$",
+        "$2^2 \\times 3^3$",
+        "$8 \\times 9$",
+        "$2 \\times 36$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$72 = 8 \\times 9 = 2^3 \\times 3^2$. The other products either use non-prime factors or give a different value.",
+      "difficulty": "hard",
+      "variantOf": "prime-factorisation"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q21",
+      "stem": "Which number is divisible by both 5 and 6?",
+      "choices": [
+        "25",
+        "36",
+        "56",
+        "30"
+      ],
+      "correctIndex": 3,
+      "explanation": "30 ends in 0, so it is divisible by 5, and $30 \\div 6 = 5$ exactly, so it is also divisible by 6.",
+      "difficulty": "medium",
+      "variantOf": "divisibility"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q22",
+      "stem": "Which of these is a square number?",
+      "choices": [
+        "49",
+        "48",
+        "50",
+        "51"
+      ],
+      "correctIndex": 0,
+      "explanation": "$49 = 7 \\times 7 = 7^2$, so 49 is a square number.",
+      "difficulty": "easy",
+      "variantOf": "square-number"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q23",
+      "stem": "What is the value of $\\sqrt{81}$?",
+      "choices": [
+        "7",
+        "8",
+        "10",
+        "9"
+      ],
+      "correctIndex": 3,
+      "explanation": "$9 \\times 9 = 81$, so $\\sqrt{81} = 9$.",
+      "difficulty": "easy",
+      "variantOf": "square-root"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q24",
+      "stem": "What is the HCF of 24 and 42?",
+      "choices": [
+        "6",
+        "8",
+        "12",
+        "14"
+      ],
+      "correctIndex": 0,
+      "explanation": "The common factors of 24 and 42 are 1, 2, 3 and 6. The highest common factor is 6.",
+      "difficulty": "medium",
+      "variantOf": "hcf-list"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q25",
+      "stem": "What is the LCM of 8 and 12?",
+      "choices": [
+        "4",
+        "48",
+        "96",
+        "24"
+      ],
+      "correctIndex": 3,
+      "explanation": "Multiples of 8 include 8, 16, 24 and multiples of 12 include 12, 24. The lowest common multiple is 24.",
+      "difficulty": "medium",
+      "variantOf": "lcm-list"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q26",
+      "stem": "Find the HCF of 48 and 72 using prime factors.",
+      "choices": [
+        "24",
+        "12",
+        "36",
+        "48"
+      ],
+      "correctIndex": 0,
+      "explanation": "$48 = 2^4 \\times 3$ and $72 = 2^3 \\times 3^2$. Use the lowest common powers: $2^3 \\times 3 = 24$.",
+      "difficulty": "hard",
+      "variantOf": "hcf-prime-factors"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q27",
+      "stem": "Find the LCM of 15 and 20 using prime factors.",
+      "choices": [
+        "5",
+        "30",
+        "300",
+        "60"
+      ],
+      "correctIndex": 3,
+      "explanation": "$15 = 3 \\times 5$ and $20 = 2^2 \\times 5$. Use the highest power of each prime: $2^2 \\times 3 \\times 5 = 60$.",
+      "difficulty": "hard",
+      "variantOf": "lcm-prime-factors"
+    },
+    {
+      "id": "math-yr7-factors-multiples-q28",
+      "stem": "A ferry leaves a terminal every 6 minutes and a water taxi leaves every 9 minutes. If they both leave at 10:00 am, when is the next time they leave together?",
+      "choices": [
+        "10:09 am",
+        "10:18 am",
+        "10:27 am",
+        "10:54 am"
+      ],
+      "correctIndex": 1,
+      "explanation": "The LCM of 6 and 9 is 18, so they next leave together 18 minutes after 10:00 am, at 10:18 am.",
+      "difficulty": "hard",
+      "variantOf": "shared-event-lcm"
     }
   ],
-  "templates":   [
+  "templates": [
     {
       "generator": "math-factors-multiples",
       "params": {

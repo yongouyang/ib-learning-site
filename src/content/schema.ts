@@ -124,6 +124,13 @@ export const paperSchema = z.object({
   questions: z.array(freeResponseQuestionSchema).min(5),
 });
 
+export const customTestBankSchema = z.object({
+  id: z.string().min(1),
+  courseId: z.string().min(1),
+  title: z.string().min(1),
+  questions: z.array(freeResponseQuestionSchema).min(1),
+});
+
 export const subjectMetaSchema = z.object({
   id: subjectIdSchema,
   name: z.string().min(1),
@@ -150,5 +157,6 @@ export type ValidatedQuestion = z.infer<typeof questionSchema>;
 export type ValidatedTopicTemplate = z.infer<typeof topicTemplateSchema>;
 export type ValidatedFreeResponseQuestion = z.infer<typeof freeResponseQuestionSchema>;
 export type ValidatedPaper = z.infer<typeof paperSchema>;
+export type ValidatedCustomTestBank = z.infer<typeof customTestBankSchema>;
 export type ValidatedTopic = z.infer<typeof topicSchema>;
 export type ValidatedSubject = z.infer<typeof subjectSchema>;

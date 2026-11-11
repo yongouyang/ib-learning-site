@@ -140,12 +140,12 @@
       "id": "math-igcse-bounds-bnd-q2",
       "stem": "A length is $74$ cm, measured to the nearest centimetre. What is its upper bound?",
       "choices": [
-        "$74.5$ cm",
         "$74$ cm",
+        "$74.5$ cm",
         "$75$ cm",
         "$73.5$ cm"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The degree of accuracy is 1 cm, so add half of it: 74 + 0.5 = 74.5 cm. The true length stays strictly below this.",
       "difficulty": "easy"
     },
@@ -153,12 +153,12 @@
       "id": "math-igcse-bounds-bnd-q3",
       "stem": "A mass is $3.6$ kg, measured to $1$ decimal place. What is its lower bound?",
       "choices": [
-        "$3.55$ kg",
         "$3.5$ kg",
         "$3.65$ kg",
+        "$3.55$ kg",
         "$3.1$ kg"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "To 1 d.p. the degree of accuracy is 0.1 kg, so subtract half of it: 3.6 - 0.05 = 3.55 kg.",
       "difficulty": "easy"
     },
@@ -166,12 +166,12 @@
       "id": "math-igcse-bounds-bnd-q4",
       "stem": "Which inequality represents $x = 50$ correct to the nearest ten?",
       "choices": [
-        "$45 \\leq x < 55$",
         "$40 \\leq x < 60$",
         "$49.5 \\leq x < 50.5$",
-        "$45 < x \\leq 55$"
+        "$45 < x \\leq 55$",
+        "$45 \\leq x < 55$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "The degree of accuracy is 10, so the bounds are 50 - 5 = 45 and 50 + 5 = 55, inclusive below and exclusive above.",
       "difficulty": "easy"
     },
@@ -192,12 +192,12 @@
       "id": "math-igcse-bounds-bnd-q6",
       "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the maximum possible value of $a + b$?",
       "choices": [
-        "$11.1$",
         "$10.9$",
+        "$11.1$",
         "$11$",
         "$11.05$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "A sum is biggest when both values are biggest: 7.25 + 3.85 = 11.1.",
       "difficulty": "medium"
     },
@@ -205,12 +205,12 @@
       "id": "math-igcse-bounds-bnd-q7",
       "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the minimum possible value of $a - b$?",
       "choices": [
-        "$3.3$",
         "$3.5$",
         "$3.4$",
+        "$3.3$",
         "$3.45$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "A difference is smallest with the smallest a and the biggest b: 7.15 - 3.85 = 3.3.",
       "difficulty": "medium"
     },
@@ -218,12 +218,12 @@
       "id": "math-igcse-bounds-bnd-q8",
       "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the maximum possible value of $a \\times b$?",
       "choices": [
-        "$27.9125$",
         "$27.36$",
         "$27.55$",
-        "$28.0125$"
+        "$28.0125$",
+        "$27.9125$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "A product is biggest when both factors are biggest: 7.25 x 3.85 = 27.9125.",
       "difficulty": "medium",
       "calculator": true
@@ -246,12 +246,12 @@
       "id": "math-igcse-bounds-bnd-q10",
       "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the maximum possible value of $a - b$?",
       "choices": [
-        "$3.5$",
         "$3.3$",
+        "$3.5$",
         "$3.4$",
         "$3.55$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "A difference is biggest with the biggest a and the smallest b: 7.25 - 3.75 = 3.5.",
       "difficulty": "medium"
     },
@@ -259,12 +259,12 @@
       "id": "math-igcse-bounds-bnd-q11",
       "stem": "A rectangle measures $9.5$ cm by $4.2$ cm, each to $1$ decimal place. What is the maximum possible area?",
       "choices": [
-        "$40.5875$ cm$^2$",
         "$39.9$ cm$^2$",
         "$39.2175$ cm$^2$",
+        "$40.5875$ cm$^2$",
         "$40.6325$ cm$^2$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Area is a product, so use both upper bounds: 9.55 x 4.25 = 40.5875 cm squared.",
       "difficulty": "hard",
       "calculator": true
@@ -273,12 +273,12 @@
       "id": "math-igcse-bounds-bnd-q12",
       "stem": "A rectangle measures $9.5$ cm by $4.2$ cm, each to $1$ decimal place. What is the minimum possible area?",
       "choices": [
-        "$39.2175$ cm$^2$",
         "$40.5875$ cm$^2$",
         "$39.9$ cm$^2$",
-        "$38.5175$ cm$^2$"
+        "$38.5175$ cm$^2$",
+        "$39.2175$ cm$^2$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Area is a product, so the minimum uses both lower bounds: 9.45 x 4.15 = 39.2175 cm squared.",
       "difficulty": "hard",
       "calculator": true
@@ -301,12 +301,12 @@
       "id": "math-igcse-bounds-bnd-q14",
       "stem": "$a = 12$ to the nearest integer and $b = 5.0$ to $1$ decimal place. What is the maximum possible value of $a \\div b$, to $3$ significant figures?",
       "choices": [
-        "$2.53$",
         "$2.28$",
+        "$2.53$",
         "$2.52$",
         "$2.40$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The bounds are 11.5 <= a < 12.5 and 4.95 <= b < 5.05. The maximum quotient is 12.5 / 4.95 = 2.5252..., which is 2.53 to 3 s.f. The distractor 2.28 is the minimum, 11.5 / 5.05.",
       "difficulty": "hard",
       "calculator": true
@@ -315,12 +315,12 @@
       "id": "math-igcse-bounds-bnd-q15",
       "stem": "Which combination of bounds gives the maximum possible value of $a \\div b$?",
       "choices": [
-        "Upper bound of $a$ divided by lower bound of $b$",
         "Upper bound of $a$ divided by upper bound of $b$",
         "Lower bound of $a$ divided by lower bound of $b$",
+        "Upper bound of $a$ divided by lower bound of $b$",
         "Lower bound of $a$ divided by upper bound of $b$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Dividing by a smaller number gives a bigger result, so the largest quotient pairs the biggest numerator with the smallest denominator.",
       "difficulty": "medium"
     }

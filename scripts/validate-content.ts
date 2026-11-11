@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { topicSchema, subjectMetaSchema, paperSchema, type ValidatedTopic } from '../src/content/schema';
+import { topicSchema, subjectMetaSchema, paperSchema, customTestBankSchema, type ValidatedCustomTestBank, type ValidatedTopic } from '../src/content/schema';
 import { COURSES } from '../src/lib/courses';
 import { getGenerator } from '../src/content/generators';
 import { createRng } from '../src/lib/quiz-utils';
@@ -9,6 +9,7 @@ import { withSourceTable } from '../src/lib/generators';
 const DATA_DIR = path.resolve(__dirname, '../src/content/data');
 const TOPICS_DIR = path.join(DATA_DIR, 'topics');
 const PAPERS_DIR = path.join(DATA_DIR, 'papers');
+const CUSTOM_TESTS_DIR = path.join(DATA_DIR, 'custom-tests');
 const SUBJECTS_FILE = path.join(DATA_DIR, 'subjects.json');
 
 // Stage/course/level consistency rules (Phase 1 taxonomy).
@@ -193,6 +194,19 @@ export function checkMarkschemePrefixes(
           `${q.id}: markscheme point lacks an M/A/B type prefix — "${point.slice(0, 40)}"`,
       ),
   );
+}
+
+export function checkCustomTestBank(
+  bank: ValidatedCustomTestBank,
+  knownTopicIds: ReadonlySet<string>,
+): string[] {
+  return bank.questions.flatMap((question) => {
+    if (!question.topicId) return [`${question.id}: topicId is required for a custom-exam question`];
+    if (!knownTopicIds.has(question.topicId)) {
+      return [`${question.id}: unknown topicId "${question.topicId}"`];
+    }
+    return [];
+  });
 }
 
 export function checkControlChars(value: unknown, pathStr = '', hits: string[] = []): string[] {
@@ -391,11 +405,66 @@ function validatePapers() {
   }
 }
 
+function validateCustomTestBanks() {
+  if (!fs.existsSync(CUSTOM_TESTS_DIR)) return;
+  const knownTopicIds = new Set<string>();
+  for (const subjectDir of fs.readdirSync(TOPICS_DIR)) {
+    const subjectPath = path.join(TOPICS_DIR, subjectDir);
+    for (const file of fs.readdirSync(subjectPath).filter((name) => name.endsWith('.json') && name !== ORDER_FILE)) {
+      const topic = topicSchema.parse(JSON.parse(fs.readFileSync(path.join(subjectPath, file), 'utf8')));
+      knownTopicIds.add(topic.id);
+    }
+  }
+
+  for (const file of fs.readdirSync(CUSTOM_TESTS_DIR).filter((name) => name.endsWith('.json'))) {
+    const filePath = path.join(CUSTOM_TESTS_DIR, file);
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } catch (err) {
+      recordFailure(filePath, err);
+      continue;
+    }
+    const result = customTestBankSchema.safeParse(parsed);
+    if (!result.success) {
+      failures.push({
+        file: relative(filePath),
+        errors: result.error.issues.map((issue) => `${issue.path.join('.') || 'root'}: ${issue.message}`),
+      });
+      continue;
+    }
+
+    const bank = result.data;
+    const errors = [
+      ...checkControlChars(parsed).slice(0, 5),
+      ...checkMarkschemePrefixes(bank).slice(0, 5),
+      ...checkCustomTestBank(bank, knownTopicIds),
+    ];
+    if (!COURSES.some((course) => course.id === bank.courseId)) {
+      errors.push(`courseId "${bank.courseId}" is not a known course (see src/lib/courses.ts)`);
+    }
+    if (file !== `${bank.courseId}.json`) {
+      errors.push(`file name "${file}" does not match courseId "${bank.courseId}"`);
+    }
+    if (!bank.id.startsWith(`${bank.courseId}-`)) {
+      errors.push(`bank id "${bank.id}" should start with its courseId "${bank.courseId}-"`);
+    }
+    const calcTagged = bank.questions.filter((question) => question.calculator);
+    if (calcTagged.length > 0) {
+      errors.push(`${calcTagged.length} question(s) tagged calculator:true — custom-exam questions are non-calculator`);
+    }
+
+    if (errors.length > 0) failures.push({ file: relative(filePath), errors });
+    else console.log(`✓ ${relative(filePath)}`);
+  }
+}
+
 function main() {
   console.log('Validating content...\n');
   validateSubjects();
   validateTopics();
   validatePapers();
+  validateCustomTestBanks();
 
   if (failures.length > 0) {
     console.error(`\n${failures.length} file(s) failed validation:\n`);

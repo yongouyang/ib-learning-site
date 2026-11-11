@@ -140,12 +140,12 @@
       "id": "math-igcse-quadratics-quad-q2",
       "stem": "What is the discriminant of $x^2 + 6x + 9 = 0$?",
       "choices": [
-        "$0$",
         "$36$",
+        "$0$",
         "$45$",
         "$-36$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "b^2 - 4ac = 36 - 4 x 1 x 9 = 36 - 36 = 0, which means one repeated root.",
       "difficulty": "easy"
     },
@@ -153,12 +153,12 @@
       "id": "math-igcse-quadratics-quad-q3",
       "stem": "A quadratic has discriminant $-7$. How many real roots does it have?",
       "choices": [
-        "None",
         "Two",
         "One",
+        "None",
         "Three"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "A negative discriminant means the square root in the formula is of a negative number, so there are no real roots.",
       "difficulty": "easy"
     },
@@ -166,12 +166,12 @@
       "id": "math-igcse-quadratics-quad-q4",
       "stem": "What are the roots of $x^2 - 9 = 0$?",
       "choices": [
-        "$x = 3$ or $x = -3$",
         "$x = 9$ or $x = -9$",
         "$x = 3$ only",
-        "$x = 81$ or $x = -81$"
+        "$x = 81$ or $x = -81$",
+        "$x = 3$ or $x = -3$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "x^2 = 9, and taking the square root gives both x = 3 and x = -3 because both square to 9.",
       "difficulty": "easy"
     },
@@ -192,12 +192,12 @@
       "id": "math-igcse-quadratics-quad-q6",
       "stem": "Solve $2x^2 + 5x - 3 = 0$ using the quadratic formula.",
       "choices": [
-        "$x = \\dfrac{1}{2}$ or $x = -3$",
         "$x = -\\dfrac{1}{2}$ or $x = 3$",
+        "$x = \\dfrac{1}{2}$ or $x = -3$",
         "$x = 3$ or $x = -\\dfrac{1}{2}$",
         "$x = \\dfrac{3}{2}$ or $x = -1$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Discriminant = 25 + 24 = 49, so x = (-5 +/- 7)/4, giving x = 2/4 = 1/2 and x = -12/4 = -3.",
       "difficulty": "medium"
     },
@@ -205,12 +205,12 @@
       "id": "math-igcse-quadratics-quad-q7",
       "stem": "Solve $3x^2 - 7x + 2 = 0$ using the quadratic formula.",
       "choices": [
-        "$x = 2$ or $x = \\dfrac{1}{3}$",
         "$x = -2$ or $x = -\\dfrac{1}{3}$",
         "$x = 2$ or $x = 3$",
+        "$x = 2$ or $x = \\dfrac{1}{3}$",
         "$x = \\dfrac{1}{2}$ or $x = 3$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Discriminant = 49 - 24 = 25, so x = (7 +/- 5)/6, giving x = 12/6 = 2 and x = 2/6 = 1/3.",
       "difficulty": "medium"
     },
@@ -218,12 +218,12 @@
       "id": "math-igcse-quadratics-quad-q8",
       "stem": "Write $x^2 + 8x + 10$ in the form $(x + p)^2 + q$.",
       "choices": [
-        "$(x + 4)^2 - 6$",
         "$(x + 4)^2 + 6$",
         "$(x + 8)^2 - 6$",
-        "$(x + 4)^2 - 16$"
+        "$(x + 4)^2 - 16$",
+        "$(x + 4)^2 - 6$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Halve 8 to get 4, square it to get 16, then x^2 + 8x + 10 = (x + 4)^2 - 16 + 10 = (x + 4)^2 - 6.",
       "difficulty": "medium"
     },
@@ -244,12 +244,12 @@
       "id": "math-igcse-quadratics-quad-q10",
       "stem": "Which equation has roots $2$ and $-7$?",
       "choices": [
-        "$x^2 + 5x - 14 = 0$",
         "$x^2 - 5x - 14 = 0$",
+        "$x^2 + 5x - 14 = 0$",
         "$x^2 + 5x + 14 = 0$",
         "$x^2 - 5x + 14 = 0$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Sum of roots = -5 and product = -14, so the equation is x^2 - (-5)x + (-14) = 0, that is x^2 + 5x - 14 = 0.",
       "difficulty": "medium"
     },
@@ -257,12 +257,12 @@
       "id": "math-igcse-quadratics-quad-q11",
       "stem": "What is the product of the roots of $4x^2 - 8x + 1 = 0$?",
       "choices": [
-        "$\\dfrac{1}{4}$",
         "$2$",
         "$-2$",
+        "$\\dfrac{1}{4}$",
         "$4$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The product of the roots is c/a = 1/4. The sum would be -b/a = 2, which is a different quantity.",
       "difficulty": "medium"
     },
@@ -270,12 +270,12 @@
       "id": "math-igcse-quadratics-quad-q12",
       "stem": "Solve $x^2 + 4x + 1 = 0$, giving your answers in exact surd form.",
       "choices": [
-        "$x = -2 \\pm \\sqrt{3}$",
         "$x = -4 \\pm \\sqrt{12}$",
         "$x = 2 \\pm \\sqrt{3}$",
-        "$x = -2 \\pm \\sqrt{12}$"
+        "$x = -2 \\pm \\sqrt{12}$",
+        "$x = -2 \\pm \\sqrt{3}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Discriminant = 16 - 4 = 12, so x = (-4 +/- sqrt(12))/2 = (-4 +/- 2 sqrt(3))/2 = -2 +/- sqrt(3). Option 2 forgets to divide the surd by 2 and to simplify sqrt(12).",
       "difficulty": "hard"
     },
@@ -296,12 +296,12 @@
       "id": "math-igcse-quadratics-quad-q14",
       "stem": "The equation $kx^2 + 8x + 4 = 0$ has two equal roots. What is the value of $k$?",
       "choices": [
-        "$4$",
         "$2$",
+        "$4$",
         "$8$",
         "$16$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Equal roots means the discriminant is zero: 64 - 16k = 0, so k = 4.",
       "difficulty": "hard"
     },
@@ -309,12 +309,12 @@
       "id": "math-igcse-quadratics-quad-q15",
       "stem": "Which equation with integer coefficients has roots $\\dfrac{1}{2}$ and $-3$?",
       "choices": [
-        "$2x^2 + 5x - 3 = 0$",
         "$2x^2 - 5x - 3 = 0$",
         "$x^2 + 5x - 3 = 0$",
+        "$2x^2 + 5x - 3 = 0$",
         "$2x^2 + 5x + 3 = 0$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Sum of roots = -5/2 and product = -3/2, giving x^2 + (5/2)x - 3/2 = 0; doubling every term gives 2x^2 + 5x - 3 = 0. Check by factorising: (2x - 1)(x + 3).",
       "difficulty": "hard"
     }

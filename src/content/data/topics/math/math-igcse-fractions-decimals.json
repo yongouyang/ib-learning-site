@@ -139,12 +139,12 @@
       "id": "math-igcse-fractions-decimals-fd-q2",
       "stem": "Write $2\\dfrac{3}{4}$ as an improper fraction.",
       "choices": [
-        "$\\dfrac{11}{4}$",
         "$\\dfrac{6}{4}$",
+        "$\\dfrac{11}{4}$",
         "$\\dfrac{9}{4}$",
         "$\\dfrac{5}{4}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Multiply the whole number by the denominator and add the numerator: (2 x 4 + 3)/4 = 11/4. Getting 6/4 means multiplying the numerator by the whole instead of the denominator.",
       "difficulty": "easy"
     },
@@ -152,12 +152,12 @@
       "id": "math-igcse-fractions-decimals-fd-q3",
       "stem": "Work out $\\dfrac{1}{2} \\times \\dfrac{1}{3}$.",
       "choices": [
-        "$\\dfrac{1}{6}$",
         "$\\dfrac{5}{6}$",
         "$\\dfrac{1}{5}$",
+        "$\\dfrac{1}{6}$",
         "$\\dfrac{2}{5}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Multiply straight across: top 1 x 1 = 1, bottom 2 x 3 = 6, giving 1/6. Adding gives 5/6, and adding the denominators gives 1/5; neither is correct for multiplication.",
       "difficulty": "easy"
     },
@@ -165,12 +165,12 @@
       "id": "math-igcse-fractions-decimals-fd-q4",
       "stem": "Work out $\\dfrac{3}{4} \\div \\dfrac{2}{5}$.",
       "choices": [
-        "$\\dfrac{15}{8}$",
         "$\\dfrac{3}{10}$",
         "$\\dfrac{8}{15}$",
-        "$\\dfrac{6}{5}$"
+        "$\\dfrac{6}{5}$",
+        "$\\dfrac{15}{8}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Divide by multiplying by the reciprocal: 3/4 x 5/2 = 15/8 = 1 7/8. Multiplying straight across instead gives 6/20 = 3/10, a common error.",
       "difficulty": "medium"
     },
@@ -191,12 +191,12 @@
       "id": "math-igcse-fractions-decimals-fd-q6",
       "stem": "Work out $1\\dfrac{1}{2} - \\dfrac{2}{5}$.",
       "choices": [
-        "$\\dfrac{11}{10}$",
         "$1\\dfrac{3}{5}$",
+        "$\\dfrac{11}{10}$",
         "$1\\dfrac{1}{5}$",
         "$\\dfrac{9}{10}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Convert first: 3/2 - 2/5. The LCD is 10, giving 15/10 - 4/10 = 11/10 = 1 1/10. Subtracting tops and bottoms separately gives nonsense like 9/10.",
       "difficulty": "medium"
     },
@@ -204,12 +204,12 @@
       "id": "math-igcse-fractions-decimals-fd-q7",
       "stem": "Work out $0.7 \\times 0.06$.",
       "choices": [
-        "0.042",
         "0.42",
         "4.2",
+        "0.042",
         "0.0042"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "7 x 6 = 42, and the two factors have 1 + 2 = 3 decimal places between them, so the answer is 0.042.",
       "difficulty": "medium"
     },
@@ -217,12 +217,12 @@
       "id": "math-igcse-fractions-decimals-fd-q8",
       "stem": "Work out $4.8 \\div 0.08$.",
       "choices": [
-        "60",
         "6",
         "0.6",
-        "600"
+        "600",
+        "60"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Multiply both numbers by 100 to make the divisor whole: 480 ÷ 8 = 60. Converting only the divisor gives the wrong answer 6.",
       "difficulty": "medium"
     },
@@ -243,12 +243,12 @@
       "id": "math-igcse-fractions-decimals-fd-q10",
       "stem": "Which fraction equals $0.\\overline{7}$?",
       "choices": [
-        "$\\dfrac{7}{9}$",
         "$\\dfrac{7}{10}$",
+        "$\\dfrac{7}{9}$",
         "$\\dfrac{1}{7}$",
         "$\\dfrac{7}{90}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Let x = 0.777... Then 10x = 7.777..., so 9x = 7 and x = 7/9. A single recurring digit always goes over 9, not 10.",
       "difficulty": "hard"
     },
@@ -256,12 +256,12 @@
       "id": "math-igcse-fractions-decimals-fd-q11",
       "stem": "Which fraction equals $0.1\\overline{6}$?",
       "choices": [
-        "$\\dfrac{1}{6}$",
         "$\\dfrac{4}{25}$",
         "$\\dfrac{16}{99}$",
+        "$\\dfrac{1}{6}$",
         "$\\dfrac{1}{5}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Let x = 0.1666... Then 10x = 1.666... and 100x = 16.666..., so 90x = 15, giving x = 15/90 = 1/6. Reading it as a terminating decimal gives the distractor 16/100 = 4/25.",
       "difficulty": "hard"
     },
@@ -269,12 +269,12 @@
       "id": "math-igcse-fractions-decimals-fd-q12",
       "stem": "Work out $\\dfrac{1}{2} + \\dfrac{1}{3} \\times \\dfrac{3}{4}$.",
       "choices": [
-        "$\\dfrac{3}{4}$",
         "$\\dfrac{5}{8}$",
         "$\\dfrac{7}{12}$",
-        "$\\dfrac{5}{12}$"
+        "$\\dfrac{5}{12}$",
+        "$\\dfrac{3}{4}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Multiplication comes first: 1/3 x 3/4 = 1/4, then 1/2 + 1/4 = 3/4. Working left to right gives 5/6 x 3/4 = 5/8, which ignores the order of operations.",
       "difficulty": "hard"
     },
@@ -295,12 +295,12 @@
       "id": "math-igcse-fractions-decimals-fd-q14",
       "stem": "Write $0.25$ as a fraction in its simplest form.",
       "choices": [
-        "$\\dfrac{1}{4}$",
         "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{4}$",
         "$\\dfrac{1}{25}$",
         "$\\dfrac{25}{10}$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "0.25 is 25/100, and dividing top and bottom by 25 gives 1/4.",
       "difficulty": "easy"
     },
@@ -308,12 +308,12 @@
       "id": "math-igcse-fractions-decimals-fd-q15",
       "stem": "What is the reciprocal of $\\dfrac{3}{5}$?",
       "choices": [
-        "$\\dfrac{5}{3}$",
         "$\\dfrac{3}{5}$",
         "$\\dfrac{1}{5}$",
+        "$\\dfrac{5}{3}$",
         "$5$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The reciprocal flips the fraction: 1 ÷ 3/5 = 5/3. Check: 3/5 x 5/3 = 1.",
       "difficulty": "easy"
     }

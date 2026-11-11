@@ -111,6 +111,21 @@ describe("auditContent", () => {
     expect(issue!.message).toContain("0 easy / 0 hard");
   });
 
+  it("warns when a full question bank fixes every correct answer in one position", () => {
+    const questions = makeValidQuestions("test-topic", 12);
+    const topic = makeTopic({ id: "test-topic", subjectId: "math", questions });
+    const fixed = auditContent({ topics: [topic] });
+    const issue = fixed.issues.find((i) => i.type === "answer_position");
+    expect(issue).toBeDefined();
+    expect(issue!.message).toContain("option A");
+
+    questions.forEach((question, index) => {
+      question.correctIndex = index % 4;
+    });
+    const rotated = auditContent({ topics: [makeTopic({ id: "test-topic", subjectId: "math", questions })] });
+    expect(rotated.issues.find((i) => i.type === "answer_position")).toBeUndefined();
+  });
+
   it("detects folder / subjectId mismatches as errors", () => {
     const topic = makeTopic({
       id: "test-topic",
@@ -350,7 +365,7 @@ describe("auditContent variant-group rules", () => {
         }
       }
     }
-    return questions;
+    return questions.map((question, index) => ({ ...question, correctIndex: index % 4 }));
   }
 
   it("accepts a grouped topic meeting the per-group distribution", () => {

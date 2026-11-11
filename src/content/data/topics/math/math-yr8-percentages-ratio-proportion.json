@@ -140,12 +140,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q2",
       "stem": "A savings account pays $3\\%$ compound interest per year. £ $2\\,000$ is invested for $4$ years. What is the final amount to the nearest pound?",
       "choices": [
-        "£ $2\\,251$",
         "£ $2\\,240$",
+        "£ $2\\,251$",
         "£ $2\\,600$",
         "£ $2\\,120$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "$A = 2\\,000 \\times 1.03^4 \\approx 2\\,000 \\times 1.1255 = 2\\,251$ to the nearest pound.",
       "difficulty": "hard",
       "calculator": true
@@ -154,12 +154,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q3",
       "stem": "Which expression gives the value of £ $P$ invested at $6\\%$ compound interest for $5$ years?",
       "choices": [
-        "$P \\times 1.06^5$",
         "$P + 0.06 \\times 5$",
         "$P \\times 1.06 \\times 5$",
+        "$P \\times 1.06^5$",
         "$P \\times 0.94^5$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The multiplier for $6\\%$ increase is $1.06$, and it is applied five times, giving $P \\times 1.06^5$.",
       "difficulty": "medium"
     },
@@ -167,12 +167,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q4",
       "stem": "A laptop is sold for £ $540$ after a $20\\%$ increase. What was the original price?",
       "choices": [
-        "£ $450$",
         "£ $432$",
         "£ $648$",
-        "£ $500$"
+        "£ $500$",
+        "£ $450$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Divide by the multiplier $1.20$: $\\dfrac{540}{1.20} = 450$, so the original price was £ $450$.",
       "difficulty": "medium"
     },
@@ -193,12 +193,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q6",
       "stem": "A population of $40\\,000$ increases by $8\\%$ each year for $2$ years. What is the new population?",
       "choices": [
-        "$46\\,656$",
         "$46\\,400$",
+        "$46\\,656$",
         "$43\\,200$",
         "$48\\,000$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "$40\\,000 \\times 1.08^2 = 40\\,000 \\times 1.1664 = 46\\,656$, so the new population is $46\\,656$.",
       "difficulty": "medium",
       "calculator": true
@@ -207,12 +207,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q7",
       "stem": "A house worth £ $150\\,000$ loses $10\\%$ of its value each year for $3$ years. What is it worth after $3$ years?",
       "choices": [
-        "£ $109\\,350$",
         "£ $105\\,000$",
         "£ $120\\,000$",
+        "£ $109\\,350$",
         "£ $90\\,000$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "$150\\,000 \\times 0.90^3 = 150\\,000 \\times 0.729 = 109\\,350$, so the value is £ $109\\,350$.",
       "difficulty": "medium",
       "calculator": true
@@ -221,12 +221,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q8",
       "stem": "Five identical books cost £ $15$. How much do eight books cost?",
       "choices": [
-        "£ $24$",
         "£ $20$",
         "£ $18$",
-        "£ $30$"
+        "£ $30$",
+        "£ $24$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "One book costs $\\dfrac{15}{5} = 3$, so eight books cost $8 \\times 3 = 24$. The answer is £ $24$.",
       "difficulty": "easy"
     },
@@ -247,12 +247,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q10",
       "stem": "A recipe for $6$ people uses $300$ g of flour. How much flour is needed for $10$ people?",
       "choices": [
-        "$500$ g",
         "$450$ g",
+        "$500$ g",
         "$600$ g",
         "$200$ g"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Flour is directly proportional to people. $\\dfrac{300}{6} = 50$ g per person, so for $10$ people use $10 \\times 50 = 500$ g.",
       "difficulty": "easy"
     },
@@ -260,12 +260,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q11",
       "stem": "$y$ is inversely proportional to $x$. When $x = 4$, $y = 9$. What is $y$ when $x = 6$?",
       "choices": [
-        "$6$",
         "$13.5$",
         "$3$",
+        "$6$",
         "$2$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The constant $k = xy = 4 \\times 9 = 36$. When $x = 6$, $y = \\dfrac{36}{6} = 6$.",
       "difficulty": "medium"
     },
@@ -273,12 +273,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q12",
       "stem": "It takes $8$ people $6$ hours to paint a room. How long would it take $12$ people at the same rate?",
       "choices": [
-        "$4$ hours",
         "$9$ hours",
         "$2$ hours",
-        "$16$ hours"
+        "$16$ hours",
+        "$4$ hours"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Work is $8 \\times 6 = 48$ person-hours. For $12$ people the time is $\\dfrac{48}{12} = 4$ hours.",
       "difficulty": "hard"
     },
@@ -299,12 +299,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q14",
       "stem": "A $400$ g pack of cereal costs £ $2.40$ and a $600$ g pack costs £ $3.30$. Which is the better buy?",
       "choices": [
-        "The $600$ g pack",
         "The $400$ g pack",
+        "The $600$ g pack",
         "They are the same value",
         "Cannot be determined"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "$400$ g pack: $\\dfrac{2.40}{400} = 0.006$ per g. $600$ g pack: $\\dfrac{3.30}{600} = 0.0055$ per g. The $600$ g pack has the lower unit price.",
       "difficulty": "medium",
       "calculator": true
@@ -313,12 +313,12 @@
       "id": "math-yr8-percentages-ratio-proportion-q15",
       "stem": "Which offer is the best value for juice?",
       "choices": [
-        "$2$ litres for £ $2.80$",
         "$1$ litre for £ $1.60$",
         "$3$ litres for £ $4.80$",
+        "$2$ litres for £ $2.80$",
         "$5$ litres for £ $8.00$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Unit prices: $2$ L for £ $2.80$ is £ $1.40$/L, $1$ L is £ $1.60$/L, $3$ L is £ $1.60$/L, $5$ L is £ $1.60$/L. The lowest is £ $1.40$/L.",
       "difficulty": "hard"
     }

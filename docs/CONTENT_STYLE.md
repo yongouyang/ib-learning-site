@@ -92,8 +92,9 @@ Every question must carry a `difficulty` tag (`easy` | `medium` | `hard`); `audi
 Aim for roughly 30% easy / 40% medium / 30% hard per topic.
 
 **Vary which choice is correct.** Spread the correct option across all four positions — aim for
-roughly 4/4/4/3 over a 15-question topic. Nothing in the gates checks this, and the DP Math AA batch
-shipped 54/39/26/16 (i.e. a third of the corpus answering "A") before the positions were rotated.
+roughly 4/4/4/3 over a 15-question topic. `audit:content` rejects a bank of 12 or more questions
+whose correct answers all occupy one position. The DP Math AA batch shipped 54/39/26/16 (i.e. a
+third of the corpus answering "A") before the positions were rotated.
 
 **Re-derive every numeric key by hand before merge.** The AI answer-key audit is not fit for
 computational questions — it fails the arithmetic and then flags a correct key (measured 2026-09-19,
@@ -134,6 +135,11 @@ Free-response sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n
 - **Model answers** are fully worked (≥ 40 characters) and must be re-derived for correctness before merge; every quotation referenced by a markscheme point must appear verbatim in the stimulus.
 - **Non-calculator**: all numbers must be mental-math tractable / exact forms. Do not add a `calculator` field (the validator rejects `calculator: true` for now).
 - English sets: short-answer comprehension/mini-analysis (not full essays); stimulus passages must be original; markscheme = content points (`B1` per valid point).
+
+Public custom-exam alternatives live separately in `src/content/data/custom-tests/<courseId>.json`.
+They reuse the free-response question schema and M/A/B markscheme rules, require a reviewed `topicId`
+on every question, and have no 20-mark total because the client selects one question per topic. They
+must never import premium sets 2+ into the public custom-test response.
 
 ## LaTeX
 

@@ -133,7 +133,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$-4$ is closer to zero than $-9$, so it is greater. On a number line, $-4$ lies to the right of $-9$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "compare-negative"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 0,
       "explanation": "On a number line, reading from left to right gives $-7, -3, -1, 0, 2$, which is smallest to largest.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "order-directed-numbers"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Starting at $-6$ and moving 4 places to the right lands on $-2$. The signs are different, so subtract the digits and keep the sign of the larger digit.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "add-directed-numbers"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Adding $-8$ is the same as subtracting 8. Starting at $-5$ and moving 8 places left gives $-13$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "add-negative"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Two minus signs make a plus, so $7 - (-3) = 7 + 3 = 10$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "subtract-negative"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Subtracting 9 from $-4$ means moving 9 places left on the number line: $-4 - 9 = -13$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "subtract-from-negative"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The signs are different, so the answer is negative. $6 \\times 5 = 30$, therefore $(-6) \\times 5 = -30$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "multiply-different-signs"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The signs are the same, so the answer is positive. $7 \\times 3 = 21$, therefore $(-7) \\times (-3) = 21$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "multiply-same-signs"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Same signs give a positive answer. $48 \\div 6 = 8$, so $(-48) \\div (-6) = 8$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "divide-same-signs"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Different signs give a negative answer. $36 \\div 9 = 4$, so $36 \\div (-9) = -4$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "divide-different-signs"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Multiplication comes before addition. $(-3) \\times 4 = -12$, then $-2 + (-12) = -14$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "bidmas-negative"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q12",
@@ -289,7 +300,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Risen means add. $-8 + 13 = 5$, so the temperature at 10 am was $5^\\circ\\text{C}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "temperature-rise"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q14",
@@ -302,7 +314,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Diving deeper means moving further below sea level, so add $-28$. $-45 + (-28) = -73$, so the submarine is at $-73$ metres.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "submarine-dive"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q15",
@@ -316,9 +329,191 @@
       "correctIndex": 0,
       "explanation": "Depositing adds money and withdrawing subtracts money: $-50 + 120 - 85$. Working left to right, $-50 + 120 = 70$, then $70 - 85 = -15$. The final balance is −＄15.",
       "difficulty": "hard"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q16",
+      "stem": "Which number is smaller: $-12$ or $-7$?",
+      "choices": [
+        "$-7$",
+        "They are equal",
+        "$-12$",
+        "Cannot tell"
+      ],
+      "correctIndex": 2,
+      "explanation": "$-12$ is further left than $-7$ on a number line, so $-12$ is smaller.",
+      "difficulty": "easy",
+      "variantOf": "compare-negative"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q17",
+      "stem": "Put these in order from smallest to largest: $-4$, $3$, $-9$, $0$, $-1$.",
+      "choices": [
+        "$3, 0, -1, -4, -9$",
+        "$-1, -4, -9, 0, 3$",
+        "$0, -1, -4, -9, 3$",
+        "$-9, -4, -1, 0, 3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Read the numbers from left to right on a number line: $-9, -4, -1, 0, 3$.",
+      "difficulty": "medium",
+      "variantOf": "order-directed-numbers"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q18",
+      "stem": "What is $-9 + 7$?",
+      "choices": [
+        "$-16$",
+        "$16$",
+        "$-2$",
+        "$2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Start at $-9$ and move 7 places right. The result is $-2$.",
+      "difficulty": "easy",
+      "variantOf": "add-directed-numbers"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q19",
+      "stem": "What is $-7 + (-6)$?",
+      "choices": [
+        "$13$",
+        "$1$",
+        "$-1$",
+        "$-13$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Adding $-6$ means moving 6 places left from $-7$, giving $-13$.",
+      "difficulty": "medium",
+      "variantOf": "add-negative"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q20",
+      "stem": "What is $4 - (-11)$?",
+      "choices": [
+        "$-15$",
+        "$-7$",
+        "$7$",
+        "$15$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Subtracting a negative is the same as adding: $4 - (-11) = 4 + 11 = 15$.",
+      "difficulty": "medium",
+      "variantOf": "subtract-negative"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q21",
+      "stem": "What is $-8 - 7$?",
+      "choices": [
+        "$-1$",
+        "$1$",
+        "$-15$",
+        "$15$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Subtracting 7 from $-8$ moves 7 places further left, so $-8 - 7 = -15$.",
+      "difficulty": "medium",
+      "variantOf": "subtract-from-negative"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q22",
+      "stem": "What is $(-9) \\times 4$?",
+      "choices": [
+        "$-36$",
+        "$36$",
+        "$-13$",
+        "$13$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The signs are different, so the product is negative: $(-9) \\times 4 = -36$.",
+      "difficulty": "easy",
+      "variantOf": "multiply-different-signs"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q23",
+      "stem": "What is $(-8) \\times (-5)$?",
+      "choices": [
+        "$-40$",
+        "$-13$",
+        "$13$",
+        "$40$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The signs are the same, so the product is positive: $(-8) \\times (-5) = 40$.",
+      "difficulty": "medium",
+      "variantOf": "multiply-same-signs"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q24",
+      "stem": "What is $(-63) \\div (-7)$?",
+      "choices": [
+        "$-9$",
+        "$-8$",
+        "$8$",
+        "$9$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Same signs give a positive result. Since $63 \\div 7 = 9$, the answer is $9$.",
+      "difficulty": "medium",
+      "variantOf": "divide-same-signs"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q25",
+      "stem": "What is $42 \\div (-6)$?",
+      "choices": [
+        "$-7$",
+        "$7$",
+        "$-36$",
+        "$36$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Different signs give a negative result. Since $42 \\div 6 = 7$, the answer is $-7$.",
+      "difficulty": "medium",
+      "variantOf": "divide-different-signs"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q26",
+      "stem": "Calculate $-5 + (-2) \\times 6$.",
+      "choices": [
+        "$-17$",
+        "$-42$",
+        "$7$",
+        "$42$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply first: $(-2) \\times 6 = -12$. Then $-5 + (-12) = -17$.",
+      "difficulty": "hard",
+      "variantOf": "bidmas-negative"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q27",
+      "stem": "The temperature at 6 am was $-11^\\circ\\text{C}$. By noon it had risen by $18^\\circ\\text{C}$. What was the temperature at noon?",
+      "choices": [
+        "$-29^\\circ\\text{C}$",
+        "$-7^\\circ\\text{C}$",
+        "$7^\\circ\\text{C}$",
+        "$29^\\circ\\text{C}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A rise means addition: $-11 + 18 = 7$. The noon temperature was $7^\\circ\\text{C}$.",
+      "difficulty": "medium",
+      "variantOf": "temperature-rise"
+    },
+    {
+      "id": "math-yr7-negative-numbers-neg-q28",
+      "stem": "A submarine is at $-32$ metres. It dives another $26$ metres. What is its new depth?",
+      "choices": [
+        "$-6$ metres",
+        "$6$ metres",
+        "$-58$ metres",
+        "$58$ metres"
+      ],
+      "correctIndex": 2,
+      "explanation": "Diving further below sea level gives $-32 + (-26) = -58$, so the new depth is $-58$ metres.",
+      "difficulty": "medium",
+      "variantOf": "submarine-dive"
     }
   ],
-  "templates":   [
+  "templates": [
     {
       "generator": "math-directed-numbers",
       "params": {

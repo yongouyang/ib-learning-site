@@ -139,12 +139,12 @@
       "id": "math-yr8-statistics-averages-q2",
       "stem": "What is the median of $12$, $15$, $18$, $22$, $30$?",
       "choices": [
-        "$18$",
         "$15$",
+        "$18$",
         "$22$",
         "$19.4$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "There are five values in order, so the median is the third value, $18$.",
       "difficulty": "easy"
     },
@@ -152,12 +152,12 @@
       "id": "math-yr8-statistics-averages-q3",
       "stem": "What is the mode of $3$, $5$, $5$, $7$, $9$, $5$?",
       "choices": [
-        "$5$",
         "$3$",
         "$7$",
+        "$5$",
         "No mode"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The value $5$ appears three times, which is more often than any other value.",
       "difficulty": "easy"
     },
@@ -165,12 +165,12 @@
       "id": "math-yr8-statistics-averages-q4",
       "stem": "The scores $2$, $3$, $3$, $5$, $7$ have a range of:",
       "choices": [
-        "$5$",
         "$2$",
         "$7$",
-        "$9$"
+        "$9$",
+        "$5$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Range = largest value $-$ smallest value $= 7 - 2 = 5$.",
       "difficulty": "easy"
     },
@@ -191,12 +191,12 @@
       "id": "math-yr8-statistics-averages-q6",
       "stem": "Find the midpoint of the class interval $20-30$.",
       "choices": [
-        "$25$",
         "$10$",
+        "$25$",
         "$50$",
         "$15$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Midpoint = $(20 + 30) \\div 2 = 25$.",
       "difficulty": "medium"
     },
@@ -204,12 +204,12 @@
       "id": "math-yr8-statistics-averages-q7",
       "stem": "A grouped frequency table has midpoints $5$, $15$, $25$ with frequencies $4$, $6$, $5$. What is $\\sum fx$?",
       "choices": [
-        "$235$",
         "$30$",
         "$15$",
+        "$235$",
         "$270$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "$5 \\times 4 + 15 \\times 6 + 25 \\times 5 = 20 + 90 + 125 = 235$.",
       "difficulty": "hard"
     },
@@ -217,12 +217,12 @@
       "id": "math-yr8-statistics-averages-q8",
       "stem": "The total frequency in a table is $40$ and $\\sum fx = 1200$. What is the estimated mean?",
       "choices": [
-        "$30$",
         "$30.5$",
         "$29$",
-        "$32$"
+        "$32$",
+        "$30$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Estimated mean = $\\dfrac{\\sum fx}{\\sum f} = \\dfrac{1200}{40} = 30$.",
       "difficulty": "medium"
     },
@@ -243,12 +243,12 @@
       "id": "math-yr8-statistics-averages-q10",
       "stem": "Which average should you use to find the most common shoe size?",
       "choices": [
-        "Mode",
         "Mean",
+        "Mode",
         "Median",
         "Range"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "The mode shows the value that occurs most often, which is the most common size.",
       "difficulty": "easy"
     },
@@ -256,12 +256,12 @@
       "id": "math-yr8-statistics-averages-q11",
       "stem": "In a stem-and-leaf diagram, how should the leaves be arranged?",
       "choices": [
-        "In order from smallest to largest",
         "In the order the data were collected",
         "From largest to smallest",
+        "In order from smallest to largest",
         "Grouped by tens"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Leaves must be ordered from smallest to largest so the median and shape are easy to see.",
       "difficulty": "medium"
     },
@@ -269,12 +269,12 @@
       "id": "math-yr8-statistics-averages-q12",
       "stem": "Group X has median $65$ and range $15$. Group Y has median $72$ and range $30$. Which statement is true?",
       "choices": [
-        "Group Y is more spread out",
         "Group X scores are higher",
         "Group X has a smaller median",
-        "Group Y is more consistent"
+        "Group Y is more consistent",
+        "Group Y is more spread out"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Group Y has a larger range, so its scores are more spread out. Group Y also has the higher median.",
       "difficulty": "hard"
     },
@@ -295,12 +295,12 @@
       "id": "math-yr8-statistics-averages-q14",
       "stem": "Which value is the outlier in $45$, $48$, $50$, $52$, $95$?",
       "choices": [
-        "$95$",
         "$45$",
+        "$95$",
         "$50$",
         "$52$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "$95$ is much larger than the other values, so it is the outlier.",
       "difficulty": "easy"
     },
@@ -308,12 +308,12 @@
       "id": "math-yr8-statistics-averages-q15",
       "stem": "The mean of five numbers is $12$. What is their total sum?",
       "choices": [
-        "$60$",
         "$17$",
         "$2.4$",
+        "$60$",
         "$55$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Use $\\text{sum} = \\text{mean} \\times n = 12 \\times 5 = 60$.",
       "difficulty": "medium"
     }

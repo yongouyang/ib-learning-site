@@ -3,6 +3,7 @@ import { featuresForTier } from '../entitlements/features';
 import { isFreePaperSet } from '../entitlements/exam-access';
 import { getPaperContent } from '@/content/registry.papers';
 import { getAllContentTopics } from '@/content/registry.content';
+import { getCustomTestBankQuestions } from '@/content/custom-test-banks';
 import { drawMixedReviewQuestions } from '../mixed-review-draw';
 import { drawCustomTest } from '../custom-test-draw';
 import { getContentDeps, type ContentDeps } from './deps';
@@ -211,7 +212,10 @@ export async function handlePublicCustomTestGet(
   if (questions.length === 0) return json({ error: 'no_questions' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
   const paper = input.questionType === 'mixed' ? getPaperContent('math-y7', 'math-y7-set-1') : null;
   const selected = new Set(input.topicIds);
-  const writtenQuestions = paper?.questions.filter((question) => question.topicId && selected.has(question.topicId)) ?? [];
+  const writtenQuestions = input.questionType === 'mixed'
+    ? [...(paper?.questions ?? []), ...getCustomTestBankQuestions('math-y7')]
+      .filter((question) => question.topicId && selected.has(question.topicId))
+    : [];
   if (input.questionType === 'mixed' && writtenQuestions.length === 0) {
     return json({ error: 'no_questions' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
   }
