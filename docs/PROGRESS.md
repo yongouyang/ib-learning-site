@@ -4,6 +4,40 @@
 
 ---
 
+## 2026-11-10 — Custom-test templates and non-repetition
+Git HEAD: `61d9d90` (develop, tree dirty)
+Done: custom MC tests now include templates through bounded `pool-1`…`pool-4` API draws;
+  `custom-test-history.ts` balances topics, prefers unseen authored IDs/generated content,
+  and recycles oldest-first. Written selection uses detailed exam history, one per topic.
+  Added five history unit cases, API pool coverage and a forced-repeat browser regression.
+Verified: registry generate/check, content/audit 0/0, 1764 unit, tsc, lint 0 errors
+  (35 baseline warnings), illustrations/layout, 11 Lambdas, static 435 URLs + leak PASS.
+  Static e2e Desktop 143/4 skipped, iPhone 130/17, iPad 131/16, journeys 314;
+  overflow 909 PASS in isolation (parallel run had load timeouts only); 20 UX shots clean.
+Next: review/commit/deploy this and the maths batch; expand negative-numbers/factors-multiples.
+  Add more custom written questions so history avoidance can go beyond the one-per-topic fallback;
+  rebalance percentages' 25/0/0/0 answer positions; collect funnel and live AI quality data.
+Notes: all changes remain uncommitted/undeployed. Personal history stays client-side; the public
+  API receives only the seeded candidate-pool request. UX review had no issues or waivers.
+
+---
+
+## 2026-11-10 — Production promotion and Year 7 maths bank expansion
+Git HEAD: `61d9d90` (develop, tree dirty)
+Done: fast-forwarded main to `61d9d90`; production run 42809382102 and live build/routes verified.
+  Expanded `math-yr7-calculations` and `math-yr7-decimals` from 15 to 28 questions (+26),
+  with same-skill variant groups and difficulty E2E assertions decoupled from bank size.
+Verified: registry generate/check, content/audit 0/0, 1758 unit, tsc, lint 0 errors
+  (35 baseline warnings), illustrations/layout, 11 Lambdas, static 435 URLs + leak PASS.
+  Static e2e Desktop 142/4 skipped, iPhone 129/17, iPad 130/16, journeys 314; overflow 909 PASS.
+  Fifty seeded sessions/topic kept 16 slots and reached all variants; 16 shots both widths/themes clean.
+Next: review/commit/deploy this batch; expand negative-numbers and factors-multiples next.
+  Rebalance percentages' 25/0/0/0 answer positions; collect new funnel data and run live AI quality.
+Notes: maths batch is uncommitted and not deployed. Chrome UX pass waived (content/test-only);
+  screenshot review found no issues or waivers. Production promotion is complete.
+
+---
+
 ## 2026-11-09 — Exam funnel, AI quality telemetry and printable revision
 Git HEAD: `e097a82` (develop, tree dirty)
 Done: joined quiz start/answer/completion/review/retry events by anonymous attempt ID;

@@ -204,7 +204,10 @@ export async function handlePublicCustomTestGet(
     return json({ error: 'quota_exceeded' }, 429, CONTENT_PRIVATE_CACHE_CONTROL);
   }
 
-  const questions = drawCustomTest({ ...input, mode: 'practice' });
+  const questions = drawCustomTest(
+    { ...input, count: input.count * input.candidatePool, mode: 'practice' },
+    input.candidatePool
+  );
   if (questions.length === 0) return json({ error: 'no_questions' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
   const paper = input.questionType === 'mixed' ? getPaperContent('math-y7', 'math-y7-set-1') : null;
   const selected = new Set(input.topicIds);

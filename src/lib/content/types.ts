@@ -104,18 +104,26 @@ export function parseMixedReviewPath(
 
 export function parseCustomTestPath(
   pathname: string,
-): { seed: string; topicIds: string[]; count: 5 | 10 | 15 | 20; difficulty: 'all' | 'easy' | 'medium' | 'hard'; questionType: 'multiple-choice' | 'mixed' } | null {
+): { seed: string; topicIds: string[]; count: 5 | 10 | 15 | 20; difficulty: 'all' | 'easy' | 'medium' | 'hard'; questionType: 'multiple-choice' | 'mixed'; candidatePool: number } | null {
   if (!pathname.startsWith(`${PUBLIC_CUSTOM_TEST_PATH}/`)) return null;
   const parts = pathname.slice(PUBLIC_CUSTOM_TEST_PATH.length + 1).split('/');
-  if (parts.length < 4 || parts.length > 5) return null;
-  const [seed, rawCount, difficulty, ids, rawQuestionType = 'multiple-choice'] = parts;
+  if (parts.length < 4 || parts.length > 6) return null;
+  const [seed, rawCount, difficulty, ids, rawQuestionType = 'multiple-choice', rawCandidatePool] = parts;
   const count = Number(rawCount);
   if (!SEED_RE.test(seed) || ![5, 10, 15, 20].includes(count)) return null;
   if (!['all', 'easy', 'medium', 'hard'].includes(difficulty)) return null;
   if (!['multiple-choice', 'mixed'].includes(rawQuestionType)) return null;
+  if (rawCandidatePool !== undefined && !/^pool-[1-4]$/.test(rawCandidatePool)) return null;
   const topicIds = [...new Set(ids.split(','))];
   if (topicIds.length === 0 || topicIds.length > 12 || !topicIds.every((id) => TOPIC_ID_RE.test(id))) return null;
-  return { seed, topicIds, count: count as 5 | 10 | 15 | 20, difficulty: difficulty as 'all' | 'easy' | 'medium' | 'hard', questionType: rawQuestionType as 'multiple-choice' | 'mixed' };
+  return {
+    seed,
+    topicIds,
+    count: count as 5 | 10 | 15 | 20,
+    difficulty: difficulty as 'all' | 'easy' | 'medium' | 'hard',
+    questionType: rawQuestionType as 'multiple-choice' | 'mixed',
+    candidatePool: rawCandidatePool ? Number(rawCandidatePool.slice(-1)) : 1,
+  };
 }
 
 // --- Response payloads -----------------------------------------------------------

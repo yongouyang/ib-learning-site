@@ -9,10 +9,12 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { getSubject, getSubjects } from '@/content/registry';
 import type { FreeResponseQuestion, QuestionResult, SubjectId, TopicMeta } from '@/content/types';
 import { useProgress } from '@/context/ProgressContext';
-import { CUSTOM_TEST_COUNTS, customTestSeconds, MIXED_EXAM_TOPIC_IDS, type CustomQuestionType, type CustomTestCount, type CustomTestMode, type CustomTestPayload, type CustomTestSettings } from '@/lib/custom-test';
+import { CUSTOM_TEST_CANDIDATE_POOL, CUSTOM_TEST_COUNTS, customTestSeconds, MIXED_EXAM_TOPIC_IDS, type CustomQuestionType, type CustomTestCount, type CustomTestMode, type CustomTestPayload, type CustomTestSettings } from '@/lib/custom-test';
+import { buildMcQuestionHistory, buildWrittenQuestionHistory, selectCustomQuestions, selectWrittenQuestions } from '@/lib/custom-test-history';
 import type { MixedReviewQuestion } from '@/lib/mixed-review';
 import { randomSeed, type DifficultyFilter } from '@/lib/quiz-utils';
 import { getWeakTopics } from '@/lib/weak-point-analyzer';
+import { getAllTopicProgress, getExamResults } from '@/lib/progress-store';
 import { trackEvent } from '@/lib/analytics';
 
 type Scope = 'all' | '7' | '8' | '9' | 'igcse' | 'dp';
@@ -53,7 +55,7 @@ export default function CustomTestClient() {
     setError('');
     resultsRef.current = [];
     try {
-      const path = `/api/content/public/custom-test/${next.seed}/${next.count}/${next.difficulty}/${next.topicIds.join(',')}/${next.questionType}`;
+      const path = `/api/content/public/custom-test/${next.seed}/${next.count}/${next.difficulty}/${next.topicIds.join(',')}/${next.questionType}/pool-${CUSTOM_TEST_CANDIDATE_POOL}`;
       const response = await fetch(path);
       if (response.status === 404) {
         setQuestions([]);
@@ -62,8 +64,19 @@ export default function CustomTestClient() {
       }
       if (!response.ok) throw new Error(String(response.status));
       const body = await response.json() as CustomTestPayload;
-      setQuestions(body.questions);
-      setWrittenQuestions(body.writtenQuestions);
+      const selected = selectCustomQuestions(
+        body.questions,
+        next.count,
+        buildMcQuestionHistory(getAllTopicProgress()),
+        next.seed
+      );
+      setQuestions(selected);
+      setWrittenQuestions(selectWrittenQuestions(
+        body.writtenQuestions,
+        next.topicIds.length,
+        buildWrittenQuestionHistory(getExamResults()),
+        `${next.seed}:written`
+      ));
       setPhase('multiple-choice');
       setSettings(next);
       if (next.seed.startsWith('custom:weak:')) {
@@ -269,7 +282,7 @@ export default function CustomTestClient() {
         )}
 
         {error && <p role="alert" className="text-sm text-red-600 dark:text-red-400">{error}</p>}
-        <button type="button" disabled={selectedTopics.length === 0 || loading} onClick={startTest}
+        <button type="button" disabled={!loaded || selectedTopics.length === 0 || loading} onClick={startTest}
           className="w-full min-h-11 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
           {loading ? <RotateCcw className="w-5 h-5 motion-safe:animate-spin" /> : <ClipboardList className="w-5 h-5" />}
           {loading ? 'Building your test…' : 'Start my test'}

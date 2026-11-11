@@ -107,11 +107,16 @@ describe('content API — path parsing', () => {
 
   it('parses and bounds custom-test settings', () => {
     expect(parseCustomTestPath('/api/content/public/custom-test/seed:1/10/all/math-yr7-angles,math-fractions-1')).toEqual({
-      seed: 'seed:1', count: 10, difficulty: 'all', topicIds: ['math-yr7-angles', 'math-fractions-1'], questionType: 'multiple-choice',
+      seed: 'seed:1', count: 10, difficulty: 'all', topicIds: ['math-yr7-angles', 'math-fractions-1'], questionType: 'multiple-choice', candidatePool: 1,
+    });
+    expect(parseCustomTestPath('/api/content/public/custom-test/seed:1/5/all/math-yr7-angles/mixed/pool-4')).toEqual({
+      seed: 'seed:1', count: 5, difficulty: 'all', topicIds: ['math-yr7-angles'], questionType: 'mixed', candidatePool: 4,
     });
     expect(parseCustomTestPath('/api/content/public/custom-test/seed/7/all/math-yr7-angles')).toBeNull();
     expect(parseCustomTestPath('/api/content/public/custom-test/seed/10/impossible/math-yr7-angles')).toBeNull();
     expect(parseCustomTestPath('/api/content/public/custom-test/seed/10/all/')).toBeNull();
+    expect(parseCustomTestPath('/api/content/public/custom-test/seed/5/all/math-yr7-angles/multiple-choice/pool-0')).toBeNull();
+    expect(parseCustomTestPath('/api/content/public/custom-test/seed/5/all/math-yr7-angles/multiple-choice/pool-5')).toBeNull();
   });
 });
 
@@ -439,6 +444,18 @@ describe('content API — custom tests', () => {
     expect(body.questions).toHaveLength(10);
     expect(new Set(body.questions.map((entry) => entry.topicId))).toEqual(new Set(['math-yr7-angles', 'math-fractions-1']));
     expect(await second.json()).toEqual(body);
+  });
+
+  it('returns a bounded candidate pool with fresh template instances', async () => {
+    const path = '/api/content/public/custom-test/seed:pool/5/all/math-yr7-angles/multiple-choice/pool-4';
+    const response = await handleContentGet(get(path), deps(new InMemoryContentStorage()));
+    expect(response.status).toBe(200);
+    const body = await response.json() as { questions: { question: { id: string; stem: string } }[] };
+    expect(body.questions.length).toBeGreaterThan(5);
+    expect(body.questions.length).toBeLessThanOrEqual(20);
+    const generated = body.questions.filter((entry) => entry.question.id.startsWith('tpl:'));
+    expect(generated).toHaveLength(4);
+    expect(new Set(generated.map((entry) => entry.question.stem)).size).toBeGreaterThan(1);
   });
 
   it('filters difficulty and refuses an empty topic selection', async () => {

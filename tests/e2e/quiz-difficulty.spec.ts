@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // Phase 2: difficulty badges, easy->hard ordering, and the ?difficulty= filter.
-// Uses math-yr7-calculations (15 questions: 3 easy / 9 medium / 3 hard).
+// Uses math-yr7-calculations without pinning its expanding question-bank size.
 test.describe('Quiz difficulty features', () => {
   test('shows a difficulty badge on each question, ordered easy first', async ({ page }) => {
     await page.goto('/subjects/math/math-yr7-calculations/quiz');
@@ -17,7 +17,7 @@ test.describe('Quiz difficulty features', () => {
 
     const group = page.getByRole('group', { name: 'Filter by difficulty' });
     await expect(group).toBeVisible();
-    await expect(group.getByRole('link', { name: /All \(15\)/ })).toHaveAttribute('aria-current', 'page');
+    await expect(group.getByRole('link', { name: /All \(\d+\)/ })).toHaveAttribute('aria-current', 'page');
     await expect(group.getByRole('link', { name: /Easy \(\d+\)/ })).toBeVisible();
     await expect(group.getByRole('link', { name: /Medium \(\d+\)/ })).toBeVisible();
     await expect(group.getByRole('link', { name: /Hard \(\d+\)/ })).toBeVisible();
@@ -28,13 +28,14 @@ test.describe('Quiz difficulty features', () => {
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 
     const group = page.getByRole('group', { name: 'Filter by difficulty' });
-    await expect(group.getByRole('link', { name: /Hard \(3\)/ })).toHaveAttribute('aria-current', 'page');
+    await expect(group.getByRole('link', { name: /Hard \(\d+\)/ })).toHaveAttribute('aria-current', 'page');
 
-    // Question counter reflects the filtered pool (3 hard questions).
     // Scoped to <main>: React's streaming Suspense leaves a hidden copy of the
     // page in <div hidden id="S:0"> under <body>, and an unscoped text lookup
     // trips strict mode on it.
-    await expect(page.locator('main').getByText('1/3')).toBeVisible();
+    const firstCounter = page.locator('main').getByText(/^1\/\d+$/);
+    await expect(firstCounter).toBeVisible();
+    const total = (await firstCounter.innerText()).split('/')[1];
 
     const card = page.locator('.card').first();
     await expect(card.getByText('hard', { exact: true })).toBeVisible();
@@ -45,7 +46,7 @@ test.describe('Quiz difficulty features', () => {
     await choice.click();
     const nextBtn = page.getByRole('button', { name: /Next Question/ });
     await nextBtn.evaluate((el) => (el as HTMLElement).click());
-    await expect(page.locator('main').getByText('2/3')).toBeVisible();
+    await expect(page.locator('main').getByText(`2/${total}`)).toBeVisible();
     await expect(page.locator('.card').first().getByText('hard', { exact: true })).toBeVisible();
   });
 

@@ -1,13 +1,20 @@
 import { getAllContentTopics } from '@/content/registry.content';
 import type { CustomTestSettings } from './custom-test';
+import { materializeTemplates } from './generators';
 import type { MixedReviewQuestion } from './mixed-review';
 import { orderQuestionsByDifficulty, seededShuffle } from './quiz-utils';
 
-export function drawCustomTest(settings: CustomTestSettings): MixedReviewQuestion[] {
+export function drawCustomTest(
+  settings: Omit<CustomTestSettings, 'count'> & { count: number },
+  templateVariants = 1
+): MixedReviewQuestion[] {
   const wanted = new Set(settings.topicIds);
   const topics = getAllContentTopics().filter((topic) => wanted.has(topic.id));
   const perTopic = topics.map((topic) => {
-    const questions = topic.questions.filter((question) =>
+    const generated = Array.from({ length: templateVariants }, (_, index) =>
+      materializeTemplates(topic, templateVariants === 1 ? settings.seed : `${settings.seed}:candidate-${index}`)
+    ).flat();
+    const questions = [...topic.questions, ...generated].filter((question) =>
       settings.difficulty === 'all' || (question.difficulty ?? 'medium') === settings.difficulty
     );
     return seededShuffle(questions, `${settings.seed}:${topic.id}`).map((question): MixedReviewQuestion => ({

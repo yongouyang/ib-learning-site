@@ -9,6 +9,7 @@ export const MIXED_EXAM_TOPIC_IDS = [
 ] as const;
 
 export const CUSTOM_TEST_COUNTS = [5, 10, 15, 20] as const;
+export const CUSTOM_TEST_CANDIDATE_POOL = 4;
 export type CustomTestCount = (typeof CUSTOM_TEST_COUNTS)[number];
 export type CustomTestMode = 'practice' | 'timed';
 

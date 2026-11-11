@@ -133,7 +133,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The digit $7$ is in the hundreds column, so its value is $700$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "place-value"
     },
     {
       "id": "math-yr7-calculations-calc-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Add column by column: $6 + 8 = 14$ (write $4$, carry $1$), $3 + 4 + 1 = 8$, $2 + 7 = 9$, $5 + 3 = 8$. Answer: $8\\,984$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "column-addition"
     },
     {
       "id": "math-yr7-calculations-calc-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract with borrowing, including exchanging through zero: ones become $15$, tens become $9$, hundreds become $11$ after borrowing. Answer: $3\\,727$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "column-subtraction"
     },
     {
       "id": "math-yr7-calculations-calc-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$64 \\times 7 = (60 \\times 7) + (4 \\times 7) = 420 + 28 = 448$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "short-multiplication"
     },
     {
       "id": "math-yr7-calculations-calc-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$34 \\times 6 = 204$ and $34 \\times 20 = 680$. Adding gives $204 + 680 = 884$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "long-multiplication"
     },
     {
       "id": "math-yr7-calculations-calc-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$875 \\div 5$: $8 \\div 5 = 1$ r $3$, $37 \\div 5 = 7$ r $2$, $25 \\div 5 = 5$. Answer: $175$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "short-division"
     },
     {
       "id": "math-yr7-calculations-calc-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Long division: $67 \\div 16 = 4$ remainder $3$, bring down $2$ to make $32$, then $32 \\div 16 = 2$. Answer: $42$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "long-division"
     },
     {
       "id": "math-yr7-calculations-calc-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Multiplication has higher priority than addition: $3 \\times 6 = 18$, then $5 + 18 = 23$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "bidmas-add-multiply"
     },
     {
       "id": "math-yr7-calculations-calc-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Brackets first: $8 + 4 = 12$. Then multiply: $12 \\times 3 = 36$. Finally subtract: $36 - 5 = 31$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "brackets-multi-step"
     },
     {
       "id": "math-yr7-calculations-calc-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Division and multiplication before addition, working left to right: $24 \\div 6 = 4$ and $3 \\times 2 = 6$. Then $4 + 6 = 10$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "bidmas-division-multiplication"
     },
     {
       "id": "math-yr7-calculations-calc-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Indices first: $2^3 = 8$. Then multiply: $8 \\times 4 = 32$. Finally add: $3 + 32 = 35$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "bidmas-powers"
     },
     {
       "id": "math-yr7-calculations-calc-q12",
@@ -302,7 +313,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$8$ packs give $48$ notebooks for £$8 \\times 8 = 64$. Two more singles cost £$2 \\times 1.50 = 3$, giving a total of £$67$, which is cheaper than the other options.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "best-value-packs"
     },
     {
       "id": "math-yr7-calculations-calc-q15",
@@ -315,10 +327,193 @@
       ],
       "correctIndex": 0,
       "explanation": "First find the total area: $18 \\times 12 = 216$ m$^2$. Then divide by $8$ equal sections: $216 \\div 8 = 27$ m$^2$ per section. The distractor $216$ m$^2$ is the total area, not the area of one section.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "area-division-word-problem"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q16",
+      "stem": "What is the value of the digit $6$ in the number $64\\,302$?",
+      "choices": [
+        "$600$",
+        "$6\\,000$",
+        "$60$",
+        "$60\\,000$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The digit $6$ is in the ten-thousands column, so its value is $6 \\times 10\\,000 = 60\\,000$.",
+      "difficulty": "easy",
+      "variantOf": "place-value"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q17",
+      "stem": "Calculate $4\\,687 + 2\\,956$.",
+      "choices": [
+        "$7\\,533$",
+        "$7\\,634$",
+        "$7\\,643$",
+        "$6\\,643$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Aligning place values gives $4\\,687 + 2\\,956 = 7\\,643$. Check by estimating: $4\\,700 + 3\\,000 = 7\\,700$.",
+      "difficulty": "medium",
+      "variantOf": "column-addition"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q18",
+      "stem": "Calculate $8\\,403 - 2\\,768$.",
+      "choices": [
+        "$5\\,365$",
+        "$5\\,645$",
+        "$6\\,635$",
+        "$5\\,635$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Subtract with exchanging: $8\\,403 - 2\\,768 = 5\\,635$. Check that $5\\,635 + 2\\,768 = 8\\,403$.",
+      "difficulty": "medium",
+      "variantOf": "column-subtraction"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q19",
+      "stem": "Multiply $73$ by $6$.",
+      "choices": [
+        "$428$",
+        "$432$",
+        "$438$",
+        "$448$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$73 \\times 6 = (70 \\times 6) + (3 \\times 6) = 420 + 18 = 438$.",
+      "difficulty": "easy",
+      "variantOf": "short-multiplication"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q20",
+      "stem": "Calculate $47 \\times 32$.",
+      "choices": [
+        "$1\\,404$",
+        "$1\\,504$",
+        "$1\\,544$",
+        "$1\\,044$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Use partial products: $47 \\times 30 = 1\\,410$ and $47 \\times 2 = 94$. Their sum is $1\\,504$.",
+      "difficulty": "medium",
+      "variantOf": "long-multiplication"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q21",
+      "stem": "Divide $936$ by $8$.",
+      "choices": [
+        "$107$",
+        "$113$",
+        "$116$",
+        "$117$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$936 \\div 8 = 117$. Check by multiplying back: $117 \\times 8 = 936$.",
+      "difficulty": "medium",
+      "variantOf": "short-division"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q22",
+      "stem": "Calculate $1\\,104 \\div 24$.",
+      "choices": [
+        "$46$",
+        "$44$",
+        "$42$",
+        "$48$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Long division gives $1\\,104 \\div 24 = 46$. Check: $24 \\times 46 = 24 \\times 40 + 24 \\times 6 = 960 + 144 = 1\\,104$.",
+      "difficulty": "hard",
+      "variantOf": "long-division"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q23",
+      "stem": "Using BIDMAS, calculate $7 + 4 \\times 5$.",
+      "choices": [
+        "$60$",
+        "$23$",
+        "$27$",
+        "$31$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiplication comes before addition: $4 \\times 5 = 20$, then $7 + 20 = 27$.",
+      "difficulty": "easy",
+      "variantOf": "bidmas-add-multiply"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q24",
+      "stem": "Calculate $(9 - 5) \\times 6 + 4$.",
+      "choices": [
+        "$34$",
+        "$26$",
+        "$32$",
+        "$28$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Brackets first: $9 - 5 = 4$. Then $4 \\times 6 + 4 = 24 + 4 = 28$.",
+      "difficulty": "medium",
+      "variantOf": "brackets-multi-step"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q25",
+      "stem": "Calculate $36 \\div 9 \\times 2 + 5$.",
+      "choices": [
+        "$17$",
+        "$13$",
+        "$10$",
+        "$23$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Division and multiplication have equal priority, so work left to right: $36 \\div 9 = 4$, then $4 \\times 2 = 8$. Finally, $8 + 5 = 13$.",
+      "difficulty": "medium",
+      "variantOf": "bidmas-division-multiplication"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q26",
+      "stem": "Calculate $5 + 3^2 \\times 2$.",
+      "choices": [
+        "$36$",
+        "$26$",
+        "$23$",
+        "$19$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Indices first: $3^2 = 9$. Then multiply: $9 \\times 2 = 18$. Finally, $5 + 18 = 23$.",
+      "difficulty": "medium",
+      "variantOf": "bidmas-powers"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q27",
+      "stem": "A shop sells pens in packs of $4$ for £$5$ and single pens for £$1.40$ each. A club needs $22$ pens. Which option supplies at least $22$ pens for the lowest cost?",
+      "choices": [
+        "$4$ packs and $6$ singles = £$28.40$",
+        "$6$ packs = £$30$",
+        "$5$ packs = £$25$",
+        "$5$ packs and $2$ singles = £$27.80$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Five packs contain $20$ pens, so two singles are needed. Five packs cost £25 and two singles cost £2.80, giving £27.80 in total. Five packs alone contain only $20$ pens.",
+      "difficulty": "hard",
+      "variantOf": "best-value-packs"
+    },
+    {
+      "id": "math-yr7-calculations-calc-q28",
+      "stem": "A rectangular plot is $24$ m long and $15$ m wide. It is divided into $12$ equal sections. What is the area of each section?",
+      "choices": [
+        "$360$ m$^2$",
+        "$45$ m$^2$",
+        "$30$ m$^2$",
+        "$32$ m$^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The total area is $24 \\times 15 = 360$ m$^2$. Dividing into $12$ equal sections gives $360 \\div 12 = 30$ m$^2$ per section.",
+      "difficulty": "hard",
+      "variantOf": "area-division-word-problem"
     }
   ],
-  "templates":   [
+  "templates": [
     {
       "generator": "math-integer-operations",
       "params": {

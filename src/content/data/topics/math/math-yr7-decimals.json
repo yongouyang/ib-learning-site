@@ -133,7 +133,8 @@
       ],
       "correctIndex": 1,
       "explanation": "After the decimal point, the first digit is tenths, the second is hundredths and the third is thousandths. The 9 is the second digit, so it represents 9 hundredths.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "decimal-place-value"
     },
     {
       "id": "math-yr7-decimals-dec-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Write 0.4 as 0.40. Since 40 hundredths is greater than 39 hundredths, 0.4 > 0.39.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "compare-decimals"
     },
     {
       "id": "math-yr7-decimals-dec-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 0,
       "explanation": "With three decimal places the numbers are 0.700, 0.080, 0.150 and 0.603. Ordering gives 0.080, 0.150, 0.603, 0.700.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "order-decimals"
     },
     {
       "id": "math-yr7-decimals-dec-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Align the decimal points and add: 2.46 + 3.80 = 6.26.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "decimal-addition"
     },
     {
       "id": "math-yr7-decimals-dec-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Write 9 as 9.00 and subtract: 9.00 − 4.37 = 4.63.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "decimal-subtraction"
     },
     {
       "id": "math-yr7-decimals-dec-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Multiplying by 1000 moves the decimal point three places to the right: 0.058 → 58.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "multiply-power-ten"
     },
     {
       "id": "math-yr7-decimals-dec-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Dividing by 1000 moves the decimal point three places to the left: 34 → 0.034.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "divide-power-ten"
     },
     {
       "id": "math-yr7-decimals-dec-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 0,
       "explanation": "6 × 15 = 90. The factors have 1 + 2 = 3 decimal places in total, so the answer is 0.090 = 0.09.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "decimal-multiplication"
     },
     {
       "id": "math-yr7-decimals-dec-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Multiply both numbers by 10 to get 56 ÷ 7 = 8.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "decimal-division"
     },
     {
       "id": "math-yr7-decimals-dec-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 1,
       "explanation": "7 ÷ 20 = 0.35, or multiply numerator and denominator by 5 to get 35/100 = 0.35.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "fraction-to-decimal"
     },
     {
       "id": "math-yr7-decimals-dec-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Multiply by 100 and attach a % sign: 0.065 × 100 = 6.5%.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "decimal-to-percentage"
     },
     {
       "id": "math-yr7-decimals-dec-q12",
@@ -276,7 +287,8 @@
       ],
       "correctIndex": 0,
       "explanation": "25% of £32 = 0.25 × 32 = £8. Sale price = £32 − £8 = £24.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "percentage-discount"
     },
     {
       "id": "math-yr7-decimals-dec-q13",
@@ -290,7 +302,8 @@
       "correctIndex": 0,
       "explanation": "Total cost = £1.85 + £2.45 = £4.30. Change = £10.00 − £4.30 = £5.70.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "money-change"
     },
     {
       "id": "math-yr7-decimals-dec-q14",
@@ -319,9 +332,192 @@
       "explanation": "Multiply both numbers by 100 to make the divisor whole: 450 ÷ 75 = 6 pieces.",
       "difficulty": "hard",
       "calculator": true
+    },
+    {
+      "id": "math-yr7-decimals-dec-q16",
+      "stem": "In the number 4.081, what is the value of the digit 8?",
+      "choices": [
+        "8 tenths",
+        "8 ones",
+        "8 thousandths",
+        "8 hundredths"
+      ],
+      "correctIndex": 3,
+      "explanation": "The 8 is the second digit after the decimal point, so it represents 8 hundredths, or 0.08.",
+      "difficulty": "easy",
+      "variantOf": "decimal-place-value"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q17",
+      "stem": "Which is the smallest number: 0.509, 0.59, 0.095 or 0.95?",
+      "choices": [
+        "0.509",
+        "0.59",
+        "0.095",
+        "0.95"
+      ],
+      "correctIndex": 2,
+      "explanation": "Write each number to three decimal places: 0.509, 0.590, 0.095 and 0.950. The smallest is 0.095.",
+      "difficulty": "easy",
+      "variantOf": "compare-decimals"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q18",
+      "stem": "Which list shows 0.42, 0.402, 0.044 and 0.4 in order from smallest to largest?",
+      "choices": [
+        "0.4, 0.402, 0.42, 0.044",
+        "0.044, 0.42, 0.402, 0.4",
+        "0.402, 0.4, 0.42, 0.044",
+        "0.044, 0.4, 0.402, 0.42"
+      ],
+      "correctIndex": 3,
+      "explanation": "Using three decimal places gives 0.420, 0.402, 0.044 and 0.400. Therefore the order is 0.044, 0.4, 0.402, 0.42.",
+      "difficulty": "hard",
+      "variantOf": "order-decimals"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q19",
+      "stem": "Calculate 4.07 + 2.95.",
+      "choices": [
+        "6.92",
+        "7.12",
+        "7.02",
+        "6.02"
+      ],
+      "correctIndex": 2,
+      "explanation": "Align the decimal points: 4.07 + 2.95 = 7.02. The hundredths give 12, so write 2 and carry 1 tenth.",
+      "difficulty": "medium",
+      "variantOf": "decimal-addition"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q20",
+      "stem": "Calculate 7.3 − 2.86.",
+      "choices": [
+        "4.56",
+        "4.44",
+        "4.34",
+        "5.44"
+      ],
+      "correctIndex": 1,
+      "explanation": "Write 7.3 as 7.30, then subtract with the decimal points aligned: 7.30 − 2.86 = 4.44.",
+      "difficulty": "medium",
+      "variantOf": "decimal-subtraction"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q21",
+      "stem": "What is 0.472 × 100?",
+      "choices": [
+        "0.0472",
+        "4.72",
+        "472",
+        "47.2"
+      ],
+      "correctIndex": 3,
+      "explanation": "Multiplying by 100 moves every digit two place-value columns left, giving 0.472 × 100 = 47.2.",
+      "difficulty": "easy",
+      "variantOf": "multiply-power-ten"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q22",
+      "stem": "What is 6.3 ÷ 100?",
+      "choices": [
+        "0.063",
+        "0.63",
+        "630",
+        "0.0063"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dividing by 100 moves every digit two place-value columns right, so 6.3 ÷ 100 = 0.063.",
+      "difficulty": "easy",
+      "variantOf": "divide-power-ten"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q23",
+      "stem": "Calculate 0.04 × 1.25.",
+      "choices": [
+        "0.5",
+        "0.005",
+        "0.05",
+        "5"
+      ],
+      "correctIndex": 2,
+      "explanation": "First calculate 4 × 125 = 500. The factors have four decimal places in total, so 0.04 × 1.25 = 0.0500 = 0.05.",
+      "difficulty": "hard",
+      "variantOf": "decimal-multiplication"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q24",
+      "stem": "Calculate 3.24 ÷ 0.6.",
+      "choices": [
+        "0.54",
+        "54",
+        "0.054",
+        "5.4"
+      ],
+      "correctIndex": 3,
+      "explanation": "Multiply both numbers by 10 to make the divisor whole: 32.4 ÷ 6 = 5.4. Check: 0.6 × 5.4 = 3.24.",
+      "difficulty": "medium",
+      "variantOf": "decimal-division"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q25",
+      "stem": "Which decimal is equivalent to 11/25?",
+      "choices": [
+        "0.411",
+        "0.44",
+        "0.25",
+        "0.114"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiply numerator and denominator by 4: 11/25 = 44/100 = 0.44.",
+      "difficulty": "medium",
+      "variantOf": "fraction-to-decimal"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q26",
+      "stem": "Convert 0.725 to a percentage.",
+      "choices": [
+        "0.725%",
+        "7.25%",
+        "72.5%",
+        "725%"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiply by 100 and attach a % sign: 0.725 × 100 = 72.5%.",
+      "difficulty": "medium",
+      "variantOf": "decimal-to-percentage"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q27",
+      "stem": "A pair of headphones costs £45. In a sale it is reduced by 20%. What is the sale price?",
+      "choices": [
+        "£40",
+        "£9",
+        "£43.20",
+        "£36"
+      ],
+      "correctIndex": 3,
+      "explanation": "20% of £45 is £9. Subtract the discount from the original price: £45 − £9 = £36.",
+      "difficulty": "medium",
+      "variantOf": "percentage-discount"
+    },
+    {
+      "id": "math-yr7-decimals-dec-q28",
+      "stem": "Mia buys a sandwich for £3.75 and a juice for £1.60. She pays with a £10 note. How much change should she receive?",
+      "choices": [
+        "£5.35",
+        "£4.75",
+        "£5.65",
+        "£4.65"
+      ],
+      "correctIndex": 3,
+      "explanation": "The total cost is £3.75 + £1.60 = £5.35. Her change is £10.00 − £5.35 = £4.65.",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "money-change"
     }
   ],
-  "templates":   [
+  "templates": [
     {
       "generator": "math-decimal-arithmetic",
       "params": {
