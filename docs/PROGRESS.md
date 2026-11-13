@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-11-13 — Release closeout and mixed-exam navigation fix
+Git HEAD: `44cf6cf` (develop + main, tree dirty)
+Done: promoted the answer-key/custom-exam batch to production. Live smoke found the written
+  results/breadcrumb exits retaining mixed-exam state; wired the existing builder reset through
+  PaperRunner/Breadcrumbs and added a two-exit regression. Final production build is `44cf6cf`.
+Verified: 12 focused live-dev tests on Desktop/iPhone; 205 rotated questions preserved their answer
+  text/choice sets; content audit 0/0 (5152); 1767 unit, tsc, lint 0 errors (35 baseline warnings);
+  static 435 URLs + leak PASS; mixed-exam dev/static regressions 3+3 per device. CI/CD 43432022524,
+  43435667437 and 43437888269 all passed. Final prod mixed-exam smoke passed on Desktop/iPhone.
+Next: collect new attempt-linked funnel data and run live AI quality when provider credentials
+  are available; review real usage before another content or custom-exam expansion.
+Notes: no data migration. Production smoke blocked analytics events. UX review of 16 screenshots
+  found no issues and no waivers.
+
+---
+
 ## 2026-11-11 — Answer-key balance and richer custom exams
 Git HEAD: `599f67d` (develop, tree dirty)
 Done: rotated choices in all 11 fixed-position banks without changing correct answers; added the
