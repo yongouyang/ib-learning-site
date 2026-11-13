@@ -6,6 +6,7 @@ import { ChevronRight, Home } from 'lucide-react';
 export interface BreadcrumbItem {
   href?: string;
   label: string;
+  onClick?: () => void;
   /** Drop this intermediate crumb below `sm` so the current-page h1 keeps clear of the fixed top-right pill at phone widths. */
   hideOnMobile?: boolean;
 }
@@ -67,6 +68,7 @@ export function Breadcrumbs({ items, currentAsHeading = false }: { items: Breadc
             ) : (
               <Link
                 href={item.href}
+                onClick={item.onClick}
                 // NOT `shrink-0` + a bare label: a linked crumb can carry a whole
                 // topic title (the quiz/flashcards `study` crumb does), and an
                 // unshrinkable unbounded flex item overflows the viewport instead

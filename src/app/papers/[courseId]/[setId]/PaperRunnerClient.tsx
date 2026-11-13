@@ -29,6 +29,7 @@ interface PaperRunnerClientProps {
     backLabel: string;
     resultTitle: string;
     authExitWarning: string;
+    onBack?: () => void;
   };
 }
 
@@ -345,7 +346,7 @@ function PaperRunner({ paper, attribution, journey }: PaperRunnerClientProps) {
     return (
       <div className="max-w-lg mx-auto px-4 py-8 text-center">
         <p className="text-gray-500 dark:text-gray-400">No questions available.</p>
-        <Link href={backHref} className="mt-4 inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400">
+        <Link href={backHref} onClick={journey?.onBack} className="mt-4 inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400">
           <ArrowLeft className="w-4 h-4" /> Back
         </Link>
       </div>
@@ -382,7 +383,7 @@ function PaperRunner({ paper, attribution, journey }: PaperRunnerClientProps) {
             className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">
             <RotateCcw className="w-4 h-4" /> Try Again
           </button>
-          <Link href={backHref}
+          <Link href={backHref} onClick={journey?.onBack}
             className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
             {journey?.backLabel ?? 'Back to Papers'}
           </Link>
@@ -400,7 +401,7 @@ function PaperRunner({ paper, attribution, journey }: PaperRunnerClientProps) {
       <div ref={headingRef} tabIndex={-1} className="outline-none">
         <Breadcrumbs items={journey ? [
           { href: '/', label: 'Home' },
-          { href: journey.backHref, label: 'Build a Test' },
+          { href: journey.backHref, label: 'Build a Test', onClick: journey.onBack },
           { label: paper.title },
         ] : [
           { href: '/', label: 'Home' },

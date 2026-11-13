@@ -97,3 +97,44 @@ test('avoids completed written questions when the next mixed exam has the same c
   expect(secondIds.filter((id) => firstIds.includes(id))).toEqual([]);
   expect(secondIds.some((id) => id.startsWith('math-y7-custom-written-'))).toBe(true);
 });
+
+test('Build a Test exits reset a mixed exam from the written section and results', async ({ page }) => {
+  const startMixedExam = async () => {
+    await page.getByRole('button', { name: 'Start my test' }).click();
+    await completeQuiz(page);
+    await page.getByRole('button', { name: 'Continue to written section' }).click();
+    await expect(page.getByRole('heading', { name: /Written section/ })).toBeVisible();
+  };
+
+  await page.goto('/custom-test');
+  await page.getByLabel('Year group or course').selectOption('7');
+  await page.getByRole('checkbox', { name: /^Angles / }).check();
+  await page.getByRole('checkbox', { name: /^Fractions / }).check();
+  await page.getByLabel('Multiple-choice questions', { exact: true }).selectOption('5');
+  await page.getByLabel('Question type').selectOption('mixed');
+  await startMixedExam();
+
+  await page.getByRole('navigation', { name: 'Breadcrumb' }).getByRole('link', { name: 'Build a Test' }).click();
+  await expect(page.getByRole('heading', { name: 'Build a Test' })).toBeVisible();
+  await expect(page.getByRole('checkbox', { name: /^Angles / })).toBeChecked();
+
+  await startMixedExam();
+  for (let i = 0; i < 2; i++) {
+    await page.getByLabel('Your answer').fill(`Worked answer ${i + 1}`);
+    await page.getByRole('button', { name: i === 0 ? 'Next Question' : /Submit & Review/ }).click();
+  }
+  await expect(page.getByText('Model answer')).toBeVisible();
+  for (let i = 0; i < 2; i++) {
+    let remaining = await page.locator('button[aria-pressed="false"]').count();
+    while (remaining > 0) {
+      await page.locator('button[aria-pressed="false"]').first().click();
+      remaining--;
+      await expect(page.locator('button[aria-pressed="false"]')).toHaveCount(remaining);
+    }
+    await page.getByRole('button', { name: /Next Question|See Results/ }).click();
+  }
+  await expect(page.getByRole('heading', { name: 'Mixed Exam Complete!' })).toBeVisible();
+  await page.getByRole('link', { name: 'Build another test' }).click();
+  await expect(page.getByRole('heading', { name: 'Build a Test' })).toBeVisible();
+  await expect(page.getByRole('checkbox', { name: /^Angles / })).toBeChecked();
+});

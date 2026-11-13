@@ -137,6 +137,7 @@ export default function CustomTestClient() {
         journey={{
           backHref: '/custom-test', backLabel: 'Build another test', resultTitle: 'Mixed Exam Complete!',
           authExitWarning: 'Select See Results to save your exam before signing in, or your current written answers may be lost.',
+          onBack: resetBuilder,
         }}
       />
     );
