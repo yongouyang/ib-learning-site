@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-11-18 — German topic vocabulary quizzes
+Git HEAD: `f2e12a3` (develop, tree dirty)
+Done: added German-only `/vocabulary-quiz` routes for all 13 topics; each builds 12 untimed
+  multiple-choice questions from its own flashcards with comparable distractors, examples,
+  scoring, mistake retries and shuffled sets. Added topic/study/flashcard links, analytics,
+  noindex metadata, accessible headings and unit/e2e coverage.
+Verified: 1775 unit, tsc, lint 0 errors (35 baseline warnings); content audit 0/0 (5152);
+  illustrations/layout; static 435 URLs + leak PASS; Desktop 148/4 skipped, iPhone 135/17,
+  iPad 136/16, journeys 314 PASS; 24 UX screenshots, no overflow or remaining review findings.
+Next: consider English-to-German recall or extending the quiz to other language subjects after usage review.
+Notes: no content or registry changes; no UX waivers. Unrelated working-tree changes were retained.
+
+---
+
 ## 2026-11-13 — Release closeout and mixed-exam navigation fix
 Git HEAD: `44cf6cf` (develop + main, tree dirty)
 Done: promoted the answer-key/custom-exam batch to production. Live smoke found the written

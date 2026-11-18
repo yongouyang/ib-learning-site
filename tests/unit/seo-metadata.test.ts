@@ -113,9 +113,9 @@ describe('topic page metadata (217 indexed leaves)', () => {
   });
 });
 
-describe('quiz + flashcards: noindex but crawlable', () => {
+describe('interactive topic tools: noindex but crawlable', () => {
   it('noindexes every tool page and canonicalises it to /study', () => {
-    for (const tool of ['quiz', 'flashcards'] as const) {
+    for (const tool of ['quiz', 'flashcards', 'vocabulary-quiz'] as const) {
       for (const { topic, subjectName } of topics.slice(0, 25)) {
         const m = metaForTool(topic, subjectName, tool);
         expect(robotsOf(m).index).toBe(false);

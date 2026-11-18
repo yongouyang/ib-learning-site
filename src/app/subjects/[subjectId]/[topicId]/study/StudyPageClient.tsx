@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Layers, Pencil } from 'lucide-react';
+import { Languages, Layers, Pencil } from 'lucide-react';
 import type { ConceptNote } from '@/content/types';
 import StudyNoteBody from '@/components/StudyNoteBody';
 import StudyNoteIllustration from '@/components/StudyNoteIllustration';
@@ -63,13 +63,19 @@ export default function StudyPageClient({
         ))}
       </div>
 
-      <div className="flex gap-3 mt-6">
+      <div className={`grid grid-cols-2 gap-3 mt-6 ${subjectId === 'german' ? 'sm:grid-cols-3' : ''}`}>
         <Link href={`/subjects/${subjectId}/${topicId}/flashcards`}
           className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 font-semibold text-sm hover:bg-green-100 dark:hover:bg-green-900 transition-colors">
           <Layers className="w-4 h-4" /> Study Flashcards
         </Link>
+        {subjectId === 'german' && (
+          <Link href={`/subjects/${subjectId}/${topicId}/vocabulary-quiz`}
+            className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 font-semibold text-sm hover:bg-orange-100 dark:hover:bg-orange-900 transition-colors">
+            <Languages className="w-4 h-4" /> Vocab Quiz
+          </Link>
+        )}
         <Link href={`/subjects/${subjectId}/${topicId}/quiz`}
-          className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 font-semibold text-sm hover:bg-orange-100 dark:hover:bg-orange-900 transition-colors">
+          className={`flex-1 inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 font-semibold text-sm hover:bg-orange-100 dark:hover:bg-orange-900 transition-colors ${subjectId === 'german' ? 'col-span-2 sm:col-span-1' : ''}`}>
           <Pencil className="w-4 h-4" /> Take Quiz
         </Link>
       </div>

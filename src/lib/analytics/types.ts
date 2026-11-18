@@ -85,7 +85,7 @@ const idField = () => z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64);
 
 const boundedString = (max = ANALYTICS_MAX_STRING) => z.string().min(1).max(max);
 const boundedCount = (max: number) => z.number().int().min(0).max(max);
-const quizSource = () => z.enum(['topic_page', 'diagnostic', 'mixed_review', 'ladder', 'custom_test']);
+const quizSource = () => z.enum(['topic_page', 'vocabulary_quiz', 'diagnostic', 'mixed_review', 'ladder', 'custom_test']);
 const quizContext = {
   subjectId: idField(),
   topicId: idField(),

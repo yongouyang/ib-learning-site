@@ -237,6 +237,12 @@ export default function FlashcardsPageClient({
           </button>
         </div>
       )}
+      {subjectId === 'german' && (
+        <Link href={`/subjects/${subjectId}/${topicId}/vocabulary-quiz`}
+          className="mt-4 w-full inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 font-semibold text-sm hover:bg-orange-100 dark:hover:bg-orange-900 transition-colors">
+          <BookOpen className="w-4 h-4" /> Take Vocabulary Quiz
+        </Link>
+      )}
     </div>
   );
 }

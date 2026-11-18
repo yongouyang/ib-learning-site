@@ -36,7 +36,7 @@ function QuestionBadges({ question }: { question: Question }) {
 interface QuizAnalytics {
   subjectId: string;
   topicId: string;
-  source: 'topic_page' | 'diagnostic' | 'mixed_review' | 'ladder' | 'custom_test';
+  source: 'topic_page' | 'vocabulary_quiz' | 'diagnostic' | 'mixed_review' | 'ladder' | 'custom_test';
 }
 
 interface QuizGameProps {
@@ -53,6 +53,8 @@ interface QuizGameProps {
   onComplete: (correctCount: number, totalCount: number, timedOut?: boolean) => void;
   onQuestionResult?: (questionId: string, correct: boolean, questionNumber: number, totalCount: number, result: QuestionResult) => void;
   onNewSet?: () => void;
+  newSetLabel?: string;
+  accessibleTitle?: string;
   /** Draw new questions practising the same skills as the supplied mistakes. */
   onSimilarQuestions?: (mistakes: Question[]) => void;
   getHelpContext?: (question: Question) => { subjectId: SubjectId; topicId: string };
@@ -74,6 +76,8 @@ export default function QuizGame({
   onComplete,
   onQuestionResult,
   onNewSet,
+  newSetLabel = 'New Question Set',
+  accessibleTitle = 'Practice test',
   onSimilarQuestions,
   getHelpContext,
   onContinue,
@@ -344,7 +348,7 @@ export default function QuizGame({
             {onNewSet && (
               <button onClick={onNewSet}
                 className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                <Shuffle className="w-4 h-4" /> New Question Set
+                <Shuffle className="w-4 h-4" /> {newSetLabel}
               </button>
             )}
             <Link href={backHref} onClick={onBack}
@@ -422,7 +426,7 @@ export default function QuizGame({
 
   return (
     <div className="max-w-lg mx-auto px-4 pt-16 pb-24 md:py-6 md:pb-6">
-      <h1 ref={headingRef} tabIndex={-1} className="sr-only">Practice test</h1>
+      <h1 ref={headingRef} tabIndex={-1} className="sr-only">{accessibleTitle}</h1>
       {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">

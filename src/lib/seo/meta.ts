@@ -114,21 +114,23 @@ export function metaForTopic(topic: TopicMeta, subjectName: string): Metadata {
 }
 
 /**
- * /quiz and /flashcards: interactive variants of the same topic. They carry almost no
- * unique prose, so letting 434 of them into the index would make them compete with the
- * 217 study pages. noindex but FOLLOW — the pages stay crawlable, so the directive is
+ * /quiz, /flashcards and /vocabulary-quiz: interactive variants of the same topic. They carry almost no
+ * unique prose, so letting every tool page into the index would make them compete with the
+ * study pages. noindex but FOLLOW — the pages stay crawlable, so the directive is
  * readable and the links keep passing equity to /study (a robots.txt Disallow would
  * strand them as "Indexed, though blocked").
  */
-export function metaForTool(topic: TopicMeta, subjectName: string, tool: 'quiz' | 'flashcards'): Metadata {
-  const isQuiz = tool === 'quiz';
+export function metaForTool(topic: TopicMeta, subjectName: string, tool: 'quiz' | 'flashcards' | 'vocabulary-quiz'): Metadata {
   const qualifier = titleQualifier(topic, subjectName);
+  const toolLabel = tool === 'vocabulary-quiz' ? 'vocabulary quiz' : tool;
   // noindex page → TOOL_TITLE_BUDGET instead of the SERP budget: nothing truncates it in a
   // search snippet, so the whole topic name is worth keeping for the tab and history list.
-  const qualified = composeTopicTitle(topic, subjectName, isQuiz ? 'quiz' : 'flashcards', TOOL_TITLE_BUDGET);
-  const description = isQuiz
+  const qualified = composeTopicTitle(topic, subjectName, toolLabel, TOOL_TITLE_BUDGET);
+  const description = tool === 'quiz'
     ? topicDescription(topic, `Test yourself on ${plainText(topic.title)} with ${topic.questionCount} ${qualifier} questions, instant marking and worked explanations.`)
-    : topicDescription(topic, `Learn ${plainText(topic.title)} with ${topic.flashcardCount} ${qualifier} flashcards, graded by what you already know.`);
+    : tool === 'vocabulary-quiz'
+      ? topicDescription(topic, `Test yourself on ${plainText(topic.title)} with ${topic.flashcardCount} ${qualifier} vocabulary questions, instant marking and examples.`)
+      : topicDescription(topic, `Learn ${plainText(topic.title)} with ${topic.flashcardCount} ${qualifier} flashcards, graded by what you already know.`);
   return {
     title: { absolute: qualified },
     description,

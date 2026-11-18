@@ -76,6 +76,12 @@ describe('QuizGame', () => {
     expect(screen.getByRole('link', { name: /Back/i }).querySelector('svg')).toBeInTheDocument();
   });
 
+  it('uses a supplied accessible title for the practice page', () => {
+    render(<QuizGame questions={questions} backHref="/back" onComplete={vi.fn()} accessibleTitle="Vocabulary Quiz: Animals" />);
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Vocabulary Quiz: Animals' })).toBeInTheDocument();
+  });
+
   it('shows the timer and clock icon when enabled', () => {
     render(<QuizGame questions={questions} backHref="/back" onComplete={vi.fn()} enableTimer timerSeconds={30} />);
 

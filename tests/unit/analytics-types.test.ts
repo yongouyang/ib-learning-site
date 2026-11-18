@@ -67,6 +67,11 @@ describe('analyticsEventSchema', () => {
     }
   });
 
+  it('accepts the vocabulary quiz source', () => {
+    const props = { ...validProps.quiz_started, source: 'vocabulary_quiz' };
+    expect(analyticsEventSchema.safeParse(envelope({ name: 'quiz_started', props })).success).toBe(true);
+  });
+
   it('rejects an unknown event name', () => {
     expect(analyticsEventSchema.safeParse(envelope({ name: 'nope' })).success).toBe(false);
   });

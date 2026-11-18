@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Layers, Pencil, SearchX } from 'lucide-react';
+import { BookOpen, Languages, Layers, Pencil, SearchX } from 'lucide-react';
 import { getSubject } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import { getRecentAverageScore } from '@/lib/progress-store';
@@ -133,7 +133,7 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
                 </div>
               )}
 
-              <div className="flex gap-2 mt-3">
+              <div className={subjectId === 'german' ? 'grid grid-cols-2 gap-2 mt-3' : 'flex gap-2 mt-3'}>
                 <Link href={`/subjects/${subjectId}/${topic.id}/study`}
                   className="flex-1 inline-flex items-center justify-center gap-1 text-sm py-2 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
                   <BookOpen className="w-3.5 h-3.5" /> Study
@@ -142,6 +142,12 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
                   className="flex-1 inline-flex items-center justify-center gap-1 text-sm py-2 rounded-lg bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 font-medium hover:bg-green-100 dark:hover:bg-green-900 transition-colors">
                   <Layers className="w-3.5 h-3.5" /> Flashcards
                 </Link>
+                {subjectId === 'german' && (
+                  <Link href={`/subjects/${subjectId}/${topic.id}/vocabulary-quiz`}
+                    className="inline-flex items-center justify-center gap-1 text-sm py-3 rounded-lg bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 font-medium hover:bg-orange-100 dark:hover:bg-orange-900 transition-colors">
+                    <Languages className="w-3.5 h-3.5" /> Vocab Quiz
+                  </Link>
+                )}
                 <Link href={`/subjects/${subjectId}/${topic.id}/quiz`}
                   className="flex-1 inline-flex items-center justify-center gap-1 text-sm py-2 rounded-lg bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 font-medium hover:bg-orange-100 dark:hover:bg-orange-900 transition-colors">
                   <Pencil className="w-3.5 h-3.5" /> Quiz
