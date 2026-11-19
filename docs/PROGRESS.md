@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-11-19 — Next.js security-gate repair
+Git HEAD: `08fb6d9` (develop, tree dirty)
+Done: upgraded next + eslint-config-next from 16.4.2/16.4.3 to 16.4.6 and refreshed the
+  lockfile, clearing GHSA-mfr8-8qww-v76h and GHSA-vc7v-qv4w-wrv8 without an OSV ignore.
+  Updated the dependency history in AGENTS.md and osv-scanner.toml; no application code changed.
+Verified: security:sca no issues; npm ci dry-run; 1775 unit tests; next build (1207 pages);
+  validate:content; audit:content 0/0 (5152); lint 0 errors (35 baseline warnings); diff check.
+Next: commit/push this fix and confirm CI/CD and the nightly OSV scan return to green.
+Notes: failed run 44331889282 had green build-and-test and all e2e jobs; only OSV-Scanner failed,
+  which also skipped deploy-dev. E2e was not rerun locally for this dependency-only patch.
+  Unrelated working-tree changes from the markscheme-audit session were retained.
+
+---
+
 ## 2026-11-18 — German topic vocabulary quizzes
 Git HEAD: `f2e12a3` (develop, tree dirty)
 Done: added German-only `/vocabulary-quiz` routes for all 13 topics; each builds 12 untimed
