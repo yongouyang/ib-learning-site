@@ -5,7 +5,7 @@ import QuizGame from '@/components/QuizGame';
 import { useProgress } from '@/context/ProgressContext';
 import type { Flashcard, QuestionResult, SubjectId } from '@/content/types';
 import { randomSeed } from '@/lib/quiz-utils';
-import { buildVocabularyQuestions } from '@/lib/vocabulary-quiz';
+import { buildVocabularyQuestions, gradeVocabularyAnswer } from '@/lib/vocabulary-quiz';
 
 interface VocabularyQuizPageClientProps {
   subjectId: SubjectId;
@@ -25,7 +25,7 @@ export default function VocabularyQuizPageClient({
   const { recordAttempt } = useProgress();
   const resultsRef = useRef<QuestionResult[]>([]);
   const [seed, setSeed] = useState(`${topicId}:vocabulary:initial`);
-  const questions = useMemo(() => buildVocabularyQuestions(flashcards, seed), [flashcards, seed]);
+  const questions = useMemo(() => buildVocabularyQuestions(flashcards), [flashcards]);
 
   const handleNewSet = () => {
     resultsRef.current = [];
@@ -47,6 +47,9 @@ export default function VocabularyQuizPageClient({
         { label: 'Vocabulary Quiz' },
       ]}
       analytics={{ subjectId, topicId, source: 'vocabulary_quiz' }}
+      speechLanguage="de-DE"
+      answerMode="text"
+      gradeTextAnswer={gradeVocabularyAnswer}
       onQuestionResult={(_questionId, _correct, _questionNumber, _totalCount, result) => {
         resultsRef.current.push(result);
       }}

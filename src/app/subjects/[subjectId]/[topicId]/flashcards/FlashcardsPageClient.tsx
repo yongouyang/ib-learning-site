@@ -11,6 +11,7 @@ import { filterDeck, getCardStats, parseDeckFilter, type DeckFilter } from '@/li
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
 import DualRingDonut from '@/components/DualRingDonut';
+import SpeechButton from '@/components/SpeechButton';
 import { trackEvent } from '@/lib/analytics';
 
 /** Phase 1a: the topic's cards arrive from the server page, never from a client-side registry. */
@@ -156,6 +157,7 @@ export default function FlashcardsPageClient({
 
   const card = deck[currentIndex];
   const progress = ((currentIndex + 1) / deck.length) * 100;
+  const speechLanguage = subjectId === 'german' ? 'de-DE' : subjectId === 'chinese' ? 'zh-CN' : null;
 
   return (
     <div className="max-w-md mx-auto px-4 py-6">
@@ -210,6 +212,14 @@ export default function FlashcardsPageClient({
             <p className="text-xs text-gray-400 dark:text-gray-500 mt-4">Tap to flip</p>
           </motion.div>
         </AnimatePresence>
+        {speechLanguage && (
+          <SpeechButton
+            key={card.id}
+            text={card.term}
+            language={speechLanguage}
+            className="absolute right-3 top-3 z-10"
+          />
+        )}
       </div>
 
       {/* Self-sorting (after flip) / navigation (before flip) */}

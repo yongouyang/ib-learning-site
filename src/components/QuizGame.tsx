@@ -11,6 +11,8 @@ import { trackEvent } from '@/lib/analytics';
 import { DIFFICULTY_CHIP_CLASSES } from './difficulty-chip';
 import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
 import InlineMath from './InlineMath';
+import SpeechButton from './SpeechButton';
+import { SPEECH_ERROR_MESSAGE, type SpeechLanguage } from '@/lib/speech';
 
 function QuestionBadges({ question }: { question: Question }) {
   if (!question.difficulty && !question.calculator) return null;
@@ -50,6 +52,9 @@ interface QuizGameProps {
   timerMode?: 'per-question' | 'overall';
   shuffleSeed?: string;
   analytics?: QuizAnalytics;
+  speechLanguage?: SpeechLanguage;
+  answerMode?: 'choices' | 'text';
+  gradeTextAnswer?: (answer: string, expectedAnswer: string) => { correct: boolean; needsSpellingCheck: boolean };
   onComplete: (correctCount: number, totalCount: number, timedOut?: boolean) => void;
   onQuestionResult?: (questionId: string, correct: boolean, questionNumber: number, totalCount: number, result: QuestionResult) => void;
   onNewSet?: () => void;
@@ -73,6 +78,9 @@ export default function QuizGame({
   timerMode = 'per-question',
   shuffleSeed,
   analytics,
+  speechLanguage,
+  answerMode = 'choices',
+  gradeTextAnswer,
   onComplete,
   onQuestionResult,
   onNewSet,
@@ -89,10 +97,13 @@ export default function QuizGame({
   const [results, setResults] = useState<QuestionResult[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [textAnswer, setTextAnswer] = useState('');
+  const [spellingReminder, setSpellingReminder] = useState(false);
   const [answerState, setAnswerState] = useState<'unanswered' | 'correct' | 'incorrect'>('unanswered');
   const [correctCount, setCorrectCount] = useState(0);
   const [showExplanation, setShowExplanation] = useState(false);
   const [showReview, setShowReview] = useState(false);
+  const [speechError, setSpeechError] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timerSeconds);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -134,7 +145,7 @@ export default function QuizGame({
   useEffect(() => {
     if (!showExplanation) return;
     const timer = window.setTimeout(() => {
-      nextButtonRef.current?.scrollIntoView?.({ block: 'end', behavior: 'auto' });
+      nextButtonRef.current?.scrollIntoView?.({ block: 'center', behavior: 'auto' });
     }, 250);
     return () => window.clearTimeout(timer);
   }, [showExplanation, currentIndex]);
@@ -145,8 +156,14 @@ export default function QuizGame({
   const stars = scorePercent >= 90 ? 3 : scorePercent >= 70 ? 2 : scorePercent >= 40 ? 1 : 0;
   const mistakes = results.filter((result) => !result.correct && result.question);
 
-  const recordResult = useCallback((question: Question, correct: boolean, choice: number, position: number) => {
-    const result: QuestionResult = { questionId: question.id, correct, selectedIndex: choice, question };
+  const recordResult = useCallback((question: Question, correct: boolean, choice: number, position: number, typedAnswer?: string) => {
+    const result: QuestionResult = {
+      questionId: question.id,
+      correct,
+      selectedIndex: choice,
+      ...(typedAnswer !== undefined ? { textAnswer: typedAnswer } : {}),
+      question,
+    };
     setResults((current) => [...current, result]);
     if (analyticsSubject && analyticsTopic && analyticsSource) {
       trackEvent('quiz_question_answered', {
@@ -173,11 +190,14 @@ export default function QuizGame({
     setResults([]);
     setCurrentIndex(0);
     setSelectedIndex(null);
+    setTextAnswer('');
+    setSpellingReminder(false);
     setAnswerState('unanswered');
     setCorrectCount(0);
     setIsComplete(false);
     setShowExplanation(false);
     setShowReview(false);
+    setSpeechError(false);
     setTimeLeft(timerSeconds);
     if (analyticsSubject && analyticsTopic && analyticsSource) {
       trackEvent('quiz_retry_started', {
@@ -216,6 +236,19 @@ export default function QuizGame({
     setShowExplanation(true);
   }, [answerState, currentIndex, currentQuestion, recordResult]);
 
+  const handleTextSubmit = () => {
+    if (answerState !== 'unanswered' || !currentQuestion || !textAnswer.trim()) return;
+    const expectedAnswer = currentQuestion.choices[currentQuestion.correctIndex];
+    const grade = gradeTextAnswer?.(textAnswer, expectedAnswer)
+      ?? { correct: textAnswer.trim() === expectedAnswer, needsSpellingCheck: false };
+    setSelectedIndex(grade.correct ? 0 : -1);
+    setAnswerState(grade.correct ? 'correct' : 'incorrect');
+    setSpellingReminder(grade.correct && grade.needsSpellingCheck);
+    if (grade.correct) setCorrectCount((count) => count + 1);
+    recordResult(currentQuestion, grade.correct, grade.correct ? 0 : -1, currentIndex + 1, textAnswer.trim());
+    setShowExplanation(true);
+  };
+
   const handleTimeout = useCallback(() => {
     if (answerState !== 'unanswered' || !currentQuestion) return;
     setSelectedIndex(-1);
@@ -225,9 +258,12 @@ export default function QuizGame({
   }, [answerState, currentIndex, currentQuestion, recordResult]);
 
   const handleNext = useCallback(() => {
+    setSpeechError(false);
     if (currentIndex < sessionQuestions.length - 1) {
       setCurrentIndex((i) => i + 1);
       setSelectedIndex(null);
+      setTextAnswer('');
+      setSpellingReminder(false);
       setAnswerState('unanswered');
       setShowExplanation(false);
       if (timerMode === 'per-question') setTimeLeft(timerSeconds);
@@ -387,6 +423,7 @@ export default function QuizGame({
                 if (!question) return null;
                 return (
                   <article key={`${result.questionId}:${index}`} className="card p-4">
+                    <span className="sr-only">{result.correct ? 'Correct' : 'Incorrect'}</span>
                     <div className="flex items-start gap-2 mb-3">
                       {result.correct
                         ? <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0 text-green-600 dark:text-green-400" />
@@ -399,14 +436,16 @@ export default function QuizGame({
                     <div className="space-y-2 text-sm">
                       <p className={result.correct ? 'text-green-700 dark:text-green-300' : 'text-red-700 dark:text-red-300'}>
                         <span className="font-semibold">Your answer: </span>
-                        {result.selectedIndex !== undefined && result.selectedIndex >= 0
-                          ? <><span>{String.fromCharCode(65 + result.selectedIndex)}. </span><InlineMath text={question.choices[result.selectedIndex]} /></>
-                          : 'No answer — time expired'}
+                        {result.textAnswer !== undefined
+                          ? <span>{result.textAnswer}</span>
+                          : result.selectedIndex !== undefined && result.selectedIndex >= 0
+                            ? <><span>{String.fromCharCode(65 + result.selectedIndex)}. </span><InlineMath text={question.choices[result.selectedIndex]} /></>
+                            : 'No answer — time expired'}
                       </p>
                       {!result.correct && (
                         <p className="text-green-700 dark:text-green-300">
                           <span className="font-semibold">Correct answer: </span>
-                          <span>{String.fromCharCode(65 + question.correctIndex)}. </span>
+                          {answerMode === 'choices' && <span>{String.fromCharCode(65 + question.correctIndex)}. </span>}
                           <InlineMath text={question.choices[question.correctIndex]} />
                         </p>
                       )}
@@ -483,33 +522,79 @@ export default function QuizGame({
             </div>
           )}
 
-          <div className="space-y-2">
-            {currentQuestion.choices.map((choice, i) => {
-              let borderColor = 'border-gray-200 dark:border-gray-700';
-              let bgColor = 'bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800';
-              if (answerState !== 'unanswered') {
-                if (i === currentQuestion.correctIndex) {
-                  borderColor = 'border-green-500';
-                  bgColor = 'bg-green-50 dark:bg-green-950';
-                } else if (i === selectedIndex && answerState === 'incorrect') {
-                  borderColor = 'border-red-500';
-                  bgColor = 'bg-red-50 dark:bg-red-950';
+          {answerMode === 'text' ? (
+            <form onSubmit={(event) => { event.preventDefault(); handleTextSubmit(); }}>
+              <label htmlFor="quiz-text-answer" className="block text-sm font-semibold text-gray-900 dark:text-gray-50">
+                Type the full German word or phrase
+              </label>
+              <p id="quiz-answer-guidance" className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                Include der, die or das where needed. Minor spelling mistakes can still earn the point.
+              </p>
+              <input
+                id="quiz-text-answer"
+                value={textAnswer}
+                onChange={(event) => setTextAnswer(event.target.value)}
+                disabled={answerState !== 'unanswered'}
+                lang={speechLanguage}
+                autoComplete="off"
+                autoCorrect="off"
+                spellCheck={false}
+                aria-describedby="quiz-answer-guidance"
+                className="mt-3 w-full rounded-xl border-2 border-gray-200 bg-white px-3 py-3 text-gray-900 outline-none transition-colors focus:border-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 disabled:opacity-70"
+              />
+              <button
+                type="submit"
+                disabled={answerState !== 'unanswered' || !textAnswer.trim()}
+                className="mt-3 w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                Check answer
+              </button>
+            </form>
+          ) : (
+            <div className="space-y-2">
+              {currentQuestion.choices.map((choice, i) => {
+                let borderColor = 'border-gray-200 dark:border-gray-700';
+                let bgColor = 'bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800';
+                if (answerState !== 'unanswered') {
+                  if (i === currentQuestion.correctIndex) {
+                    borderColor = 'border-green-500';
+                    bgColor = 'bg-green-50 dark:bg-green-950';
+                  } else if (i === selectedIndex && answerState === 'incorrect') {
+                    borderColor = 'border-red-500';
+                    bgColor = 'bg-red-50 dark:bg-red-950';
+                  }
                 }
-              }
-              return (
-                <motion.button
-                  key={i}
-                  onClick={() => handleSelect(i)}
-                  disabled={answerState !== 'unanswered'}
-                  whileTap={answerState === 'unanswered' ? { scale: 0.98 } : undefined}
-                  className={`w-full text-left p-3 rounded-xl border-2 ${borderColor} ${bgColor} transition-all text-sm ${answerState === 'unanswered' ? 'cursor-pointer' : 'cursor-default'}`}
-                >
-                  <span className="font-medium text-gray-500 dark:text-gray-400 mr-2">{String.fromCharCode(65 + i)}.</span>
-                  <InlineMath text={choice} />
-                </motion.button>
-              );
-            })}
-          </div>
+                return (
+                  <div key={i} className="flex items-stretch gap-2">
+                    <motion.button
+                      onClick={() => handleSelect(i)}
+                      disabled={answerState !== 'unanswered'}
+                      whileTap={answerState === 'unanswered' ? { scale: 0.98 } : undefined}
+                      className={`min-w-0 flex-1 text-left p-3 rounded-xl border-2 ${borderColor} ${bgColor} transition-all text-sm ${answerState === 'unanswered' ? 'cursor-pointer' : 'cursor-default'}`}
+                    >
+                      <span className="font-medium text-gray-500 dark:text-gray-400 mr-2">{String.fromCharCode(65 + i)}.</span>
+                      <InlineMath text={choice} />
+                    </motion.button>
+                    {speechLanguage && (
+                      <SpeechButton
+                        text={choice}
+                        language={speechLanguage}
+                        errorDisplay="external"
+                        onPlaybackStart={() => setSpeechError(false)}
+                        onPlaybackError={() => setSpeechError(true)}
+                        className="self-center"
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {speechError && answerMode !== 'text' && (
+            <p role="alert" className="mt-3 rounded-lg border border-red-200 bg-white p-3 text-sm text-red-600 dark:border-red-900 dark:bg-gray-900 dark:text-red-400">
+              {SPEECH_ERROR_MESSAGE}
+            </p>
+          )}
         </motion.div>
       </AnimatePresence>
 
@@ -522,14 +607,38 @@ export default function QuizGame({
             exit={{ opacity: 0, height: 0 }}
             className={`card p-4 mb-4 ${answerState === 'correct' ? 'bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-900' : 'bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-900'}`}
           >
-            <p className="text-sm font-semibold mb-1 inline-flex items-center gap-1.5">
+            <p role="status" aria-live="polite" className="text-sm font-semibold mb-1 inline-flex items-center gap-1.5">
               {answerState === 'correct' ? (
                 <><CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400" /> Correct!</>
               ) : (
                 <><XCircle className="w-4 h-4 text-red-600 dark:text-red-400" /> Incorrect</>
               )}
             </p>
-            <p className="text-sm text-gray-700 dark:text-gray-300"><InlineMath text={currentQuestion.explanation} /></p>
+            {spellingReminder && (
+              <p role="status" className="mb-2 text-sm font-medium text-amber-700 dark:text-amber-400">
+                Point awarded — check the spelling next time.
+              </p>
+            )}
+            {answerMode === 'text' && speechLanguage ? (
+              <div className="flex items-start gap-2">
+                <p className="min-w-0 flex-1 text-sm text-gray-700 dark:text-gray-300"><InlineMath text={currentQuestion.explanation} /></p>
+                <SpeechButton
+                  text={currentQuestion.choices[currentQuestion.correctIndex]}
+                  language={speechLanguage}
+                  errorDisplay="external"
+                  onPlaybackStart={() => setSpeechError(false)}
+                  onPlaybackError={() => setSpeechError(true)}
+                  className="-my-2"
+                />
+              </div>
+            ) : (
+              <p className="text-sm text-gray-700 dark:text-gray-300"><InlineMath text={currentQuestion.explanation} /></p>
+            )}
+            {speechError && answerMode === 'text' && (
+              <p role="alert" className="mt-2 rounded-lg border border-red-200 bg-white p-3 text-sm text-red-600 dark:border-red-900 dark:bg-gray-900 dark:text-red-400">
+                {SPEECH_ERROR_MESSAGE}
+              </p>
+            )}
             {getHelpContext && (
               <AiHelpPanel
                 key={currentIndex}

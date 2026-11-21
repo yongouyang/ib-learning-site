@@ -1,10 +1,11 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeAll, afterAll, beforeEach, type Mock } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import QuizGame from '@/components/QuizGame';
 import { trackEvent } from '@/lib/analytics';
 import type { Question } from '@/content/types';
+import { gradeVocabularyAnswer } from '@/lib/vocabulary-quiz';
 
 vi.mock('@/lib/analytics', () => ({ trackEvent: vi.fn() }));
 vi.mock('next/navigation', () => ({ usePathname: () => '/quiz' }));
@@ -295,5 +296,73 @@ describe('QuizGame mistake review', () => {
     } finally {
       vi.unstubAllGlobals();
     }
+  });
+});
+
+
+describe('QuizGame typed answers', () => {
+  const typedQuestion: Question = {
+    id: 'typed-1',
+    stem: 'What is “the dog” in German?',
+    choices: ['der Hund'],
+    correctIndex: 0,
+    explanation: '**der Hund** — the dog',
+  };
+
+  it('awards a minor typo with a reminder and preserves the response for review', async () => {
+    const user = userEvent.setup();
+    const onComplete = vi.fn();
+    const onQuestionResult = vi.fn();
+    render(
+      <QuizGame
+        questions={[typedQuestion]}
+        backHref="/back"
+        answerMode="text"
+        gradeTextAnswer={gradeVocabularyAnswer}
+        onComplete={onComplete}
+        onQuestionResult={onQuestionResult}
+      />,
+    );
+
+    const input = screen.getByRole('textbox', { name: 'Type the full German word or phrase' });
+    expect(screen.getByRole('button', { name: 'Check answer' })).toBeDisabled();
+    expect(screen.queryByRole('button', { name: /^A\./ })).not.toBeInTheDocument();
+    fireEvent.change(input, { target: { value: 'der Hun' } });
+    expect(input).toHaveValue('der Hun');
+    await user.click(screen.getByRole('button', { name: 'Check answer' }));
+
+    expect(screen.getByText('Correct!')).toBeInTheDocument();
+    expect(screen.getByText('Point awarded — check the spelling next time.')).toBeInTheDocument();
+    expect(onQuestionResult).toHaveBeenCalledWith('typed-1', true, 1, 1, expect.objectContaining({ textAnswer: 'der Hun' }));
+
+    await user.click(screen.getByRole('button', { name: 'See Results' }));
+    expect(onComplete).toHaveBeenCalledWith(1, 1);
+    await user.click(screen.getByRole('button', { name: /Review answers/ }));
+    expect(screen.getByText('Your answer:')).toBeInTheDocument();
+    expect(screen.getByText('der Hun')).toBeInTheDocument();
+    expect(screen.getByText('der Hund', { exact: false })).toBeInTheDocument();
+  });
+
+  it('rejects a wrong article without a spelling reminder', async () => {
+    const user = userEvent.setup();
+    render(
+      <QuizGame
+        questions={[typedQuestion]}
+        backHref="/back"
+        answerMode="text"
+        gradeTextAnswer={gradeVocabularyAnswer}
+        onComplete={vi.fn()}
+      />,
+    );
+
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'die Hund' } });
+    await user.click(screen.getByRole('button', { name: 'Check answer' }));
+
+    expect(screen.getByText('Incorrect')).toBeInTheDocument();
+    expect(screen.queryByText('Point awarded — check the spelling next time.')).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'See Results' }));
+    await user.click(screen.getByRole('button', { name: /Review answers/ }));
+    expect(screen.getByText('Correct answer:').parentElement).not.toHaveTextContent(/Correct answer: A\./);
   });
 });

@@ -4,6 +4,19 @@
 
 ---
 
+## 2026-11-21 — Typed German recall and language speech
+Git HEAD: `eeb762d` (develop, tree dirty)
+Done: added German/Mandarin flashcard pronunciation with accessible playback errors; replaced all
+  13 German vocabulary multiple-choice quizzes with typed answers, exact article enforcement,
+  minor-spelling reminders, saved text responses, review labels and post-answer pronunciation.
+Verified: 1794 unit, tsc, lint 0 errors (35 baseline); content 0/0; illustrations/layout; static
+  435 URLs + leak PASS; static e2e Desktop 155/4 skipped, iPhone 142/17, iPad 143/16, journeys 314.
+  Speech + typed UX screenshots reviewed in both themes/sizes; final reviews no findings/waivers.
+Next: commit/push develop, watch dev deploy, smoke test, then promote to main and watch production.
+Notes: browser voice quality remains device-dependent. Unrelated markscheme-audit edits retained.
+
+---
+
 ## 2026-11-21 — English-to-German vocabulary quizzes
 Git HEAD: `b8fb8d5` (develop, tree dirty)
 Done: reversed all 13 vocabulary quizzes to ask for the German translation of concise English

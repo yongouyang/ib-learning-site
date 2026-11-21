@@ -42,6 +42,7 @@ export interface QuestionResultItem {
   questionId: string;
   correct: boolean;
   selectedIndex?: number;
+  textAnswer?: string;
   question?: Question;
 }
 
@@ -210,7 +211,7 @@ export interface ProgressStorage {
 const questionSnapshotSchema = questionSchema.extend({
   id: z.string().regex(/^[A-Za-z0-9_:-]+$/).min(1).max(PROGRESS_MAX_ID_LENGTH),
   stem: z.string().min(1).max(2000),
-  choices: z.array(z.string().min(1).max(1000)).length(4),
+  choices: z.array(z.string().min(1).max(1000)).min(1).max(4),
   explanation: z.string().min(1).max(4000),
   variantOf: z.string().min(1).max(128).optional(),
 });
@@ -219,6 +220,7 @@ export const questionResultSchema = z.object({
   questionId: z.string().regex(/^[A-Za-z0-9_:-]+$/).min(1).max(PROGRESS_MAX_ID_LENGTH),
   correct: z.boolean(),
   selectedIndex: z.number().int().min(-1).max(3).optional(),
+  textAnswer: z.string().max(1000).optional(),
   question: questionSnapshotSchema.optional(),
 });
 
