@@ -4,6 +4,33 @@
 
 ---
 
+## 2026-11-21 — English-to-German vocabulary quizzes
+Git HEAD: `b8fb8d5` (develop, tree dirty)
+Done: reversed all 13 vocabulary quizzes to ask for the German translation of concise English
+  prompts, with German choices and comparable term/article distractors. Teaching notes stay in
+  explanations; updated unit and browser coverage in vocabulary-quiz files.
+Verified: 1776 unit, tsc, lint 0 errors (35 baseline warnings); validate:content; audit:content
+  0/0 (5152); static 435 URLs + leak PASS; German e2e 3 Desktop + 3 iPhone on dev and static.
+  Twelve light/dark Desktop/mobile screenshots, fresh UX review no findings or waivers.
+Next: watch the dev deploy and validate the reversed quizzes; promote to main after validation.
+Notes: no content, registry or schema changes. Unrelated markscheme-audit working-tree changes retained.
+
+---
+
+## 2026-11-20 — German vocabulary quiz production release
+Git HEAD: `b8fb8d5` (develop + main, tree dirty)
+Done: validated all 13 German vocabulary quizzes on dev, promoted develop to main, and deployed
+  production; dev and prod both serve `b8fb8d5`.
+Verified: CI/CD 44735916421 all gates + deploy-prod + live SEO PASS; 26 dev and 26 prod complete
+  Desktop/iPhone journeys, entry links, metadata, non-German exclusion, results/review, shuffle,
+  no overflow or browser page errors. One prod iPhone transition-timing retry; school-life then
+  passed three focused reruns and all remaining topics passed.
+Next: review real usage before English-to-German recall or extending quizzes to other languages.
+Notes: live analytics ingestion was stubbed during browser validation; no UX changes or waivers.
+  Unrelated markscheme-audit working-tree changes were retained and not included in the release.
+
+---
+
 ## 2026-11-19 — Next.js security-gate repair
 Git HEAD: `08fb6d9` (develop, tree dirty)
 Done: upgraded next + eslint-config-next from 16.4.2/16.4.3 to 16.4.6 and refreshed the

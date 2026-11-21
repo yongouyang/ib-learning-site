@@ -16,21 +16,37 @@ afterEach(() => {
 });
 
 describe('buildVocabularyQuestions', () => {
-  it('creates one four-choice question per card with the correct meaning', () => {
+  it('creates one four-choice question per card with the correct German translation', () => {
     const questions = buildVocabularyQuestions(cards, 'test-seed');
 
     expect(questions).toHaveLength(cards.length);
     for (const [index, question] of questions.entries()) {
       const card = cards[index];
-      expect(question.stem).toBe(`What does “${card.term}” mean?`);
+      expect(question.stem).toBe(`What is “${card.definition}” in German?`);
       expect(question.choices).toHaveLength(4);
       expect(new Set(question.choices).size).toBe(4);
-      expect(question.choices[question.correctIndex]).toBe(card.definition);
+      expect(question.choices[question.correctIndex]).toBe(card.term);
       for (const choice of question.choices) {
-        expect(cards.some((candidate) => candidate.definition === choice)).toBe(true);
+        expect(cards.some((candidate) => candidate.term === choice)).toBe(true);
       }
     }
     expect(questions[0].explanation).toContain('Der Hund ist braun.');
+  });
+
+  it('keeps teaching notes out of the English prompt but retains them in the explanation', () => {
+    const topic = getContentTopic('german', 'germ-yr7-greetings-basics')!;
+    const question = buildVocabularyQuestions(topic.flashcards, 'prompt-test')
+      .find((candidate) => candidate.id === 'germ-yr7-greetings-basics-f4-vocab')!;
+
+    expect(question.stem).toBe('What is “My name is...” in German?');
+    expect(question.choices[question.correctIndex]).toBe('Ich heiße...');
+    expect(question.explanation).toContain('(literally: I am called...)');
+
+    const freetime = getContentTopic('german', 'germ-yr7-freetime-hobbies')!;
+    const gladly = buildVocabularyQuestions(freetime.flashcards, 'prompt-test')
+      .find((candidate) => candidate.choices[candidate.correctIndex] === 'gern')!;
+    expect(gladly.stem).toBe('What is “gladly” in German?');
+    expect(gladly.explanation).toContain("added after a verb to mean 'like doing' something");
   });
 
   it('is deterministic for a seed and does not use unseeded randomness', () => {
@@ -41,12 +57,12 @@ describe('buildVocabularyQuestions', () => {
     expect(random).not.toHaveBeenCalled();
   });
 
-  it('uses concise, comparable distractors for colour vocabulary', () => {
+  it('uses concise, comparable German distractors for colour vocabulary', () => {
     const topic = getContentTopic('german', 'germ-yr7-animals-colours')!;
     const question = buildVocabularyQuestions(topic.flashcards, 'colour-test')
-      .find((candidate) => candidate.stem === 'What does “rot” mean?')!;
+      .find((candidate) => candidate.stem === 'What is “red” in German?')!;
 
-    expect(question.choices).toEqual(expect.arrayContaining(['red', 'blue', 'black']));
+    expect(question.choices).toEqual(expect.arrayContaining(['rot', 'blau', 'schwarz']));
     expect(question.choices.every((choice) => !/[;():]/.test(choice))).toBe(true);
     expect(question.choices.every((choice) => choice.length <= 9)).toBe(true);
   });
@@ -61,7 +77,7 @@ describe('buildVocabularyQuestions', () => {
       for (const [index, question] of questions.entries()) {
         expect(question.choices, question.id).toHaveLength(4);
         expect(new Set(question.choices).size, question.id).toBe(4);
-        expect(question.choices[question.correctIndex], question.id).toBe(topic.flashcards[index].definition);
+        expect(question.choices[question.correctIndex], question.id).toBe(topic.flashcards[index].term);
       }
     }
   });

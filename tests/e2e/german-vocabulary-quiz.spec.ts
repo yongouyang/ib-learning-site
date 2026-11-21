@@ -15,7 +15,7 @@ test.describe('German vocabulary quiz', () => {
     await page.waitForURL(`${topicPath}/vocabulary-quiz`);
 
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Vocabulary Quiz: Tiere & Farben (Animals & Colours)');
-    await expect(page.getByRole('heading', { level: 2 })).toHaveText(/What does .+ mean\?/);
+    await expect(page.getByRole('heading', { level: 2 })).toHaveText(/What is .+ in German\?/);
     await expect(page.getByText('1/12')).toBeVisible();
     await expect(page.getByText(/Time remaining/)).toHaveCount(0);
     const questionCard = page.locator('main .card').filter({ has: page.getByRole('heading', { level: 2 }) });
