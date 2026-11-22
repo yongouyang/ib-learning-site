@@ -7,9 +7,9 @@
 ## 2026-11-22 — Scannable Progress overview
 Git HEAD: `aa0adb9` (develop, tree dirty)
 Done: added KS3/IGCSE/IB DP summary filters, collapsed subject and year/stage disclosures, and per-group started/average summaries; moved Practice below progress, labelled flashcard mastery and fixed row contrast/wording. Added Progress overview e2e coverage.
-Verified: 1806 unit, tsc, lint 0 errors (35 baseline), content 0/0, illustration SVG checks, static 435 URLs + leak PASS. Affected static suites: 35 Desktop + 23 iPhone + 3 iPad PASS; 4 custom-test PASS. Sixteen light/dark screenshots; final fresh UX review no findings/waivers.
-Next: commit/push and dev-smoke with the next requested release.
-Notes: full static run stopped at 79/166 — one ambiguous assertion fixed and two timing failures passed focused reruns. Illustration-layout audit timed out locally; no illustration files changed. Unrelated markscheme-audit edits retained.
+Verified: 1806 unit, tsc, lint 0 errors (35 baseline), content 0/0, illustration SVG checks, static 435 URLs + leak PASS. Affected static suites: 35 Desktop + 23 iPhone + 3 iPad PASS; 4 custom-test + 5 progress-sync Desktop PASS. Sixteen light/dark screenshots; final fresh UX review no findings/waivers.
+Next: watch the corrected dev deployment and dev-smoke with the next requested release.
+Notes: initial dev CI passed 155 Desktop tests but one legacy sync assertion expected an expanded topic; updated it for nested disclosures and reran 5/5 PASS. Earlier full static run stopped at 79/166 — timing failures passed focused reruns. Illustration-layout audit timed out locally; no illustration files changed. Unrelated markscheme-audit edits retained.
 
 ---
 

@@ -243,6 +243,9 @@ test.describe('progress sync', () => {
     try {
       await signIn(pageB, email);
       await pageB.goto('/progress');
+      const math = pageB.locator('details[data-subject-progress="math"]');
+      await math.locator(':scope > summary').click();
+      await math.locator('details[data-topic-group="ks3-y7"] > summary').click();
 
       await expect(async () => {
         const row = pageB.getByRole('link').filter({ hasText: 'Solving Equations' });
