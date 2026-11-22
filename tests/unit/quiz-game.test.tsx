@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import QuizGame from '@/components/QuizGame';
 import { trackEvent } from '@/lib/analytics';
 import type { Question } from '@/content/types';
-import { gradeVocabularyAnswer } from '@/lib/vocabulary-quiz';
+import { gradeTargetLanguageAnswer } from '@/lib/language-quiz';
 
 vi.mock('@/lib/analytics', () => ({ trackEvent: vi.fn() }));
 vi.mock('next/navigation', () => ({ usePathname: () => '/quiz' }));
@@ -318,7 +318,7 @@ describe('QuizGame typed answers', () => {
         questions={[typedQuestion]}
         backHref="/back"
         answerMode="text"
-        gradeTextAnswer={gradeVocabularyAnswer}
+        gradeTextAnswer={(answer, expectedAnswers) => gradeTargetLanguageAnswer(answer, expectedAnswers, 'de-DE')}
         onComplete={onComplete}
         onQuestionResult={onQuestionResult}
       />,
@@ -333,7 +333,7 @@ describe('QuizGame typed answers', () => {
 
     expect(screen.getByText('Correct!')).toBeInTheDocument();
     expect(screen.getByText('Point awarded — check the spelling next time.')).toBeInTheDocument();
-    expect(onQuestionResult).toHaveBeenCalledWith('typed-1', true, 1, 1, expect.objectContaining({ textAnswer: 'der Hun' }));
+    expect(onQuestionResult).toHaveBeenCalledWith('typed-1', true, 1, 1, expect.objectContaining({ textAnswer: 'der Hun', answerMode: 'text' }));
 
     await user.click(screen.getByRole('button', { name: 'See Results' }));
     expect(onComplete).toHaveBeenCalledWith(1, 1);
@@ -350,7 +350,7 @@ describe('QuizGame typed answers', () => {
         questions={[typedQuestion]}
         backHref="/back"
         answerMode="text"
-        gradeTextAnswer={gradeVocabularyAnswer}
+        gradeTextAnswer={(answer, expectedAnswers) => gradeTargetLanguageAnswer(answer, expectedAnswers, 'de-DE')}
         onComplete={vi.fn()}
       />,
     );
@@ -364,5 +364,35 @@ describe('QuizGame typed answers', () => {
     await user.click(screen.getByRole('button', { name: 'See Results' }));
     await user.click(screen.getByRole('button', { name: /Review answers/ }));
     expect(screen.getByText('Correct answer:').parentElement).not.toHaveTextContent(/Correct answer: A\./);
+  });
+
+  it('accepts Traditional Chinese and labels the input without showing choices', async () => {
+    const user = userEvent.setup();
+    const chineseQuestion: Question = {
+      id: 'typed-zh-1',
+      stem: 'What is “teacher” in Chinese?',
+      choices: ['老师', '老師'],
+      correctIndex: 0,
+      explanation: '老师 lǎoshī means teacher.',
+    };
+    render(
+      <QuizGame
+        questions={[chineseQuestion]}
+        backHref="/back"
+        answerMode="text"
+        speechLanguage="zh-CN"
+        gradeTextAnswer={(answer, expectedAnswers) => gradeTargetLanguageAnswer(answer, expectedAnswers, 'zh-CN')}
+        onComplete={vi.fn()}
+      />,
+    );
+
+    const input = screen.getByRole('textbox', { name: 'Type your answer in Chinese characters' });
+    expect(input).toHaveAttribute('lang', 'zh-CN');
+    expect(screen.getByText('Simplified or Traditional Chinese is accepted. Use characters, not pinyin.')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^A\./ })).not.toBeInTheDocument();
+
+    fireEvent.change(input, { target: { value: ' 老師！ ' } });
+    await user.click(screen.getByRole('button', { name: 'Check answer' }));
+    expect(screen.getByText('Correct!')).toBeInTheDocument();
   });
 });

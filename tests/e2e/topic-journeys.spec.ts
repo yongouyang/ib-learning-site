@@ -55,9 +55,17 @@ test('every topic can load study, flashcards and quiz pages', async ({ page }) =
         const total = sessionSize(topic);
         await page.goto(`${basePath}/quiz`);
         await expect(page.getByText(`1/${total}`).first()).toBeVisible({ timeout: 10000 }); // same hydration duplicate as above
-        const firstChoice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
-        await expect(firstChoice).toBeVisible();
-        await firstChoice.click();
+        const typedLanguageQuiz = topic.year === 7 && (topic.subjectId === 'german' || topic.subjectId === 'chinese');
+        if (typedLanguageQuiz) {
+          const input = page.getByRole('textbox', { name: /Type (?:the full German|your answer in Chinese)/ });
+          await expect(input).toBeVisible();
+          await input.fill('not the answer');
+          await page.getByRole('button', { name: 'Check answer' }).click();
+        } else {
+          const firstChoice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
+          await expect(firstChoice).toBeVisible();
+          await firstChoice.click();
+        }
 
         const nextButton = page.getByRole('button', { name: /Next Question|See Results/ });
         await expect(nextButton).toBeVisible();

@@ -124,51 +124,39 @@
   "questions": [
     {
       "id": "chin-yr7-family-pets-q1",
-      "stem": "爸爸 (bàba) means:",
+      "stem": "What is “dad” in Chinese?",
       "choices": [
-        "Grandpa",
-        "Dad",
-        "Older brother",
-        "Uncle"
+        "爸爸"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "爸爸 bàba means dad. Like 妈妈 (mum), it is a repeated-character word said with a light second syllable.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-family-pets-q2",
-      "stem": "Which word means 'older sister'?",
+      "stem": "What is “older sister” in Chinese?",
       "choices": [
-        "妹妹 mèimei",
-        "哥哥 gēge",
-        "姐姐 jiějie",
-        "奶奶 nǎinai"
+        "姐姐"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "姐姐 jiějie is the older sister; 妹妹 is the younger sister. Chinese always distinguishes older from younger siblings.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-family-pets-q3",
-      "stem": "狗 (gǒu) means:",
+      "stem": "What is “dog” in Chinese?",
       "choices": [
-        "Cat",
-        "Bird",
-        "Fish",
-        "Dog"
+        "狗"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "狗 gǒu means dog. A cat is 猫 māo, a bird is 鸟 niǎo, and a fish is 鱼 yú.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-family-pets-q4",
-      "stem": "有 (yǒu) means:",
+      "stem": "What is “to have” in Chinese?",
       "choices": [
-        "To have / there is",
-        "To be",
-        "To go",
-        "To like"
+        "有"
       ],
       "correctIndex": 0,
       "explanation": "有 yǒu means 'to have' and 'there is/are', as in 我有一只猫 (I have a cat). Its negative is always 没有.",
@@ -176,159 +164,122 @@
     },
     {
       "id": "chin-yr7-family-pets-q5",
-      "stem": "可爱 (kě'ài) is used to describe something that is:",
+      "stem": "What is “cute” in Chinese?",
       "choices": [
-        "Big",
-        "Cute",
-        "Old",
-        "Fast"
+        "可爱",
+        "可愛"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "可爱 kě'ài means cute or lovely — perfect for describing pets: 这只猫很可爱 (this cat is very cute).",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-family-pets-q6",
-      "stem": "How do you say 'two older brothers' in Chinese?",
+      "stem": "How do you say “two older brothers” in Chinese?",
       "choices": [
-        "二个哥哥 èr ge gēge",
-        "两个哥哥 liǎng ge gēge",
-        "两只哥哥 liǎng zhī gēge",
-        "二只哥哥 èr zhī gēge"
+        "两个哥哥",
+        "兩個哥哥"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Before a measure word 'two' is 两 liǎng (not 二), and people take the measure word 个: 两个哥哥.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-family-pets-q7",
-      "stem": "Which sentence says 'I don't have a younger sister'?",
+      "stem": "How do you say “I do not have a younger sister” in Chinese?",
       "choices": [
-        "我有妹妹。Wǒ yǒu mèimei.",
-        "我不有妹妹。Wǒ bù yǒu mèimei.",
-        "我没有妹妹。Wǒ méiyǒu mèimei.",
-        "我没妹妹有。Wǒ méi mèimei yǒu."
+        "我没有妹妹。",
+        "我沒有妹妹。"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "The negative of 有 is always 没有 méiyǒu — never 不有. So 'I don't have a younger sister' is 我没有妹妹.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-family-pets-q8",
-      "stem": "Your friend points at a photo next to her and says 这是我妈妈。(Zhè shì wǒ māma.) What does she mean?",
+      "stem": "How do you say “This is my mum” in Chinese?",
       "choices": [
-        "That is my mum.",
-        "This is my mum.",
-        "This is my grandma.",
-        "Where is my mum?"
+        "这是我妈妈。",
+        "這是我媽媽。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "这 zhè means 'this' (something near), so 这是我妈妈 is 'this is my mum'. 那 nà would mean 'that'.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-family-pets-q9",
-      "stem": "Which measure word is correct in 我家有三___猫。(My family has three cats.)",
+      "stem": "How do you say “three cats” in Chinese?",
       "choices": [
-        "个 ge",
-        "只 zhī",
-        "本 běn",
-        "口 kǒu"
+        "三只猫",
+        "三隻貓"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Cats and most small animals are counted with 只 zhī: 三只猫. 个 is the general measure word used for people.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-family-pets-q10",
-      "stem": "我家有五个人。(Wǒ jiā yǒu wǔ ge rén.) means:",
+      "stem": "How do you say “There are five people in my family” in Chinese?",
       "choices": [
-        "My family has five dogs.",
-        "I have five people at school.",
-        "There are five people in my family.",
-        "Five people like my family."
+        "我家有五个人。",
+        "我家有五個人。"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "我家 (my family/home) + 有 (there are) + 五个人 (five people) — the standard way to say how big your family is.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-family-pets-q11",
-      "stem": "奶奶 (nǎinai) is your grandmother on which side of the family?",
+      "stem": "What is “paternal grandma” in Chinese?",
       "choices": [
-        "Your mother's side",
-        "Your father's side",
-        "Either side — the word works for both",
-        "Your older sister's side"
+        "奶奶"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "奶奶 is the father's mother. The mother's mother is 外婆 wàipó — Chinese uses different words for each side.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-family-pets-q12",
-      "stem": "Choose the correct Chinese sentence for 'My dog is very big.'",
+      "stem": "How do you say “My dog is very big” in Chinese?",
       "choices": [
-        "我的狗是很大。Wǒ de gǒu shì hěn dà.",
-        "我的狗很大。Wǒ de gǒu hěn dà.",
-        "我的狗大很。Wǒ de gǒu dà hěn.",
-        "我很狗的大。Wǒ hěn gǒu de dà."
+        "我的狗很大。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "With adjectives, Chinese uses subject + 很 + adjective and no 是: 我的狗很大. Adding 是 before an adjective is a classic learner mistake.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-family-pets-q13",
-      "stem": "Someone asks 你有没有宠物？(Nǐ yǒu méiyǒu chǒngwù?) What are they asking?",
+      "stem": "How do you ask “Do you have a pet?” in Chinese?",
       "choices": [
-        "What is your pet's name?",
-        "Do you have a pet?",
-        "How many pets do you want?",
-        "Where is your pet?"
+        "你有没有宠物？",
+        "你有沒有寵物？"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "有没有 (verb + 没 + verb) is a yes/no question pattern meaning 'have or not have' — so they are asking whether you have a pet.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-family-pets-q14",
-      "stem": "Which sentence correctly says 'This rabbit is very cute'?",
+      "stem": "How do you say “This rabbit is very cute” in Chinese?",
       "choices": [
-        "这个兔子很可爱。Zhège tùzi hěn kě'ài.",
-        "这只兔子很可爱。Zhè zhī tùzi hěn kě'ài.",
-        "这兔子是很可爱。Zhè tùzi shì hěn kě'ài.",
-        "兔子很这可爱。Tùzi hěn zhè kě'ài."
+        "这只兔子很可爱。",
+        "這隻兔子很可愛。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Rabbits are animals, so they take the measure word 只: 这只兔子. The adjective 很可爱 follows with 很 and no 是.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-family-pets-q15",
-      "stem": "小明 says: 我家有四个人：爸爸、妈妈、哥哥和我。(Wǒ jiā yǒu sì ge rén: bàba, māma, gēge hé wǒ.) What do we know about him?",
+      "stem": "How do you say “I have an older brother” in Chinese?",
       "choices": [
-        "He has a younger brother.",
-        "He is the youngest child in his family.",
-        "He has an older brother and four pets.",
-        "There are four children in his family."
+        "我有一个哥哥。",
+        "我有一個哥哥。"
       ],
-      "correctIndex": 1,
-      "explanation": "He lists dad, mum, an older brother (哥哥) and himself — four people. Because his brother is a 哥哥 (older brother), Xiaoming must be the younger of the two children, so he is the youngest child in the family.",
+      "correctIndex": 0,
+      "explanation": "有 means “to have”, and people take the measure word 个: 我有一个哥哥. Before a measure word, “one” remains 一 in writing; its spoken tone changes naturally.",
       "difficulty": "hard"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

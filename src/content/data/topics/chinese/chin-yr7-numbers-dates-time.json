@@ -124,211 +124,161 @@
   "questions": [
     {
       "id": "chin-yr7-numbers-dates-time-q1",
-      "stem": "What number is 五 (wǔ)?",
+      "stem": "What is “five” in Chinese?",
       "choices": [
-        "4",
-        "5",
-        "6",
-        "10"
+        "五"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "五 wǔ is the number five. Counting in order: 一二三四五 = 1, 2, 3, 4, 5.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q2",
-      "stem": "What number is 十 (shí)?",
+      "stem": "What is “ten” in Chinese?",
       "choices": [
-        "1",
-        "5",
-        "10",
-        "100"
+        "十"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "十 shí means ten. It is the building block for 11–99: 十五 is 15, 五十 is 50.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q3",
-      "stem": "现在几点？(Xiànzài jǐ diǎn?) is asking:",
+      "stem": "How do you ask “What time is it now?” in Chinese?",
       "choices": [
-        "What day is it today?",
-        "What time is it now?",
-        "How old are you?",
-        "What is today's date?"
+        "现在几点？",
+        "現在幾點？"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "现在 means 'now', 几 means 'how many / which', and 点 means 'o'clock' — together they ask what time it is now.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q4",
-      "stem": "十五 (shíwǔ) is which number?",
+      "stem": "What is “fifteen” in Chinese?",
       "choices": [
-        "50",
-        "105",
-        "15",
-        "55"
+        "十五"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "For 11–19 the pattern is 十 + digit: 十五 = ten-five = 15. Fifty would be 五十 (digit + 十).",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q5",
-      "stem": "How do you say 99 in Chinese?",
+      "stem": "What is 99 in Chinese?",
       "choices": [
-        "九十 jiǔshí",
-        "九九 jiǔjiǔ",
-        "九十九 jiǔshí-jiǔ",
-        "九百 jiǔbǎi"
+        "九十九"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Two-digit numbers combine tens and units: 九十九 = nine-ten-nine = 90 + 9 = 99.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q6",
-      "stem": "星期一 (xīngqīyī) is which day of the week?",
+      "stem": "What is “Monday” in Chinese?",
       "choices": [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "The first of the month"
+        "星期一"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Weekdays are 星期 + number, counting from Monday: 星期一 is Monday, 星期二 is Tuesday, and so on.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q7",
-      "stem": "How do you say 'Sunday' in Chinese?",
+      "stem": "How do you say “Sunday” in Chinese?",
       "choices": [
-        "星期七 xīngqīqī",
-        "星期日 xīngqīrì",
-        "星期天 xīngqītiān",
-        "Both 星期日 and 星期天 are correct"
+        "星期日",
+        "星期天"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Sunday breaks the numbering pattern: both 星期日 (xīngqīrì) and 星期天 (xīngqītiān) are correct and commonly used. 星期七 does not exist.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q8",
-      "stem": "三点半 (sān diǎn bàn) is what time?",
+      "stem": "How do you say “3:30” in Chinese?",
       "choices": [
-        "3:00",
-        "3:15",
-        "3:30",
-        "2:30"
+        "三点半",
+        "三點半"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "半 means 'half', so 三点半 is half past three = 3:30.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q9",
-      "stem": "Which Chinese date correctly says '3 May'?",
+      "stem": "How do you write “3 May” as a Chinese date?",
       "choices": [
-        "3日5月",
         "5月3日",
-        "5日3月",
-        "月5日3"
+        "五月三日",
+        "5月3号",
+        "5月3號"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Chinese dates go big to small — month before day: 5月3日 (5th month, 3rd day) = 3 May. Putting the day first is an English-order mistake.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q10",
-      "stem": "Which sentence correctly says 'I am twelve years old'?",
+      "stem": "How do you say “I am twelve years old” in Chinese?",
       "choices": [
-        "我是十二岁。",
         "我十二岁。",
-        "十二岁我。",
-        "我岁十二。"
+        "我十二歲。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Age is stated without 是: 我 + number + 岁. Adding 是 (我是十二岁) is a common learner error — 是 is not used between a subject and an age.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q11",
-      "stem": "今年 (jīnnián) means:",
+      "stem": "What is “this year” in Chinese?",
       "choices": [
-        "Today",
-        "Tomorrow",
-        "This year",
-        "Last year"
+        "今年"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "今 means 'current/this' and 年 means 'year', so 今年 is 'this year' — as in 今年是2026年.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q12",
-      "stem": "How do you correctly say '2 o'clock' in Chinese?",
+      "stem": "How do you say “2 o’clock” in Chinese?",
       "choices": [
-        "二点 èr diǎn",
-        "两点 liǎng diǎn",
-        "两点钟 liǎng èr",
-        "第二 dì-èr"
+        "两点",
+        "兩點"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Before a measure word like 点, 'two' is 两, not 二: 两点 = 2 o'clock. 二 is used for counting and inside numbers like 十二.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q13",
-      "stem": "月 (yuè) means:",
+      "stem": "What is “month” in Chinese?",
       "choices": [
-        "Year",
-        "Day",
-        "Month",
-        "Week"
+        "月"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "月 means month (and moon). Months are simply numbered: 一月 January, 八月 August.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q14",
-      "stem": "昨天 (zuótiān) and 明天 (míngtiān) mean:",
+      "stem": "What is “yesterday” in Chinese?",
       "choices": [
-        "Today and tomorrow",
-        "Yesterday and tomorrow",
-        "Tomorrow and yesterday",
-        "Yesterday and today"
+        "昨天"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "昨天 is yesterday and 明天 is tomorrow; 今天 is today. These three words appear constantly with dates and plans.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-numbers-dates-time-q15",
-      "stem": "二百 (èrbǎi) is which number?",
+      "stem": "What is 200 in Chinese?",
       "choices": [
-        "20",
-        "102",
-        "200",
-        "2000"
+        "二百"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "百 means hundred, so 二百 = two-hundred = 200. Twenty would be 二十 (èrshí).",
       "difficulty": "medium"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

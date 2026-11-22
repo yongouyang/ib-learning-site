@@ -154,13 +154,13 @@ describe('content-registry', () => {
       }
     });
 
-    it('every question should have a stem, choices, and valid correctIndex', () => {
+    it('every question should have a stem, one to four choices or accepted answers, and valid correctIndex', () => {
       for (const subject of subjects) {
         for (const topic of subject.topics) {
           for (const q of topic.questions) {
             expect(q.stem, `${topic.id}/question ${q.id}: empty stem`).toBeTruthy();
-            expect(q.choices.length, `${topic.id}/question ${q.id}: no choices`).toBeGreaterThanOrEqual(2);
-            expect(q.choices.length, `${topic.id}/question ${q.id}: too many choices`).toBeLessThanOrEqual(6);
+            expect(q.choices.length, `${topic.id}/question ${q.id}: no choices or accepted answers`).toBeGreaterThanOrEqual(1);
+            expect(q.choices.length, `${topic.id}/question ${q.id}: too many choices or accepted answers`).toBeLessThanOrEqual(4);
             expect(q.correctIndex, `${topic.id}/question ${q.id}: correctIndex out of range`)
               .toBeGreaterThanOrEqual(0);
             expect(q.correctIndex, `${topic.id}/question ${q.id}: correctIndex out of range`)

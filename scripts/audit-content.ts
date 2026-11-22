@@ -425,15 +425,16 @@ export function auditContent(input: AuditInput): AuditResult {
   }
 
   for (const topic of topics) {
-    if (topic.questions.length < 12) continue;
-    const positions = new Set(topic.questions.map((q) => q.correctIndex));
+    const multipleChoiceQuestions = topic.questions.filter((q) => q.choices.length === 4);
+    if (multipleChoiceQuestions.length < 12) continue;
+    const positions = new Set(multipleChoiceQuestions.map((q) => q.correctIndex));
     if (positions.size === 1) {
       const [position] = positions;
       issues.push({
         type: "answer_position",
         severity: "warning",
         location: location(topic),
-        message: `All ${topic.questions.length} correct answers use option ${String.fromCharCode(65 + position)}; rotate the choices across all four positions`,
+        message: `All ${multipleChoiceQuestions.length} correct answers use option ${String.fromCharCode(65 + position)}; rotate the choices across all four positions`,
       });
     }
   }

@@ -124,51 +124,42 @@
   "questions": [
     {
       "id": "chin-yr7-greetings-names-q1",
-      "stem": "你好 (nǐ hǎo) means:",
+      "stem": "What is “hello” in Chinese?",
       "choices": [
-        "Goodbye",
-        "Hello",
-        "Thank you",
-        "Sorry"
+        "你好"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "你好 literally means 'you good' and is the standard Chinese greeting, usable at any time of day.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-greetings-names-q2",
-      "stem": "Which phrase means 'goodbye'?",
+      "stem": "What is “goodbye” in Chinese?",
       "choices": [
-        "你好 nǐ hǎo",
-        "谢谢 xièxie",
-        "再见 zàijiàn",
-        "对不起 duìbuqǐ"
+        "再见",
+        "再見"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "再见 zàijiàn literally means 'see you again' and is the everyday way to say goodbye.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-greetings-names-q3",
-      "stem": "老师 (lǎoshī) means:",
+      "stem": "What is “teacher” in Chinese?",
       "choices": [
-        "Student",
-        "Friend",
-        "Doctor",
-        "Teacher"
+        "老师",
+        "老師"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "老师 lǎoshī means teacher. It is also a polite title used after the surname, as in 王老师 (Teacher Wang).",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-greetings-names-q4",
-      "stem": "Which sentence asks 'What is your name?'",
+      "stem": "How do you ask “What is your name?” in Chinese?",
       "choices": [
-        "你叫什么名字？Nǐ jiào shénme míngzi?",
-        "你好吗？Nǐ hǎo ma?",
-        "我很好。Wǒ hěn hǎo.",
-        "老师再见！Lǎoshī zàijiàn!"
+        "你叫什么名字？",
+        "你叫什麼名字？"
       ],
       "correctIndex": 0,
       "explanation": "你叫什么名字？literally asks 'you are called what name?' — 什么 (shénme) means 'what' and 名字 (míngzi) means 'name'.",
@@ -176,12 +167,9 @@
     },
     {
       "id": "chin-yr7-greetings-names-q5",
-      "stem": "我叫小明。(Wǒ jiào Xiǎomíng.) means:",
+      "stem": "How do you say “My name is Xiaoming” in Chinese?",
       "choices": [
-        "I am called Xiaoming.",
-        "Xiaoming is my teacher.",
-        "Do you know Xiaoming?",
-        "Xiaoming is not here."
+        "我叫小明。"
       ],
       "correctIndex": 0,
       "explanation": "我叫 … is the standard self-introduction pattern: 我 (I) + 叫 (am called) + name.",
@@ -189,64 +177,51 @@
     },
     {
       "id": "chin-yr7-greetings-names-q6",
-      "stem": "In the Chinese name 王小红 (Wáng Xiǎohóng), which part is the surname?",
+      "stem": "In the Chinese name 王小红, write the surname in Chinese.",
       "choices": [
-        "小",
-        "红",
-        "王",
-        "小红"
+        "王"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Chinese names put the surname first, so 王 (Wáng) is the surname and 小红 (Xiǎohóng) is the given name — the opposite of English name order.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-greetings-names-q7",
-      "stem": "Someone greets you with 你好吗？(Nǐ hǎo ma?) What is the natural reply?",
+      "stem": "How do you reply “I am very well, thank you” in Chinese?",
       "choices": [
-        "再见！Zàijiàn!",
-        "我很好，谢谢。Wǒ hěn hǎo, xièxie.",
-        "对不起。Duìbuqǐ.",
-        "你叫什么名字？Nǐ jiào shénme míngzi?"
+        "我很好，谢谢。",
+        "我很好，謝謝。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "我很好，谢谢 ('I'm very well, thanks') is the standard answer to 你好吗. You can then ask back with 你呢？(And you?).",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-greetings-names-q8",
-      "stem": "What does the word 吗 (ma) do in 你好吗？",
+      "stem": "Write the Chinese question particle used at the end of 你好 to ask “How are you?”",
       "choices": [
-        "It means 'very'",
-        "It turns a statement into a yes/no question",
-        "It makes the sentence polite",
-        "It means 'and you?'"
+        "吗",
+        "嗎"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "吗 is a question particle: adding it to the end of the statement 你好 (you are well) creates the question 你好吗 (are you well?).",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-greetings-names-q9",
-      "stem": "You meet your Chinese teacher, an adult you respect. Which greeting is most polite?",
+      "stem": "What is the polite Chinese greeting for “hello” to a teacher or adult?",
       "choices": [
-        "你好！Nǐ hǎo!",
-        "您好！Nín hǎo!",
-        "喂！Wèi!",
-        "谢谢！Xièxie!"
+        "您好"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "您 nín is the polite, respectful form of 你, so 您好 is the most respectful hello — ideal for teachers and adults. 喂 is only used when answering the phone.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-greetings-names-q10",
-      "stem": "你呢？(Nǐ ne?) is used to mean:",
+      "stem": "How do you say “And you?” in Chinese?",
       "choices": [
-        "And you? (returning a question)",
-        "See you tomorrow",
-        "You are wrong",
-        "Please sit down"
+        "你呢？"
       ],
       "correctIndex": 0,
       "explanation": "呢 (ne) bounces the previous question back: after answering 我很好, you ask 你呢？— 'I'm well, and you?'",
@@ -254,38 +229,31 @@
     },
     {
       "id": "chin-yr7-greetings-names-q11",
-      "stem": "谢谢 (xièxie) means:",
+      "stem": "What is “thank you” in Chinese?",
       "choices": [
-        "Sorry",
-        "Please",
-        "Thank you",
-        "You're welcome"
+        "谢谢",
+        "謝謝"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "谢谢 xièxie means thank you. The polite reply is 不客气 (bú kèqi) — you're welcome.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-greetings-names-q12",
-      "stem": "Which is the correct Chinese way to say 'Mr Zhang'?",
+      "stem": "How do you say “Mr Zhang” in Chinese?",
       "choices": [
-        "先生张 (xiānsheng Zhāng)",
-        "张先生 (Zhāng xiānsheng)",
-        "张先 (Zhāng xiān)",
-        "生先张 (shēng xiān Zhāng)"
+        "张先生",
+        "張先生"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "In Chinese the surname comes first and the title follows: 张先生 = Mr Zhang. English order (title first) is a common learner mistake.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-greetings-names-q13",
-      "stem": "An adult politely asks you 您贵姓？(Nín guìxìng?) What is the correct reply?",
+      "stem": "How do you say “My surname is Li” in Chinese?",
       "choices": [
-        "我姓李。Wǒ xìng Lǐ. — My surname is Li.",
-        "我叫李。Wǒ jiào Lǐ. — I am called Li.",
-        "我很好。Wǒ hěn hǎo. — I'm very well.",
-        "不客气。Bú kèqi. — You're welcome."
+        "我姓李。"
       ],
       "correctIndex": 0,
       "explanation": "贵姓 asks for your surname, so the answer uses 我姓 … (my surname is …). 我叫 … gives your full or given name, not the answer to this question.",
@@ -293,42 +261,25 @@
     },
     {
       "id": "chin-yr7-greetings-names-q14",
-      "stem": "The teacher says 上课！(shàngkè) at the start of the lesson. What does it mean?",
+      "stem": "What is “class begins” in Chinese?",
       "choices": [
-        "Class is over",
-        "Please sit down",
-        "Class begins",
-        "Open your books"
+        "上课",
+        "上課"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "上课 shàngkè announces that class is beginning; its opposite is 下课 xiàkè — class is over.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-greetings-names-q15",
-      "stem": "不客气 (bú kèqi) is the polite reply to:",
+      "stem": "What is “you are welcome” in Chinese?",
       "choices": [
-        "谢谢 (thank you)",
-        "再见 (goodbye)",
-        "你好吗 (how are you)",
-        "上课 (class begins)"
+        "不客气",
+        "不客氣"
       ],
       "correctIndex": 0,
       "explanation": "不客气 literally means 'don't be polite' and is the standard reply to 谢谢, just like 'you're welcome' in English.",
       "difficulty": "medium"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

@@ -124,25 +124,19 @@
   "questions": [
     {
       "id": "germ-yr7-animals-colours-q1",
-      "stem": "What is die Katze in English?",
+      "stem": "What is “the cat” in German?",
       "choices": [
-        "the dog",
-        "the cow",
-        "the cat",
-        "the rabbit"
+        "die Katze"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Die Katze is the cat. The dog is der Hund, the cow is die Kuh and the rabbit is das Kaninchen.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-animals-colours-q2",
-      "stem": "What colour is rot?",
+      "stem": "What is “red” in German?",
       "choices": [
-        "red",
-        "blue",
-        "yellow",
-        "pink"
+        "rot"
       ],
       "correctIndex": 0,
       "explanation": "Rot is red. Blue is blau, yellow is gelb and pink is rosa.",
@@ -150,38 +144,30 @@
     },
     {
       "id": "germ-yr7-animals-colours-q3",
-      "stem": "Der Hund ist braun — what does this sentence mean?",
+      "stem": "How do you say “The dog is brown” in German?",
       "choices": [
-        "The dog is black.",
-        "The brown dog.",
-        "The dog is brown.",
-        "I have a brown dog."
+        "Der Hund ist braun."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Ist is the verb (is), so this is a full sentence: The dog is brown. The brown dog without a verb would be der braune Hund, with an -e ending on the adjective.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-animals-colours-q4",
-      "stem": "Which of these animals is a typical Haustier (pet)?",
+      "stem": "What is “the hamster” in German?",
       "choices": [
-        "der Löwe",
-        "der Hamster",
-        "der Elefant",
-        "der Bär"
+        "der Hamster"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Der Hamster is a hamster — a classic small pet. Lions, elephants and bears are wild animals (Wildtiere) that you would only see in a zoo.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-animals-colours-q5",
-      "stem": "What does weiß mean?",
+      "stem": "What is “white” in German?",
       "choices": [
-        "white",
-        "grey",
-        "wide",
-        "wise"
+        "weiß",
+        "weiss"
       ],
       "correctIndex": 0,
       "explanation": "Weiß (spelled with ß) is the colour white. Grey is grau. The similar-looking English words wide and wise are false trails — the German words are weit and weise.",
@@ -189,116 +175,90 @@
     },
     {
       "id": "germ-yr7-animals-colours-q6",
-      "stem": "What is the plural of die Katze?",
+      "stem": "What is the German plural of die Katze?",
       "choices": [
-        "die Katzer",
-        "die Katze",
-        "die Kätze",
         "die Katzen"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Feminine nouns typically add -n or -en in the plural: die Katze → die Katzen, like die Schlange → die Schlangen.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-animals-colours-q7",
-      "stem": "What is the plural of das Schwein (the pig)?",
+      "stem": "What is the German plural of das Schwein?",
       "choices": [
-        "die Schweinen",
-        "die Schweine",
-        "die Schweins",
-        "die Schweiner"
+        "die Schweine"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Das Schwein → die Schweine follows the -e pattern (like der Hund → die Hunde). Remember that every plural takes die, whatever the singular article was.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-animals-colours-q8",
-      "stem": "Die Maus ist ___ — which form of the adjective grau is correct here?",
+      "stem": "Complete in German: “The mouse is grey.”",
       "choices": [
-        "graue",
-        "graues",
-        "grau",
-        "grauer"
+        "Die Maus ist grau."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "After the verb sein, adjectives never take an ending: Die Maus ist grau. The -e ending only appears when the adjective stands before a noun: die graue Maus.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-animals-colours-q9",
-      "stem": "Ich mag keine Spinnen — what is this person saying?",
+      "stem": "How do you say “I do not like spiders” in German?",
       "choices": [
-        "I like spiders.",
-        "I do not like spiders.",
-        "I have no spiders.",
-        "I am afraid of my spider."
+        "Ich mag keine Spinnen."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "With mögen, the negative is kein: Ich mag keine Spinnen = I do not like spiders. Ich habe keine Spinnen would mean I have no spiders.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-animals-colours-q10",
-      "stem": "Which sentence is correct German?",
+      "stem": "How do you say “The fish are colourful” in German?",
       "choices": [
-        "Die Fische ist bunt.",
-        "Der Fische sind bunt.",
-        "Die Fische sind bunt.",
-        "Das Fische sind bunt."
+        "Die Fische sind bunt."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Fische is plural, so it needs the plural article die and the plural verb sind: Die Fische sind bunt. Singular would be Der Fisch ist bunt.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-animals-colours-q11",
-      "stem": "Mein Fahrrad ist hellblau — what colour is the bike?",
+      "stem": "What is “light blue” in German?",
       "choices": [
-        "dark blue",
-        "light blue",
-        "blue-green",
-        "bright blue"
+        "hellblau"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Hell- makes a colour lighter, so hellblau is light blue. Dark blue would be dunkelblau.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-animals-colours-q12",
-      "stem": "What is the plural of die Maus (the mouse)?",
+      "stem": "What is the German plural of die Maus?",
       "choices": [
-        "die Mause",
-        "die Mausen",
-        "die Mäuse",
-        "die Mäuser"
+        "die Mäuse"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Die Maus → die Mäuse changes the vowel with an umlaut and adds -e. The same pattern gives die Kuh → die Kühe and das Haus → die Häuser.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-animals-colours-q13",
-      "stem": "Which sentence puts the adjective in the correct form before the noun?",
+      "stem": "How do you say “I have a black cat” in German?",
       "choices": [
-        "Ich habe ein schwarze Katze.",
-        "Ich habe eine schwarze Katze.",
-        "Ich habe eine schwarz Katze.",
-        "Ich habe einen schwarze Katze."
+        "Ich habe eine schwarze Katze."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Die Katze is feminine, so it keeps eine, and an adjective before the noun takes -e: eine schwarze Katze. Ein and einen are for neuter and masculine nouns, and schwarz without an ending is only correct after sein.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-animals-colours-q14",
-      "stem": "Mein Lieblingstier ist der Elefant, weil er so groß ist — what does this mean?",
+      "stem": "How do you say “My favourite animal is the elephant because it is so big” in German?",
       "choices": [
-        "My favourite animal is the elephant because it is so big.",
-        "My favourite animal is the elephant, but it is too big.",
-        "The elephant is my favourite animal and it is grey.",
-        "I like elephants when they are big."
+        "Mein Lieblingstier ist der Elefant, weil er so groß ist.",
+        "Mein Lieblingstier ist der Elefant, weil er so gross ist."
       ],
       "correctIndex": 0,
       "explanation": "Weil means because and sends the verb (ist) to the end: weil er so groß ist = because it is so big. Das Lieblingstier is the favourite animal.",
@@ -306,29 +266,13 @@
     },
     {
       "id": "germ-yr7-animals-colours-q15",
-      "stem": "Which sentence describes several snakes correctly?",
+      "stem": "How do you say “The snakes are green and yellow” in German?",
       "choices": [
-        "Die Schlangen ist grün und gelb.",
-        "Die Schlange sind grün und gelb.",
-        "Die Schlangen sind grün und gelb.",
-        "Der Schlangen sind grün und gelb."
+        "Die Schlangen sind grün und gelb."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Several snakes = plural: die Schlange → die Schlangen, with the plural article die and the plural verb sind. Colours after sein take no ending: grün und gelb.",
       "difficulty": "hard"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

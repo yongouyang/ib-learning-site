@@ -124,38 +124,32 @@
   "questions": [
     {
       "id": "chin-yr7-colours-clothes-q1",
-      "stem": "红色 (hóngsè) means:",
+      "stem": "What is “red” in Chinese?",
       "choices": [
-        "Yellow",
-        "Red",
-        "Green",
-        "Black"
+        "红色",
+        "紅色"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "红色 hóngsè means red — a colour of luck and celebration in Chinese culture, seen at festivals and weddings.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-colours-clothes-q2",
-      "stem": "裤子 (kùzi) means:",
+      "stem": "What is “trousers” in Chinese?",
       "choices": [
-        "Skirt",
-        "Hat",
-        "Trousers",
-        "Shoes"
+        "裤子",
+        "褲子"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "裤子 kùzi means trousers or pants. A skirt is 裙子, a hat is 帽子, and shoes are 鞋子.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-colours-clothes-q3",
-      "stem": "喜欢 (xǐhuan) means:",
+      "stem": "What is “to like” in Chinese?",
       "choices": [
-        "To like",
-        "To buy",
-        "To wear",
-        "To sell"
+        "喜欢",
+        "喜歡"
       ],
       "correctIndex": 0,
       "explanation": "喜欢 xǐhuan means 'to like': 我喜欢蓝色 (I like blue). Its negative is 不喜欢.",
@@ -163,77 +157,64 @@
     },
     {
       "id": "chin-yr7-colours-clothes-q4",
-      "stem": "帽子 (màozi) is:",
+      "stem": "What is “hat” in Chinese?",
       "choices": [
-        "A coat",
-        "A pair of socks",
-        "A hat",
-        "A pair of glasses"
+        "帽子"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "帽子 màozi means hat or cap, and it is worn with the verb 戴: 戴帽子.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-colours-clothes-q5",
-      "stem": "买 (mǎi) means:",
+      "stem": "What is “to buy” in Chinese?",
       "choices": [
-        "To sell",
-        "To buy",
-        "To look",
-        "To wear"
+        "买",
+        "買"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "买 mǎi (3rd tone) means to buy. Watch the tone — 卖 mài (4th tone) means to sell.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-colours-clothes-q6",
-      "stem": "Which verb is correct: 她___着一副眼镜。(She is wearing glasses.)",
+      "stem": "How do you say “She is wearing glasses” in Chinese?",
       "choices": [
-        "穿 chuān",
-        "戴 dài",
-        "买 mǎi",
-        "看 kàn"
+        "她戴着眼镜。",
+        "她戴著眼鏡。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Glasses, hats, watches and jewellery are worn with 戴 dài. 穿 is for clothes, trousers, socks and shoes that the body goes into.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-colours-clothes-q7",
-      "stem": "How do you say 'a pair of trousers' in Chinese?",
+      "stem": "How do you say “a pair of trousers” in Chinese?",
       "choices": [
-        "一件裤子 yí jiàn kùzi",
-        "一条裤子 yì tiáo kùzi",
-        "一双裤子 yì shuāng kùzi",
-        "一个裤子 yí ge kùzi"
+        "一条裤子",
+        "一條褲子"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Trousers and skirts take the measure word 条 tiáo: 一条裤子. 件 is for tops, and 双 is for pairs like shoes and socks.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-colours-clothes-q8",
-      "stem": "太贵了！(Tài guì le!) means:",
+      "stem": "How do you say “Too expensive!” in Chinese?",
       "choices": [
-        "Too big!",
-        "Too small!",
-        "Too expensive!",
-        "Very nice!"
+        "太贵了！",
+        "太貴了！"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "太…了 means 'too…' and 贵 means expensive, so 太贵了 is 'too expensive' — a classic line when shopping.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-colours-clothes-q9",
-      "stem": "她穿着一条红色的裙子。(Tā chuānzhe yì tiáo hóngsè de qúnzi.) means:",
+      "stem": "How do you say “She is wearing a red skirt” in Chinese?",
       "choices": [
-        "She is wearing a red skirt.",
-        "She bought a red skirt.",
-        "She likes blue skirts.",
-        "She is wearing a red hat."
+        "她穿着一条红色的裙子。",
+        "她穿著一條紅色的裙子。"
       ],
       "correctIndex": 0,
       "explanation": "穿着…裙子 means 'is wearing a skirt', 红色 means red, and 条 is the measure word — so she is wearing a red skirt.",
@@ -241,12 +222,10 @@
     },
     {
       "id": "chin-yr7-colours-clothes-q10",
-      "stem": "Which question asks 'Do you like this T-shirt?'",
+      "stem": "How do you ask “Do you like this T-shirt?” in Chinese?",
       "choices": [
-        "你喜欢这件T恤吗？Nǐ xǐhuan zhè jiàn T-xù ma?",
-        "你穿这件T恤吗？Nǐ chuān zhè jiàn T-xù ma?",
-        "这件T恤多少钱？Zhè jiàn T-xù duōshao qián?",
-        "我要买这件T恤。Wǒ yào mǎi zhè jiàn T-xù."
+        "你喜欢这件T恤吗？",
+        "你喜歡這件T恤嗎？"
       ],
       "correctIndex": 0,
       "explanation": "喜欢 (like) + the statement + 吗 makes a yes/no question: 你喜欢这件T恤吗？Choice C asks the price and D is a statement.",
@@ -254,81 +233,58 @@
     },
     {
       "id": "chin-yr7-colours-clothes-q11",
-      "stem": "这个怎么样？(Zhège zěnmeyàng?) is used to ask:",
+      "stem": "How do you ask “What do you think of this one?” in Chinese?",
       "choices": [
-        "Where is this?",
-        "How much is this?",
-        "What do you think of this one?",
-        "Who bought this?"
+        "这个怎么样？",
+        "這個怎麼樣？"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "怎么样 asks for an opinion — 'how about it?' Shop assistants say 这个怎么样？when showing you an item.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-colours-clothes-q12",
-      "stem": "Choose the correct sentence for 'I am wearing a blue coat.'",
+      "stem": "How do you say “I am wearing a blue coat” in Chinese?",
       "choices": [
-        "我戴着一件蓝色的外套。Wǒ dàizhe yí jiàn lánsè de wàitào.",
-        "我穿着一件蓝色的外套。Wǒ chuānzhe yí jiàn lánsè de wàitào.",
-        "我穿一件外套蓝色。Wǒ chuān yí jiàn wàitào lánsè.",
-        "我蓝色穿着外套。Wǒ lánsè chuānzhe wàitào."
+        "我穿着一件蓝色的外套。",
+        "我穿著一件藍色的外套。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "A coat is clothing your body goes into, so it needs 穿; tops take the measure word 件, and the colour comes before the noun with 的: 一件蓝色的外套.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-colours-clothes-q13",
-      "stem": "A shopper says 太贵了，我不买了。(Tài guì le, wǒ bù mǎi le.) What happened?",
+      "stem": "How do you say “It is too expensive; I am not buying it” in Chinese?",
       "choices": [
-        "They bought two of the item.",
-        "They decided not to buy it because it costs too much.",
-        "They asked for a bigger size.",
-        "They think the item is too small."
+        "太贵了，我不买了。",
+        "太貴了，我不買了。"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "太贵了 = too expensive, and 不买了 = won't buy it any more — the shopper walked away because of the price.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-colours-clothes-q14",
-      "stem": "Which sentence is correct Chinese?",
+      "stem": "How do you say “He is wearing glasses and shoes” in Chinese?",
       "choices": [
-        "他穿帽子。Tā chuān màozi.",
-        "她戴裙子。Tā dài qúnzi.",
-        "他戴着眼镜，穿着鞋子。Tā dàizhe yǎnjìng, chuānzhe xiézi.",
-        "她喜欢不买衣服。Tā xǐhuan bù mǎi yīfu."
+        "他戴着眼镜，穿着鞋子。",
+        "他戴著眼鏡，穿著鞋子。"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Glasses take 戴 and shoes take 穿, and both pairs are matched correctly here. Hats also take 戴 (not 穿), and skirts take 穿 (not 戴).",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-colours-clothes-q15",
-      "stem": "In a shop you hear: A: 这条裙子多少钱？B: 两百块。A: 太贵了！这条呢？B: 一百块。What is A most likely doing?",
+      "stem": "How do you ask “How much is this skirt?” in Chinese?",
       "choices": [
-        "Asking the time",
-        "Comparing the prices of two skirts",
-        "Ordering food",
-        "Asking for directions"
+        "这条裙子多少钱？",
+        "這條裙子多少錢？"
       ],
-      "correctIndex": 1,
-      "explanation": "A asks the price of one skirt (多少钱？), finds 200 too expensive, and asks about another (这条呢？= and this one?) — clearly comparing prices of two skirts.",
+      "correctIndex": 0,
+      "explanation": "条 is the measure word for skirts, and 多少钱 asks “how much money?”: 这条裙子多少钱？",
       "difficulty": "hard"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

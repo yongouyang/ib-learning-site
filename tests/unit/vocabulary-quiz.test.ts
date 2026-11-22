@@ -74,10 +74,12 @@ describe('buildVocabularyQuestions', () => {
       correct: true,
       selectedIndex: 0,
       textAnswer: 'der Hund',
+      answerMode: 'text',
       question,
     });
 
     expect(result.textAnswer).toBe('der Hund');
+    expect(result.answerMode).toBe('text');
     expect(result.question?.choices).toEqual(['der Hund']);
   });
 });

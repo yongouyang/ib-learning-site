@@ -124,64 +124,50 @@
   "questions": [
     {
       "id": "germ-yr7-greetings-basics-q1",
-      "stem": "What does Guten Tag mean?",
+      "stem": "What is “Good day” in German?",
       "choices": [
-        "Good evening",
-        "Good day",
-        "Goodbye",
-        "Good night"
+        "Guten Tag"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Guten Tag is the standard polite daytime greeting, literally good day. Good evening is Guten Abend and goodbye is Auf Wiedersehen.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-greetings-basics-q2",
-      "stem": "Which word is an informal way to say bye to a friend?",
+      "stem": "What is an informal German word for “bye”?",
       "choices": [
-        "Auf Wiedersehen",
-        "Guten Morgen",
         "Tschüss",
-        "Gute Nacht"
+        "Tschüs"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Tschüss is the casual goodbye used with friends and family. Auf Wiedersehen is formal, and Guten Morgen / Gute Nacht are greetings, not goodbyes.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-greetings-basics-q3",
-      "stem": "What is someone asking when they say Wie heißt du?",
+      "stem": "How do you ask “What is your name?” in German?",
       "choices": [
-        "Where you live",
-        "How old you are",
-        "How you are feeling",
-        "What your name is"
+        "Wie heißt du?"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Wie heißt du? literally means What are you called? — it is how you ask someone's name. Where you live would be Wo wohnst du?",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-greetings-basics-q4",
-      "stem": "Which country is NOT one of the three main D-A-CH countries?",
+      "stem": "What is “Denmark” in German?",
       "choices": [
-        "Deutschland",
-        "Österreich",
-        "Dänemark",
-        "die Schweiz"
+        "Dänemark"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "D-A-CH stands for Deutschland, Austria (Österreich) and Switzerland (Confoederatio Helvetica = die Schweiz). Dänemark (Denmark) is not a German-speaking country.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-greetings-basics-q5",
-      "stem": "What number is sieben?",
+      "stem": "What is “seven” in German?",
       "choices": [
-        "7",
-        "6",
-        "17",
-        "70"
+        "sieben"
       ],
       "correctIndex": 0,
       "explanation": "Sieben is 7. Sechs is 6, siebzehn is 17 and siebzig is 70 — the similar forms all build on the same root.",
@@ -189,116 +175,89 @@
     },
     {
       "id": "germ-yr7-greetings-basics-q6",
-      "stem": "How do you say I live in Berlin in German?",
+      "stem": "What is “I live in Berlin” in German?",
       "choices": [
-        "Ich komme aus Berlin.",
-        "Ich wohne in Berlin.",
-        "Ich heiße Berlin.",
-        "Ich bin Berlin."
+        "Ich wohne in Berlin."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "To live somewhere uses the verb wohnen: ich wohne in + town. Ich komme aus Berlin means I come from Berlin, and ich heiße gives your name.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-greetings-basics-q7",
-      "stem": "Which is the correct reply to Woher kommst du?",
+      "stem": "How do you say “I come from England” in German?",
       "choices": [
-        "Ich wohne in Manchester.",
-        "Ich bin zwölf Jahre alt.",
-        "Mir geht es gut, danke.",
         "Ich komme aus England."
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Woher kommst du? asks where you come from, so the answer uses kommen: Ich komme aus England. Ich wohne in Manchester answers Wo wohnst du? instead.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-greetings-basics-q8",
-      "stem": "How do you say 43 in German?",
+      "stem": "What is 43 in German?",
       "choices": [
-        "vierzigdrei",
-        "dreiundvierzig",
-        "dreizehn vierzig",
-        "vierunddreißig"
+        "dreiundvierzig"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "German numbers between 21 and 99 put the ones first: dreiundvierzig = three-and-forty = 43. Vierunddreißig would be 34 — the digits swapped.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-greetings-basics-q9",
-      "stem": "Which German letter combination is pronounced like the English sh in ship?",
+      "stem": "Which German letter combination sounds like “sh” in the English word “ship”?",
       "choices": [
-        "ch",
-        "tsch",
-        "sch",
-        "sh"
+        "sch"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "German sch sounds exactly like English sh, as in Schule (school) or Fisch (fish). Ch is a hissing or throaty sound, and German does not use the spelling sh.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-greetings-basics-q10",
-      "stem": "A friend asks Wie geht es dir? What is the most natural reply?",
+      "stem": "How do you say “I am fine, thank you” in German?",
       "choices": [
-        "Ich heiße Lisa.",
-        "Mir geht es gut, danke.",
-        "Ich komme aus Wien.",
-        "Tschüss!"
+        "Mir geht es gut, danke."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Wie geht es dir? means How are you?, so the natural answer is Mir geht es gut, danke. (I am fine, thank you.) The other options answer completely different questions.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-greetings-basics-q11",
-      "stem": "Which German word is a cognate of the English word brother?",
+      "stem": "What is “the brother” in German?",
       "choices": [
-        "der Vater",
-        "die Schwester",
-        "das Buch",
         "der Bruder"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Der Bruder means brother — English and German are related, so many family words look alike. Der Vater is father and die Schwester is sister.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-greetings-basics-q12",
-      "stem": "Which sentence is correct German?",
+      "stem": "Complete in German: “I live in Hamburg.”",
       "choices": [
-        "Ich wohnen in Hamburg.",
-        "Ich wohnt in Hamburg.",
-        "Ich wohne in Hamburg.",
-        "Ich wohnst in Hamburg."
+        "Ich wohne in Hamburg."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "With ich, regular verbs take the ending -e: ich wohne. -st goes with du, -t goes with er/sie/es, and the -en form is the infinitive, which never follows ich.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-greetings-basics-q13",
-      "stem": "Ich bekomme ein Geschenk — what does bekommen mean here? Watch out, it is a false friend!",
+      "stem": "Which German verb means “to receive”?",
       "choices": [
-        "to become",
-        "to receive",
-        "to buy",
-        "to wrap"
+        "bekommen"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Bekommen means to receive, not to become — to become is werden in German. This is one of the most famous false friends between the two languages.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-greetings-basics-q14",
-      "stem": "In Switzerland, how is the ß in Straße usually written?",
+      "stem": "How is Straße usually written in Switzerland?",
       "choices": [
-        "Strasse (ss replaces ß)",
-        "Straße is never written in Switzerland",
-        "Strasze (sz replaces ß)",
-        "Straßß (the letter is doubled)"
+        "Strasse"
       ],
       "correctIndex": 0,
       "explanation": "Swiss German does not use the ß at all — words like Straße are spelled with a double s: Strasse. In Germany and Austria both Straße and the ss spelling are understood.",
@@ -306,29 +265,13 @@
     },
     {
       "id": "germ-yr7-greetings-basics-q15",
-      "stem": "You meet your teacher, Herr Braun, in the corridor. Which greeting is most appropriate?",
+      "stem": "Write a polite German greeting for your teacher, Herr Braun, including “How are you?”",
       "choices": [
-        "Hallo, wie heißt du?",
-        "Tschüss!",
-        "Guten Tag, Herr Braun. Wie geht es Ihnen?",
-        "Hi! Wie geht es dir?"
+        "Guten Tag, Herr Braun. Wie geht es Ihnen?"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Teachers are addressed formally in German-speaking countries: Guten Tag plus the formal Wie geht es Ihnen? (with Sie/Ihnen, not dir). Tschüss and Hi are too casual for this situation.",
       "difficulty": "hard"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

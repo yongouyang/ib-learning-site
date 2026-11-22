@@ -5,7 +5,8 @@ import QuizGame from '@/components/QuizGame';
 import { useProgress } from '@/context/ProgressContext';
 import type { Flashcard, QuestionResult, SubjectId } from '@/content/types';
 import { randomSeed } from '@/lib/quiz-utils';
-import { buildVocabularyQuestions, gradeVocabularyAnswer } from '@/lib/vocabulary-quiz';
+import { buildVocabularyQuestions } from '@/lib/vocabulary-quiz';
+import { gradeTargetLanguageAnswer } from '@/lib/language-quiz';
 
 interface VocabularyQuizPageClientProps {
   subjectId: SubjectId;
@@ -49,7 +50,7 @@ export default function VocabularyQuizPageClient({
       analytics={{ subjectId, topicId, source: 'vocabulary_quiz' }}
       speechLanguage="de-DE"
       answerMode="text"
-      gradeTextAnswer={gradeVocabularyAnswer}
+      gradeTextAnswer={(answer, expectedAnswers) => gradeTargetLanguageAnswer(answer, expectedAnswers, 'de-DE')}
       onQuestionResult={(_questionId, _correct, _questionNumber, _totalCount, result) => {
         resultsRef.current.push(result);
       }}

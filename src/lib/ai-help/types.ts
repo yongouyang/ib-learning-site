@@ -10,10 +10,11 @@ export const aiHelpRequestSchema = z.object({
   subjectId: subjectIdSchema,
   topicId: z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64),
   selectedIndex: z.number().int().min(-1).max(3),
+  textAnswer: z.string().trim().min(1).max(2000).optional(),
   question: questionSchema.extend({
     id: z.string().min(1).max(64),
     stem: z.string().min(1).max(2000),
-    choices: z.array(z.string().min(1).max(1000)).length(4),
+    choices: z.array(z.string().min(1).max(1000)).min(1).max(4),
     explanation: z.string().min(1).max(4000),
   }),
 });

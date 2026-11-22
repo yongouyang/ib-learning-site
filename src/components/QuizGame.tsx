@@ -54,7 +54,7 @@ interface QuizGameProps {
   analytics?: QuizAnalytics;
   speechLanguage?: SpeechLanguage;
   answerMode?: 'choices' | 'text';
-  gradeTextAnswer?: (answer: string, expectedAnswer: string) => { correct: boolean; needsSpellingCheck: boolean };
+  gradeTextAnswer?: (answer: string, expectedAnswers: string[]) => { correct: boolean; needsSpellingCheck: boolean };
   onComplete: (correctCount: number, totalCount: number, timedOut?: boolean) => void;
   onQuestionResult?: (questionId: string, correct: boolean, questionNumber: number, totalCount: number, result: QuestionResult) => void;
   onNewSet?: () => void;
@@ -108,6 +108,8 @@ export default function QuizGame({
   const [timeLeft, setTimeLeft] = useState(timerSeconds);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const explanationRef = useRef<HTMLDivElement>(null);
+  const textAnswerRef = useRef<HTMLTextAreaElement>(null);
   const attemptIdRef = useRef('');
   const startedAtRef = useRef(0);
   const mountedRef = useRef(false);
@@ -145,10 +147,18 @@ export default function QuizGame({
   useEffect(() => {
     if (!showExplanation) return;
     const timer = window.setTimeout(() => {
-      nextButtonRef.current?.scrollIntoView?.({ block: 'center', behavior: 'auto' });
+      const target = answerMode === 'text' ? explanationRef.current : nextButtonRef.current;
+      target?.scrollIntoView?.({ block: answerMode === 'text' ? 'start' : 'center', behavior: 'auto' });
     }, 250);
     return () => window.clearTimeout(timer);
-  }, [showExplanation, currentIndex]);
+  }, [showExplanation, currentIndex, answerMode]);
+
+  useEffect(() => {
+    const field = textAnswerRef.current;
+    if (!field) return;
+    field.style.height = 'auto';
+    field.style.height = `${Math.max(72, field.scrollHeight + 4)}px`;
+  }, [textAnswer, answerState, sessionQuestions, currentIndex]);
 
   const currentQuestion = sessionQuestions[currentIndex];
   const progress = sessionQuestions.length > 0 ? ((currentIndex + (isComplete ? 1 : 0)) / sessionQuestions.length) * 100 : 0;
@@ -162,6 +172,7 @@ export default function QuizGame({
       correct,
       selectedIndex: choice,
       ...(typedAnswer !== undefined ? { textAnswer: typedAnswer } : {}),
+      ...(answerMode === 'text' ? { answerMode } : {}),
       question,
     };
     setResults((current) => [...current, result]);
@@ -182,7 +193,7 @@ export default function QuizGame({
       helpedSkillsRef.current.delete(groupKeyOf(question));
     }
     onQuestionResult?.(question.id, correct, position, sessionQuestions.length, result);
-  }, [analyticsSubject, analyticsTopic, analyticsSource, onQuestionResult, sessionQuestions.length]);
+  }, [analyticsSubject, analyticsTopic, analyticsSource, answerMode, onQuestionResult, sessionQuestions.length]);
 
   const resetSession = (nextQuestions: Question[], kind: 'mistakes' | 'all') => {
     const attemptId = startSession(kind);
@@ -238,9 +249,9 @@ export default function QuizGame({
 
   const handleTextSubmit = () => {
     if (answerState !== 'unanswered' || !currentQuestion || !textAnswer.trim()) return;
-    const expectedAnswer = currentQuestion.choices[currentQuestion.correctIndex];
-    const grade = gradeTextAnswer?.(textAnswer, expectedAnswer)
-      ?? { correct: textAnswer.trim() === expectedAnswer, needsSpellingCheck: false };
+    const expectedAnswers = currentQuestion.choices;
+    const grade = gradeTextAnswer?.(textAnswer, expectedAnswers)
+      ?? { correct: expectedAnswers.some((expected) => textAnswer.trim() === expected), needsSpellingCheck: false };
     setSelectedIndex(grade.correct ? 0 : -1);
     setAnswerState(grade.correct ? 'correct' : 'incorrect');
     setSpellingReminder(grade.correct && grade.needsSpellingCheck);
@@ -525,27 +536,37 @@ export default function QuizGame({
           {answerMode === 'text' ? (
             <form onSubmit={(event) => { event.preventDefault(); handleTextSubmit(); }}>
               <label htmlFor="quiz-text-answer" className="block text-sm font-semibold text-gray-900 dark:text-gray-50">
-                Type the full German word or phrase
+                {speechLanguage === 'zh-CN' ? 'Type your answer in Chinese characters' : 'Type the full German word or phrase'}
               </label>
               <p id="quiz-answer-guidance" className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                Include der, die or das where needed. Minor spelling mistakes can still earn the point.
+                {speechLanguage === 'zh-CN'
+                  ? 'Simplified or Traditional Chinese is accepted. Use characters, not pinyin.'
+                  : 'Include der, die or das where needed. Minor spelling mistakes can still earn the point.'}
               </p>
-              <input
+              <textarea
+                ref={textAnswerRef}
                 id="quiz-text-answer"
                 value={textAnswer}
                 onChange={(event) => setTextAnswer(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault();
+                    handleTextSubmit();
+                  }
+                }}
+                rows={2}
                 disabled={answerState !== 'unanswered'}
                 lang={speechLanguage}
                 autoComplete="off"
                 autoCorrect="off"
                 spellCheck={false}
                 aria-describedby="quiz-answer-guidance"
-                className="mt-3 w-full rounded-xl border-2 border-gray-200 bg-white px-3 py-3 text-gray-900 outline-none transition-colors focus:border-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 disabled:opacity-70"
+                className="mt-3 w-full resize-none overflow-hidden rounded-xl border-2 border-gray-200 bg-white px-3 py-3 text-gray-900 outline-none transition-colors focus:border-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 disabled:bg-gray-50 disabled:text-gray-600 dark:disabled:bg-gray-900 dark:disabled:text-gray-300"
               />
               <button
                 type="submit"
                 disabled={answerState !== 'unanswered' || !textAnswer.trim()}
-                className="mt-3 w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
+                className="mt-3 w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500 dark:disabled:bg-gray-800 dark:disabled:text-gray-400"
               >
                 Check answer
               </button>
@@ -602,10 +623,11 @@ export default function QuizGame({
       <AnimatePresence>
         {showExplanation && (
           <motion.div
+            ref={explanationRef}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className={`card p-4 mb-4 ${answerState === 'correct' ? 'bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-900' : 'bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-900'}`}
+            className={`card p-4 mb-4 ${answerMode === 'text' ? 'scroll-mt-20' : ''} ${answerState === 'correct' ? 'bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-900' : 'bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-900'}`}
           >
             <p role="status" aria-live="polite" className="text-sm font-semibold mb-1 inline-flex items-center gap-1.5">
               {answerState === 'correct' ? (
@@ -644,6 +666,7 @@ export default function QuizGame({
                 key={currentIndex}
                 question={currentQuestion}
                 selectedIndex={selectedIndex}
+                textAnswer={answerMode === 'text' ? textAnswer.trim() : undefined}
                 context={getHelpContext(currentQuestion)}
                 onHelp={(action) => {
                   const context = getHelpContext(currentQuestion);

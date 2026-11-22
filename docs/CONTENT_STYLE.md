@@ -75,7 +75,7 @@ Newly created topics may temporarily fall below the target, but they should not 
 
 ## Questions
 
-- Provide exactly one correct choice.
+- Multiple-choice questions provide exactly one correct choice. Typed questions store their accepted answer forms in `choices` (one to four entries, `correctIndex: 0`): Year 7 German and Chinese topic quizzes use this form for target-language recall. German requires the full phrase and correct article; Chinese accepts the curated Simplified and Traditional forms, not pinyin or English.
 - The `explanation` must:
   - Be at least 20 characters long.
   - Not be identical to the `stem`.
@@ -91,9 +91,9 @@ Every question must carry a `difficulty` tag (`easy` | `medium` | `hard`); `audi
 
 Aim for roughly 30% easy / 40% medium / 30% hard per topic.
 
-**Vary which choice is correct.** Spread the correct option across all four positions — aim for
-roughly 4/4/4/3 over a 15-question topic. `audit:content` rejects a bank of 12 or more questions
-whose correct answers all occupy one position. The DP Math AA batch shipped 54/39/26/16 (i.e. a
+**Vary which choice is correct in multiple-choice banks.** Spread the correct option across all four positions — aim for
+roughly 4/4/4/3 over a 15-question topic. `audit:content` rejects a bank of 12 or more multiple-choice questions
+whose correct answers all occupy one position; typed-answer banks are exempt. The DP Math AA batch shipped 54/39/26/16 (i.e. a
 third of the corpus answering "A") before the positions were rotated.
 
 **Re-derive every numeric key by hand before merge.** The AI answer-key audit is not fit for

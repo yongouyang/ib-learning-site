@@ -12,6 +12,7 @@ import { subjectEmoji } from '@/lib/subject-emoji';
 
 function MistakeCard({ mistake }: { mistake: MistakeEntry }) {
   const question = mistake.latestResult.question;
+  const isTypedAnswer = mistake.latestResult.answerMode === 'text' || mistake.latestResult.textAnswer !== undefined;
   return (
     <article className="rounded-xl border border-gray-200 dark:border-gray-700 p-4">
       {question ? (
@@ -19,20 +20,22 @@ function MistakeCard({ mistake }: { mistake: MistakeEntry }) {
           <h3 className="font-semibold text-gray-900 dark:text-gray-50"><InlineMath text={question.stem} /></h3>
           <p className="text-sm text-red-700 dark:text-red-300">
             <span className="font-semibold">Your answer: </span>
-            {mistake.latestResult.selectedIndex !== undefined && mistake.latestResult.selectedIndex >= 0
-              ? <><span>{String.fromCharCode(65 + mistake.latestResult.selectedIndex)}. </span><InlineMath text={question.choices[mistake.latestResult.selectedIndex]} /></>
-              : 'No answer — time expired'}
+            {mistake.latestResult.textAnswer !== undefined
+              ? <span>{mistake.latestResult.textAnswer}</span>
+              : mistake.latestResult.selectedIndex !== undefined && mistake.latestResult.selectedIndex >= 0
+                ? <><span>{String.fromCharCode(65 + mistake.latestResult.selectedIndex)}. </span><InlineMath text={question.choices[mistake.latestResult.selectedIndex]} /></>
+                : 'No answer — time expired'}
           </p>
           <p className="text-sm text-green-700 dark:text-green-300">
             <span className="font-semibold">Correct answer: </span>
-            <span>{String.fromCharCode(65 + question.correctIndex)}. </span>
+            {!isTypedAnswer && <span>{String.fromCharCode(65 + question.correctIndex)}. </span>}
             <InlineMath text={question.choices[question.correctIndex]} />
           </p>
           <p className="text-sm pt-3 border-t border-gray-100 dark:border-gray-800 text-gray-700 dark:text-gray-300"><InlineMath text={question.explanation} /></p>
         </div>
       ) : (
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          This earlier attempt recorded the incorrect question, but not its full text or your selected answer.
+          This earlier attempt recorded the incorrect question, but not its full text or your answer.
         </p>
       )}
       <div className="mt-4 flex flex-wrap items-center gap-3">

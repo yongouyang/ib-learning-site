@@ -126,6 +126,17 @@ describe("auditContent", () => {
     expect(rotated.issues.find((i) => i.type === "answer_position")).toBeUndefined();
   });
 
+  it("does not apply answer-position rotation to typed-answer banks", () => {
+    const questions = makeValidQuestions("test-topic", 12).map((question) => ({
+      ...question,
+      choices: [question.choices[question.correctIndex]],
+      correctIndex: 0,
+    }));
+    const topic = makeTopic({ id: "test-topic", subjectId: "german", questions });
+    const result = auditContent({ topics: [topic] });
+    expect(result.issues.find((i) => i.type === "answer_position")).toBeUndefined();
+  });
+
   it("detects folder / subjectId mismatches as errors", () => {
     const topic = makeTopic({
       id: "test-topic",

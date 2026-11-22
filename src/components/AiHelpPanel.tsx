@@ -22,9 +22,10 @@ const ACTIONS: { id: AiHelpAction; label: string }[] = [
   { id: 'why-wrong', label: 'Why was my answer wrong?' },
 ];
 
-export default function AiHelpPanel({ question, selectedIndex, context, onHelp }: {
+export default function AiHelpPanel({ question, selectedIndex, textAnswer, context, onHelp }: {
   question: Question;
   selectedIndex: number | null;
+  textAnswer?: string;
   context: Context;
   onHelp?: (action: AiHelpAction) => void;
 }) {
@@ -68,7 +69,7 @@ export default function AiHelpPanel({ question, selectedIndex, context, onHelp }
       const response = await fetch('/api/ai-help', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action, ...context, selectedIndex, question }),
+        body: JSON.stringify({ action, ...context, selectedIndex, textAnswer, question }),
       });
       if (response.status === 401) {
         failed('login_required');
@@ -100,7 +101,7 @@ export default function AiHelpPanel({ question, selectedIndex, context, onHelp }
     } finally {
       setLoading(null);
     }
-  }, [context, onHelp, question, selectedIndex]);
+  }, [context, onHelp, question, selectedIndex, textAnswer]);
 
   const rateHelp = (value: 'helpful' | 'not_helpful') => {
     if (rating || !helpAction) return;

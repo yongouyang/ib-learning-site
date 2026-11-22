@@ -53,7 +53,7 @@ export const difficultySchema = z.enum(['easy', 'medium', 'hard']);
 export const questionSchema = z.object({
   id: z.string().min(1),
   stem: z.string().min(1),
-  choices: z.array(z.string()).length(4),
+  choices: z.array(z.string()).min(1).max(4),
   correctIndex: z.number().int().min(0).max(3),
   explanation: z.string().min(1),
   difficulty: difficultySchema.optional(),

@@ -14,7 +14,7 @@ async function answerQuestion(page: import('@playwright/test').Page) {
 
 test('logged-out students are offered sign-in only after asking for AI help', async ({ page }) => {
   await answerQuestion(page);
-  await page.getByRole('button', { name: 'Why was my answer wrong?' }).click();
+  await page.getByRole('button', { name: 'Explain differently' }).click();
   await expect(page.getByRole('link', { name: 'Sign in to use AI help' })).toBeVisible();
   await expect(page.locator('main')).toContainText('AI-generated help can make mistakes');
 });

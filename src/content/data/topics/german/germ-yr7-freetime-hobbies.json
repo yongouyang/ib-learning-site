@@ -124,51 +124,39 @@
   "questions": [
     {
       "id": "germ-yr7-freetime-hobbies-q1",
-      "stem": "What does schwimmen mean?",
+      "stem": "What is “to swim” in German?",
       "choices": [
-        "to read",
-        "to swim",
-        "to sing",
-        "to sleep"
+        "schwimmen"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Schwimmen means to swim. To read is lesen, to sing is singen and to sleep is schlafen — all similar-looking verbs, so learn them carefully.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q2",
-      "stem": "What does Musik hören mean?",
+      "stem": "What is “to listen to music” in German?",
       "choices": [
-        "to play music",
-        "to buy music",
-        "to listen to music",
-        "to dance to music"
+        "Musik hören"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Hören means to hear or listen, so Musik hören is to listen to music. To play music (an instrument) would be Musik machen or an instrument spielen.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q3",
-      "stem": "What is someone asking when they say Wann hast du Geburtstag?",
+      "stem": "How do you ask “When is your birthday?” in German?",
       "choices": [
-        "What present you want",
-        "How old you are",
-        "When your birthday is",
-        "Where your party is"
+        "Wann hast du Geburtstag?"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Wann means when, and der Geburtstag is the birthday, so the question asks when your birthday is. How old you are would be Wie alt bist du?",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q4",
-      "stem": "Which word means to get up?",
+      "stem": "What is “to get up” in German?",
       "choices": [
-        "aufstehen",
-        "fernsehen",
-        "frühstücken",
-        "zeichnen"
+        "aufstehen"
       ],
       "correctIndex": 0,
       "explanation": "Aufstehen means to get up. Fernsehen is to watch TV, frühstücken is to have breakfast and zeichnen is to draw.",
@@ -176,129 +164,100 @@
     },
     {
       "id": "germ-yr7-freetime-hobbies-q5",
-      "stem": "What does gern add to a sentence like Ich schwimme gern?",
+      "stem": "How do you say “I like swimming” in German using gern?",
       "choices": [
-        "I never swim",
-        "I can swim",
-        "I must swim",
-        "I like swimming"
+        "Ich schwimme gern."
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Gern after a verb means you like doing that activity: Ich schwimme gern = I like swimming. The negative is nicht gern.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q6",
-      "stem": "How do you say I like playing football in German?",
+      "stem": "How do you say “I like playing football” in German?",
       "choices": [
-        "Ich spiele nicht gern Fußball.",
         "Ich spiele gern Fußball.",
-        "Ich mag Fußball spielen gern.",
-        "Ich Fußball spiele gern."
+        "Ich spiele gerne Fußball."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Gern comes straight after the conjugated verb: Ich spiele gern Fußball. Nicht gern would mean you do NOT like it, and the verb must stay in second position.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q7",
-      "stem": "Which is the correct du-form of spielen?",
+      "stem": "Complete the German sentence: “You play tennis” using du.",
       "choices": [
-        "du spiele",
-        "du spielst",
-        "du spielt",
-        "du spielen"
+        "Du spielst Tennis."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Regular verbs take -st with du: du spielst. The -e ending goes with ich, -t with er/sie/es, and spielen is the infinitive.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q8",
-      "stem": "How do you ask At what time? in German?",
+      "stem": "How do you ask “At what time?” in German?",
       "choices": [
-        "Wo?",
-        "Wann ist es?",
-        "Um wie viel Uhr?",
-        "Wie spät bist du?"
+        "Um wie viel Uhr?"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Um wie viel Uhr? is the fixed phrase for asking at what time something happens: Um wie viel Uhr treffen wir uns? — At what time shall we meet?",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q9",
-      "stem": "What does Ich habe am zwölften Dezember Geburtstag mean?",
+      "stem": "How do you say “My birthday is on 12 December” in German?",
       "choices": [
-        "My birthday is on 2 December",
-        "My birthday is on 12 December",
-        "My birthday is on 20 December",
-        "My party is on 12 December"
+        "Ich habe am zwölften Dezember Geburtstag."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Zwölften comes from zwölf (12) with the ordinal ending -ten, so the birthday is on 12 December. German dates use am + ordinal + month.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q10",
-      "stem": "Put it in order: On Saturday I play tennis. Which German sentence is correct?",
+      "stem": "How do you say “On Saturday I play tennis” in German?",
       "choices": [
-        "Am Samstag ich spiele Tennis.",
-        "Am Samstag spiele ich Tennis.",
-        "Am Samstag Tennis spiele ich.",
-        "Ich am Samstag spiele Tennis."
+        "Am Samstag spiele ich Tennis."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "When a time expression starts the sentence, the verb stays in second position and the subject follows it: Am Samstag spiele ich. The verb never leaves position two.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q11",
-      "stem": "A friend says Hast du Lust, ins Kino zu gehen? What are they asking?",
+      "stem": "How do you ask “Do you fancy going to the cinema?” in German?",
       "choices": [
-        "If you have been to the cinema",
-        "If you fancy going to the cinema",
-        "If you like popcorn",
-        "If you know the way to the cinema"
+        "Hast du Lust, ins Kino zu gehen?"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Hast du Lust...? means Do you fancy...? — it is a friendly way to invite someone to do something, here going to the cinema (ins Kino).",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q12",
-      "stem": "Which sentence has correct German word order?",
+      "stem": "How do you say “Today I do my homework” in German?",
       "choices": [
-        "Heute ich mache meine Hausaufgaben.",
-        "Heute mache ich meine Hausaufgaben.",
-        "Heute meine Hausaufgaben mache ich.",
-        "Ich heute mache meine Hausaufgaben."
+        "Heute mache ich meine Hausaufgaben."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "With heute (today) in first position, the verb machen must come second, then the subject: Heute mache ich meine Hausaufgaben. German is a verb-second language.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q13",
-      "stem": "Es ist halb vier — what time is it?",
+      "stem": "How do you say “It is 3:30” in German?",
       "choices": [
-        "4:30",
-        "3:30",
-        "4:15",
-        "5:30"
+        "Es ist halb vier."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "German halb vier literally means half to four, so it is 3:30 — the half hour counts towards the NEXT hour, unlike English half past.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-freetime-hobbies-q14",
-      "stem": "What is the difference between Ich schwimme gern and Ich schwimme am liebsten?",
+      "stem": "How do you say “I like swimming best of all” in German?",
       "choices": [
-        "The first means you like swimming, the second that you like it best of all",
-        "The first is past tense, the second is future",
-        "They mean exactly the same thing",
-        "The first is negative, the second is positive"
+        "Ich schwimme am liebsten."
       ],
       "correctIndex": 0,
       "explanation": "Gern means you like doing something; am liebsten is the superlative — you like it best of all. The full ladder is gern → lieber → am liebsten.",
@@ -306,29 +265,13 @@
     },
     {
       "id": "germ-yr7-freetime-hobbies-q15",
-      "stem": "Choose the correctly conjugated sentence.",
+      "stem": "Complete the German sentence: “He likes listening to music.”",
       "choices": [
-        "Er hören gern Musik.",
-        "Er hörst gern Musik.",
-        "Er höre gern Musik.",
         "Er hört gern Musik."
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "With er (he), regular verbs take the ending -t: er hört. The -e form is for ich, -st for du, and hören is the infinitive which cannot follow er.",
       "difficulty": "hard"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

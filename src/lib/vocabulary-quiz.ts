@@ -21,6 +21,11 @@ function foldedAnswer(text: string): string {
     .replaceAll('ß', 'ss');
 }
 
+function articleForms(text: string): string[] {
+  return normaliseAnswer(text).toLocaleLowerCase('de-DE')
+    .match(/\b(?:der|die|das|dem|den|des|ein|eine|einem|einen|eines|einer|kein|keine|keinem|keinen|keines|keiner)\b/g) ?? [];
+}
+
 function editDistance(left: string, right: string): number {
   let previous = Array.from({ length: right.length + 1 }, (_, index) => index);
   for (let i = 1; i <= left.length; i += 1) {
@@ -66,11 +71,11 @@ export function gradeVocabularyAnswer(answer: string, expectedTerm: string): Voc
   const normalised = normaliseAnswer(answer);
   if (!normalised) return { correct: false, needsSpellingCheck: false };
   const folded = foldedAnswer(normalised);
-  const article = normalised.match(/^(der|die|das)\b/i)?.[1].toLowerCase();
+  const articles = articleForms(normalised);
 
   for (const accepted of acceptedAnswers(expectedTerm)) {
-    const expectedArticle = accepted.match(/^(der|die|das)\b/i)?.[1].toLowerCase();
-    if (expectedArticle !== article) continue;
+    const expectedArticles = articleForms(accepted);
+    if (expectedArticles.length !== articles.length || expectedArticles.some((article, index) => article !== articles[index])) continue;
     if (normaliseAnswer(accepted) === normalised) return { correct: true, needsSpellingCheck: false };
 
     const foldedExpected = foldedAnswer(accepted);

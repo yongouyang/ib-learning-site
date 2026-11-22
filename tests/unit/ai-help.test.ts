@@ -72,6 +72,32 @@ describe('AI help', () => {
     expect((await post({ action: 'chat' }, deps, cookie)).status).toBe(400);
   });
 
+  it('accepts typed answers and sends the actual response to the provider', async () => {
+    vi.stubEnv('FEEDBACK_PROVIDER', 'dummy');
+    const { deps, cookie } = await fixture();
+    const typed: AiHelpRequest = {
+      action: 'why-wrong', subjectId: 'chinese', topicId: 'chin-yr7-greetings-names', selectedIndex: -1,
+      textAnswer: 'laoshi',
+      question: {
+        id: 'chin-yr7-greetings-names-q3', stem: 'What is “teacher” in Chinese?',
+        choices: ['老师', '老師'], correctIndex: 0, explanation: '老师 lǎoshī means teacher.',
+      },
+    };
+    expect((await post({ ...typed, _testResponse: { help: 'Use Chinese characters rather than pinyin.' } }, deps, cookie)).status).toBe(200);
+
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      choices: [{ message: { content: '{"help":"Use characters."}' } }],
+    })));
+    vi.stubGlobal('fetch', fetchMock);
+    const provider = new OpenAICompatibleHelpProvider({ apiKey: 'test', model: 'test-model', baseUrl: 'https://provider.test/v1' });
+    await provider.help(typed, { topicTitle: 'Greetings & Names', year: 7, notes: '老师 means teacher.' });
+    const requestBody = JSON.parse(String(fetchMock.mock.calls[0][1]?.body));
+    const prompt = requestBody.messages[1].content as string;
+    expect(prompt).toContain('Accepted answers: 老师 | 老師');
+    expect(prompt).toContain('Student answer: laoshi');
+    expect(prompt).not.toContain('No answer — time expired');
+  });
+
   it('captures provider token usage for cost reporting', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
       choices: [{ message: { content: '{"help":"Try another angle."}' } }],

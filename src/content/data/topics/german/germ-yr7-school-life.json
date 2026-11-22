@@ -124,25 +124,19 @@
   "questions": [
     {
       "id": "germ-yr7-school-life-q1",
-      "stem": "What is der Stift in English?",
+      "stem": "What is “the pen” in German?",
       "choices": [
-        "the pencil",
-        "the pen",
-        "the ruler",
-        "the rubber"
+        "der Stift"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Der Stift is the pen. The pencil is der Bleistift and the rubber is der Radiergummi.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-school-life-q2",
-      "stem": "Which of these is a day of the week?",
+      "stem": "What is “Wednesday” in German?",
       "choices": [
-        "der Mittwoch",
-        "die Stunde",
-        "das Heft",
-        "der September"
+        "der Mittwoch"
       ],
       "correctIndex": 0,
       "explanation": "Der Mittwoch is Wednesday. Die Stunde is a lesson/hour, das Heft is an exercise book, and September is a month, not a day.",
@@ -150,185 +144,134 @@
     },
     {
       "id": "germ-yr7-school-life-q3",
-      "stem": "Ich habe Sport gern — what is this person saying?",
+      "stem": "How do you say “I like PE” in German using gern?",
       "choices": [
-        "I have PE today.",
-        "I do not like PE.",
-        "I like PE.",
-        "I have a lot of sport."
+        "Ich habe Sport gern."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Gern after a verb means you like doing it, so Ich habe Sport gern = I like PE. Without gern it would just mean I have PE.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-school-life-q4",
-      "stem": "What is das Heft used for at school?",
+      "stem": "What is “the exercise book” in German?",
       "choices": [
-        "It is the board the teacher writes on.",
-        "It is the exercise book you write in.",
-        "It is the bag you carry.",
-        "It is the rubber you erase with."
+        "das Heft"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Das Heft is the exercise book. The board is die Tafel, the bag is die Tasche and the rubber is der Radiergummi.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-school-life-q5",
-      "stem": "What gender is die Tasche (the bag)?",
+      "stem": "What is “the bag” in German?",
       "choices": [
-        "masculine",
-        "neuter",
-        "feminine",
-        "plural"
+        "die Tasche"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Die is the feminine article, so die Tasche is a feminine noun. Der is masculine, das is neuter, and die is also used for all plurals.",
       "difficulty": "easy"
     },
     {
       "id": "germ-yr7-school-life-q6",
-      "stem": "Es ist halb fünf — what time is it?",
+      "stem": "How do you say “It is 4:30” in German?",
       "choices": [
-        "5:30",
-        "4:30",
-        "5:15",
-        "6:30"
+        "Es ist halb fünf."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "German halb fünf means half way TO five — 4:30. This is the classic trap: 5:30 in German is halb sechs.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-school-life-q7",
-      "stem": "Which is the correct article for Buch (book)?",
+      "stem": "What is “the book” in German?",
       "choices": [
-        "der Buch",
-        "die Buch",
-        "das Buch",
-        "dem Buch"
+        "das Buch"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Das Buch is neuter. There is no logic to guess here — you simply learn the article together with the noun, which is why vocabulary lists always include der, die or das.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-school-life-q8",
-      "stem": "Am Dienstag habe ich Kunst — when does this person have art?",
+      "stem": "How do you say “On Tuesday I have art” in German?",
       "choices": [
-        "on Monday",
-        "on Thursday",
-        "on Tuesday",
-        "on Wednesday"
+        "Am Dienstag habe ich Kunst."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Dienstag is Tuesday, and am + day means on that day. Donnerstag is Thursday and Mittwoch is Wednesday — easy to confuse because of the similar endings.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-school-life-q9",
-      "stem": "Die ___ sind neu. Which article fits all German plurals?",
+      "stem": "Which German article is used for all plural nouns?",
       "choices": [
-        "der",
-        "die",
-        "das",
-        "den"
+        "die"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Whatever the singular gender, every plural noun takes die: der Stift → die Stifte, das Heft → die Hefte, die Tasche → die Taschen.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-school-life-q10",
-      "stem": "Which sentence has the verb in the correct position?",
+      "stem": "How do you say “Today I have English” in German?",
       "choices": [
-        "Heute ich habe Englisch.",
-        "Heute habe ich Englisch.",
-        "Heute haben ich Englisch.",
-        "Ich heute habe Englisch."
+        "Heute habe ich Englisch."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "The conjugated verb must be the second idea in the sentence. If heute comes first, the verb (habe) comes second and the subject follows: Heute habe ich Englisch.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-school-life-q11",
-      "stem": "Es ist Viertel nach drei — what time is it?",
+      "stem": "How do you say “It is 3:15” in German using Viertel nach?",
       "choices": [
-        "3:45",
-        "2:15",
-        "3:15",
-        "4:15"
+        "Es ist Viertel nach drei."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Viertel nach drei is quarter past three, 3:15. Nach means past/after. Quarter to three would be Viertel vor drei.",
       "difficulty": "medium"
     },
     {
       "id": "germ-yr7-school-life-q12",
-      "stem": "Wie spät ist es? Es ist Viertel vor sieben — what time is it?",
+      "stem": "How do you say “It is 6:45” in German using Viertel vor?",
       "choices": [
-        "7:15",
-        "6:45",
-        "7:45",
-        "6:15"
+        "Es ist Viertel vor sieben."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Viertel vor sieben is quarter TO seven — 6:45. Vor means before/to, nach means past, and halb sieben would be 6:30.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-school-life-q13",
-      "stem": "Which sentence about opinions is correct German?",
+      "stem": "How do you say “I do not like chemistry, but I like biology” in German?",
       "choices": [
-        "Ich habe Chemie gern nicht.",
-        "Ich gern habe Chemie.",
         "Ich habe nicht gern Chemie, aber ich habe Bio gern.",
-        "Gern ich habe Chemie nicht."
+        "Ich habe Chemie nicht gern, aber ich habe Bio gern."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Nicht gern goes together after the verb: Ich habe Chemie nicht gern / Ich habe nicht gern Chemie. The other options scramble gern into positions German never uses.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-school-life-q14",
-      "stem": "Which is the natural way to talk about your favourite subject?",
+      "stem": "How do you say “My favourite subject is computing” in German?",
       "choices": [
-        "Mein Lieblingsfach ist die Informatik.",
-        "Mein Lieblingsfach ist Informatik.",
-        "Meine Lieblingsfach ist Informatik.",
-        "Das Lieblingsfach ist der Informatik."
+        "Mein Lieblingsfach ist Informatik."
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "School subjects are normally used without an article: Mein Lieblingsfach ist Informatik. Das Fach is neuter, so it takes mein, not meine.",
       "difficulty": "hard"
     },
     {
       "id": "germ-yr7-school-life-q15",
-      "stem": "Which sentence puts the day, time and verb in correct German order?",
+      "stem": "How do you say “On Monday school begins at eight o’clock” in German?",
       "choices": [
-        "Die Schule am Montag beginnt um acht Uhr.",
-        "Am Montag die Schule beginnt um acht Uhr.",
-        "Am Montag um acht Uhr beginnt die Schule.",
-        "Beginnt die Schule am Montag um acht Uhr."
+        "Am Montag um acht Uhr beginnt die Schule."
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "With time expressions first, the verb stays second and the subject follows it: Am Montag um acht Uhr beginnt die Schule. The other options push the verb out of position two.",
       "difficulty": "hard"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-11-22 — Year 7 German and Chinese typed quizzes
+Git HEAD: `a9f79f6` (develop, tree dirty)
+Done: rewrote all 165 questions across five German and six Chinese Year 7 topics for typed
+  target-language recall; removed their MC templates. German enforces full phrases/articles with
+  minor-spelling reminders; Chinese accepts curated Simplified/Traditional forms and rejects
+  pinyin/English. Added speech, typed AI-help requests, answerMode sync, Mistakes/print support,
+  auto-expanding responses and mobile feedback scrolling; updated privacy/content guidance.
+Verified: 1806 unit, tsc, lint 0 errors (35 baseline), content audit 0/0, illustrations/layout,
+  11 Lambdas, static 435 URLs + leak PASS, overflow 147 PASS. Static Desktop 159/4 skipped,
+  iPad 147/16, journeys 314; final language/vocab/speech 14 Desktop +14 iPhone PASS. Full iPhone
+  runs each retained 1 unrelated maths/timing failure; all failed specs passed focused reruns.
+  Sixteen settled UX screenshots + Mistakes/print reviewed; all findings fixed, no waivers.
+Next: commit/push develop when requested, watch dev deploy and live smoke, then promote main.
+Notes: screenshots stay in /tmp/octav-year7-language-ux. Unrelated markscheme-audit edits retained.
+
+---
+
 ## 2026-11-21 — Typed German recall and language speech
 Git HEAD: `eeb762d` (develop, tree dirty)
 Done: added German/Mandarin flashcard pronunciation with accessible playback errors; replaced all

@@ -105,10 +105,17 @@ describe('content schema validation', () => {
       expect(result.correctIndex).toBe(2);
     });
 
-    it('should reject a question with fewer than 4 choices', () => {
+    it('should accept one to four answers for typed or multiple-choice questions', () => {
+      for (const choices of [['A'], ['A', 'B'], ['A', 'B', 'C'], ['A', 'B', 'C', 'D']]) {
+        expect(questionSchema.parse({ ...validTopic.questions[0], choices, correctIndex: 0 }).choices).toEqual(choices);
+      }
+    });
+
+    it('should reject a question with no answers', () => {
       const invalid = {
         ...validTopic.questions[0],
-        choices: ['A', 'B', 'C'],
+        choices: [],
+        correctIndex: 0,
       };
       expect(() => questionSchema.parse(invalid)).toThrow();
     });

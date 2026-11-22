@@ -30,21 +30,26 @@ export default function RevisionSheet({ mistakes }: { mistakes: MistakeEntry[] }
               <div className="space-y-4">
                 {entries.map((mistake, index) => {
                   const question = mistake.latestResult.question;
+                  const isTypedAnswer = mistake.latestResult.answerMode === 'text' || mistake.latestResult.textAnswer !== undefined;
                   return (
                     <article key={mistake.key} className="revision-item border border-gray-300 rounded-lg p-4">
                       <h3 className="font-semibold mb-3">Question {index + 1}</h3>
                       {question ? (
                         <div className="space-y-3 text-sm">
                           <p className="font-medium"><InlineMath text={question.stem} /></p>
-                          <ol className="grid grid-cols-2 gap-x-6 gap-y-2 list-none pl-0">
-                            {question.choices.map((choice, choiceIndex) => (
-                              <li key={choiceIndex}>{String.fromCharCode(65 + choiceIndex)}. <InlineMath text={choice} /></li>
-                            ))}
-                          </ol>
-                          <p><span className="font-semibold">My answer: </span>{mistake.latestResult.selectedIndex !== undefined && mistake.latestResult.selectedIndex >= 0
-                            ? <>{String.fromCharCode(65 + mistake.latestResult.selectedIndex)}. <InlineMath text={question.choices[mistake.latestResult.selectedIndex]} /></>
-                            : 'No answer — time expired'}</p>
-                          <p><span className="font-semibold">Correct answer: </span>{String.fromCharCode(65 + question.correctIndex)}. <InlineMath text={question.choices[question.correctIndex]} /></p>
+                          {!isTypedAnswer && (
+                            <ol className="grid grid-cols-2 gap-x-6 gap-y-2 list-none pl-0">
+                              {question.choices.map((choice, choiceIndex) => (
+                                <li key={choiceIndex}>{String.fromCharCode(65 + choiceIndex)}. <InlineMath text={choice} /></li>
+                              ))}
+                            </ol>
+                          )}
+                          <p><span className="font-semibold">My answer: </span>{mistake.latestResult.textAnswer !== undefined
+                            ? <span>{mistake.latestResult.textAnswer}</span>
+                            : mistake.latestResult.selectedIndex !== undefined && mistake.latestResult.selectedIndex >= 0
+                              ? <>{String.fromCharCode(65 + mistake.latestResult.selectedIndex)}. <InlineMath text={question.choices[mistake.latestResult.selectedIndex]} /></>
+                              : 'No answer — time expired'}</p>
+                          <p><span className="font-semibold">Correct answer: </span>{!isTypedAnswer && <>{String.fromCharCode(65 + question.correctIndex)}. </>}<InlineMath text={question.choices[question.correctIndex]} /></p>
                           <p className="border-t border-gray-300 pt-3"><span className="font-semibold">Remember: </span><InlineMath text={question.explanation} /></p>
                         </div>
                       ) : (

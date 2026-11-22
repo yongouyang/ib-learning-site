@@ -186,6 +186,8 @@ export interface QuestionResult {
   selectedIndex?: number;
   /** The typed response for text-answer quizzes. Absent on choice-based and legacy attempts. */
   textAnswer?: string;
+  /** Records text mode even when the response was omitted on timeout. Absent on legacy attempts. */
+  answerMode?: 'choices' | 'text';
   /** Exact content answered, including generated instances. Absent on legacy attempts. */
   question?: Question;
 }

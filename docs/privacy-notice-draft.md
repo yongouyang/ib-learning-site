@@ -113,7 +113,7 @@ name it. Your rights and the way we handle your data do not change because of it
 | Child-profile name(s) and stage (KS3 / IGCSE / IB DP) | Adding a profile | So one account can track several students separately and show stage-appropriate material |
 | Leaderboard handle and opt-in state | Turning the leaderboard on | To show you on the leaderboard — only if you opt in |
 | Free-response answers you submit for AI marking | Using "Mark with AI" | To mark the answer (see §6.3) |
-| Multiple-choice question, selected answer and requested help action | Using contextual AI help | To explain the answer in the way you requested (see §6.7) |
+| Quiz question, selected or typed answer and requested help action | Using contextual AI help | To explain the answer in the way you requested (see §6.7) |
 | Message, name and email address | Using the contact form | To reply to you |
 | Billing details | Subscribing to Premium | Handled directly by Stripe — we never receive your card number (§7) |
 
@@ -194,7 +194,7 @@ third-party AI provider (§6.3, §6.7, §7). What we send is the question, the m
 answer and the text of the answer — **no name, no email address, nothing that identifies the
 child.** It is still free text written by a child, so please do not put personal details in an
 answer: that text leaves our system and we cannot recall it once it has. Contextual AI help
-uses the question, selected answer, reviewed explanation and topic notes instead of free-form chat.
+uses the question, selected or typed answer, reviewed explanation and topic notes instead of free-form chat.
 
 **5.6 The leaderboard is opt-in and off by default.** It shows a generated or chosen
 handle and a score, not a real name, and is never enabled for a child profile unless the
@@ -245,8 +245,9 @@ ending, upcoming renewal, payment failure, cancellation confirmation). These are
 the Service and are not marketing. **We do not send marketing email, and we do not sell
 or rent contact details to anyone.**
 
-**6.7 Contextual AI help.** When you ask for help after answering a multiple-choice
-question, we send the question, choices, correct answer, your selected answer, the reviewed
+**6.7 Contextual AI help.** When you ask for help after answering a quiz
+question, we send the question, its choices or accepted answers, the correct answer, your
+selected or typed answer, the reviewed
 explanation and relevant topic notes to the AI provider. The help action (for example,
 "Explain differently") is also sent. We do not send your name, email address or account
 identifier, and the generated help is not stored against your progress. We count help

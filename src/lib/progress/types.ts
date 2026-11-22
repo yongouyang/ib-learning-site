@@ -43,6 +43,7 @@ export interface QuestionResultItem {
   correct: boolean;
   selectedIndex?: number;
   textAnswer?: string;
+  answerMode?: 'choices' | 'text';
   question?: Question;
 }
 
@@ -221,6 +222,7 @@ export const questionResultSchema = z.object({
   correct: z.boolean(),
   selectedIndex: z.number().int().min(-1).max(3).optional(),
   textAnswer: z.string().max(1000).optional(),
+  answerMode: z.enum(['choices', 'text']).optional(),
   question: questionSnapshotSchema.optional(),
 });
 

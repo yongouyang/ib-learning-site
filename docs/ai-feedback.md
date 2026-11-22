@@ -97,7 +97,7 @@ Phase E2 (entitlements): POST requires a session and charges a durable monthly q
 
 ## Contextual AI help
 
-`POST /api/ai-help` is a separate post-answer help contract, dispatched by the same feedback Lambda in production. It accepts one of `simpler`, `hint`, `worked-example` or `why-wrong`, plus the question, selected choice and topic ids. The handler resolves the topic and notes server-side; there is no free-form chat input and no stored conversation.
+`POST /api/ai-help` is a separate post-answer help contract, dispatched by the same feedback Lambda in production. It accepts one of `simpler`, `hint`, `worked-example` or `why-wrong`, plus the question, selected choice or typed answer and topic ids. The handler resolves the topic and notes server-side; there is no free-form chat input and no stored conversation.
 
 It uses the existing `FEEDBACK_PROVIDER` configuration and `FeedbackDeps`, with a separate `aihelp:<userId>:<YYYY-MM>` monthly bucket (60 free / 1000 premium safety cap). `_testResponse`, `_testAiHelpUsed` and `_testTier` work only under `FEEDBACK_TEST_MODE=1` with dummy storage. `tests/unit/ai-help.test.ts` covers auth, validation, output and quota separation; `tests/e2e/ai-help.spec.ts` covers the student flow.
 

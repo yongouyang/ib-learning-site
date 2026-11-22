@@ -124,25 +124,20 @@
   "questions": [
     {
       "id": "chin-yr7-pinyin-tones-characters-q1",
-      "stem": "What is pinyin?",
+      "stem": "What is “pinyin” in Chinese characters?",
       "choices": [
-        "An ancient Chinese writing style",
-        "A system that writes Mandarin sounds using Roman letters",
-        "A type of Chinese calligraphy brush",
-        "The name of the Chinese alphabet song"
+        "拼音"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Pinyin (拼音) is the official romanisation system: it spells out how each Chinese character is pronounced using familiar letters, helping learners read, type and look up words.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q2",
-      "stem": "The character 妈 is written mā in pinyin. Which tone is it?",
+      "stem": "Write the Chinese character for “mother” used in mā.",
       "choices": [
-        "First tone (high and level)",
-        "Second tone (rising)",
-        "Third tone (falling-rising)",
-        "Fourth tone (falling)"
+        "妈",
+        "媽"
       ],
       "correctIndex": 0,
       "explanation": "The mark ā is the first tone — a high, flat pitch held level, like singing a single note.",
@@ -150,77 +145,63 @@
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q3",
-      "stem": "How many main tones does Mandarin have (not counting the neutral tone)?",
+      "stem": "What is “tone” in Chinese?",
       "choices": [
-        "Two",
-        "Three",
-        "Four",
-        "Six"
+        "声调",
+        "聲調"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Mandarin has four main tones (high-level, rising, falling-rising, falling) plus a light neutral tone, giving five pitch patterns in total.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q4",
-      "stem": "In the word liù (六, six), where does the tone mark go and why?",
+      "stem": "Write the Chinese character for “six”.",
       "choices": [
-        "On the i, because i is always marked",
-        "On the u, because in the pair iu the second vowel carries the mark",
-        "On both vowels, one mark each",
-        "On the l, because it is the initial"
+        "六"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "When i and u combine (iu or ui), the tone mark is placed on the second vowel, so liù carries its mark on the u. Tone marks never sit on consonants.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q5",
-      "stem": "马 mǎ means:",
+      "stem": "What is “horse” in Chinese?",
       "choices": [
-        "Mum",
-        "Horse",
-        "Question particle",
-        "To scold"
+        "马",
+        "馬"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "马 mǎ (third tone) means horse. The same letters with other tones give different words: mā mum, mà to scold, ma question particle.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q6",
-      "stem": "Which tone mark shows the second (rising) tone?",
+      "stem": "What is “initial” (the starting consonant of a Mandarin syllable) in Chinese?",
       "choices": [
-        "ā",
-        "á",
-        "ǎ",
-        "à"
+        "声母",
+        "聲母"
       ],
-      "correctIndex": 1,
-      "explanation": "The acute accent á rises from left to right, matching the rising pitch of the second tone — like the voice going up at the end of a question in English.",
+      "correctIndex": 0,
+      "explanation": "声母 shēngmǔ means initial — the starting consonant of a Mandarin syllable. The vowel part that follows it is the final, 韵母 yùnmǔ: for example, hǎo has initial h and final ao.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q7",
-      "stem": "A character containing the radical 氵 most likely relates to:",
+      "stem": "Write the Chinese water radical.",
       "choices": [
-        "Fire",
-        "Water or liquids",
-        "Speech",
-        "Trees"
+        "氵"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "氵 is the water radical. Characters such as 河 (river) and 海 (sea) contain it, signalling a connection to water or liquids.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q8",
-      "stem": "In the syllable hǎo (好), what is the initial?",
+      "stem": "What is “final” (the vowel part of a Mandarin syllable) in Chinese?",
       "choices": [
-        "h",
-        "ao",
-        "ǎ",
-        "o"
+        "韵母",
+        "韻母"
       ],
       "correctIndex": 0,
       "explanation": "The initial is the starting consonant, h. The final is ao, and the third-tone mark sits on the a because a takes priority over o.",
@@ -228,107 +209,77 @@
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q9",
-      "stem": "A learner says 'wǒ xiǎng mài shuǐguǒ' but means 'I want to buy fruit'. What went wrong?",
+      "stem": "Write the Chinese word for “to buy” (mǎi).",
       "choices": [
-        "Nothing — mài means buy",
-        "They used the fourth-tone mài (to sell) instead of the third-tone mǎi (to buy)",
-        "They should have said 喝 instead of 买",
-        "Fruit cannot be bought, only sold"
+        "买",
+        "買"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "买 mǎi (third tone) means to buy and 卖 mài (fourth tone) means to sell — opposites that differ only in tone. The wrong tone reversed the meaning of the sentence.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q10",
-      "stem": "When writing the character 十 (ten), which stroke is written first?",
+      "stem": "What is “stroke” (one line in a Chinese character) in Chinese?",
       "choices": [
-        "The vertical stroke, top to bottom",
-        "The horizontal stroke, left to right",
-        "Either stroke — order does not matter",
-        "Both strokes at the same time"
+        "笔画",
+        "筆畫"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "The rule 'horizontal before vertical' applies: the horizontal line of 十 is drawn first, then the vertical line crosses it. Consistent stroke order keeps characters balanced.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q11",
-      "stem": "How is the second syllable of 妈妈 (māma) pronounced?",
+      "stem": "What is “mum” in Chinese?",
       "choices": [
-        "First tone, high and level",
-        "Fourth tone, falling sharply",
-        "Neutral tone — light and short, with no tone mark",
-        "Third tone, dipping down and up"
+        "妈妈",
+        "媽媽"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "In repeated-word family terms like 妈妈 and 哥哥, the second syllable takes the neutral tone: short, light and unmarked in pinyin.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q12",
-      "stem": "The character 明 (míng) is made of 日 (sun) and 月 (moon). What does it mean?",
+      "stem": "What is “bright” in Chinese?",
       "choices": [
-        "Dark",
-        "Bright",
-        "Night",
-        "Rain"
+        "明"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "明 combines the two brightest objects in the sky — the sun and the moon — to express the idea of brightness. It is a classic example of a compound character.",
       "difficulty": "medium"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q13",
-      "stem": "好 (hǎo, good) is a compound of 女 (woman) and which other part?",
+      "stem": "Write the Chinese character for “child”, which combines with 女 to make 好.",
       "choices": [
-        "木 (tree)",
-        "口 (mouth)",
-        "子 (child)",
-        "日 (sun)"
+        "子"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "好 = 女 + 子. This compound structure — two meaningful parts combined — is how the majority of Chinese characters are built.",
       "difficulty": "easy"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q14",
-      "stem": "你好 is written nǐ hǎo, with two third tones. How is it actually pronounced in natural speech?",
+      "stem": "What is “hello” in Chinese?",
       "choices": [
-        "nǐ hǎo — exactly as written",
-        "ní hǎo — the first third tone changes to a second tone",
-        "nì hào — both become fourth tones",
-        "ni hao — both become neutral tones"
+        "你好"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Third-tone sandhi: when two third tones meet, the first is pronounced as a second tone to make speech flow. The spelling stays nǐ hǎo, but you say ní hǎo.",
       "difficulty": "hard"
     },
     {
       "id": "chin-yr7-pinyin-tones-characters-q15",
-      "stem": "Which character most likely relates to speaking?",
+      "stem": "What is “to speak” in Chinese?",
       "choices": [
-        "河 (with 氵)",
-        "说 (with 讠)",
-        "林 (with 木)",
-        "明 (with 日)"
+        "说",
+        "說"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "说 shuō (to speak) contains 讠, the speech radical — its meaning clue. 河 has the water radical, 林 the wood radical, and 明 contains the sun.",
       "difficulty": "medium"
-    }
-  ],
-  "templates": [
-    {
-      "generator": "flashcard-match",
-      "source": "flashcards",
-      "params": {
-        "direction": [
-          "term-to-definition",
-          "definition-to-term"
-        ],
-        "maxLength": 140
-      }
     }
   ]
 }

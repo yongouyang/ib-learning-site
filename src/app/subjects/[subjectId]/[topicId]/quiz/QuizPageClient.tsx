@@ -18,6 +18,7 @@ import {
   type DifficultyFilter,
 } from '@/lib/quiz-utils';
 import { materializeTemplates } from '@/lib/generators';
+import { gradeTargetLanguageAnswer, year7LanguageFor } from '@/lib/language-quiz';
 
 /**
  * Phase 1a: authored questions and templates arrive from the server page, so the quiz no longer
@@ -29,6 +30,7 @@ interface QuizPageClientProps {
   topicId: string;
   topicTitle: string;
   subjectName: string;
+  year?: number;
   questions: Question[];
   templates?: TopicTemplate[];
   /** Passed so a `source: "flashcards"` template can be fed the topic's own deck. */
@@ -40,12 +42,14 @@ export default function QuizPageClient({
   topicId,
   topicTitle,
   subjectName,
+  year,
   questions,
   templates,
   flashcards,
 }: QuizPageClientProps) {
   const searchParams = useSearchParams();
   const difficulty = parseDifficultyFilter(searchParams.get('difficulty'));
+  const targetLanguage = year7LanguageFor(subjectId, year);
   const { recordAttempt } = useProgress();
   const resultsRef = useRef<QuestionResult[]>([]);
 
@@ -145,6 +149,11 @@ export default function QuizPageClient({
             { label: 'Quiz' },
           ]}
           analytics={{ subjectId, topicId, source: 'topic_page' }}
+          speechLanguage={targetLanguage}
+          answerMode={targetLanguage ? 'text' : 'choices'}
+          gradeTextAnswer={targetLanguage
+            ? (answer, expectedAnswers) => gradeTargetLanguageAnswer(answer, expectedAnswers, targetLanguage)
+            : undefined}
           enableTimer={true}
           timerSeconds={60}
           onQuestionResult={(_questionId, _correct, _questionNumber, _totalCount, result) => {
