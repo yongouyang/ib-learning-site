@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-11-22 — Replace Chinese radical-only typing prompt
+Git HEAD: `51ce2be` (develop, tree dirty)
+Done: replaced the Year 7 water-radical question with a full-character prompt for “river” (`河`), retaining its question ID; documented that Chinese typed questions must ask for complete characters or words rather than isolated radicals/components.
+Verified: check:registry, validate:content, audit:content 0/0 (5152), language-quiz 6 tests PASS.
+Next: watch the dev deployment and live-smoke the replacement; review further learner feedback on typed questions.
+Notes: local content/docs change only; unrelated markscheme-audit edits retained and untouched.
+
+---
+
 ## 2026-11-22 — Year 7 German and Chinese typed quizzes
 Git HEAD: `a9f79f6` (develop, tree dirty)
 Done: rewrote all 165 questions across five German and six Chinese Year 7 topics for typed

@@ -75,7 +75,7 @@ Newly created topics may temporarily fall below the target, but they should not 
 
 ## Questions
 
-- Multiple-choice questions provide exactly one correct choice. Typed questions store their accepted answer forms in `choices` (one to four entries, `correctIndex: 0`): Year 7 German and Chinese topic quizzes use this form for target-language recall. German requires the full phrase and correct article; Chinese accepts the curated Simplified and Traditional forms, not pinyin or English.
+- Multiple-choice questions provide exactly one correct choice. Typed questions store their accepted answer forms in `choices` (one to four entries, `correctIndex: 0`): Year 7 German and Chinese topic quizzes use this form for target-language recall. German requires the full phrase and correct article; Chinese accepts the curated Simplified and Traditional forms, not pinyin or English. Chinese typing prompts ask for complete characters or words, not isolated radicals or components that a standard pinyin input method may not produce directly.
 - The `explanation` must:
   - Be at least 20 characters long.
   - Not be identical to the `stem`.
