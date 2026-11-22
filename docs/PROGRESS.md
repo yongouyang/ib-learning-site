@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-11-22 — Scannable Progress overview
+Git HEAD: `aa0adb9` (develop, tree dirty)
+Done: added KS3/IGCSE/IB DP summary filters, collapsed subject and year/stage disclosures, and per-group started/average summaries; moved Practice below progress, labelled flashcard mastery and fixed row contrast/wording. Added Progress overview e2e coverage.
+Verified: 1806 unit, tsc, lint 0 errors (35 baseline), content 0/0, illustration SVG checks, static 435 URLs + leak PASS. Affected static suites: 35 Desktop + 23 iPhone + 3 iPad PASS; 4 custom-test PASS. Sixteen light/dark screenshots; final fresh UX review no findings/waivers.
+Next: commit/push and dev-smoke with the next requested release.
+Notes: full static run stopped at 79/166 — one ambiguous assertion fixed and two timing failures passed focused reruns. Illustration-layout audit timed out locally; no illustration files changed. Unrelated markscheme-audit edits retained.
+
+---
+
 ## 2026-11-22 — Replace Chinese radical-only typing prompt
 Git HEAD: `51ce2be` (develop, tree dirty)
 Done: replaced the Year 7 water-radical question with a full-character prompt for “river” (`河`), retaining its question ID; documented that Chinese typed questions must ask for complete characters or words rather than isolated radicals/components.

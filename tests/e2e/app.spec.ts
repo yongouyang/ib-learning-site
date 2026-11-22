@@ -207,7 +207,7 @@ test.describe('Progress page', () => {
     await expect(page.getByRole('heading', { name: 'My Progress' })).toBeVisible();
     await expect(page.getByText('Total Stars')).toBeVisible();
     await expect(page.getByText('Day Streak')).toBeVisible();
-    await expect(page.getByText('Topics Done')).toBeVisible();
+    await expect(page.getByText('Topics Started', { exact: true })).toBeVisible();
   });
 });
 
