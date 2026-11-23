@@ -260,6 +260,43 @@ describe('QuizGame mistake review', () => {
     expect(screen.getByText('1/1')).toBeInTheDocument();
   });
 
+  it('shows retry improvement and offers similar practice after every mistake is corrected', async () => {
+    const user = userEvent.setup();
+    const onSimilarQuestions = vi.fn();
+    render(<QuizGame questions={[questions[0]]} backHref="/back" onComplete={vi.fn()} onSimilarQuestions={onSimilarQuestions} />);
+
+    await user.click(screen.getAllByRole('button')[0]);
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+    await user.click(screen.getByRole('button', { name: /Retry mistakes \(1\)/i }));
+    await user.click(screen.getAllByRole('button')[1]);
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+
+    expect(screen.getByRole('region', { name: 'Retry improvement' })).toHaveTextContent('You corrected 1 of 1 mistake');
+    expect(screen.getByText('Correction rate 0% before → 100% this retry (+100 points)')).toBeInTheDocument();
+    expect(screen.getByText('Next: practise similar questions to confirm these skills.')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Practise similar questions/i }));
+    expect(onSimilarQuestions).toHaveBeenCalledWith([questions[0]]);
+  });
+
+  it('directs learners to review and retry mistakes that remain', async () => {
+    const user = userEvent.setup();
+    render(<QuizGame questions={questions} backHref="/back" onComplete={vi.fn()} />);
+
+    await user.click(screen.getAllByRole('button')[0]);
+    await user.click(screen.getByRole('button', { name: /Next Question/i }));
+    await user.click(screen.getAllByRole('button')[0]);
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+    await user.click(screen.getByRole('button', { name: /Retry mistakes \(2\)/i }));
+    await user.click(screen.getAllByRole('button')[1]);
+    await user.click(screen.getByRole('button', { name: /Next Question/i }));
+    await user.click(screen.getAllByRole('button')[0]);
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+
+    expect(screen.getByText('Correction rate 0% before → 50% this retry (+50 points)')).toBeInTheDocument();
+    expect(screen.getByText('Next: review the remaining answers below, then retry those mistakes.')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Retry mistakes \(1\)/i })).toBeInTheDocument();
+  });
+
   it('passes mistakes to the similar-question action', async () => {
     const user = userEvent.setup();
     const onSimilarQuestions = vi.fn();

@@ -8,6 +8,7 @@ import RevisionSheet from '@/components/RevisionSheet';
 import { trackEvent } from '@/lib/analytics';
 import { useProgress } from '@/context/ProgressContext';
 import { deriveMistakes, deriveTopicImprovement, type MistakeEntry } from '@/lib/mistake-notebook';
+import { groupKeyOf } from '@/lib/quiz-utils';
 import { subjectEmoji } from '@/lib/subject-emoji';
 
 function MistakeCard({ mistake }: { mistake: MistakeEntry }) {
@@ -39,9 +40,11 @@ function MistakeCard({ mistake }: { mistake: MistakeEntry }) {
         </p>
       )}
       <div className="mt-4 flex flex-wrap items-center gap-3">
-        <Link href={`/subjects/${mistake.subjectId}/${mistake.topicId}/quiz`}
+        <Link href={question
+          ? `/subjects/${mistake.subjectId}/${mistake.topicId}/quiz?skill=${encodeURIComponent(groupKeyOf(question))}`
+          : `/subjects/${mistake.subjectId}/${mistake.topicId}/quiz`}
           className="inline-flex items-center gap-1.5 min-h-11 px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700">
-          Practise this topic <ArrowRight className="w-4 h-4" />
+          {question ? 'Practise this skill' : 'Practise this topic'} <ArrowRight className="w-4 h-4" />
         </Link>
         {mistake.consecutiveCorrect > 0 && (
           <span className="text-xs text-gray-500 dark:text-gray-400">One related correction — one more resolves this mistake</span>

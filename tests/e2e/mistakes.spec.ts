@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 const question = {
-  id: 'angles-q1', stem: 'Which angle is reflex?', choices: ['150°', '90°', '200°', '45°'],
-  correctIndex: 2, explanation: 'A reflex angle is between 180° and 360°.', difficulty: 'easy', variantOf: 'angle-types',
+  id: 'math-yr7-angles-ang-q9', stem: 'Which angle is reflex?', choices: ['150°', '90°', '200°', '45°'],
+  correctIndex: 2, explanation: 'A reflex angle is between 180° and 360°.', difficulty: 'easy',
 };
 
 async function seedAttempts(page: import('@playwright/test').Page) {
@@ -40,6 +40,26 @@ test('shows unresolved mistakes, improvement and weak-topic test creation', asyn
   await expect(page.getByText('1 topic selected: Angles.')).toBeVisible();
   await page.getByRole('button', { name: 'Practise my weak areas' }).click();
   await expect(page.getByText('1/10')).toBeVisible();
+});
+
+test('starts a one-skill targeted quiz from an unresolved mistake', async ({ page }) => {
+  await seedAttempts(page);
+  await page.goto('/mistakes');
+  await page.getByRole('link', { name: 'Practise this skill' }).click();
+
+  await expect(page).toHaveURL(/\/subjects\/math\/math-yr7-angles\/quiz\?skill=/);
+  expect(new URL(page.url()).searchParams.get('skill')).toBe('solo:math-yr7-angles-ang-q9');
+  await expect(page.getByText('Targeted revision · one skill')).toBeVisible();
+  await expect(page.getByText('1/1')).toBeVisible();
+  await expect(page.getByRole('group', { name: 'Filter by difficulty' })).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+
+  await page.getByRole('button').filter({ hasText: /^C\./ }).click();
+  await page.getByRole('button', { name: 'See Results' }).click();
+  await page.getByRole('button', { name: 'Practise full topic' }).click();
+  await expect(page.getByRole('group', { name: 'Filter by difficulty' })).toBeVisible();
+  await expect(page.getByText('Targeted revision · one skill')).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 });
 
 test('empty notebook explains the next action', async ({ page }) => {

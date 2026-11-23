@@ -43,6 +43,7 @@ interface QuizAnalytics {
 
 interface QuizGameProps {
   subtitle?: string;
+  activeSubtitle?: string;
   backHref: string;
   backLabel?: string;
   breadcrumbs?: BreadcrumbItem[];
@@ -69,6 +70,7 @@ interface QuizGameProps {
 
 export default function QuizGame({
   subtitle,
+  activeSubtitle,
   backHref,
   backLabel = 'Back',
   breadcrumbs,
@@ -103,6 +105,7 @@ export default function QuizGame({
   const [correctCount, setCorrectCount] = useState(0);
   const [showExplanation, setShowExplanation] = useState(false);
   const [showReview, setShowReview] = useState(false);
+  const [sessionKind, setSessionKind] = useState<'initial' | 'mistakes' | 'all'>('initial');
   const [speechError, setSpeechError] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timerSeconds);
@@ -165,6 +168,11 @@ export default function QuizGame({
   const scorePercent = sessionQuestions.length > 0 ? Math.round((correctCount / sessionQuestions.length) * 100) : 0;
   const stars = scorePercent >= 90 ? 3 : scorePercent >= 70 ? 2 : scorePercent >= 40 ? 1 : 0;
   const mistakes = results.filter((result) => !result.correct && result.question);
+  const similarQuestions = mistakes.length > 0
+    ? mistakes.map((result) => result.question!)
+    : sessionKind === 'mistakes'
+      ? results.flatMap((result) => result.question ? [result.question] : [])
+      : [];
 
   const recordResult = useCallback((question: Question, correct: boolean, choice: number, position: number, typedAnswer?: string) => {
     const result: QuestionResult = {
@@ -197,6 +205,7 @@ export default function QuizGame({
 
   const resetSession = (nextQuestions: Question[], kind: 'mistakes' | 'all') => {
     const attemptId = startSession(kind);
+    setSessionKind(kind);
     setSessionQuestions(nextQuestions);
     setResults([]);
     setCurrentIndex(0);
@@ -358,6 +367,23 @@ export default function QuizGame({
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
             {correctCount} out of {sessionQuestions.length} correct
           </p>
+          {sessionKind === 'mistakes' && (
+            <section aria-label="Retry improvement" className="card mb-6 p-4 text-left">
+              <h2 className="font-semibold text-gray-900 dark:text-gray-50">
+                You corrected {correctCount} of {sessionQuestions.length} mistake{sessionQuestions.length === 1 ? '' : 's'}
+              </h2>
+              <p className="mt-1 text-sm font-medium text-green-700 dark:text-green-300">
+                Correction rate 0% before → {scorePercent}% this retry (+{scorePercent} points)
+              </p>
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                {mistakes.length > 0
+                  ? 'Next: review the remaining answers below, then retry those mistakes.'
+                  : onSimilarQuestions
+                    ? 'Next: practise similar questions to confirm these skills.'
+                    : 'Next: try these questions again to confirm these skills.'}
+              </p>
+            </section>
+          )}
           <div className="flex flex-wrap gap-3 justify-center">
             {onContinue && (
               <button onClick={onContinue.onClick}
@@ -371,7 +397,7 @@ export default function QuizGame({
                 <RotateCcw className="w-4 h-4" /> Retry mistakes ({mistakes.length})
               </button>
             )}
-            {mistakes.length > 0 && onSimilarQuestions && (
+            {similarQuestions.length > 0 && onSimilarQuestions && (
               <button onClick={() => {
                 if (analyticsSubject && analyticsTopic && analyticsSource) {
                   trackEvent('quiz_similar_started', {
@@ -379,10 +405,10 @@ export default function QuizGame({
                     topicId: analyticsTopic,
                     source: analyticsSource,
                     attemptId: attemptIdRef.current,
-                    questionCount: mistakes.length,
+                    questionCount: similarQuestions.length,
                   });
                 }
-                onSimilarQuestions(mistakes.map((result) => result.question!));
+                onSimilarQuestions(similarQuestions);
               }}
                 className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-green-600 text-white font-medium text-sm hover:bg-green-700 transition-colors">
                 <Shuffle className="w-4 h-4" /> Practise similar questions
@@ -478,6 +504,7 @@ export default function QuizGame({
     <div className="max-w-lg mx-auto px-4 pt-16 pb-24 md:py-6 md:pb-6">
       <h1 ref={headingRef} tabIndex={-1} className="sr-only">{accessibleTitle}</h1>
       {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+      {activeSubtitle && <p className="mb-3 text-sm text-gray-500 dark:text-gray-400">{activeSubtitle}</p>}
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">
         {!breadcrumbs && (

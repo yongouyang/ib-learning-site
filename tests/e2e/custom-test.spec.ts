@@ -35,6 +35,8 @@ test('builds a scoped test and measures its complete review and retry funnel', a
   await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
   await expect.poll(() => events.some((event) => event.name === 'quiz_retry_started' && event.props.kind === 'mistakes' && event.props.attemptId !== start?.props.attemptId)).toBe(true);
   await completeQuiz(page);
+  await expect(page.getByRole('region', { name: 'Retry improvement' })).toContainText('Correction rate 0% before →');
+  await expect(page.getByText('Next: review the remaining answers below, then retry those mistakes.')).toBeVisible();
   const attempts = await page.evaluate(() => {
     const stored = JSON.parse(localStorage.getItem('iblearn_progress') ?? '{}') as {
       topicProgress: Record<string, { attempts: Array<{ totalCount: number }> }>;

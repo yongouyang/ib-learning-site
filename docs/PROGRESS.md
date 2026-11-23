@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-11-23 — Targeted revision and retry improvement
+Git HEAD: `2324112` (develop, tree dirty)
+Done: production-smoked Progress and all 165 questions in the eleven revised Year 7 German/Chinese quizzes on desktop plus key iPhone rejection/speech paths; no product defect found. Notebook snapshots now open one-skill quizzes with a full-topic exit; retry results show corrected count, correction-rate gain and the next action, with similar practice after a clean retry.
+Verified: 1808 unit, tsc, lint 0 errors (35 baseline), registry/content 0/0, illustrations/layout, static 435 URLs + leak PASS. Static suites: 163 Desktop/4 skipped, 150 iPhone/17, 151 iPad/16; journeys 313 PASS plus one isolated illustration-timeout PASS; final focused static 2 Desktop + 2 iPhone PASS. Semgrep/OSV and link audit PASS.
+Next: commit/push develop when requested, watch dev and smoke the targeted-revision loop, then promote main. Continue attempt-funnel and live AI-quality review when credentials are available.
+Notes: twelve mobile/desktop light/dark screenshots reviewed by a fresh UX agent; no findings/waivers. Captures stay in ux-screenshots/revision-funnel. Unrelated markscheme-audit edits retained and untouched.
+
+---
+
 ## 2026-11-22 — Scannable Progress overview
 Git HEAD: `aa0adb9` (develop, tree dirty)
 Done: added KS3/IGCSE/IB DP summary filters, collapsed subject and year/stage disclosures, and per-group started/average summaries; moved Practice below progress, labelled flashcard mastery and fixed row contrast/wording. Added Progress overview e2e coverage.

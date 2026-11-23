@@ -7,8 +7,8 @@ const out = path.resolve('ux-screenshots/revision-funnel');
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const question = {
-  id: 'angles-q1', stem: 'Which angle is reflex?', choices: ['150°', '90°', '200°', '45°'],
-  correctIndex: 2, explanation: 'A reflex angle is between 180° and 360°.', difficulty: 'easy', variantOf: 'angle-types',
+  id: 'math-yr7-angles-ang-q9', stem: 'Which angle is reflex?', choices: ['150°', '90°', '200°', '45°'],
+  correctIndex: 2, explanation: 'A reflex angle is between 180° and 360°.', difficulty: 'easy',
 };
 
 async function seedMistake(page, theme) {
@@ -37,11 +37,22 @@ for (const width of [375, 1280]) {
     await seedMistake(page, theme);
     await page.goto(`${base}/mistakes`);
     await page.getByRole('button', { name: 'Print revision sheet' }).waitFor();
-    await page.screenshot({ path: path.join(out, `mistakes-${label}.png`), fullPage: true });
+    await page.screenshot({ path: path.join(out, `mistakes-${label}.png`), fullPage: true, animations: 'disabled' });
     await page.emulateMedia({ media: 'print' });
     await page.locator('.revision-sheet').waitFor({ state: 'visible' });
-    await page.screenshot({ path: path.join(out, `revision-sheet-${label}.png`), fullPage: true });
+    await page.screenshot({ path: path.join(out, `revision-sheet-${label}.png`), fullPage: true, animations: 'disabled' });
     await page.emulateMedia({ media: 'screen' });
+
+    await page.getByRole('link', { name: 'Practise this skill' }).click();
+    await page.getByText('Targeted revision · one skill').waitFor();
+    await page.screenshot({ path: path.join(out, `targeted-skill-${label}.png`), fullPage: true, animations: 'disabled' });
+    await page.getByRole('button').filter({ hasText: /^A\./ }).click();
+    await page.getByRole('button', { name: 'See Results' }).click();
+    await page.getByRole('button', { name: 'Retry mistakes (1)' }).click();
+    await page.getByRole('button').filter({ hasText: /^C\./ }).click();
+    await page.getByRole('button', { name: 'See Results' }).click();
+    await page.getByRole('region', { name: 'Retry improvement' }).waitFor();
+    await page.screenshot({ path: path.join(out, `retry-improvement-${label}.png`), fullPage: true, animations: 'disabled' });
 
     await page.goto(`${base}/login`);
     const email = `ux-${label}-${Date.now()}@example.com`;
@@ -56,7 +67,7 @@ for (const width of [375, 1280]) {
     await choice.click();
     await page.getByRole('button', { name: 'Explain differently' }).click();
     await page.getByText(/Dummy AI help for simpler/).waitFor();
-    await page.screenshot({ path: path.join(out, `ai-help-${label}.png`), fullPage: true });
+    await page.screenshot({ path: path.join(out, `ai-help-${label}.png`), fullPage: true, animations: 'disabled' });
     await context.close();
   }
 }

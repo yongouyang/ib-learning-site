@@ -49,6 +49,7 @@ export default function QuizPageClient({
 }: QuizPageClientProps) {
   const searchParams = useSearchParams();
   const difficulty = parseDifficultyFilter(searchParams.get('difficulty'));
+  const focusedSkill = searchParams.get('skill');
   const targetLanguage = year7LanguageFor(subjectId, year);
   const { recordAttempt } = useProgress();
   const resultsRef = useRef<QuestionResult[]>([]);
@@ -76,7 +77,7 @@ export default function QuizPageClient({
 
   const handleNewSet = () => {
     resultsRef.current = [];
-    setSimilarGroups(null);
+    setSimilarGroups([]);
     setSession({ topicId, difficulty, seed: `${topicId}:${difficulty}:${randomSeed()}` });
   };
 
@@ -87,15 +88,18 @@ export default function QuizPageClient({
   };
 
   const pool = [...questions, ...materializeTemplates({ id: topicId, templates, flashcards }, sessionSeed)];
+  const requestedSimilarGroups = similarGroups ?? (focusedSkill ? [focusedSkill] : null);
+  const requestedGroups = requestedSimilarGroups?.filter((group) => pool.some((question) => groupKeyOf(question) === group));
+  const activeSimilarGroups = requestedGroups?.length ? requestedGroups : null;
   const filtered = filterQuestionsByDifficulty(pool, difficulty);
-  const scoped = similarGroups ? filtered.filter((question) => similarGroups.includes(groupKeyOf(question))) : filtered;
+  const scoped = activeSimilarGroups ? filtered.filter((question) => activeSimilarGroups.includes(groupKeyOf(question))) : filtered;
   const groupSizes = new Map<string, number>();
   for (const question of pool) {
     const key = groupKeyOf(question);
     groupSizes.set(key, (groupSizes.get(key) ?? 0) + 1);
   }
   const canOfferSimilar = grouped || [...groupSizes.values()].some((size) => size > 1);
-  const sessionQuestions = grouped || similarGroups ? sampleVariantGroups(scoped, sessionSeed) : scoped;
+  const sessionQuestions = grouped || activeSimilarGroups ? sampleVariantGroups(scoped, sessionSeed) : scoped;
   const ordered = orderQuestionsByDifficulty(sessionQuestions, sessionSeed);
 
   const filters: { key: DifficultyFilter; label: string }[] = [
@@ -115,7 +119,7 @@ export default function QuizPageClient({
 
   return (
     <div>
-      <div className="max-w-lg mx-auto px-4 pt-6">
+      {!activeSimilarGroups && <div className="max-w-lg mx-auto px-4 pt-6">
         <div className="flex gap-2" role="group" aria-label="Filter by difficulty">
           {filters.map((f) => {
             const active = difficulty === f.key;
@@ -135,11 +139,13 @@ export default function QuizPageClient({
             );
           })}
         </div>
-      </div>
+      </div>}
       {sessionReady && (
         <QuizGame
-          key={`${difficulty}:${sessionSeed}`}
+          key={`${difficulty}:${activeSimilarGroups?.join(',') ?? ''}:${sessionSeed}`}
           questions={ordered}
+          subtitle={activeSimilarGroups ? 'Targeted revision · one skill' : undefined}
+          activeSubtitle={activeSimilarGroups ? 'Targeted revision · one skill' : undefined}
           backHref={`/subjects/${subjectId}`}
           backLabel="Back to Topics"
           breadcrumbs={[
@@ -163,7 +169,8 @@ export default function QuizPageClient({
             recordAttempt(topicId, subjectId as SubjectId, topicTitle, subjectId, correctCount, totalCount, resultsRef.current);
             resultsRef.current = [];
           }}
-          onNewSet={grouped ? handleNewSet : undefined}
+          onNewSet={grouped || activeSimilarGroups ? handleNewSet : undefined}
+          newSetLabel={activeSimilarGroups ? 'Practise full topic' : 'New Question Set'}
           onSimilarQuestions={canOfferSimilar ? handleSimilarQuestions : undefined}
           getHelpContext={() => ({ subjectId: subjectId as SubjectId, topicId })}
         />
