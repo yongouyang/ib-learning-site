@@ -101,6 +101,7 @@ export function buildOpenAlertsSummary(
 /** Human-readable event labels for the email (mirrors the dashboard's map). */
 export const ANALYTICS_REPORT_EVENT_LABELS: Record<string, string> = {
   page_view: 'Page views',
+  page_performance: 'Page performance metrics',
   quiz_started: 'Quizzes started',
   quiz_question_answered: 'Quiz questions answered',
   quiz_completed: 'Quizzes completed',

@@ -35,9 +35,14 @@ function getSessionId(): string {
 /**
  * Send one event. `props` must match the server schema for `name`
  * (src/lib/analytics/types.ts) — the server rejects invalid envelopes with a
- * 400, which the client silently ignores.
+ * 400, which the client silently ignores. `options.url` attributes delayed
+ * metrics to their original navigation after the browser has changed route.
  */
-export function trackEvent(name: AnalyticsEventName, props: Record<string, unknown> = {}): void {
+export function trackEvent(
+  name: AnalyticsEventName,
+  props: Record<string, unknown> = {},
+  options: { url?: string } = {}
+): void {
   if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
   if (navigator.doNotTrack === '1') return;
   try {
@@ -45,7 +50,7 @@ export function trackEvent(name: AnalyticsEventName, props: Record<string, unkno
     const body = JSON.stringify({
       name,
       props,
-      url: window.location.href,
+      url: options.url ?? window.location.href,
       referrer: document.referrer,
       sessionId: getSessionId(),
       clientTs: new Date().toISOString(),

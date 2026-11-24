@@ -38,6 +38,7 @@
     "security": "npm run security:sast && npm run security:sca",
     "audit:leaks": "tsx scripts/audit-leaks.ts",
     "analyze:funnel": "tsx scripts/analyze-quiz-funnel.ts",
+    "analyze:performance": "tsx scripts/analyze-performance.ts",
     "audit:links": "tsx scripts/audit-internal-links.ts",
     "check:registry": "tsx scripts/generate-registry.ts --check",
     "audit:overflow": "node scripts/audit-overflow.mjs",

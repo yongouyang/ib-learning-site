@@ -610,6 +610,13 @@ page_view:
   url: "<current path>"
   referrer: "<document.referrer>"
 
+# Anonymous real-user page performance (Next.js useReportWebVitals)
+page_performance:
+  metric: "TTFB|FCP|LCP|CLS|INP"
+  value: "<bounded non-negative number; ms except unitless CLS>"
+  rating: "good|needs-improvement|poor"
+  navigationType: "navigate|reload|prerender|back-forward|back-forward-cache|restore|soft-navigation"
+
 # User journey events (custom)
 quiz_started:
   subjectId, topicId, source: "topic_page" | "diagnostic" | "mixed_review" | "ladder" | "custom_test", attemptId?, kind?

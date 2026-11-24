@@ -24,6 +24,7 @@ const DAYS = [7, 30, 90] as const;
 
 const EVENT_LABELS: Record<string, string> = {
   page_view: 'Page views',
+  page_performance: 'Page performance metrics',
   quiz_started: 'Quizzes started',
   quiz_question_answered: 'Quiz questions answered',
   quiz_completed: 'Quizzes completed',

@@ -124,6 +124,21 @@ describe('POST /api/analytics/event', () => {
     expect(summary.topReferrers).toEqual([{ referrer: 'www.google.com', count: 1 }]);
   });
 
+  it('accepts a page-performance metric and stores its bounded measurements', async () => {
+    const t = makeDeps();
+    const res = await postEvent(t, envelope({
+      name: 'page_performance',
+      url: 'https://octavlearning.com/subjects/math?from=soft-navigation',
+      props: { metric: 'LCP', value: 1234.5, rating: 'good', navigationType: 'soft-navigation' },
+    }));
+
+    expect(res.status).toBe(204);
+    expect(rawEvents(t.storage)[0]).toMatchObject({
+      name: 'page_performance',
+      props: { metric: 'LCP', value: 1234.5, rating: 'good', navigationType: 'soft-navigation' },
+    });
+  });
+
   it('records the ORIGINAL viewer host from x-forwarded-host (dev/prod split)', async () => {
     // CloudFront rewrites Host to the origin and forwards the real viewer host
     // in X-Forwarded-Host (AllViewerExceptHostHeader policy) — the stored host

@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-11-24 — Production release and page-performance telemetry
+Git HEAD: `057c610` (develop + main, tree dirty)
+Done: promoted targeted revision/retry to production. Added anonymous Next.js Web Vitals events (TTFB/FCP/LCP/CLS/INP, rating/navigation type/path), schema bounds, dashboard labels and privacy/taxonomy updates. Added `analyze:performance` with p50/p75/p95 by metric, navigation type and path.
+Verified: dev + prod targeted revision/retry/full-topic/similar-practice journeys on Desktop/iPhone PASS with ingest stubbed; CI/CD 45398076162 + deploy-prod + live SEO PASS; prod serves `057c610`. 1816 full unit + final focused 51 PASS, tsc, lint 0 errors (35 baseline), 11 Lambdas, static 435 URLs + leak PASS; performance e2e Desktop/iPhone dev + static PASS; live report query PASS (0 pre-launch samples).
+Next: watch dev CI/CD and smoke real performance ingestion; collect real-user samples, then run `AWS_PROFILE=ib-learning-site npm run analyze:performance -- --days=30 --host=octavlearning.com` before choosing optimisation work. Continue funnel/live-AI-quality review.
+Notes: no visible UI changed, so UX screenshot review not required. Single synthetic cold-load samples only: desktop `/subjects/math` TTFB 990ms/LCP 2428ms; other LCP 1112–1916ms and CLS 0. Do not treat these as statistically meaningful or as an optimisation mandate.
+
+---
+
 ## 2026-11-23 — Targeted revision and retry improvement
 Git HEAD: `2324112` (develop, tree dirty)
 Done: production-smoked Progress and all 165 questions in the eleven revised Year 7 German/Chinese quizzes on desktop plus key iPhone rejection/speech paths; no product defect found. Notebook snapshots now open one-skill quizzes with a full-topic exit; retry results show corrected count, correction-rate gain and the next action, with similar practice after a clean retry.

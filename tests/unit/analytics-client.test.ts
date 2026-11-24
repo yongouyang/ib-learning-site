@@ -86,6 +86,19 @@ describe('analytics client', () => {
     expect(envelope.props).toEqual({ ctaId: 'hero-start' });
   });
 
+  it('can attribute a metric to its navigation URL rather than a later route', () => {
+    const beacon = stubBeacon();
+    const navigationURL = 'https://octavlearning.com/subjects/math?from=nav';
+
+    trackEvent('page_performance', {
+      metric: 'LCP', value: 1200, rating: 'good', navigationType: 'soft-navigation',
+    }, { url: navigationURL });
+
+    const envelope = lastBeaconBody(beacon);
+    expect(envelope.url).toBe(navigationURL);
+    expect(analyticsEventSchema.safeParse(envelope).success).toBe(true);
+  });
+
   it('falls back to fetch keepalive when sendBeacon is unavailable', () => {
     removeBeacon();
 

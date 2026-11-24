@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import type { SessionRecord, UserRecord } from '../auth/types';
 import { LEADERBOARD_SCOPES, WEEK_KEY_RE } from '../leaderboard/types';
+import { PAGE_PERFORMANCE_METRICS, PAGE_PERFORMANCE_NAVIGATION_TYPES } from './performance';
 
 // Phase A — analytics types (docs/phase-a-analytics-plan.md — the
 // authoritative design). Single-table data model on octav-analytics-events
@@ -31,6 +32,7 @@ export const ANALYTICS_TOP_REFERRERS = 10;
 // the full event set, one enum.
 export const ANALYTICS_EVENT_NAMES = [
   'page_view',
+  'page_performance',
   'quiz_started',
   'quiz_question_answered',
   'quiz_completed',
@@ -105,6 +107,12 @@ const aiHelpContext = {
 // is rejected so an email can never leak through analytics.
 const perNameProps: Record<AnalyticsEventName, z.ZodTypeAny> = {
   page_view: z.object({}),
+  page_performance: z.object({
+    metric: z.enum(PAGE_PERFORMANCE_METRICS),
+    value: z.number().finite().min(0).max(120_000),
+    rating: z.enum(['good', 'needs-improvement', 'poor']),
+    navigationType: z.enum(PAGE_PERFORMANCE_NAVIGATION_TYPES),
+  }),
   quiz_started: z.object({ ...quizContext, kind: z.enum(['initial', 'mistakes', 'all']).optional() }),
   quiz_question_answered: z.object({
     ...quizContext,

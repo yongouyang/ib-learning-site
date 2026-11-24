@@ -22,18 +22,24 @@ async function signIn(page: Page, email: string) {
 }
 
 test.describe('analytics', () => {
-  test('page_view fires on navigation', async ({ page }) => {
-    const events: string[] = [];
+  test('page view and performance metrics fire on navigation', async ({ page }) => {
+    const events: Array<{ name: string; props: Record<string, unknown> }> = [];
     await page.route('**/api/analytics/event', async (route) => {
-      const payload = route.request().postDataJSON() as { name: string };
-      events.push(payload.name);
+      const payload = route.request().postDataJSON() as { name: string; props: Record<string, unknown> };
+      events.push(payload);
       await route.fulfill({ status: 204 });
     });
 
     await page.goto('/');
     await expect(page.getByRole('heading', { name: /Master secondary school/ })).toBeVisible();
 
-    await expect.poll(() => events).toContain('page_view');
+    await expect.poll(() => events.map((event) => event.name)).toContain('page_view');
+    await expect.poll(() => events.some((event) => event.name === 'page_performance' && event.props.metric === 'TTFB')).toBe(true);
+    await expect.poll(() => events.some((event) => event.name === 'page_performance' && event.props.metric === 'FCP')).toBe(true);
+    const performance = events.find((event) => event.name === 'page_performance');
+    expect(performance?.props.value).toEqual(expect.any(Number));
+    expect(performance?.props.rating).toMatch(/^(good|needs-improvement|poor)$/);
+    expect(performance?.props.navigationType).toBe('navigate');
   });
 
   test('quiz flow fires quiz_started and quiz_completed', async ({ page }) => {

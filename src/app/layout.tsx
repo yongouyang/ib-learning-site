@@ -13,6 +13,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { AccountButton } from '@/components/AccountButton';
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
 import { AnalyticsTracker } from '@/components/AnalyticsTracker';
+import { WebVitals } from '@/components/WebVitals';
 import { JsonLd } from '@/components/json-ld';
 import { orgNodes } from '@/lib/seo/organization';
 import { SITE, SOCIAL_IMAGE } from '@/lib/seo/site';
@@ -137,6 +138,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ServiceWorkerRegistration />
             <JsonLd nodes={orgNodes()} />
             <AnalyticsTracker />
+            <WebVitals />
             <OfflineBanner />
             <UpdateToast />
             <DevEnvironmentIndicator />

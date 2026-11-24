@@ -28,6 +28,7 @@ function envelope(overrides: Record<string, unknown> = {}): unknown {
 
 const validProps: Record<(typeof ANALYTICS_EVENT_NAMES)[number], Record<string, unknown>> = {
   page_view: {},
+  page_performance: { metric: 'LCP', value: 1234.5, rating: 'good', navigationType: 'navigate' },
   quiz_started: { subjectId: 'math', topicId: 'math-yr7-algebra-1', source: 'topic_page' },
   quiz_question_answered: { subjectId: 'math', topicId: 'math-yr7-algebra-1', source: 'topic_page', questionNumber: 1, totalCount: 10, correct: true },
   quiz_completed: { subjectId: 'math', topicId: 'math-yr7-algebra-1', correctCount: 8, totalCount: 10, durationSeconds: 42 },
@@ -92,6 +93,18 @@ describe('analyticsEventSchema', () => {
     expect(
       analyticsEventSchema.safeParse(envelope({ name: 'auth_otp_requested', props: { emailDomain: 'example.com' } })).success
     ).toBe(true);
+  });
+
+  it('bounds performance metrics and rejects unknown measurements', () => {
+    const valid = validProps.page_performance;
+    const accepted = (props: Record<string, unknown>) =>
+      analyticsEventSchema.safeParse(envelope({ name: 'page_performance', props })).success;
+    expect(accepted(valid)).toBe(true);
+    expect(accepted({ ...valid, metric: 'Next.js-hydration' })).toBe(false);
+    expect(accepted({ ...valid, value: -1 })).toBe(false);
+    expect(accepted({ ...valid, value: Number.NaN })).toBe(false);
+    expect(accepted({ ...valid, rating: 'unknown' })).toBe(false);
+    expect(accepted({ ...valid, navigationType: 'unknown' })).toBe(false);
   });
 
   it('leaderboard events (D8): rejects bad scope, week key and action', () => {
