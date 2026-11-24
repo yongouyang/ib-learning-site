@@ -253,6 +253,7 @@ export interface RawAnalyticsEventItem {
   s: string;
   name: string;
   props: Record<string, unknown>;
+  urlPath: string;
   host: string;
   sessionId: string;
   ua: string; // truncated to ANALYTICS_MAX_UA

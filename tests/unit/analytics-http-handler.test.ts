@@ -135,6 +135,7 @@ describe('POST /api/analytics/event', () => {
     expect(res.status).toBe(204);
     expect(rawEvents(t.storage)[0]).toMatchObject({
       name: 'page_performance',
+      urlPath: '/subjects/math',
       props: { metric: 'LCP', value: 1234.5, rating: 'good', navigationType: 'soft-navigation' },
     });
   });

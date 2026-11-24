@@ -33,7 +33,7 @@ Every piece copies an existing, tested pattern: `src/lib/progress/*` module shap
 
 Single table, two item kinds (PK `k`, SK `s`):
 
-- **Raw event** — `k = "ev"`, `s = "<date>#<ts>#<uuid>"`, attrs: `name`, `props` (map), `host`, `sessionId`, `ua` (truncated 80 chars), `expiresAt = now + 90d`.
+- **Raw event** — `k = "ev"`, `s = "<date>#<ts>#<uuid>"`, attrs: `name`, `props` (map), `urlPath` (normalised path), `host`, `sessionId`, `ua` (truncated 80 chars), `expiresAt = now + 90d`.
 - **Daily aggregate** — `k = "agg"`, `s = "<date>#<kind>#<key>"` where kind ∈ `event` (key = event name), `page` (key = path), `referrer` (key = host-only referrer, `"direct"` when empty), `host` (key = hostname — separates dev vs prod traffic). Atomic `ADD #c :one` upsert, `expiresAt = now + 400d` (12-month reporting + margin).
 
 One ingest write = 1 Put (raw) + 1 Update (aggregate ADD) per event. Dashboard reads only aggregates: one `Query` on `k="agg"`, `s BETWEEN <oldest-date> AND <today>` — bounded, cheap, no scans.

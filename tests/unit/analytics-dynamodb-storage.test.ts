@@ -81,6 +81,7 @@ describe('DynamoAnalyticsStorage.recordEvent — command shapes', () => {
         k: 'ev',
         name: 'quiz_started',
         props: { subjectId: 'math', topicId: 'math-yr7-algebra-1', source: 'topic_page' },
+        urlPath: '/subjects/math/math-yr7-algebra-1/quiz',
         host: 'octavlearning.com',
         sessionId: 'sess-1',
         ua: 'TestAgent/1.0',

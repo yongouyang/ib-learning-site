@@ -14,7 +14,7 @@ export type PagePerformanceMetric = (typeof PAGE_PERFORMANCE_METRICS)[number];
 export interface PagePerformanceEvent {
   name: string;
   props: Record<string, unknown>;
-  urlPath: string;
+  urlPath?: string;
 }
 
 export interface PagePerformanceStats {
@@ -42,7 +42,7 @@ interface Sample {
   value: number;
   rating: string;
   navigationType: string;
-  path: string;
+  path: string | null;
 }
 
 function percentile(values: number[], fraction: number): number {
@@ -89,7 +89,13 @@ export function buildPerformanceReport(events: PagePerformanceEvent[], pathLimit
       typeof rating !== 'string' ||
       typeof navigationType !== 'string'
     ) continue;
-    samples.push({ metric: metric as PagePerformanceMetric, value, rating, navigationType, path: event.urlPath });
+    samples.push({
+      metric: metric as PagePerformanceMetric,
+      value,
+      rating,
+      navigationType,
+      path: typeof event.urlPath === 'string' ? event.urlPath : null,
+    });
   }
 
   const report: PagePerformanceReport = {
@@ -108,7 +114,7 @@ export function buildPerformanceReport(events: PagePerformanceEvent[], pathLimit
     report.byNavigation[navigation] = target;
   }
 
-  const paths = [...new Set(samples.map((sample) => sample.path))]
+  const paths = [...new Set(samples.map((sample) => sample.path).filter((path): path is string => path !== null))]
     .sort((a, b) => {
       const aLcp = summarise(samples.filter((sample) => sample.path === a && sample.metric === 'LCP'))?.p75 ?? -1;
       const bLcp = summarise(samples.filter((sample) => sample.path === b && sample.metric === 'LCP'))?.p75 ?? -1;

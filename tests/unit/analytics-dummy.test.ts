@@ -38,6 +38,7 @@ describe('InMemoryAnalyticsStorage.recordEvent', () => {
     expect(raw[0].s).toMatch(/^2026-08-15#\d{13}#[0-9a-f-]{36}$/);
     expect(raw[0].name).toBe('quiz_started');
     expect(raw[0].props).toEqual({ x: 1 });
+    expect(raw[0].urlPath).toBe('/subjects/math');
     expect(raw[0].expiresAt).toBe(Math.floor(NOW_MS / 1000) + 90 * 86_400);
 
     const summary = await storage.getSummary(30);

@@ -68,4 +68,14 @@ describe('page performance report', () => {
     expect(Object.keys(report.byPath)).toEqual(['/b']);
     expect(buildPerformanceReport([])).toMatchObject({ samples: 0, byMetric: {}, byNavigation: {}, byPath: {} });
   });
+
+  it('keeps legacy raw events in overall totals without inventing a path bucket', () => {
+    const legacy = event('TTFB', 500);
+    delete legacy.urlPath;
+    const report = buildPerformanceReport([legacy]);
+
+    expect(report.samples).toBe(1);
+    expect(report.byMetric.TTFB).toMatchObject({ count: 1, p75: 500 });
+    expect(report.byPath).toEqual({});
+  });
 });

@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-11-24 — Dev telemetry launch and raw-path fix
+Git HEAD: `53b433d` (develop, tree dirty)
+Done: committed/pushed performance telemetry; dev CI/CD 45402120528 passed and dev served `53b433d`. Real dev ingestion returned 204 and the report queried live data. Smoke found raw rows omitted `urlPath`; both storage adapters now persist the normalized path, and pre-fix rows stay in overall metrics without a false `undefined` path bucket.
+Verified: focused 37 unit (storage/handler/parity/performance), tsc, changed-file lint and 11 Lambda builds PASS. Legacy live sample reports no path bucket as intended.
+Next: push this fix, watch dev CI/CD, then generate a fresh dev sample and verify its path is `/`; collect real-user samples before optimisation. Continue funnel/live-AI-quality review.
+Notes: unrelated markscheme-audit edits remain uncommitted and untouched.
+
+---
+
 ## 2026-11-24 — Production release and page-performance telemetry
 Git HEAD: `057c610` (develop + main, tree dirty)
 Done: promoted targeted revision/retry to production. Added anonymous Next.js Web Vitals events (TTFB/FCP/LCP/CLS/INP, rating/navigation type/path), schema bounds, dashboard labels and privacy/taxonomy updates. Added `analyze:performance` with p50/p75/p95 by metric, navigation type and path.

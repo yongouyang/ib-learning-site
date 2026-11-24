@@ -96,6 +96,7 @@ export class DynamoAnalyticsStorage implements AnalyticsStorage {
           s: rawS,
           name: event.name,
           props: event.props,
+          urlPath: event.urlPath,
           host: event.host,
           sessionId: event.sessionId,
           ua: event.ua.slice(0, ANALYTICS_MAX_UA),
