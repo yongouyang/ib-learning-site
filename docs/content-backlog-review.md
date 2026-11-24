@@ -231,23 +231,25 @@ chem-earth-1 was 2/21/2/2). A `correctIndex` rotation permuted only choice ORDER
 questions whose explanations name values, never positions. C's product goal — a retake
 surfacing fresh variants at a stable session length — is now met for **245 of 245 topics**.
 
-### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
+### D. Content defects the gates cannot see — **MEASURED 2026-09-19, refreshed 2026-11-14**
 
 This is the cheapest item here and the only one whose value is *student-facing
 correctness* rather than volume. Three named classes, none of them caught by anything.
-Tool: `scripts/audit-content-ai.ts` (`npm run audit:ai:markschemes` / `audit:ai:answerkeys`),
-model pinned to `jev-1.13.0` and echoed into every report.
+Tool: `scripts/audit-content-ai.ts` (`npm run audit:ai:markschemes` /
+`audit:ai:markscheme-coverage` / `audit:ai:answerkeys`), model pinned to `jev-1.13.0`
+and echoed into every report.
 
-1. **Markscheme independence — CHECKED, rule holds.** All 231 multi-point questions /
-   **580 markscheme points** were judged for double-counting (today the only enforcement is
-   `marks === markscheme.length`). **One candidate**, `ict-ks3-set-1-q7` (a loop-trace
-   question), hand-triaged as *adjacency, not a defect*: its three points are output /
-   pass-count / stop-reason, which is the standard awarding shape, and the model scored all
-   three elevated (0.45/0.57/0.32) — it was reading overlap between the parts, not a
-   duplicate. Clean cases score 0.07–0.11 and a deliberately planted duplicate 0.56–0.59.
-   The deterministic half is now a gate too: `validate-content.ts` rejects a markscheme
-   point without an `M`/`A`/`B` type prefix (all 580 already comply — M 104 / A 132 /
-   B 344 — so it guards new content, the same shape as the 20-mark rule).
+1. **Markscheme independence and essential-step coverage — CHECKED, rules hold.** The
+   2026-11-14 pass covered **371 free-response questions / 920 points**. Independence
+   judged the 366 multi-point questions / 915 points and returned two candidates:
+   `chem-igcse-set-1-q6` (naming limestone versus explaining its purpose) and the previously
+   reviewed `ict-ks3-set-1-q7` (output / pass-count / stop-reason). Both are distinct work,
+   not double-counting; the highest near-threshold cases were also reviewed as conventional
+   graduated or method/accuracy marks. The new coverage judgement checked all 371 questions
+   and returned one candidate, `hist-ks3-set-1-q5`: its Quit India detail is an extra valid
+   explanation, not an essential uncredited step. No content changes resulted. All six clean
+   and deliberately defective live fixtures passed. The deterministic half remains a gate:
+   `validate-content.ts` rejects a point without an `M`/`A`/`B` type prefix.
 2. **MC answer keys — MEASURED, and the judgement is NOT fit for computational
    questions.** A 90-question sample produced 13 findings across 9 questions, and **every
    one was a maths question** (9 of the 35 maths questions sampled) while **all 55 sampled

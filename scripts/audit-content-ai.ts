@@ -7,8 +7,10 @@
  *   1. `--mode=markscheme` — a markscheme point that credits the SAME work as another
  *      point, so one student action earns two ticks. `docs/CONTENT_STYLE.md` "Practice
  *      papers" requires "points must be independently awardable (no double-counting)".
- *      The only thing enforced today is `marks === markscheme.length`.
- *   2. `--mode=answerkey` — an MC question with a SECOND defensible correct answer.
+ *      The only deterministic check is `marks === markscheme.length`.
+ *   2. `--mode=markscheme-coverage` — an essential step or required response that has no
+ *      markscheme point, so even the complete model answer could not earn every mark.
+ *   3. `--mode=answerkey` — an MC question with a SECOND defensible correct answer.
  *      `correctIndex` is only range-checked 0-3 (src/content/schema.ts:56), so a second
  *      right answer is invisible to every gate — and it is the defect that actually
  *      harms a student.
@@ -18,7 +20,8 @@
  * TYPESAFE_BASE_URL); source that file first — the npm scripts below do not do it for you:
  *
  *   set -a && . ~/.config/typesafe/env && set +a
- *   npm run audit:ai:markschemes                 # whole corpus (233 FR questions)
+ *   npm run audit:ai:markschemes                 # whole-corpus independence check
+ *   npm run audit:ai:markscheme-coverage         # whole-corpus essential-step check
  *   npm run audit:ai:markschemes -- --limit=6    # calibration slice
  *   npm run audit:ai:answerkeys -- --sample=90   # MC sample (overrides the 30 default)
  *   npx tsx scripts/audit-content-ai.ts --selftest   # harness self-check (live API)
@@ -26,13 +29,17 @@
  * The report lands in tools/data/ai-audit/ (gitignored) — it is a working artefact, and
  * the counts that matter are recorded in PROGRESS.md.
  *
- * MEASURED SCOPE (2026-09-19, model jev-1.13.0 — read this before trusting an output):
+ * MEASURED SCOPE (2026-11-14, model jev-1.13.0 — read this before trusting an output):
  *
  *   --mode=markscheme   USABLE. The judgement is semantic (does this point credit the same
- *                       work as another?) and needs no arithmetic. Whole corpus: 231
- *                       questions / 580 points -> 1 candidate, hand-triaged as adjacency
- *                       rather than a defect. Clean cases score 0.07-0.11, a deliberately
- *                       planted duplicate 0.56-0.59, so 0.5 sits in an empty band.
+ *                       work as another?) and needs no arithmetic. Whole corpus: 366
+ *                       multi-point questions / 915 points -> 2 candidates, both hand-triaged
+ *                       as distinct or conventionally graduated work rather than defects.
+ *                       Clean fixtures score 0.07-0.11 and a planted duplicate 0.51-0.54.
+ *   --mode=markscheme-coverage
+ *                       USABLE AS A REVIEW AID. All 371 questions -> 1 candidate, hand-triaged
+ *                       as extra valid detail rather than an essential missing point. Clean
+ *                       fixtures score 0.10-0.14 and a planted missing solution 0.62.
  *   --mode=answerkey    NOT USABLE ON COMPUTATIONAL QUESTIONS. 90-question sample: 13
  *                       findings across 9 questions, and EVERY finding was a maths
  *                       question (9 of 35 sampled maths questions) — while all 55 sampled
@@ -112,7 +119,7 @@ export type Judge = (state: unknown, questions: Record<string, unknown>) => Prom
 export interface Finding {
   /** Content id this finding belongs to (question id). */
   id: string;
-  kind: 'possible-double-count' | 'key-below-threshold' | 'second-correct-answer';
+  kind: 'possible-double-count' | 'possible-missing-step' | 'key-below-threshold' | 'second-correct-answer';
   label: string;
   detail: string;
   score: number;
@@ -203,6 +210,60 @@ export function evaluateMarkscheme(
     }
   });
   return findings;
+}
+
+/**
+ * Complement to independence: a complete response must be able to earn every point.
+ * This deliberately ignores numeric correctness, which is recomputed by hand instead.
+ */
+export function buildMarkschemeCoverageRequest(q: PaperQuestion): {
+  state: unknown;
+  questions: Record<string, unknown>;
+} {
+  const state = {
+    question: { stem: q.stem, marks: q.marks, modelAnswer: q.modelAnswer },
+    markscheme: q.markscheme.map((text, i) => ({ point: i + 1, type: markPrefix(text), text })),
+    markingConvention:
+      'Each markscheme point is exactly one tickable mark. One point may intentionally credit ' +
+      'several related aspects of a response. The model answer shows a complete response, but ' +
+      'its individual sentences and arithmetic lines do not each require separate marks.',
+  };
+  return {
+    state,
+    questions: {
+      essential_coverage: {
+        type: 'noul',
+        instructions:
+          'Ignoring arithmetic correctness, does the markscheme omit an essential step or ' +
+          'required response, so that a student who gave the complete model answer could ' +
+          'fail to earn every mark?',
+        criteria: {
+          true:
+            'At least one essential step or response required by the question or demonstrated ' +
+            'in the model answer has no corresponding markscheme point.',
+          false:
+            'Every essential step and required response maps to a markscheme point. Do not ' +
+            'demand a separate point for every sentence, explanation, or arithmetic line.',
+        },
+      },
+    },
+  };
+}
+
+export function evaluateMarkschemeCoverage(
+  q: PaperQuestion,
+  answers: Answers,
+  threshold = DEFAULT_THRESHOLD,
+): Finding[] {
+  const score = answers.essential_coverage?.noul;
+  if (typeof score !== 'number' || score < threshold) return [];
+  return [{
+    id: q.id,
+    kind: 'possible-missing-step',
+    label: 'essential-step coverage',
+    detail: q.modelAnswer,
+    score,
+  }];
 }
 
 // --- answer-key judgement -----------------------------------------------------------
@@ -485,9 +546,39 @@ export const FIXTURES: Fixture[] = [
   },
 ];
 
+interface CoverageFixture {
+  name: string;
+  question: PaperQuestion;
+  expect: 'clean' | 'missing';
+}
+
+export const COVERAGE_FIXTURES: CoverageFixture[] = [
+  {
+    name: 'clean complete method + accuracy coverage',
+    expect: 'clean',
+    question: FIXTURES[0].question,
+  },
+  {
+    name: 'clean independent content-point coverage',
+    expect: 'clean',
+    question: FIXTURES[2].question,
+  },
+  {
+    name: 'planted missing required negative solution',
+    expect: 'missing',
+    question: {
+      id: 'fixture-missing-step',
+      stem: 'Solve $x^2 = 9$.',
+      marks: 2,
+      markscheme: ['M1: taking square roots of both sides', 'A1: $x = 3$'],
+      modelAnswer: 'Taking square roots gives $x = 3$ or $x = -3$. Both values satisfy the equation.',
+    },
+  },
+];
+
 // --- main ---------------------------------------------------------------------------
 interface Args {
-  mode: 'markscheme' | 'answerkey' | 'difficulty';
+  mode: 'markscheme' | 'markscheme-coverage' | 'answerkey' | 'difficulty';
   limit?: number;
   sample?: number;
   subject?: string;
@@ -540,6 +631,27 @@ async function runSelftest(judge: Judge): Promise<number> {
   return failures;
 }
 
+async function runCoverageSelftest(judge: Judge): Promise<number> {
+  console.log(`\nEssential-step coverage self-check against the live API (model ${MODEL})\n`);
+  let failures = 0;
+  for (const fx of COVERAGE_FIXTURES) {
+    const req = buildMarkschemeCoverageRequest(fx.question);
+    const answers = await judge(req.state, req.questions);
+    const score = answers.essential_coverage?.noul ?? NaN;
+    const flagged = score >= DEFAULT_THRESHOLD;
+    const ok = fx.expect === 'missing' ? flagged : !flagged;
+    if (!ok) failures++;
+    console.log(`  ${ok ? 'PASS' : 'FAIL'}  ${fx.name}  [expect ${fx.expect}]`);
+    console.log(`          coverage: ${fmt(score)}`);
+  }
+  console.log(
+    failures
+      ? `\n  ${failures} coverage fixture(s) did not behave as expected — calibrate before running the corpus.\n`
+      : '\n  all coverage fixtures behave as expected\n',
+  );
+  return failures;
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   let servedModel = '';
@@ -551,7 +663,8 @@ async function main(): Promise<void> {
   });
 
   if (args.selftest) {
-    process.exit((await runSelftest(judge)) > 0 ? 1 : 0);
+    const failures = (await runSelftest(judge)) + (await runCoverageSelftest(judge));
+    process.exit(failures > 0 ? 1 : 0);
   }
 
   const findings: Finding[] = [];
@@ -574,6 +687,20 @@ async function main(): Promise<void> {
       raw.push({ id: q.id, answers });
       checked++;
       const tag = f.length ? `\n     ^ ${f.map((x) => `${x.label}=${fmt(x.score)}`).join(' ')}` : '';
+      console.log(`  ${String(checked).padStart(3)} ${q.id} (${q.marks} marks)${tag}`);
+    }
+  } else if (args.mode === 'markscheme-coverage') {
+    let qs = loadPaperQuestions();
+    if (args.limit) qs = qs.slice(0, args.limit);
+    console.log(`\nMarkscheme essential-step coverage — ${qs.length} free-response questions\n`);
+    for (const q of qs) {
+      const req = buildMarkschemeCoverageRequest(q);
+      const answers = await judge(req.state, req.questions);
+      const f = evaluateMarkschemeCoverage(q, answers, args.threshold);
+      findings.push(...f);
+      raw.push({ id: q.id, answers });
+      checked++;
+      const tag = f.length ? `  <-- ${f.map((x) => `${x.label}=${fmt(x.score)}`).join(' ')}` : '';
       console.log(`  ${String(checked).padStart(3)} ${q.id} (${q.marks} marks)${tag}`);
     }
   } else if (args.mode === 'difficulty') {
@@ -639,7 +766,9 @@ async function main(): Promise<void> {
             ? 'Findings on computational questions are dominated by model arithmetic errors (9/35 maths flagged, all hand-verified false positives 2026-09-19; 0/55 in other subjects). Hand-verify every flag.'
             : args.mode === 'difficulty'
               ? 'Advisory only. The score is a threshold, never a magnitude; a disagreement means "read the question", not "the tag is wrong".'
-              : 'Findings are semantic candidates for human triage; the score is not a severity measure.',
+              : args.mode === 'markscheme-coverage'
+                ? 'Coverage findings are candidates for human triage. Numeric correctness is deliberately outside this judgement; one point may intentionally cover several related aspects.'
+                : 'Findings are semantic candidates for human triage; the score is not a severity measure.',
         checked,
         findings,
         raw,

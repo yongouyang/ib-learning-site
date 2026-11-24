@@ -9,11 +9,13 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   buildAnswerKeyRequest,
   buildMarkschemeRequest,
+  buildMarkschemeCoverageRequest,
   DIFFICULTY_LEVELS,
   buildDifficultyRequest,
   difficultyLabel,
   evaluateAnswerKey,
   evaluateMarkscheme,
+  evaluateMarkschemeCoverage,
   markPrefix,
   makeJudge,
   sampleEvenly,
@@ -105,6 +107,35 @@ describe('evaluateMarkscheme', () => {
       }),
     ).toEqual([]);
     expect(evaluateMarkscheme(frq, { point_1: { type: 'noul' } })).toEqual([]);
+  });
+});
+
+describe('markscheme essential-step coverage', () => {
+  it('asks one coverage Noul with the complete response and every point in state', () => {
+    const req = buildMarkschemeCoverageRequest(frq);
+    expect(Object.keys(req.questions)).toEqual(['essential_coverage']);
+    const question = req.questions.essential_coverage as {
+      type: string;
+      instructions: string;
+      criteria: Record<string, string>;
+    };
+    expect(question.type).toBe('noul');
+    expect(question.instructions).toContain('Ignoring arithmetic correctness');
+    expect(question.criteria.false).toContain('Do not demand a separate point');
+    expect(JSON.stringify(req.state)).toContain(frq.modelAnswer);
+    expect(JSON.stringify(req.state)).toContain(frq.markscheme[0]);
+  });
+
+  it('flags only an omitted essential step at or above the threshold', () => {
+    const flagged = evaluateMarkschemeCoverage(frq, {
+      essential_coverage: { type: 'noul', noul: 0.73 },
+    });
+    expect(flagged).toHaveLength(1);
+    expect(flagged[0]).toMatchObject({ id: 'q1', kind: 'possible-missing-step', score: 0.73 });
+    expect(evaluateMarkschemeCoverage(frq, {
+      essential_coverage: { type: 'noul', noul: 0.49 },
+    })).toEqual([]);
+    expect(evaluateMarkschemeCoverage(frq, {})).toEqual([]);
   });
 });
 

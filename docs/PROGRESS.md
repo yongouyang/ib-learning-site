@@ -134,6 +134,22 @@ Notes: no content or registry changes; no UX waivers. Unrelated working-tree cha
 
 ---
 
+## 2026-11-14 — Markscheme coverage audit and revision QA
+Git HEAD: `f2e12a3` (develop, tree dirty)
+Done: added `audit:ai:markscheme-coverage` with injectable judgments, two unit cases and live
+  clean/defective fixtures; reran independence plus coverage over 371 FR questions / 920 points.
+  Hand review waived two independence candidates and one coverage candidate; no content defects
+  confirmed. Updated the AI-audit guidance and measurements.
+Verified: all six live fixtures; 1769 unit, tsc, lint 0 errors (35 baseline warnings); content
+  audit 0/0 (5152); static 435 URLs + leak PASS; focused static revision/AI/sync journeys 22
+  Desktop + 17 iPhone PASS. Live AI quality NOT run: `FEEDBACK_PROVIDER` is unset locally.
+Next: run `evaluate:ai-help` when real provider configuration is available; strengthen the
+  revision loop's next action and retry improvement. Production-usage analysis stays deferred.
+Notes: no content, registry or data-migration changes. Reports remain gitignored under
+  tools/data/ai-audit. No user-visible surface changed, so no UX screenshot pass was required.
+
+---
+
 ## 2026-11-13 — Release closeout and mixed-exam navigation fix
 Git HEAD: `44cf6cf` (develop + main, tree dirty)
 Done: promoted the answer-key/custom-exam batch to production. Live smoke found the written

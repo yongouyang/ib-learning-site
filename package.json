@@ -24,6 +24,7 @@
     "render:illustrations": "node scripts/render-illustrations.mjs",
     "audit:content": "tsx scripts/audit-content.ts",
     "audit:ai:markschemes": "tsx scripts/audit-content-ai.ts --mode=markscheme",
+    "audit:ai:markscheme-coverage": "tsx scripts/audit-content-ai.ts --mode=markscheme-coverage",
     "audit:ai:answerkeys": "tsx scripts/audit-content-ai.ts --mode=answerkey --sample=30",
     "evaluate:ai-help": "tsx scripts/evaluate-ai-help.ts",
     "generate:registry": "tsx scripts/generate-registry.ts",
