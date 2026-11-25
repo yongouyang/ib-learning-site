@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-11-25 — Performance rollout and funnel separation
+Git HEAD: `a11f1c7` (develop + main, tree dirty)
+Done: fresh dev Web Vitals 204s report TTFB/FCP at `/`; promoted `a11f1c7` to production.
+  Audited raw 30-day funnel events; `analyze:funnel` now separates 12 attempt-linked journeys
+  from five legacy groups, with explicit legacy buckets, a test-traffic caveat and regressions.
+Verified: CI/CD 45629548051 + production smoke/live SEO PASS; prod `a11f1c7`, analytics health OK.
+  1819 unit, tsc, lint 0 errors (35 baseline), content 0/0 (5152), illustrations/layout,
+  static 435 URLs + leak PASS; live segmented funnel report PASS.
+Next: commit/push the funnel fix when requested; collect real production Web Vitals before
+  optimising; rerun the funnel beyond the single QA session; run live AI quality with credentials.
+Notes: funnel edits are local/uncommitted. No browser surface changed; local e2e not run. All
+  12 linked attempts share one anonymous session/Mac UAs, so no learner abandonment inference.
+  Headless dev samples delivered TTFB/FCP; LCP/CLS were not observed during the wait.
+
+---
+
 ## 2026-11-24 — Dev telemetry launch and raw-path fix
 Git HEAD: `53b433d` (develop, tree dirty)
 Done: committed/pushed performance telemetry; dev CI/CD 45402120528 passed and dev served `53b433d`. Real dev ingestion returned 204 and the report queried live data. Smoke found raw rows omitted `urlPath`; both storage adapters now persist the normalized path, and pre-fix rows stay in overall metrics without a false `undefined` path bucket.

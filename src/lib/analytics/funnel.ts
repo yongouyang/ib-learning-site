@@ -17,9 +17,12 @@ export interface FunnelBucket {
 
 export interface QuizFunnel {
   attempts: number;
+  linkedAttempts: number;
   legacyAttempts: number;
   bySource: Record<string, FunnelBucket>;
   byDevice: Record<string, FunnelBucket>;
+  legacyBySource: Record<string, FunnelBucket>;
+  legacyByDevice: Record<string, FunnelBucket>;
 }
 
 function deviceOf(ua: string): string {
@@ -69,13 +72,26 @@ export function buildQuizFunnel(events: FunnelEvent[]): QuizFunnel {
 
   const bySource: Record<string, FunnelBucket> = {};
   const byDevice: Record<string, FunnelBucket> = {};
+  const legacyBySource: Record<string, FunnelBucket> = {};
+  const legacyByDevice: Record<string, FunnelBucket> = {};
   let legacyAttempts = 0;
   for (const [key, attempt] of attempts) {
-    if (key.startsWith('legacy:')) legacyAttempts += 1;
-    const source = bySource[attempt.source] ?? (bySource[attempt.source] = emptyBucket());
-    const device = byDevice[attempt.device] ?? (byDevice[attempt.device] = emptyBucket());
+    const legacy = key.startsWith('legacy:');
+    if (legacy) legacyAttempts += 1;
+    const sourceBuckets = legacy ? legacyBySource : bySource;
+    const deviceBuckets = legacy ? legacyByDevice : byDevice;
+    const source = sourceBuckets[attempt.source] ?? (sourceBuckets[attempt.source] = emptyBucket());
+    const device = deviceBuckets[attempt.device] ?? (deviceBuckets[attempt.device] = emptyBucket());
     addAttempt(source, attempt);
     addAttempt(device, attempt);
   }
-  return { attempts: attempts.size, legacyAttempts, bySource, byDevice };
+  return {
+    attempts: attempts.size,
+    linkedAttempts: attempts.size - legacyAttempts,
+    legacyAttempts,
+    bySource,
+    byDevice,
+    legacyBySource,
+    legacyByDevice,
+  };
 }

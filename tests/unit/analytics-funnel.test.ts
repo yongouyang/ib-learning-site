@@ -23,6 +23,7 @@ describe('quiz funnel', () => {
       event('quiz_question_answered', { attemptId: 'a2', source: 'custom_test', questionNumber: 1 }, { sessionId: 'tab-2', ua: 'Desktop' }),
     ]);
     expect(result.attempts).toBe(2);
+    expect(result.linkedAttempts).toBe(2);
     expect(result.bySource.custom_test).toEqual({
       attempts: 2,
       startEvents: 2,
@@ -40,8 +41,38 @@ describe('quiz funnel', () => {
       event('quiz_started', { source: 'topic_page', topicId: 'math-1' }),
       event('quiz_started', { source: 'topic_page', topicId: 'math-1' }),
       event('quiz_question_answered', { source: 'topic_page', topicId: 'math-1', questionNumber: 2 }),
+      event('quiz_completed', { topicId: 'math-1' }),
     ]);
-    expect(result).toMatchObject({ attempts: 1, legacyAttempts: 1 });
-    expect(result.bySource.topic_page).toMatchObject({ startEvents: 2, reachedFirstQuestion: 1, completed: 0 });
+    expect(result).toMatchObject({ attempts: 1, linkedAttempts: 0, legacyAttempts: 1 });
+    expect(result.bySource).toEqual({});
+    expect(result.byDevice).toEqual({});
+    expect(result.legacyBySource.topic_page).toMatchObject({
+      startEvents: 2,
+      reachedFirstQuestion: 1,
+      completed: 1,
+    });
+    expect(result.legacyByDevice.iPhone.completed).toBe(1);
+  });
+
+  it('does not count legacy completions or missing question positions in the linked funnel', () => {
+    const result = buildQuizFunnel([
+      event('quiz_started', { source: 'topic_page', topicId: 'math-1' }),
+      event('quiz_completed', { topicId: 'math-1' }),
+      event('quiz_started', { attemptId: 'a1', source: 'topic_page', topicId: 'math-1' }),
+      event('quiz_question_answered', { attemptId: 'a1', source: 'topic_page', questionNumber: 1 }),
+    ]);
+    expect(result).toMatchObject({ attempts: 2, linkedAttempts: 1, legacyAttempts: 1 });
+    expect(result.bySource.topic_page).toMatchObject({
+      attempts: 1,
+      reachedFirstQuestion: 1,
+      completed: 0,
+      completionRate: 0,
+    });
+    expect(result.legacyBySource.topic_page).toMatchObject({
+      attempts: 1,
+      reachedFirstQuestion: 0,
+      completed: 1,
+      completionRate: 100,
+    });
   });
 });

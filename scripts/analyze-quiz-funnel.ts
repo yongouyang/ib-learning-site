@@ -33,7 +33,7 @@ async function main(): Promise<void> {
 
   console.log(JSON.stringify({
     window: { days, from: from.slice(0, 10), to: to.slice(0, 10), host },
-    note: 'Legacy attempts merge repeat quizzes for one tab and topic; startEvents exposes the old duplicate-start distortion.',
+    note: 'bySource/byDevice contain attempt-linked journeys only. Legacy tab/topic groups remain in legacyBySource/legacyByDevice; their startEvents expose the old duplicate-start distortion. Test traffic is not excluded.',
     ...buildQuizFunnel(events),
   }, null, 2));
 }
