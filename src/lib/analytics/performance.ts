@@ -15,6 +15,7 @@ export interface PagePerformanceEvent {
   name: string;
   props: Record<string, unknown>;
   urlPath?: string;
+  test?: boolean;
 }
 
 export interface PagePerformanceStats {
@@ -31,6 +32,8 @@ type MetricStats = Partial<Record<PagePerformanceMetric, PagePerformanceStats>>;
 
 export interface PagePerformanceReport {
   samples: number;
+  testEventsExcluded: number;
+  includesTest: boolean;
   units: Record<PagePerformanceMetric, 'ms' | 'score'>;
   byMetric: MetricStats;
   byNavigation: Record<string, MetricStats>;
@@ -76,9 +79,11 @@ function addMetric(target: MetricStats, samples: Sample[]): void {
   }
 }
 
-export function buildPerformanceReport(events: PagePerformanceEvent[], pathLimit = 20): PagePerformanceReport {
+export function buildPerformanceReport(events: PagePerformanceEvent[], pathLimit = 20, includeTest = false): PagePerformanceReport {
+  const performanceEvents = events.filter((event) => event.name === 'page_performance');
+  const includedEvents = includeTest ? performanceEvents : performanceEvents.filter((event) => event.test !== true);
   const samples: Sample[] = [];
-  for (const event of events) {
+  for (const event of includedEvents) {
     if (event.name !== 'page_performance') continue;
     const { metric, value, rating, navigationType } = event.props;
     if (
@@ -100,6 +105,8 @@ export function buildPerformanceReport(events: PagePerformanceEvent[], pathLimit
 
   const report: PagePerformanceReport = {
     samples: samples.length,
+    testEventsExcluded: includeTest ? 0 : performanceEvents.length - includedEvents.length,
+    includesTest: includeTest,
     units: { TTFB: 'ms', FCP: 'ms', LCP: 'ms', CLS: 'score', INP: 'ms' },
     byMetric: {},
     byNavigation: {},

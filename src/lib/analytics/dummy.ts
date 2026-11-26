@@ -49,6 +49,7 @@ export class InMemoryAnalyticsStorage extends InMemoryProgressStorage implements
       host: event.host,
       sessionId: event.sessionId,
       ua: event.ua,
+      ...(event.test ? { test: true } : {}),
       expiresAt: Math.floor(nowMs / 1000) + ANALYTICS_RAW_TTL_DAYS * 86_400,
     });
 

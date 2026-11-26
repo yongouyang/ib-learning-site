@@ -100,6 +100,7 @@ export class DynamoAnalyticsStorage implements AnalyticsStorage {
           host: event.host,
           sessionId: event.sessionId,
           ua: event.ua.slice(0, ANALYTICS_MAX_UA),
+          ...(event.test ? { test: true } : {}),
           expiresAt: Math.floor(nowMs / 1000) + ANALYTICS_RAW_TTL_DAYS * 86_400,
         },
       })

@@ -217,6 +217,7 @@ const envelopeFields = {
   referrer: z.string().max(ANALYTICS_MAX_URL).optional().default(''),
   sessionId: z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64),
   clientTs: clientTs(),
+  test: z.boolean().optional().default(false),
 };
 
 export interface AnalyticsEvent {
@@ -226,6 +227,7 @@ export interface AnalyticsEvent {
   referrer: string;
   sessionId: string;
   clientTs: string;
+  test: boolean;
 }
 
 // Envelope + per-name props validation (zod v4's discriminatedUnion typing
@@ -257,6 +259,7 @@ export interface RawAnalyticsEventItem {
   host: string;
   sessionId: string;
   ua: string; // truncated to ANALYTICS_MAX_UA
+  test?: boolean;
   expiresAt: number; // epoch seconds — DynamoDB TTL
 }
 
@@ -282,6 +285,7 @@ export interface NormalizedAnalyticsEvent {
   sessionId: string;
   ua: string;
   clientTs: string;
+  test: boolean;
 }
 
 // --- Summary shape (GET /api/analytics/summary) ----------------------------------

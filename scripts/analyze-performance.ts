@@ -14,6 +14,7 @@ async function main(): Promise<void> {
   const pathLimit = Number(argument('paths', '20'));
   if (!Number.isInteger(pathLimit) || pathLimit < 1 || pathLimit > 100) throw new Error('--paths must be an integer from 1 to 100');
   const host = argument('host', 'octavlearning.com');
+  const includeTest = process.argv.includes('--include-test');
   const now = Date.now();
   const from = `${utcDate(now - (days - 1) * 86_400_000)}#`;
   const to = `${utcDate(now)}#~`;
@@ -41,8 +42,8 @@ async function main(): Promise<void> {
 
   console.log(JSON.stringify({
     window: { days, from: from.slice(0, 10), to: to.slice(0, 10), host },
-    note: 'Percentiles use nearest-rank over raw events. Compare navigation types separately and require enough samples before optimising a path.',
-    ...buildPerformanceReport(events, pathLimit),
+    note: 'Percentiles use nearest-rank over raw events. Compare navigation types separately and require enough samples before optimising a path. Marked automation is excluded by default (--include-test overrides); unmarked legacy QA cannot be removed retroactively.',
+    ...buildPerformanceReport(events, pathLimit, includeTest),
   }, null, 2));
 }
 

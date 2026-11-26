@@ -116,6 +116,7 @@ describe('POST /api/analytics/event', () => {
     expect(raw[0].host).toBe('x.test');
     expect(raw[0].sessionId).toBe('sess-abc_1');
     expect(raw[0].ua).toHaveLength(80);
+    expect(raw[0].test).toBeUndefined();
 
     // Normalization happened BEFORE write: path-only url, host-only referrer.
     const summary = await t.storage.getSummary(30);
@@ -138,6 +139,14 @@ describe('POST /api/analytics/event', () => {
       urlPath: '/subjects/math',
       props: { metric: 'LCP', value: 1234.5, rating: 'good', navigationType: 'soft-navigation' },
     });
+  });
+
+  it('persists an explicit automation marker for report filtering', async () => {
+    const t = makeDeps();
+    const res = await postEvent(t, envelope({ test: true }));
+
+    expect(res.status).toBe(204);
+    expect(rawEvents(t.storage)[0].test).toBe(true);
   });
 
   it('records the ORIGINAL viewer host from x-forwarded-host (dev/prod split)', async () => {
@@ -261,6 +270,7 @@ describe('GET /api/analytics/summary', () => {
       sessionId: 'sess-1',
       ua: 'TestAgent',
       clientTs: '2026-08-15T10:00:00.000Z',
+      test: false,
     });
     await t.storage.recordEvent({
       name: 'quiz_started',
@@ -271,6 +281,7 @@ describe('GET /api/analytics/summary', () => {
       sessionId: 'sess-1',
       ua: 'TestAgent',
       clientTs: '2026-08-16T09:00:00.000Z',
+      test: false,
     });
 
     const res = await get(t, '?days=7', admin.cookie);

@@ -23,9 +23,9 @@ async function signIn(page: Page, email: string) {
 
 test.describe('analytics', () => {
   test('page view and performance metrics fire on navigation', async ({ page }) => {
-    const events: Array<{ name: string; props: Record<string, unknown> }> = [];
+    const events: Array<{ name: string; props: Record<string, unknown>; test?: boolean }> = [];
     await page.route('**/api/analytics/event', async (route) => {
-      const payload = route.request().postDataJSON() as { name: string; props: Record<string, unknown> };
+      const payload = route.request().postDataJSON() as { name: string; props: Record<string, unknown>; test?: boolean };
       events.push(payload);
       await route.fulfill({ status: 204 });
     });
@@ -36,6 +36,14 @@ test.describe('analytics', () => {
     await expect.poll(() => events.map((event) => event.name)).toContain('page_view');
     await expect.poll(() => events.some((event) => event.name === 'page_performance' && event.props.metric === 'TTFB')).toBe(true);
     await expect.poll(() => events.some((event) => event.name === 'page_performance' && event.props.metric === 'FCP')).toBe(true);
+    await page.getByRole('heading', { name: /Master secondary school/ }).click();
+    await expect.poll(() => events.some((event) => event.name === 'page_performance' && event.props.metric === 'LCP')).toBe(true);
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'hidden' });
+      document.dispatchEvent(new Event('visibilitychange'));
+    });
+    await expect.poll(() => events.some((event) => event.name === 'page_performance' && event.props.metric === 'CLS')).toBe(true);
+    expect(events.every((event) => event.test === true)).toBe(true);
     const performance = events.find((event) => event.name === 'page_performance');
     expect(performance?.props.value).toEqual(expect.any(Number));
     expect(performance?.props.rating).toMatch(/^(good|needs-improvement|poor)$/);

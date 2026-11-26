@@ -124,7 +124,7 @@ name it. Your rights and the way we handle your data do not change because of it
 | Study activity | Quiz attempts, answers, marks, exam and ladder results, flashcard reviews, stars, XP |
 | Progress records | Keyed per account and per child profile, so progress syncs across your devices |
 | Session cookie | A single essential, first-party cookie holding an opaque session token (the token is stored server-side only in hashed form). It keeps you signed in. It is not used for advertising or analytics. |
-| Technical request data | The path you visited, the site you arrived from (host only), the site host you are on (our live or development site), your browser's user-agent string, and anonymous page-performance measurements (such as response, paint, layout-shift and interaction timings, with a general quality rating and navigation type) |
+| Technical request data | The path you visited, the site you arrived from (host only), the site host you are on (our live or development site), your browser's user-agent string, whether the browser identifies itself as automated (used to exclude QA traffic from analysis), and anonymous page-performance measurements (such as response, paint, layout-shift and interaction timings, with a general quality rating and navigation type) |
 | IP address | Used to enforce abuse and rate limits (for example, limiting sign-in-code requests and contact-form submissions from one source). It is stored only as part of short-lived counters in a rate-limit table with an expiry, not as part of your study record. |
 | Payment and subscription status | Plan, status, renewal date and a Stripe customer reference. Card data never reaches us. |
 

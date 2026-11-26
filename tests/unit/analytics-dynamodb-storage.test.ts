@@ -50,6 +50,7 @@ function event(overrides: Partial<NormalizedAnalyticsEvent> = {}): NormalizedAna
     sessionId: 'sess-1',
     ua: 'TestAgent/1.0',
     clientTs: '2026-08-15T10:00:00.000Z',
+    test: false,
     ...overrides,
   };
 }
@@ -111,6 +112,20 @@ describe('DynamoAnalyticsStorage.recordEvent — command shapes', () => {
         ExpressionAttributeValues: { ':one': 1, ':exp': Math.floor(NOW_MS / 1000) + 400 * 86_400 },
       });
     }
+  });
+
+  it('persists the automation marker only for test traffic', async () => {
+    const calls: CommandLike[] = [];
+    const s = makeStorage((cmd) => {
+      calls.push(cmd);
+      return {};
+    });
+
+    await s.recordEvent(event({ test: true }));
+    await s.recordEvent(event());
+
+    expect(calls[0].input.Item).toMatchObject({ test: true });
+    expect(calls[5].input.Item).not.toHaveProperty('test');
   });
 
   it('buckets an empty referrer under "direct" and truncates ua to 80 chars', async () => {

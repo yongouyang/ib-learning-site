@@ -54,6 +54,30 @@ describe('quiz funnel', () => {
     expect(result.legacyByDevice.iPhone.completed).toBe(1);
   });
 
+  it('excludes marked automation by default and can include it explicitly', () => {
+    const events = [
+      event('quiz_started', { attemptId: 'learner', source: 'topic_page', topicId: 'math-1' }),
+      event('quiz_started', { attemptId: 'qa', source: 'topic_page', topicId: 'math-1' }, { test: true }),
+      event('quiz_completed', { attemptId: 'qa', topicId: 'math-1' }, { test: true }),
+      event('page_view', {}, { test: true }),
+    ];
+
+    expect(buildQuizFunnel(events)).toMatchObject({
+      attempts: 1,
+      linkedAttempts: 1,
+      testEventsExcluded: 2,
+      includesTest: false,
+      bySource: { topic_page: { completed: 0 } },
+    });
+    expect(buildQuizFunnel(events, true)).toMatchObject({
+      attempts: 2,
+      linkedAttempts: 2,
+      testEventsExcluded: 0,
+      includesTest: true,
+      bySource: { topic_page: { completed: 1 } },
+    });
+  });
+
   it('does not count legacy completions or missing question positions in the linked funnel', () => {
     const result = buildQuizFunnel([
       event('quiz_started', { source: 'topic_page', topicId: 'math-1' }),

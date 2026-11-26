@@ -109,6 +109,7 @@ function event(overrides: Partial<NormalizedAnalyticsEvent>): NormalizedAnalytic
     sessionId: 'sess-1',
     ua: 'TestAgent',
     clientTs: '2026-08-15T10:00:00.000Z',
+    test: false,
     ...overrides,
   };
 }

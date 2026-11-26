@@ -54,6 +54,7 @@ export function trackEvent(
       referrer: document.referrer,
       sessionId: getSessionId(),
       clientTs: new Date().toISOString(),
+      test: navigator.webdriver === true,
     });
     const beacon =
       typeof navigator.sendBeacon === 'function' ? navigator.sendBeacon.bind(navigator) : null;

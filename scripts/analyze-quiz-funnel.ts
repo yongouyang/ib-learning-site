@@ -12,6 +12,7 @@ async function main(): Promise<void> {
   const days = Number(argument('days', '7'));
   if (!Number.isInteger(days) || days < 1 || days > 90) throw new Error('--days must be an integer from 1 to 90');
   const host = argument('host', 'octavlearning.com');
+  const includeTest = process.argv.includes('--include-test');
   const now = Date.now();
   const from = `${utcDate(now - (days - 1) * 86_400_000)}#`;
   const to = `${utcDate(now)}#~`;
@@ -33,8 +34,8 @@ async function main(): Promise<void> {
 
   console.log(JSON.stringify({
     window: { days, from: from.slice(0, 10), to: to.slice(0, 10), host },
-    note: 'bySource/byDevice contain attempt-linked journeys only. Legacy tab/topic groups remain in legacyBySource/legacyByDevice; their startEvents expose the old duplicate-start distortion. Test traffic is not excluded.',
-    ...buildQuizFunnel(events),
+    note: 'bySource/byDevice contain attempt-linked journeys only. Legacy tab/topic groups remain separate. Marked automation is excluded by default (--include-test overrides); unmarked legacy QA cannot be removed retroactively.',
+    ...buildQuizFunnel(events, includeTest),
   }, null, 2));
 }
 

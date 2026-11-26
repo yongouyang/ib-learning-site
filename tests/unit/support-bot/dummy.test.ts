@@ -154,6 +154,7 @@ describe('support-bot dummy ↔ DynamoDB parity (rule 2)', () => {
       sessionId: 'sess-1',
       ua: 'ua',
       clientTs: '2026-09-25T10:00:00.000Z',
+      test: false,
     });
     // The prod side: those rows as the analytics Lambda wrote them.
     sim.aggRows.push(

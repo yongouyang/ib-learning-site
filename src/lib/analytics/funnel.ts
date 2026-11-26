@@ -4,6 +4,7 @@ export interface FunnelEvent {
   sessionId: string;
   ua: string;
   s: string;
+  test?: boolean;
 }
 
 export interface FunnelBucket {
@@ -17,6 +18,8 @@ export interface FunnelBucket {
 
 export interface QuizFunnel {
   attempts: number;
+  testEventsExcluded: number;
+  includesTest: boolean;
   linkedAttempts: number;
   legacyAttempts: number;
   bySource: Record<string, FunnelBucket>;
@@ -46,11 +49,12 @@ function addAttempt(bucket: FunnelBucket, attempt: { startEvents: number; maxQue
   bucket.completionRate = bucket.attempts > 0 ? Math.round((bucket.completed / bucket.attempts) * 1000) / 10 : null;
 }
 
-export function buildQuizFunnel(events: FunnelEvent[]): QuizFunnel {
+export function buildQuizFunnel(events: FunnelEvent[], includeTest = false): QuizFunnel {
   const attempts = new Map<string, { source: string; device: string; startEvents: number; maxQuestion: number; completed: boolean }>();
-  const sorted = [...events].sort((a, b) => a.s.localeCompare(b.s));
+  const funnelEvents = events.filter((event) => ['quiz_started', 'quiz_question_answered', 'quiz_completed'].includes(event.name));
+  const includedEvents = includeTest ? funnelEvents : funnelEvents.filter((event) => event.test !== true);
+  const sorted = [...includedEvents].sort((a, b) => a.s.localeCompare(b.s));
   for (const event of sorted) {
-    if (!['quiz_started', 'quiz_question_answered', 'quiz_completed'].includes(event.name)) continue;
     const attemptId = typeof event.props.attemptId === 'string' ? event.props.attemptId : null;
     const topicId = typeof event.props.topicId === 'string' ? event.props.topicId : 'unknown';
     const key = attemptId ?? `legacy:${event.sessionId}:${topicId}`;
@@ -87,6 +91,8 @@ export function buildQuizFunnel(events: FunnelEvent[]): QuizFunnel {
   }
   return {
     attempts: attempts.size,
+    testEventsExcluded: includeTest ? 0 : funnelEvents.length - includedEvents.length,
+    includesTest: includeTest,
     linkedAttempts: attempts.size - legacyAttempts,
     legacyAttempts,
     bySource,

@@ -6,10 +6,12 @@ function event(metric: string, value: number, overrides: {
   rating?: string;
   navigationType?: string;
   name?: string;
+  test?: boolean;
 } = {}): PagePerformanceEvent {
   return {
     name: overrides.name ?? 'page_performance',
     urlPath: overrides.path ?? '/subjects/math',
+    test: overrides.test,
     props: {
       metric,
       value,
@@ -67,6 +69,23 @@ describe('page performance report', () => {
     expect(report.samples).toBe(2);
     expect(Object.keys(report.byPath)).toEqual(['/b']);
     expect(buildPerformanceReport([])).toMatchObject({ samples: 0, byMetric: {}, byNavigation: {}, byPath: {} });
+  });
+
+  it('excludes marked automation by default and can include it explicitly', () => {
+    const events = [event('LCP', 1000), event('LCP', 9000, { test: true })];
+
+    expect(buildPerformanceReport(events)).toMatchObject({
+      samples: 1,
+      testEventsExcluded: 1,
+      includesTest: false,
+      byMetric: { LCP: { count: 1, p75: 1000 } },
+    });
+    expect(buildPerformanceReport(events, 20, true)).toMatchObject({
+      samples: 2,
+      testEventsExcluded: 0,
+      includesTest: true,
+      byMetric: { LCP: { count: 2, p75: 9000 } },
+    });
   });
 
   it('keeps legacy raw events in overall totals without inventing a path bucket', () => {

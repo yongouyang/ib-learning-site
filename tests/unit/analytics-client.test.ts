@@ -22,6 +22,10 @@ function stubDoNotTrack(value: string | null) {
   Object.defineProperty(navigator, 'doNotTrack', { configurable: true, writable: true, value });
 }
 
+function stubWebdriver(value: boolean) {
+  Object.defineProperty(navigator, 'webdriver', { configurable: true, writable: true, value });
+}
+
 function lastBeaconBody(mock: ReturnType<typeof stubBeacon>): Record<string, unknown> {
   const [url, body] = mock.mock.calls[mock.mock.calls.length - 1];
   expect(url).toBe(ENDPOINT);
@@ -37,6 +41,7 @@ function lastFetchBody(mock: ReturnType<typeof vi.fn>): Record<string, unknown> 
 describe('analytics client', () => {
   const originalBeacon = Object.getOwnPropertyDescriptor(navigator, 'sendBeacon');
   const originalDnt = Object.getOwnPropertyDescriptor(navigator, 'doNotTrack');
+  const originalWebdriver = Object.getOwnPropertyDescriptor(navigator, 'webdriver');
   const originalFetch = globalThis.fetch;
   let fetchMock: ReturnType<typeof vi.fn>;
 
@@ -45,6 +50,7 @@ describe('analytics client', () => {
     fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
     vi.stubGlobal('fetch', fetchMock);
     stubDoNotTrack(null);
+    stubWebdriver(false);
   });
 
   afterEach(() => {
@@ -55,6 +61,8 @@ describe('analytics client', () => {
     else removeBeacon();
     if (originalDnt) Object.defineProperty(navigator, 'doNotTrack', originalDnt);
     else stubDoNotTrack(null);
+    if (originalWebdriver) Object.defineProperty(navigator, 'webdriver', originalWebdriver);
+    else stubWebdriver(false);
   });
 
   it('sends the envelope via sendBeacon and it validates against the server schema', () => {
@@ -73,6 +81,18 @@ describe('analytics client', () => {
     expect(envelope.referrer).toBe(document.referrer);
     expect(envelope.sessionId).toMatch(/^[0-9a-f-]{36}$/);
     expect(new Date(envelope.clientTs as string).toString()).not.toBe('Invalid Date');
+    expect(envelope.test).toBe(false);
+  });
+
+  it('marks browser automation so reports can exclude QA traffic', () => {
+    stubWebdriver(true);
+    const beacon = stubBeacon();
+
+    trackPageView();
+
+    const envelope = lastBeaconBody(beacon);
+    expect(envelope.test).toBe(true);
+    expect(analyticsEventSchema.safeParse(envelope).success).toBe(true);
   });
 
   it('sends custom event names and props', () => {

@@ -129,6 +129,7 @@ export async function handleAnalyticsEvent(
     sessionId: event.sessionId,
     ua: (req.headers.get('user-agent') ?? '').slice(0, ANALYTICS_MAX_UA),
     clientTs: event.clientTs,
+    test: event.test,
   };
 
   await deps.storage.recordEvent(normalized);
