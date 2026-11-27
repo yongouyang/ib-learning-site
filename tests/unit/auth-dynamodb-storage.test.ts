@@ -136,10 +136,11 @@ describe('DynamoAuthStorage', () => {
     calls.length = 0;
     const withProfiles = await s.updateUser('u1', {
       childProfiles: [{ profileId: 'p1', displayName: 'Me', stage: 'ks3' }],
+      journeyAnalyticsOptIn: true,
       lastLoginAt: '2026-08-15T00:00:00.000Z',
     });
     expect(withProfiles).toBeNull(); // mock returns {} — no Attributes
-    expect(calls[0].input.UpdateExpression).toBe('SET #cp = :cp, #lla = :lla');
+    expect(calls[0].input.UpdateExpression).toBe('SET #cp = :cp, #jao = :jao, #lla = :lla');
   });
 
   it('updateUser with no fields re-reads the user instead of updating', async () => {

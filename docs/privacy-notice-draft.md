@@ -24,7 +24,7 @@
 >
 > **Verified 2026-09-15** (checklist item 5 — the full field/TTL re-check): the 30/1000 AI
 > quotas, the 14-day trial, the free split (1 paper set per course, ladder levels 1–2), the
-> 90d/400d analytics TTLs, 365d contact, leaderboard week-end +14d, the 40d AI-mark bucket,
+> 90d/400d anonymous analytics TTLs, 90d opt-in journey TTL, 365d contact, leaderboard week-end +14d, the 40d AI-mark bucket,
 > the 30d sessions, `HttpOnly; SameSite=Lax; Secure` on the session cookie and the three
 > `localStorage` keys all still match the code. **One claim did not survive: §12's "one
 > essential cookie"** — measured with `scripts/verify-checkout-cookies.mjs` and rewritten:
@@ -48,9 +48,9 @@
 >
 > **Revised 2026-09-17 (§9 backup row) — the first change driven by an ops decision rather
 > than a measurement.** The notice previously said we kept no backup copy of your data at all.
-> Point-in-time recovery was enabled on the five tables whose contents are not regenerable
-> (`octav-users`, `octav-progress`, `octav-analytics-events`, `octav-leaderboard`,
-> `octav-contact`) and deletion protection on all eight application tables, so §9 now states
+> Point-in-time recovery was enabled on the six tables whose contents are not regenerable
+> (`octav-users`, `octav-progress`, `octav-analytics-events`, `octav-learning-journey-events`,
+> `octav-leaderboard`, `octav-contact`) and deletion protection on all application tables, so §9 now states
 > the **35-day** window and what it means for erasure. The two moved together deliberately:
 > §9's old sentence — *"deleting your data is not resurrected by an earlier snapshot"* —
 > became **false** the moment PITR was switched on. The paired change is
@@ -64,7 +64,7 @@ has no separate legal personality, and "Central, Hong Kong" is not a deliverable
 address — both need settling before publication, the second one because it is the address any
 data-protection authority or data subject would write to.
 
-Effective **15 September 2026**. The privacy contact is `info@octavlearning.com`.
+Effective **15 September 2026**, revised **27 November 2026**. The privacy contact is `info@octavlearning.com`.
 
 ---
 
@@ -94,6 +94,7 @@ name it. Your rights and the way we handle your data do not change because of it
 - **We do not sell your data, we do not share it with advertisers, and we do not run
   third-party advertising or cross-site tracking.** Our analytics are first-party: they
   are collected by our own API and viewed by us in our own admin dashboard.
+- **Account-linked learning journey analytics are optional and off by default.** If you turn them on, we link study actions to your account for 90 days to improve learning paths. Turning them off stops collection and deletes the saved journey events. Anonymous aggregate analytics continue either way.
 - **We do not use your data, or your children's data, to train AI models.**
 - We use a small number of service providers to run the Service (hosting, email, payments
   and — when you use it — AI marking). They are listed in §7.
@@ -123,7 +124,8 @@ name it. Your rights and the way we handle your data do not change because of it
 |---|---|
 | Study activity | Quiz attempts, answers, marks, exam and ladder results, flashcard reviews, stars, XP |
 | Progress records | Keyed per account and per child profile, so progress syncs across your devices |
-| Session cookie | A single essential, first-party cookie holding an opaque session token (the token is stored server-side only in hashed form). It keeps you signed in. It is not used for advertising or analytics. |
+| Session cookie | A single essential, first-party cookie holding an opaque session token (the token is stored server-side only in hashed form). It keeps you signed in. If you opt into learning journey analytics, it also lets our server attribute those events to your account. It is never used for advertising. |
+| Optional learning journey events | With your explicit opt-in: account and child-profile identifiers, event and per-tab session identifiers, event time and receipt time, normalized page path, site host, quiz attempt identifier and bounded learning-event details such as topic, score and review action. Search text, typed answers, AI responses, email address, IP address, referrer and full user-agent are not stored in this journey stream. |
 | Technical request data | The path you visited, the site you arrived from (host only), the site host you are on (our live or development site), your browser's user-agent string, whether the browser identifies itself as automated (used to exclude QA traffic from analysis), and anonymous page-performance measurements (such as response, paint, layout-shift and interaction timings, with a general quality rating and navigation type) |
 | IP address | Used to enforce abuse and rate limits (for example, limiting sign-in-code requests and contact-form submissions from one source). It is stored only as part of short-lived counters in a rate-limit table with an expiry, not as part of your study record. |
 | Payment and subscription status | Plan, status, renewal date and a Stripe customer reference. Card data never reaches us. |
@@ -155,6 +157,7 @@ limitation in §4 is the substantive promise either way.
 | Sending service emails (sign-in codes, receipts, trial-ending and renewal reminders) | Performance of a contract |
 | Keeping the Service available, secure and free of abuse (rate limits, fraud and scraping defence, blocking malicious traffic) | Legitimate interests (running a safe, working service), and in some cases legal obligation |
 | Understanding which parts of the Service are used, in aggregate, to improve it | Legitimate interests (improving the Service) — you can object (§10) |
+| Linking learning journey events to your account to improve study paths | Consent — optional, off by default, and can be withdrawn in Account → Your data (§6.4) |
 | Meeting tax, accounting and legal obligations | Legal obligation |
 | Handling a complaint, a dispute or an enforcement matter | Legitimate interests / legal obligation |
 
@@ -218,11 +221,25 @@ sensitive information in an answer.** We count marks used per account per calend
 to apply the free-tier quota.
 
 **6.4 Analytics.** We record first-party usage events (for example, that a quiz was
-started, a diagnostic completed or the leaderboard viewed) and page-performance measurements
-(such as response, paint, layout-shift and interaction timings) with the path, host, referrer
-host, a random session identifier and user-agent string. These events are used by us, in
-aggregate, to see what is working and where the Service needs performance improvement. They are not used to build a profile of you across
-other sites, and there is no advertising or cross-site tracking anywhere in the Service.
+started or a diagnostic completed) and page-performance measurements with the path, host,
+referrer host, a random per-tab session identifier and user-agent string. This stream is
+anonymous and is used in aggregate to see what is working and where performance needs
+improvement.
+
+**Learning journey analytics are separately opt-in and off by default.** If you enable them
+in Account → Your data, allowlisted study events are also stored against your account and
+child profile so we can understand learning paths across visits. The journey record contains
+the event, timestamps, normalized path, site host, per-tab session and event identifiers,
+optional attempt identifier, and bounded learning details such as topic, score and review
+action. It does not contain your email, IP address, referrer, full user-agent, search text,
+typed answers or AI responses. Page performance, sign-in-code requests and PWA diagnostics
+stay anonymous. We do not retroactively link your pre-login activity.
+
+Journey events expire after 90 days. Turning the setting off stops future linked collection
+and deletes saved journey events; anonymous aggregate analytics remain anonymous. Browser
+Do Not Track disables analytics collection, while functional progress sync remains independent.
+We use individual journeys to investigate product questions and cohort patterns to make design
+decisions. There is no advertising or cross-site tracking anywhere in the Service.
 
 **6.5 Security and abuse prevention.** We use rate limits, session validation and access
 controls to prevent abuse, protect the Service, and detect attempts to scrape or overload
@@ -252,10 +269,11 @@ selected or typed answer, the reviewed
 explanation and relevant topic notes to the AI provider. The help action (for example,
 "Explain differently") is also sent. We do not send your name, email address or account
 identifier, and the generated help is not stored against your progress. We count help
-requests per account per calendar month to apply the free-tier quota. Anonymous analytics
+requests per account per calendar month to apply the free-tier quota. Analytics
 record the requested action, success or failure, optional helpful/not-helpful rating and
-whether a later related answer was correct; they do not contain the generated help, your
-account identifier or free-form feedback. Analytics retention is described in §9. Do not
+whether a later related answer was correct. These events are anonymous by default and are
+account-linked only when you enable §6.4's optional journey analytics; neither stream contains
+the generated help or free-form feedback. Analytics retention is described in §9. Do not
 include personal information in content you submit for AI help.
 
 ### 7. Who we share it with
@@ -322,15 +340,16 @@ personal into an answer.
 | AI-mark and AI-help quota counters | Until the end of the month they cover, plus a short tail (about 40 days) |
 | Contextual AI help responses | Not stored against your progress; returned to your browser for the current question only |
 | Leaderboard entries | Per weekly season; previous seasons expire about 14 days after the week ends. Opting out removes your row immediately. |
-| Analytics events | Raw events: 90 days. Daily aggregates: about 400 days. |
+| Anonymous analytics events | Raw events: 90 days. Daily aggregates: about 400 days. |
+| Optional account-linked learning journey events | 90 days, or until you turn journey analytics off or delete your account. |
 | Contact-form messages | 365 days |
 | Billing and tax records | Held by **Stripe**, as merchant of record, under its own notice and its own legal retention duties (we hold only the Stripe customer and subscription identifiers needed to know who is entitled to Premium). Deleting your Link account or asking Stripe to erase your transaction data cancels your subscription and does not depend on us. |
 | Rate-limit counters (including IP-keyed abuse counters) | Minutes to hours, expiring automatically |
 | Backups | Our main application tables have **point-in-time recovery** enabled, keeping a rolling **35-day** recovery window. It is a resilience measure: if data is lost to a fault or an accident, we can restore it. One consequence you should know: after you delete your account or a profile, a copy of that data can remain inside these backups for **up to 35 days** before it rolls off and is permanently deleted. **Deletion protection** is also enabled, so our tables cannot be dropped by accident. We do not keep a separate scheduled backup, and we do not keep a copy in another region. |
 
 You can delete your account and its data yourself from your account page, or by asking
-us at info@octavlearning.com. Deleting an account removes profiles, progress, exam and
-leaderboard records. That data also leaves the 35-day recovery window described above as
+us at info@octavlearning.com. Deleting an account removes profiles, progress, exam,
+learning journey and leaderboard records. That data also leaves the 35-day recovery window described above as
 the window rolls forward, so nothing of it remains recoverable after 35 days. We may keep
 limited records where the law requires it (for example tax records of a payment) or to
 establish, exercise or defend a legal claim.
@@ -349,8 +368,8 @@ You have the right to:
 - **portability** — receive the data you gave us in a structured, machine-readable form;
 - **object** to processing based on our legitimate interests, including analytics, and to
   ask us to restrict processing while a concern is investigated;
-- **withdraw consent** where we rely on consent (for example, leaderboard participation —
-  just turn it off);
+- **withdraw consent** where we rely on consent (for example, leaderboard participation or
+  learning journey analytics — just turn it off);
 - **complain** to a supervisory authority. In the UK that is the Information
   Commissioner's Office (ico.org.uk); in the EU/EEA, your national authority; in Hong
   Kong, the Privacy Commissioner for Personal Data (PCPD, pcpd.org.hk). We would prefer
@@ -397,8 +416,9 @@ are not nothing, so they are listed here.
 
 **Do we need a consent banner?** Every cookie above is **strictly necessary** for something
 you asked for: `octav_session` to stay signed in, the two Stripe cookies to take a payment
-safely, and the checkout-flow cookies to process that payment at all. There is no advertising or analytics cookie to opt into, so there is nothing to consent to, and
-we show no cookie banner.
+safely, and the checkout-flow cookies to process that payment at all. There is no advertising
+cookie and no separate analytics cookie. Optional journey analytics use the existing sign-in
+cookie only after you opt in through the account setting, so we show no cookie banner.
 
 Theme preference and offline progress use `localStorage`, described in §3.3 — that is not a
 cookie and is not sent to us.
@@ -467,9 +487,9 @@ ones that can fail an audit.
    durability risk, since a bad write or a deleted table had no recovery path — together with
    the rule that *if PITR were ever enabled, §9 must state the window*.
    **2026-09-17 (the ops decision, taken):** the durability risk was accepted. PITR was enabled
-   on the five tables whose contents are not regenerable (`octav-users`, `octav-progress`,
-   `octav-analytics-events`, `octav-leaderboard`, `octav-contact`) and deletion protection on
-   all eight application tables (`terraform/modules/dynamodb/main.tf`); the bootstrap
+   on the six tables whose contents are not regenerable (`octav-users`, `octav-progress`,
+   `octav-analytics-events`, `octav-learning-journey-events`, `octav-leaderboard`, `octav-contact`)
+   and deletion protection on all ten application tables (`terraform/modules/dynamodb/main.tf`); the bootstrap
    state-lock table is deliberately excluded from both. §9's Backups row was rewritten in the
    same change to state the 35-day window and the erasure consequence, because the old
    sentence *"deleting your data is not resurrected by an earlier snapshot"* became false the

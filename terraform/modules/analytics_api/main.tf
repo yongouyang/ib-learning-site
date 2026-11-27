@@ -49,6 +49,11 @@ variable "analytics_events_table_arn" {
   type        = string
 }
 
+variable "learning_journey_events_table_arn" {
+  description = "DynamoDB ARN of the opted-in learning journey events table."
+  type        = string
+}
+
 variable "rate_limits_table_arn" {
   description = "DynamoDB ARN of the rate-limits table (octav-rate-limits)."
   type        = string
@@ -131,6 +136,18 @@ data "aws_iam_policy_document" "analytics" {
     ]
     resources = [
       var.analytics_events_table_arn,
+    ]
+  }
+
+  # Opted-in journey events — conditional Put plus the health probe Query.
+  # Reads/deletes for export and erasure belong to the auth Lambda, not ingest.
+  statement {
+    actions = [
+      "dynamodb:PutItem",
+      "dynamodb:Query",
+    ]
+    resources = [
+      var.learning_journey_events_table_arn,
     ]
   }
 

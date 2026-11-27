@@ -79,6 +79,9 @@ function AccountContent({ user }: { user: AuthUser }) {
   // Your data
   const [exporting, setExporting] = useState(false);
   const [exportError, setExportError] = useState<string | null>(null);
+  const [savingJourneyPreference, setSavingJourneyPreference] = useState(false);
+  const [journeyOptInOverride, setJourneyOptInOverride] = useState<boolean | null>(null);
+  const [journeyPreferenceError, setJourneyPreferenceError] = useState<string | null>(null);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
@@ -282,6 +285,21 @@ function AccountContent({ user }: { user: AuthUser }) {
   }
 
   // --- Your data -------------------------------------------------------------
+
+  async function handleJourneyPreference(enabled: boolean) {
+    setSavingJourneyPreference(true);
+    setJourneyOptInOverride(enabled);
+    setJourneyPreferenceError(null);
+    try {
+      await updateAccount({ journeyAnalyticsOptIn: enabled });
+      setJourneyOptInOverride(null);
+    } catch (err) {
+      setJourneyOptInOverride(null);
+      setJourneyPreferenceError(err instanceof Error ? err.message : 'Could not update journey analytics.');
+    } finally {
+      setSavingJourneyPreference(false);
+    }
+  }
 
   async function handleExport() {
     setExporting(true);
@@ -714,6 +732,33 @@ function AccountContent({ user }: { user: AuthUser }) {
         <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50 mb-4">Your data</h2>
 
         <div className="space-y-4">
+          <div className="pb-4 border-b border-gray-100 dark:border-gray-800">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={journeyOptInOverride ?? user.journeyAnalyticsOptIn}
+                disabled={savingJourneyPreference}
+                onChange={(event) => handleJourneyPreference(event.target.checked)}
+                className="mt-1 h-4 w-4 shrink-0 accent-blue-600"
+              />
+              <span>
+                <span className="block text-sm font-medium text-gray-900 dark:text-gray-50">
+                  Learning journey analytics
+                </span>
+                <span className="block text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Optional. Link your study actions across visits for 90 days so we can improve learning paths.
+                  Search text, typed answers and AI responses are excluded. Turning this off deletes saved journey events.
+                  Browser Do Not Track also disables collection.
+                </span>
+              </span>
+            </label>
+            {journeyPreferenceError && (
+              <p role="alert" className="text-sm text-red-600 dark:text-red-400 mt-2">
+                {journeyPreferenceError}
+              </p>
+            )}
+          </div>
+
           <div>
             <button
               type="button"
@@ -736,7 +781,7 @@ function AccountContent({ user }: { user: AuthUser }) {
           <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
             <h3 className="text-sm font-semibold text-red-600 dark:text-red-400 mb-1">Delete account</h3>
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
-              Permanently erases your account, progress and sessions. This cannot be undone.
+              Permanently erases your account, progress, journey events and sessions. This cannot be undone.
             </p>
 
             {confirmingDelete ? (

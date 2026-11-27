@@ -23,6 +23,7 @@ export interface AuthUser {
   displayName: string;
   role: 'parent' | 'student';
   tier: Tier;
+  journeyAnalyticsOptIn: boolean;
   childProfiles: ChildProfile[];
 }
 
@@ -126,10 +127,11 @@ export async function me(): Promise<MeResult | null> {
   return (await res.json()) as MeResult;
 }
 
-/** POST /api/auth/account — displayName and/or childProfiles (full replace). */
+/** POST /api/auth/account — profile fields and optional journey analytics preference. */
 export async function updateAccount(payload: {
   displayName?: string;
   childProfiles?: ChildProfile[];
+  journeyAnalyticsOptIn?: boolean;
 }): Promise<AuthUser> {
   const body = await requestJson<{ user: AuthUser }>('/api/auth/account', {
     method: 'POST',

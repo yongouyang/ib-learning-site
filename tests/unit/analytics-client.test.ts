@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { analyticsEventSchema } from '@/lib/analytics/types';
-import { trackEvent, trackPageView } from '@/lib/analytics';
+import { setLearningJourneyContext, trackEvent, trackPageView } from '@/lib/analytics';
 
 // Phase A A3 — client analytics transport tests. The emitted envelope is
 // validated against the SERVER schema (analyticsEventSchema) so the client can
@@ -47,6 +47,7 @@ describe('analytics client', () => {
 
   beforeEach(() => {
     sessionStorage.clear();
+    setLearningJourneyContext({ enabled: false, profileId: null });
     fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
     vi.stubGlobal('fetch', fetchMock);
     stubDoNotTrack(null);
@@ -54,6 +55,7 @@ describe('analytics client', () => {
   });
 
   afterEach(() => {
+    setLearningJourneyContext({ enabled: false, profileId: null });
     vi.unstubAllGlobals();
     vi.restoreAllMocks();
     globalThis.fetch = originalFetch;
@@ -80,6 +82,9 @@ describe('analytics client', () => {
     expect(envelope.url).toBe(window.location.href);
     expect(envelope.referrer).toBe(document.referrer);
     expect(envelope.sessionId).toMatch(/^[0-9a-f-]{36}$/);
+    expect(envelope.eventId).toMatch(/^[0-9a-f-]{36}$/);
+    expect(envelope).not.toHaveProperty('profileId');
+    expect(envelope).not.toHaveProperty('userId');
     expect(new Date(envelope.clientTs as string).toString()).not.toBe('Invalid Date');
     expect(envelope.test).toBe(false);
   });
@@ -104,6 +109,28 @@ describe('analytics client', () => {
     expect(analyticsEventSchema.safeParse(envelope).success).toBe(true);
     expect(envelope.name).toBe('cta_clicked');
     expect(envelope.props).toEqual({ ctaId: 'hero-start' });
+  });
+
+  it('adds only the validated profile context after opt-in, with a fresh event id per event', () => {
+    const beacon = stubBeacon();
+    setLearningJourneyContext({ enabled: true, profileId: 'profile-1' });
+
+    trackPageView();
+    trackEvent('auth_logout');
+
+    const first = JSON.parse(beacon.mock.calls[0][1] as string) as Record<string, unknown>;
+    const second = JSON.parse(beacon.mock.calls[1][1] as string) as Record<string, unknown>;
+    expect(first.profileId).toBe('profile-1');
+    expect(second.profileId).toBe('profile-1');
+    expect(first.eventId).not.toBe(second.eventId);
+    expect(first).not.toHaveProperty('userId');
+    expect(second).not.toHaveProperty('userId');
+    expect(analyticsEventSchema.safeParse(first).success).toBe(true);
+    expect(analyticsEventSchema.safeParse(second).success).toBe(true);
+
+    setLearningJourneyContext({ enabled: false, profileId: 'profile-1' });
+    trackPageView();
+    expect(lastBeaconBody(beacon)).not.toHaveProperty('profileId');
   });
 
   it('can attribute a metric to its navigation URL rather than a later route', () => {
@@ -144,6 +171,7 @@ describe('analytics client', () => {
   it('is a no-op when navigator.doNotTrack is "1"', () => {
     const beacon = stubBeacon();
     stubDoNotTrack('1');
+    setLearningJourneyContext({ enabled: true, profileId: 'profile-1' });
 
     trackPageView();
     trackEvent('cta_clicked', { ctaId: 'x' });
@@ -167,7 +195,7 @@ describe('analytics client', () => {
     expect(sessionStorage.getItem('octav_analytics_session')).toMatch(/^[0-9a-f-]{36}$/);
   });
 
-  it('keeps the session id stable across events within the tab (one randomUUID)', () => {
+  it('keeps the session id stable across events while minting per-event ids', () => {
     const uuidSpy = vi.spyOn(crypto, 'randomUUID');
     const beacon = stubBeacon();
 
@@ -177,7 +205,7 @@ describe('analytics client', () => {
     const first = lastBeaconBody(beacon).sessionId;
     const second = lastBeaconBody(beacon).sessionId;
     expect(first).toBe(second);
-    expect(uuidSpy).toHaveBeenCalledTimes(1);
+    expect(uuidSpy).toHaveBeenCalledTimes(3);
   });
 
   it('uses crypto.randomUUID for the session id', () => {

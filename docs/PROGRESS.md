@@ -4,6 +4,27 @@
 
 ---
 
+## 2026-11-27 — Opt-in account-linked learning journeys
+Git HEAD: `7ac5bd5` (develop, tree dirty)
+Done: added the separate 90d `octav-learning-journey-events` store, server-derived user/profile attribution, idempotent/range/paginated DB operations and least-privilege IAM. Anonymous analytics remain unchanged; linked events require explicit Account opt-in, exclude free-form/sensitive fields, and support export/opt-out/account erasure. Added `analyze:journey`, privacy/design docs and dummy-only e2e budget override.
+Verified: 1847 unit, tsc, lint 0 errors (35 baseline), Terraform fmt/validate, 11 Lambdas, content 0/0, illustrations/layout, static 435 URLs + leak.
+  Full static: Desktop 164/4 skipped, iPhone 151/17, iPad 152/16; focused dev + 19-test static ingest-budget reproduction PASS.
+Next: deploy develop through CI, opt in a test account, live-smoke health/ingest/export/erasure + `analyze:journey`; then resume MC rotation, maths written coverage, KS3 tagging and live AI quality.
+Notes: no local apply/deploy or production data change. No pre-login backfill/offline queue; missing events remain unknown. Eight mobile/desktop light/dark UX shots reviewed, no findings/waivers. `ANALYTICS_TEST_MODE` cannot relax DynamoDB rate limits.
+
+---
+
+## 2026-11-26 — Automated analytics separation and Year 7 assessment audit
+Git HEAD: `7ac5bd5` (develop + main, tree dirty: this progress entry)
+Done: marked browser-automation events `test=true`, persisted them in both analytics adapters, and made raw performance/funnel reports exclude them by default (`--include-test` restores them). Added LCP/CLS browser coverage; promoted `3cc3a12` + `7ac5bd5` to production.
+  Audited 64 Year 7 topics / 1206 questions: 37/53 choice topics need position review; maths mixed written covers 8/27 topics; KS3 paper topic tagging is the main exam-metadata gap.
+Verified: 1824 unit, tsc, lint 0 errors (35 baseline), 11 Lambdas, content 0/0, static 435 URLs + leak, 6 dev + 6 static analytics e2e PASS.
+  CI/CD 45834202583 + 45836933037 PASS. Live dev/prod 204s + LCP/CLS PASS; dev perf 10 + funnel 1 excluded/restored, prod perf 4.
+Next: rotate MC choices and strengthen the position gate; add three written questions each for six uncovered maths topics; tag KS3 paper questions; collect real usage and run live AI quality.
+Notes: unmarked legacy QA remains included. English year tags are deliberately absent to preserve strand grouping. No Year 7 content changed; this was not an arithmetic answer-key audit.
+
+---
+
 ## 2026-11-25 — Performance rollout and funnel separation
 Git HEAD: `a11f1c7` (develop + main, tree dirty)
 Done: fresh dev Web Vitals 204s report TTFB/FCP at `/`; promoted `a11f1c7` to production.

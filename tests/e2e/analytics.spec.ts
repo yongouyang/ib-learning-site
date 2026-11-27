@@ -68,6 +68,59 @@ test.describe('analytics', () => {
     await expect.poll(() => events.filter((name) => name === 'quiz_started').length).toBe(1);
   });
 
+  test('opt-in journey events persist across real routes and are erased on opt-out', async ({ page }) => {
+    await signIn(page, uniqueEmail());
+    await page.goto('/account');
+    const preference = page.getByLabel(/Learning journey analytics/);
+    await expect(preference).not.toBeChecked();
+    const enabledResponse = page.waitForResponse((response) =>
+      response.url().endsWith('/api/auth/account') && response.request().method() === 'POST' && response.ok()
+    );
+    await preference.check();
+    await enabledResponse;
+    await expect(preference).toBeChecked();
+
+    const quizStartedResponse = page.waitForResponse((response) => {
+      if (!response.url().endsWith('/api/analytics/event') || response.request().method() !== 'POST') return false;
+      return response.request().postDataJSON()?.name === 'quiz_started';
+    });
+    await page.goto('/subjects/math/math-algebra-1/quiz');
+    await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
+    expect((await quizStartedResponse).status()).toBe(204);
+
+    const readExport = () => page.evaluate(async () => {
+      const response = await fetch('/api/auth/export', { credentials: 'same-origin' });
+      return response.json() as Promise<{
+        user: { userId: string };
+        journeyEvents: Array<Record<string, unknown> & { name: string; userId: string }>;
+      }>;
+    });
+    await expect.poll(async () => {
+      const data = await readExport();
+      return data.journeyEvents.some((event) => event.name === 'quiz_started');
+    }).toBe(true);
+
+    const exported = await readExport();
+    expect(exported.journeyEvents.length).toBeGreaterThan(0);
+    for (const event of exported.journeyEvents) {
+      expect(event.userId).toBe(exported.user.userId);
+      expect(event).not.toHaveProperty('email');
+      expect(event).not.toHaveProperty('ip');
+      expect(event).not.toHaveProperty('ua');
+      expect(event).not.toHaveProperty('referrer');
+      expect(event).not.toHaveProperty('textAnswer');
+    }
+
+    await page.goto('/account');
+    const disabledResponse = page.waitForResponse((response) =>
+      response.url().endsWith('/api/auth/account') && response.request().method() === 'POST' && response.ok()
+    );
+    await preference.uncheck();
+    await disabledResponse;
+    await expect(preference).not.toBeChecked();
+    await expect.poll(async () => (await readExport()).journeyEvents.length).toBe(0);
+  });
+
   test('admin dashboard: logged out shows the sign-in prompt', async ({ page }) => {
     await page.goto('/admin/analytics');
     await expect(page.getByText('Sign in to view analytics.')).toBeVisible();

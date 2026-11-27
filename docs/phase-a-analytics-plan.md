@@ -7,7 +7,7 @@
 
 1. **Custom build** — small analytics collect API + DynamoDB on the existing Lambda Function URL pattern. NOT Umami (requires PostgreSQL/MySQL; the earlier "Umami Lambda + DynamoDB" framing was wrong).
 2. **Full §5.3 event taxonomy** (~17 event types: page views, quiz, flashcard, diagnostic, exam, AI-marking, CTA, search, auth, PWA).
-3. **Anonymous only** — no userId attribution, no identify-on-login, no persistent visitor id, no fingerprint. Session id is a per-tab `sessionStorage` UUID. Honor `navigator.doNotTrack`.
+3. **Anonymous only** — no userId attribution, no identify-on-login, no persistent visitor id, no fingerprint. Session id is a per-tab `sessionStorage` UUID. Honor `navigator.doNotTrack`. **Amended 2026-11-27:** the original stream stays anonymous; a separate, explicitly opt-in learning journey stream may attribute allowlisted events server-side. See below.
 4. **In-app admin page** — `/admin/analytics`, session-gated to an admin email allowlist.
 
 ## Architecture (mirrors the progress stack exactly)
@@ -20,7 +20,8 @@ CloudFront /api/analytics/* behavior (before /api/*) ──► Lambda: octav-ana
     │                                                        │ shared handler: src/lib/analytics/http-handler.ts
     │                                                        │ (dev/e2e: Next routes src/app/api/analytics/*)
     ▼                                                        ▼
-DynamoDB octav-analytics-events (raw events + daily aggregate counters)
+DynamoDB octav-analytics-events (anonymous raw events + daily aggregate counters)
+DynamoDB octav-learning-journey-events (separate opt-in account-linked stream)
 DynamoDB octav-rate-limits (per-IP ingest budget, reused fixed-window pattern)
     ▲
 GET /api/analytics/summary?days=30 (session-gated, admin email allowlist)
@@ -38,17 +39,26 @@ Single table, two item kinds (PK `k`, SK `s`):
 
 One ingest write = 1 Put (raw) + 1 Update (aggregate ADD) per event. Dashboard reads only aggregates: one `Query` on `k="agg"`, `s BETWEEN <oldest-date> AND <today>` — bounded, cheap, no scans.
 
+## Optional learning journeys (added 2026-11-27)
+
+- Account linking is **explicitly opt-in, off by default** (`journeyAnalyticsOptIn` on the user). The Account → Your data setting stops future attribution and deletes saved journey rows when turned off. Browser DNT still disables all analytics transport; functional progress sync is independent.
+- `octav-learning-journey-events` is keyed `userId` + `eventKey=<occurredAt>#<eventId>`, with `expiresAt=receivedAt+90d`, PITR and deletion protection. A direct, strongly consistent per-user Query supports time ranges, export and authoritative erasure without a GSI. Conditional Put makes an identical retry a no-op; list operations loop `LastEvaluatedKey`.
+- The server resolves `userId` from the session cookie and validates `profileId`; neither can be trusted from the client. Invalid/expired sessions, opted-out accounts and invalid requested profiles write no journey row. Single-profile accounts may omit `profileId`; multi-profile account-level events may have none.
+- Journey rows contain only allowlisted learning events, normalized path, host, per-tab session/event IDs, optional attempt ID and bounded props. Search, page performance, OTP requests and PWA diagnostics stay anonymous. No email, IP, referrer, full UA, search text, typed answers or AI content enters this stream. Pre-login activity is not retroactively linked.
+- Anonymous raw events and aggregate counters are still written exactly as before. A journey write failure does not undo or fail the anonymous event; it logs an operational error. The health probe checks both tables.
+- `AWS_PROFILE=ib-learning-site npm run analyze:journey -- --user=<email> --days=30 --host=octavlearning.com` emits daily counts, sessions, attempt-linked timelines and scores. `test=true` is excluded by default. Missing sequences are **unknown**, not proof of abandonment. Account export includes `journeyEvents`; opt-out and account deletion erase them.
+
 ## Event schema (`src/lib/analytics/types.ts`, zod)
 
 - `name`: enum of the §5.3 taxonomy (`page_view`, `quiz_started`, `quiz_question_answered`, `quiz_completed`, `flashcard_session_started`, `flashcard_session_completed`, `diagnostic_started`, `diagnostic_completed`, `exam_started`, `exam_completed`, `paper_marked_with_ai`, `cta_clicked`, `search_performed`, `auth_otp_requested`, `auth_login_completed`, `auth_logout`, `pwa_installed`, `pwa_offline_banner_shown`).
 - `props`: per-name zod schemas mirroring §5.3 fields (bounded: strings ≤ 120 chars, numbers sane-capped, no free-form PII-shaped fields; `auth_otp_requested` carries `emailDomain` only, never the address).
-- Envelope: `{ name, props, url, referrer, sessionId, clientTs, test }` — `clientTs` gets the same now+24h guard as progress; `url` is reduced to path-only server-side; `test` defaults false and is set from `navigator.webdriver`.
+- Envelope: `{ name, props, url, referrer, sessionId, eventId?, profileId?, clientTs, test }` — `eventId` is optional for rolling-deploy compatibility; `profileId` is sent only for opted-in users and is validated server-side. `clientTs` gets the same now+24h guard as progress; `url` is reduced to path-only server-side; `test` defaults false and is set from `navigator.webdriver`.
 - **2026-11-09 exam-preparation extension:** quiz start/answer/completion events carry an optional `attemptId` (optional for rolling-deploy compatibility); review, retry, similar-question, weak-area-test and revision-print events use bounded IDs/counts. AI help has request/success/failure/rating/retry-outcome events with no account ID, question text, generated response or free-form feedback. `npm run analyze:funnel -- --days=30 --host=octavlearning.com` reads raw production events and joins the funnel by attempt ID; source/device buckets contain attempt-linked journeys only, while legacy tab/topic groups remain visible in separate `legacyBySource`/`legacyByDevice` buckets so their missing question-position events cannot distort the linked funnel. **2026-11-26:** both raw-event analysis commands exclude `test=true` automation by default, expose the excluded count, and accept `--include-test`; legacy events without the marker remain included because they cannot be reclassified reliably.
 - **2026-11-24 performance extension:** `WebVitals` uses Next.js's built-in `useReportWebVitals` to emit bounded `page_performance` events for TTFB/FCP/LCP/CLS/INP with value, rating and navigation type; no third-party script, account identifier, free-form content or persistent visitor ID. `AWS_PROFILE=ib-learning-site npm run analyze:performance -- --days=30 --host=octavlearning.com` reads the raw events and reports nearest-rank p50/p75/p95 overall, by navigation type and by path. High TTFB points to network/origin work; FCP after a good TTFB points to render-blocking work; LCP after a good FCP points to large content/images; CLS and INP point to layout stability and client-side interaction work respectively.
 
 ## API surface (shared handler `src/lib/analytics/http-handler.ts`)
 
-- `POST /api/analytics/event` — public, unauthenticated. Guards: zod envelope validation (400 on invalid), body ≤ 4 KB, per-IP fixed-window budget in `octav-rate-limits` (bucket `analytics:<ip>:<epoch>`, 120 events/10 min, 429 on exceed). Always fast — no session lookup.
+- `POST /api/analytics/event` — public, unauthenticated. Guards: zod envelope validation (400 on invalid), body ≤ 4 KB, per-IP fixed-window budget in `octav-rate-limits` (bucket `analytics:<ip>:<epoch>`, 120 events/10 min, 429 on exceed). `ANALYTICS_TEST_MODE=1` raises the budget to 10,000 only with dummy storage so the sequential e2e suite can assert real ingest; DynamoDB wiring always keeps 120. Anonymous requests do no session lookup; a request carrying a session cookie resolves it only to gate the separate opted-in journey write.
 - `GET /api/analytics/summary?days=7|30|90` — session required via shared `resolveSession` (`src/lib/auth/session.ts`); admin iff session email ∈ `ANALYTICS_ADMIN_EMAILS` (comma-separated env). 403 otherwise. Returns: daily series per event name, top pages, top referrers, totals, dev/prod split.
 - `GET /api/analytics/_health` — unauthenticated Limit-1 Query probe (CI smoke, mirrors progress `_health`).
 

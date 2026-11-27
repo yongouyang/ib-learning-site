@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { tierSchema, type Tier } from '../entitlements/features';
 import { LEADERBOARD_HANDLE_RE } from '../leaderboard/handles';
 import type { LeaderboardStorage } from '../leaderboard/types';
+import type { LearningJourneyStorage } from '../analytics/journey';
 
 // Accounts feature (Phase B) — shared types and contract constants
 // (docs/architecture-evolution-plan.md §2). The auth http-handler is the
@@ -126,6 +127,7 @@ export interface UserRecord extends SubscriptionFields {
   // Phase E0: entitlement tier (docs/entitlement-policy.md). Default "free" on
   // registration; set manually (admin grant) until Stripe lands in E4.
   tier: Tier;
+  journeyAnalyticsOptIn?: boolean;
   childProfiles: ChildProfile[]; // parent→child model (plan §2.6); a solo student is a parent with one "Me" profile
   createdAt: string; // ISO
   lastLoginAt: string; // ISO
@@ -175,7 +177,7 @@ export interface EmailClaimMarker {
 }
 
 /** Public user shape returned by verify-otp/me/account — never internal-only fields. */
-export type PublicUser = Pick<UserRecord, 'userId' | 'email' | 'displayName' | 'role' | 'tier' | 'childProfiles'>;
+export type PublicUser = Pick<UserRecord, 'userId' | 'email' | 'displayName' | 'role' | 'tier' | 'journeyAnalyticsOptIn' | 'childProfiles'>;
 
 // --- Dependency interfaces (controllable dummies, AGENTS.md) -------------------
 
@@ -193,6 +195,7 @@ export interface AuthStorage {
     updates: {
       displayName?: string;
       childProfiles?: ChildProfile[];
+      journeyAnalyticsOptIn?: boolean;
       lastLoginAt?: string;
       tier?: Tier;
     } & SubscriptionFields
@@ -256,6 +259,7 @@ export interface AuthDeps {
    * grants land in D7); the account update still succeeds.
    */
   leaderboardStorage?: LeaderboardStorage;
+  journeyStorage?: LearningJourneyStorage;
   /** AUTH_TEST_MODE=1: deterministic default code + _testCode injection. */
   testMode: boolean;
   /** True only when storage AND email are the in-memory dummies — the ONLY
@@ -279,6 +283,7 @@ export const verifyOtpSchema = z.object({
 
 export const accountUpdateSchema = z.object({
   displayName: z.string().trim().min(1).max(40).optional(),
+  journeyAnalyticsOptIn: z.boolean().optional(),
   childProfiles: z
     .array(
       z.object({

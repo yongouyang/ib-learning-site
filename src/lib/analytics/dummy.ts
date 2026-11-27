@@ -1,4 +1,11 @@
 import { InMemoryProgressStorage } from '../progress/dummy';
+import {
+  makeLearningJourneyEventItem,
+  type LearningJourneyEventInput,
+  type LearningJourneyEventItem,
+  type LearningJourneyRange,
+  type LearningJourneyStorage,
+} from './journey';
 import type {
   AnalyticsAggregateKind,
   AnalyticsStorage,
@@ -23,8 +30,9 @@ import {
 // same fixed-window budget allow/deny) — the parity test drives both against
 // a simulated DynamoDB implementation.
 
-export class InMemoryAnalyticsStorage extends InMemoryProgressStorage implements AnalyticsStorage {
+export class InMemoryAnalyticsStorage extends InMemoryProgressStorage implements AnalyticsStorage, LearningJourneyStorage {
   private readonly rawEvents: RawAnalyticsEventItem[] = [];
+  private readonly journeyEvents = new Map<string, LearningJourneyEventItem>();
   private readonly aggregates = new Map<string, number>(); // sort key → count
   private readonly ingestCounters = new Map<string, number>(); // bucket key → count
   // The base class's clock is private — keep our own copy (seeded with the
@@ -60,6 +68,33 @@ export class InMemoryAnalyticsStorage extends InMemoryProgressStorage implements
       this.aggregates.set(s, (this.aggregates.get(s) ?? 0) + 1);
     }
   }
+
+  async recordJourneyEvent(event: LearningJourneyEventInput): Promise<boolean> {
+    const item = makeLearningJourneyEventItem(event, this.clockFn());
+    const key = `${item.userId}#${item.eventKey}`;
+    if (this.journeyEvents.has(key)) return false;
+    this.journeyEvents.set(key, item);
+    return true;
+  }
+
+  async listJourneyEventsByUser(
+    userId: string,
+    range?: LearningJourneyRange
+  ): Promise<LearningJourneyEventItem[]> {
+    return [...this.journeyEvents.values()]
+      .filter((event) => event.userId === userId)
+      .filter((event) => !range || (event.eventKey >= range.from && event.eventKey <= range.to))
+      .sort((a, b) => a.eventKey.localeCompare(b.eventKey))
+      .map((event) => ({ ...event, props: { ...event.props } }));
+  }
+
+  async deleteJourneyEventsByUser(userId: string): Promise<void> {
+    for (const [key, event] of this.journeyEvents) {
+      if (event.userId === userId) this.journeyEvents.delete(key);
+    }
+  }
+
+  async probeJourneyStorage(): Promise<void> {}
 
   async incrementAnalyticsEventCount(ip: string, limit: number, windowSeconds: number): Promise<boolean> {
     // Fixed-window budget with the window epoch IN the key — mirrors the auth

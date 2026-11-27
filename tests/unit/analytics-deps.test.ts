@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { getAnalyticsDeps } from '@/lib/analytics/deps';
 import { DynamoAnalyticsStorage } from '@/lib/analytics/dynamodb-storage';
+import { DynamoLearningJourneyStorage } from '@/lib/analytics/journey-dynamodb';
 import { InMemoryAnalyticsStorage } from '@/lib/analytics/dummy';
 import { getAuthDeps } from '@/lib/auth/deps';
 import { getSharedDummyUniverse } from '@/lib/progress/deps';
@@ -12,7 +13,23 @@ describe('getAnalyticsDeps', () => {
     // One universe: a dummy-OTP login through the auth deps resolves for
     // /summary through the analytics deps.
     expect(deps.storage).toBe(getSharedDummyUniverse());
+    expect(deps.journeyStorage).toBe(deps.storage);
     expect(getAuthDeps({}).storage).toBe(getSharedDummyUniverse());
+    expect(getAuthDeps({}).journeyStorage).toBe(deps.journeyStorage);
+  });
+
+  it('relaxes the ingest budget only for the explicit dummy test mode', () => {
+    expect(getAnalyticsDeps({}).eventRateLimit).toBe(120);
+    expect(getAnalyticsDeps({ ANALYTICS_TEST_MODE: '1' }).eventRateLimit).toBe(10_000);
+    expect(getAnalyticsDeps({
+      ANALYTICS_STORAGE: 'dynamodb',
+      ANALYTICS_TEST_MODE: '1',
+      AUTH_USERS_TABLE: 'u',
+      AUTH_SESSIONS_TABLE: 's',
+      ANALYTICS_TABLE: 'e',
+      AUTH_RATE_LIMITS_TABLE: 'r',
+      LEARNING_JOURNEY_TABLE: 'j',
+    }).eventRateLimit).toBe(120);
   });
 
   it('passes the ANALYTICS_ADMIN_EMAILS allowlist through', () => {
@@ -27,8 +44,10 @@ describe('getAnalyticsDeps', () => {
       AUTH_SESSIONS_TABLE: 's',
       ANALYTICS_TABLE: 'e',
       AUTH_RATE_LIMITS_TABLE: 'r',
+      LEARNING_JOURNEY_TABLE: 'j',
     });
     expect(deps.storage).toBeInstanceOf(DynamoAnalyticsStorage);
+    expect(deps.journeyStorage).toBeInstanceOf(DynamoLearningJourneyStorage);
   });
 
   it('throws on missing table names, mentioning the missing name', () => {
@@ -49,6 +68,15 @@ describe('getAnalyticsDeps', () => {
         ANALYTICS_TABLE: 'e',
       })
     ).toThrow(/AUTH_RATE_LIMITS_TABLE/);
+    expect(() =>
+      getAnalyticsDeps({
+        ANALYTICS_STORAGE: 'dynamodb',
+        AUTH_USERS_TABLE: 'u',
+        AUTH_SESSIONS_TABLE: 's',
+        ANALYTICS_TABLE: 'e',
+        AUTH_RATE_LIMITS_TABLE: 'r',
+      })
+    ).toThrow(/LEARNING_JOURNEY_TABLE/);
   });
 
   it('throws on an unknown storage kind', () => {

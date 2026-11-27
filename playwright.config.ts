@@ -103,6 +103,9 @@ export default defineConfig({
       // PROGRESS_STORAGE is pinned explicitly for hermeticity (progress deps
       // default to dummy anyway — same shared universe).
       ANALYTICS_STORAGE: 'dummy',
+      // Relax only the dummy per-IP ingest budget: the sequential full suite
+      // otherwise spends 120 events before the real-route journey assertion.
+      ANALYTICS_TEST_MODE: '1',
       // Multiple allowlisted admin emails so parallel tests that sign in as an
       // admin never collide on one email's dummy-OTP code.
       ANALYTICS_ADMIN_EMAILS: 'admin@example.com,admin2@example.com,admin3@example.com,admin4@example.com,admin5@example.com',

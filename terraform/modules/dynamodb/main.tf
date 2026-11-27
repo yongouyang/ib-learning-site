@@ -13,12 +13,13 @@
 #     state-lock table (iblearn-tfstate-lock) — protecting a lock table can
 #     obstruct bootstrap re-creation, and losing a lock is not a data loss.
 #   * PITR is on only where the contents are not regenerable: users,
-#     progress, analytics-events, leaderboard, contact. Sessions, OTP codes,
+#     progress, analytics-events, learning-journey-events, leaderboard, contact.
+#     Sessions, OTP codes,
 #     rate-limit counters and support alerts are TTL'd and recreate
 #     themselves (alerts re-derive from a bot re-run over the contact +
 #     analytics-events sources, which DO have PITR), so paying to restore
 #     them would be paying to recover rows nobody wants back.
-# Cost of the PITR five is ~$0.25/GB-month (ap-east-1) on ~227 KB of data —
+# Cost of the PITR six is ~$0.25/GB-month (ap-east-1) on ~227 KB of data —
 # effectively zero today.
 #
 # Enabling PITR changes what the privacy notice is allowed to claim (a 35-day
@@ -204,6 +205,38 @@ resource "aws_dynamodb_table" "analytics_events" {
 
   attribute {
     name = "s"
+    type = "S"
+  }
+
+  ttl {
+    attribute_name = "expiresAt"
+    enabled        = true
+  }
+}
+
+# --- octav-learning-journey-events ---------------------------------------------
+# Opted-in, account-linked learning events. The anonymous analytics table stays
+# separate; this per-user partition supports time-range reports and authoritative
+# export/erasure without an eventually-consistent GSI. Raw rows expire after 90d.
+resource "aws_dynamodb_table" "learning_journey_events" {
+  name         = "${var.name_prefix}-learning-journey-events"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "userId"
+  range_key    = "eventKey"
+
+  deletion_protection_enabled = true
+
+  point_in_time_recovery {
+    enabled = true
+  }
+
+  attribute {
+    name = "userId"
+    type = "S"
+  }
+
+  attribute {
+    name = "eventKey"
     type = "S"
   }
 
@@ -405,6 +438,16 @@ output "analytics_events_table_name" {
 output "analytics_events_table_arn" {
   description = "octav-analytics-events table ARN."
   value       = aws_dynamodb_table.analytics_events.arn
+}
+
+output "learning_journey_events_table_name" {
+  description = "octav-learning-journey-events table name."
+  value       = aws_dynamodb_table.learning_journey_events.name
+}
+
+output "learning_journey_events_table_arn" {
+  description = "octav-learning-journey-events table ARN."
+  value       = aws_dynamodb_table.learning_journey_events.arn
 }
 
 output "leaderboard_table_name" {

@@ -59,6 +59,7 @@ export class InMemoryAuthStorage implements AuthStorage {
     updates: {
       displayName?: string;
       childProfiles?: UserRecord['childProfiles'];
+      journeyAnalyticsOptIn?: boolean;
       lastLoginAt?: string;
       tier?: UserRecord['tier'];
     } & SubscriptionFields
@@ -76,6 +77,7 @@ export class InMemoryAuthStorage implements AuthStorage {
       ...existing,
       ...(updates.displayName !== undefined ? { displayName: updates.displayName } : {}),
       ...(updates.childProfiles !== undefined ? { childProfiles: updates.childProfiles.map((p) => ({ ...p })) } : {}),
+      ...(updates.journeyAnalyticsOptIn !== undefined ? { journeyAnalyticsOptIn: updates.journeyAnalyticsOptIn } : {}),
       ...(updates.lastLoginAt !== undefined ? { lastLoginAt: updates.lastLoginAt } : {}),
       ...(updates.tier !== undefined ? { tier: updates.tier } : {}),
       ...billing,

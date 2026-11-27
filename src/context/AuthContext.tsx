@@ -11,6 +11,7 @@ import {
   setOnUnauthorized,
 } from '@/lib/auth-client';
 import type { FeatureId } from '@/lib/entitlements/features';
+import { setLearningJourneyContext } from '@/lib/analytics';
 
 // The account's active profile is a UI preference (which child's view you're
 // in) — persisted locally, following the `octav_*` key convention for accounts.
@@ -27,7 +28,7 @@ interface AuthContextType {
   login: (email: string, otp: string) => Promise<AuthUser>;
   logout: () => Promise<void>;
   refresh: () => Promise<void>;
-  updateAccount: (payload: { displayName?: string; childProfiles?: ChildProfile[] }) => Promise<AuthUser>;
+  updateAccount: (payload: { displayName?: string; childProfiles?: ChildProfile[]; journeyAnalyticsOptIn?: boolean }) => Promise<AuthUser>;
   setActiveProfile: (profileId: string) => void;
 }
 
@@ -116,6 +117,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       ? user.childProfiles.find((p) => p.profileId === activeProfileId) ?? user.childProfiles[0]
       : null;
 
+  useEffect(() => {
+    setLearningJourneyContext({
+      enabled: user?.journeyAnalyticsOptIn === true,
+      profileId: activeProfile?.profileId ?? null,
+    });
+  }, [user?.journeyAnalyticsOptIn, activeProfile?.profileId]);
+
   const login = useCallback(async (email: string, otp: string): Promise<AuthUser> => {
     ++generation.current; // invalidate any in-flight mount me() (review H4)
     const { user: next, entitlements: serverEntitlements } = await verifyOtp(email, otp);
@@ -144,7 +152,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [clearLocalSession]);
 
   const updateAccount = useCallback(
-    async (payload: { displayName?: string; childProfiles?: ChildProfile[] }): Promise<AuthUser> => {
+    async (payload: { displayName?: string; childProfiles?: ChildProfile[]; journeyAnalyticsOptIn?: boolean }): Promise<AuthUser> => {
       const next = await updateAccountRequest(payload);
       setUser(next);
       return next;

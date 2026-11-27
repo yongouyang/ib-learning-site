@@ -57,6 +57,11 @@ variable "rate_limits_table_arn" {
   type        = string
 }
 
+variable "learning_journey_events_table_arn" {
+  description = "DynamoDB ARN of the opted-in learning journey events table for export and erasure."
+  type        = string
+}
+
 variable "leaderboard_table_arn" {
   description = "DynamoDB ARN of the leaderboard table (octav-leaderboard) — D5 opt-out erasure + account-deletion erasure (docs/leaderboard-plan.md §6/§7: Query the user-index GSI, DeleteItem per row; one grant, two callers)."
   type        = string
@@ -131,6 +136,18 @@ data "aws_iam_policy_document" "auth" {
       var.progress_table_arn,
       "${var.progress_table_arn}/index/*",
       var.rate_limits_table_arn,
+    ]
+  }
+
+  # Learning journey export and erasure: strongly consistent per-user Query,
+  # then DeleteItem for every row. Ingest writes live only on analytics Lambda.
+  statement {
+    actions = [
+      "dynamodb:Query",
+      "dynamodb:DeleteItem",
+    ]
+    resources = [
+      var.learning_journey_events_table_arn,
     ]
   }
 

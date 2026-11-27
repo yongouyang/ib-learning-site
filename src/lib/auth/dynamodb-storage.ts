@@ -97,6 +97,7 @@ export function buildUserUpdateExpression(
   updates: {
     displayName?: string;
     childProfiles?: ChildProfile[];
+    journeyAnalyticsOptIn?: boolean;
     lastLoginAt?: string;
     tier?: UserRecord['tier'];
   } & SubscriptionFields
@@ -119,6 +120,11 @@ export function buildUserUpdateExpression(
     sets.push('#cp = :cp');
     values[':cp'] = updates.childProfiles;
     names['#cp'] = 'childProfiles';
+  }
+  if (updates.journeyAnalyticsOptIn !== undefined) {
+    sets.push('#jao = :jao');
+    values[':jao'] = updates.journeyAnalyticsOptIn;
+    names['#jao'] = 'journeyAnalyticsOptIn';
   }
   if (updates.lastLoginAt !== undefined) {
     sets.push('#lla = :lla');
@@ -160,6 +166,7 @@ export class DynamoUserWriter {
     updates: {
       displayName?: string;
       childProfiles?: ChildProfile[];
+      journeyAnalyticsOptIn?: boolean;
       lastLoginAt?: string;
       tier?: UserRecord['tier'];
     } & SubscriptionFields
@@ -237,6 +244,7 @@ export class DynamoAuthStorage implements AuthStorage {
     updates: {
       displayName?: string;
       childProfiles?: ChildProfile[];
+      journeyAnalyticsOptIn?: boolean;
       lastLoginAt?: string;
       tier?: UserRecord['tier'];
     } & SubscriptionFields

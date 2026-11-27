@@ -11,8 +11,8 @@ import { PAGE_PERFORMANCE_METRICS, PAGE_PERFORMANCE_NAVIGATION_TYPES } from './p
 //                                         kind ∈ event|page|referrer|host
 // The ingest rate budget reuses octav-rate-limits with the auth stack's
 // fixed-window bucket pattern (window epoch in the key).
-// Attribution is ANONYMOUS ONLY (locked decision 3): a per-tab sessionStorage
-// session id, no userId, no fingerprint.
+// This stream stays anonymous: per-tab sessionStorage id, no userId/fingerprint.
+// Explicitly opted-in learning journeys use the separate journey.ts contract.
 
 // --- Budgets / constants --------------------------------------------------------
 
@@ -216,6 +216,8 @@ const envelopeFields = {
   url: z.string().min(1).max(ANALYTICS_MAX_URL),
   referrer: z.string().max(ANALYTICS_MAX_URL).optional().default(''),
   sessionId: z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64),
+  eventId: z.uuid().optional(),
+  profileId: idField().optional(),
   clientTs: clientTs(),
   test: z.boolean().optional().default(false),
 };
@@ -226,6 +228,8 @@ export interface AnalyticsEvent {
   url: string;
   referrer: string;
   sessionId: string;
+  eventId?: string;
+  profileId?: string;
   clientTs: string;
   test: boolean;
 }

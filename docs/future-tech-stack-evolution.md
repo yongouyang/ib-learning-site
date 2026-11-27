@@ -60,8 +60,8 @@ Discussed 2026-08-14 as a serious alternative to Clerk. Passwordless OTP sideste
 
 **What needs to change:**
 
-- **Client-side + server-side (decided 2026-08-16):** custom first-party analytics — `src/lib/analytics.ts` `trackEvent()` via `navigator.sendBeacon` to `/api/analytics/event` → analytics Lambda → `octav-analytics-events` (raw events + daily aggregates). Anonymous-only: per-tab sessionStorage session id, no fingerprint, DNT honored. Dashboard = in-app `/admin/analytics` page. Full design: `docs/phase-a-analytics-plan.md`. (The earlier Plausible/PostHog framing is superseded; PostHog remains the migration option if product-analytics needs — funnels, session replay — ever outgrow the custom dashboard.)
-- **Architecture impact:** Small — a 4th Lambda + 1 DynamoDB table on the existing Lambda Function URL pattern (`/api/analytics/*` CloudFront behavior), reusing the progress stack's exact shape.
+- **Client-side + server-side (decided 2026-08-16):** custom first-party analytics — `src/lib/analytics.ts` `trackEvent()` via `navigator.sendBeacon` to `/api/analytics/event` → analytics Lambda → `octav-analytics-events` (raw events + daily aggregates). Anonymous by default: per-tab sessionStorage session id, no fingerprint, DNT honored. Since 2026-11-27, an explicitly opted-in second stream stores minimized account-linked learning journeys separately for 90 days. Dashboard = in-app `/admin/analytics` page plus the admin `analyze:journey` CLI. Full design: `docs/phase-a-analytics-plan.md`. (The earlier Plausible/PostHog framing is superseded; PostHog remains the migration option if product-analytics needs — funnels, session replay — ever outgrow the custom dashboard.)
+- **Architecture impact:** Small — a 4th Lambda + the anonymous DynamoDB table on the existing Lambda Function URL pattern (`/api/analytics/*` CloudFront behavior), reusing the progress stack's exact shape. The optional journey amendment adds a second table but no Lambda.
 
 **Recommendation (decided 2026-08-16):** custom Lambda + DynamoDB build — see `docs/phase-a-analytics-plan.md` (phases A0–A8).
 

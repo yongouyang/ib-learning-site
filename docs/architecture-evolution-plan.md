@@ -597,7 +597,7 @@ To find the user's own rank: `Query` the partition counting items with score > u
 **Custom build (locked):**
 1. **Reuses the existing stack exactly:** collect API on the established Lambda Function URL pattern (CloudFront `/api/analytics/*` behavior → Lambda → DynamoDB) — the same shape as the feedback/auth/progress stacks, including the controllable-dummy directive (in-memory dummy for dev/e2e, real DynamoDB adapter in the Lambda).
 2. **Low cost:** at family-use scale, Lambda + DynamoDB on-demand = ~$0–1/mo (vs ~$25–45/mo for Umami's App Runner/ECS + RDS footprint).
-3. **Privacy-first:** cookieless (per-tab `sessionStorage` session id, no fingerprint, DNT honored) — no cookie banner needed.
+3. **Privacy-first:** the aggregate stream is cookieless (per-tab `sessionStorage` id, no fingerprint, DNT honored). The optional 2026-11-27 journey stream uses the existing sign-in cookie only after explicit account opt-in; there is no separate analytics cookie.
 4. **Trade-off vs Umami:** we build the dashboard ourselves — an in-app `/admin/analytics` page (session-gated to an admin email allowlist); Umami's built-in dashboard is the main thing we give up.
 
 **Authoritative design:** `docs/phase-a-analytics-plan.md` (locked decisions, A0–A8 phases, event taxonomy, data model, API surface).
@@ -685,21 +685,22 @@ pwa_offline_banner_shown: {}
 | Requirement | Implementation |
 |-------------|---------------|
 | **No cookies** | Cookieless (custom build, like Umami): per-tab `sessionStorage` session id, no fingerprint, `navigator.doNotTrack` honored. No cookie banner needed. |
-| **No PII** | Analytics events contain only anonymous IDs (session ID, not email). Auth events use `emailDomain` not full email. |
-| **COPPA** | No tracking of children under 13 without parental consent. All analytics events are anonymous-only (locked decision 3): per-tab session id, no profile/userId linkage, no PII in props — pre-login and post-login events carry no personal information, so no consent gating is needed. |
-| **GDPR** | No cookies → no consent banner required under ePrivacy Directive. Data is stored in ap-east-1 (user can request deletion). |
-| **Data retention** | Raw events TTL 90 days; daily aggregates TTL 400 days (12-month reporting). |
+| **No PII** | The default analytics stream contains only anonymous IDs (session ID, not email). The separate journey stream is personal data and is disabled unless the account holder explicitly opts in. |
+| **COPPA** | Pre-login and default post-login analytics remain anonymous. Optional account/profile linkage is controlled by the account holder's explicit journey-analytics setting and can be withdrawn with erasure. |
+| **GDPR** | No separate analytics cookie; optional journey attribution relies on consent in Account → Your data. Data is stored in ap-east-1 and included in export/deletion. |
+| **Data retention** | Anonymous raw events TTL 90 days; daily aggregates TTL 400 days; opted-in journey events TTL 90 days or erased on opt-out/account deletion. |
 
 ### 5.5 Session attribution
 
 ```
-Anonymous only (locked decision 3 — supersedes the earlier Umami
-identify flow): every event carries a per-tab sessionStorage UUID
-created lazily. No persistent visitor id, no fingerprint, no userId
-attribution, no identify-on-login.
+Dual stream (amended 2026-11-27): the default event carries a per-tab
+sessionStorage UUID with no persistent visitor id, fingerprint or userId.
+Pre-login activity and the aggregate dashboard stay anonymous.
 
-Pre-login and post-login events both stay anonymous; the dashboard
-reports aggregate counts (events, pages, referrers), not user journeys.
+A separate, explicitly opted-in learning journey stream derives userId from
+the session and validates profileId. It stores only allowlisted, minimized
+learning events for 90 days in octav-learning-journey-events. Opting out
+deletes those rows; no pre-login activity is retroactively linked.
 ```
 
 ### 5.6 Infrastructure
@@ -958,7 +959,7 @@ All current users are presumably in Asia (ap-east-1 / Hong Kong). If expanding t
 ### Q6: Should anonymous (pre-login) users be tracked in analytics?
 Tracking anonymous page views helps understand the conversion funnel (landing page → sign-up). But if minors are browsing without parental consent, tracking may raise COPPA concerns.
 
-**Resolved 2026-08-16:** track everything anonymously — the anonymous-only decision (§5.5, locked decision 3) removes the COPPA concern that motivated gating: events carry no PII, no persistent id, and no user linkage, so custom events (quiz etc.) may fire pre-login too. Supersedes the earlier "custom events only after login" recommendation.
+**Resolved 2026-08-16; amended 2026-11-27:** pre-login and default post-login events remain anonymous, with no persistent id or user linkage. Account-linked learning events require the explicit §5.5 journey opt-in and never retroactively identify pre-login activity.
 
 ### Q7: Email delivery — use SES directly or a transactional email service (Resend, Postmark)?
 SES is cheapest ($0.10/1000 emails) but requires domain verification and deliverability management. Resend/Postmark are easier to set up and have better deliverability but cost more ($1-20/mo depending on volume).

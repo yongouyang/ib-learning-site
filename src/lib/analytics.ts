@@ -5,9 +5,9 @@ import type { AnalyticsEventName } from './analytics/types';
 // fetch keepalive fallback) and NEVER throw into app code or surface errors —
 // like the sync manager, failures are dropped silently (no retries, no queue:
 // offline events are simply lost, an accepted trade-off in the plan).
-// Attribution is ANONYMOUS ONLY (locked decision 3): a per-tab sessionStorage
-// UUID, created lazily on the first event — nothing is read from localStorage
-// progress. navigator.doNotTrack === '1' disables tracking entirely.
+// A per-tab sessionStorage UUID is created lazily on the first event. The
+// server separately attributes allowlisted events only after explicit opt-in;
+// this client sends a profile id, never a user id. DNT disables all transport.
 // SSR-safe: all window/navigator access happens inside functions, so importing
 // this module server-side is a no-op.
 
@@ -17,6 +17,11 @@ const SESSION_KEY = 'octav_analytics_session';
 // Used only when sessionStorage is unavailable (private mode) — a per-page-load
 // id is still better than no session attribution.
 let fallbackSessionId: string | null = null;
+let journeyContext: { enabled: boolean; profileId: string | null } = { enabled: false, profileId: null };
+
+export function setLearningJourneyContext(context: { enabled: boolean; profileId: string | null }): void {
+  journeyContext = context;
+}
 
 /** Per-tab session id: a sessionStorage UUID, created lazily on first use. */
 function getSessionId(): string {
@@ -53,6 +58,8 @@ export function trackEvent(
       url: options.url ?? window.location.href,
       referrer: document.referrer,
       sessionId: getSessionId(),
+      eventId: crypto.randomUUID(),
+      ...(journeyContext.enabled && journeyContext.profileId ? { profileId: journeyContext.profileId } : {}),
       clientTs: new Date().toISOString(),
       test: navigator.webdriver === true,
     });

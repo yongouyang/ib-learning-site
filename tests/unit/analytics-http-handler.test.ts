@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { handleRequestOtp, handleVerifyOtp } from '@/lib/auth/http-handler';
 import { DummyEmailSender } from '@/lib/auth/dummy';
 import { InMemoryAnalyticsStorage } from '@/lib/analytics/dummy';
@@ -40,8 +40,8 @@ function makeDeps(adminEmails = '', clock?: () => number): TestDeps {
   const sender = new DummyEmailSender();
   return {
     storage,
-    authDeps: { storage, emailSender: sender, testMode: true, dummyMode: true },
-    analyticsDeps: { storage, adminEmails },
+    authDeps: { storage, emailSender: sender, journeyStorage: storage, testMode: true, dummyMode: true },
+    analyticsDeps: { storage, journeyStorage: storage, adminEmails },
   };
 }
 
@@ -227,6 +227,102 @@ describe('POST /api/analytics/event', () => {
   });
 });
 
+describe('opt-in learning journey attribution', () => {
+  const eventId = '11111111-1111-4111-8111-111111111111';
+
+  it('is off by default, ignores spoofed identity fields and leaves the raw event anonymous', async () => {
+    const t = makeDeps();
+    const session = await login(t);
+    const body = envelope({
+      eventId,
+      profileId: session.user.childProfiles[0].profileId,
+      userId: 'attacker-controlled-user',
+      email: 'attacker@example.com',
+    });
+
+    expect((await postEvent(t, body, { cookie: session.cookie })).status).toBe(204);
+    expect(await t.storage.listJourneyEventsByUser(session.user.userId)).toEqual([]);
+    expect(rawEvents(t.storage)).toHaveLength(1);
+    expect(rawEvents(t.storage)[0]).not.toHaveProperty('userId');
+    expect(rawEvents(t.storage)[0]).not.toHaveProperty('profileId');
+    expect(rawEvents(t.storage)[0]).not.toHaveProperty('email');
+  });
+
+  it('derives identity from the session, validates the profile and deduplicates journey retries', async () => {
+    const t = makeDeps('', () => Date.parse('2026-08-15T12:00:00.000Z'));
+    const session = await login(t);
+    await t.storage.updateUser(session.user.userId, { journeyAnalyticsOptIn: true });
+    const profileId = session.user.childProfiles[0].profileId;
+    const body = envelope({
+      name: 'quiz_started',
+      eventId,
+      profileId,
+      userId: 'some-other-user',
+      props: { subjectId: 'math', topicId: 'algebra', source: 'topic_page', attemptId: 'attempt-1' },
+      url: 'https://octavlearning.com/subjects/math/algebra/quiz?secret=excluded',
+    });
+
+    await postEvent(t, body, { cookie: session.cookie });
+    await postEvent(t, body, { cookie: session.cookie });
+
+    expect(rawEvents(t.storage)).toHaveLength(2);
+    const events = await t.storage.listJourneyEventsByUser(session.user.userId);
+    expect(events).toHaveLength(1);
+    expect(events[0]).toMatchObject({
+      userId: session.user.userId,
+      profileId,
+      eventId,
+      name: 'quiz_started',
+      urlPath: '/subjects/math/algebra/quiz',
+      occurredAt: '2026-08-15T10:00:00.000Z',
+      eventKey: `2026-08-15T10:00:00.000Z#${eventId}`,
+      receivedAt: '2026-08-15T12:00:00.000Z',
+      props: { attemptId: 'attempt-1' },
+    });
+    expect(events[0].userId).not.toBe('some-other-user');
+    expect(events[0]).not.toHaveProperty('email');
+    expect(events[0]).not.toHaveProperty('ua');
+    expect(events[0]).not.toHaveProperty('referrer');
+
+    await postEvent(t, envelope({ ...body, profileId: 'not-my-profile' }), { cookie: session.cookie });
+    expect(await t.storage.listJourneyEventsByUser(session.user.userId)).toHaveLength(1);
+  });
+
+  it('keeps excluded events and invalid sessions out of the linked stream', async () => {
+    const t = makeDeps();
+    const session = await login(t);
+    await t.storage.updateUser(session.user.userId, { journeyAnalyticsOptIn: true });
+    const profileId = session.user.childProfiles[0].profileId;
+
+    await postEvent(t, envelope({
+      name: 'search_performed', eventId, profileId,
+      props: { query: 'private free text', resultCount: 2 },
+    }), { cookie: session.cookie });
+    await postEvent(t, envelope({ eventId, profileId }), { cookie: 'octav_session=invalid' });
+
+    expect(await t.storage.listJourneyEventsByUser(session.user.userId)).toEqual([]);
+    expect(rawEvents(t.storage)).toHaveLength(2);
+  });
+
+  it('supports old clients without eventId and does not fail anonymous ingest if the journey write breaks', async () => {
+    const t = makeDeps();
+    const session = await login(t);
+    await t.storage.updateUser(session.user.userId, { journeyAnalyticsOptIn: true });
+    const record = vi.spyOn(t.storage, 'recordJourneyEvent').mockRejectedValue(new Error('table unavailable'));
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const res = await postEvent(t, envelope({ profileId: session.user.childProfiles[0].profileId }), { cookie: session.cookie });
+
+    expect(res.status).toBe(204);
+    expect(rawEvents(t.storage)).toHaveLength(1);
+    expect(record).toHaveBeenCalledWith(expect.objectContaining({
+      userId: session.user.userId,
+      eventId: expect.stringMatching(/^[0-9a-f-]{36}$/),
+    }));
+    expect(error).toHaveBeenCalled();
+  });
+});
+
 describe('GET /api/analytics/summary', () => {
   const get = (t: TestDeps, query = '', cookie = '') =>
     handleAnalyticsSummary(new Request(`https://x.test/api/analytics/summary${query}`, { headers: cookie ? { cookie } : {} }), t.analyticsDeps);
@@ -332,6 +428,23 @@ describe('GET /api/analytics/_health', () => {
     const res = await handleAnalyticsHealth(new Request('https://x.test/api/analytics/_health'), t.analyticsDeps);
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ ok: true });
+  });
+
+  it('returns 500 when only the journey probe fails', async () => {
+    const t = makeDeps();
+    const failingJourney = new Proxy(t.storage, {
+      get(target, prop) {
+        if (prop === 'probeJourneyStorage') return async () => { throw new Error('Missing journey table'); };
+        return Reflect.get(target, prop, target);
+      },
+    });
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const res = await handleAnalyticsHealth(new Request('https://x.test/api/analytics/_health'), {
+      ...t.analyticsDeps,
+      journeyStorage: failingJourney,
+    });
+    expect(res.status).toBe(500);
+    expect(error).toHaveBeenCalled();
   });
 
   it('returns 500 when the probe fails (missing table/IAM class)', async () => {

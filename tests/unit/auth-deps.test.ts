@@ -6,6 +6,7 @@ import { ResendEmailSender } from '@/lib/auth/resend-sender';
 import { DummyEmailSender, InMemoryAuthStorage } from '@/lib/auth/dummy';
 import { InMemoryLeaderboardStorage } from '@/lib/leaderboard/dummy';
 import { DynamoLeaderboardStorage } from '@/lib/leaderboard/dynamodb-storage';
+import { DynamoLearningJourneyStorage } from '@/lib/analytics/journey-dynamodb';
 
 const DDB_ENV = {
   AUTH_STORAGE: 'dynamodb',
@@ -15,6 +16,7 @@ const DDB_ENV = {
   AUTH_OTP_TABLE: 'o',
   AUTH_PROGRESS_TABLE: 'p',
   AUTH_RATE_LIMITS_TABLE: 'r',
+  LEARNING_JOURNEY_TABLE: 'j',
 };
 
 describe('getAuthDeps', () => {
@@ -52,6 +54,7 @@ describe('getAuthDeps', () => {
         AUTH_OTP_TABLE: 'o',
         AUTH_PROGRESS_TABLE: 'p',
         AUTH_RATE_LIMITS_TABLE: 'r',
+  LEARNING_JOURNEY_TABLE: 'j',
         SES_FROM_ADDRESS: 'noreply@octavlearning.com',
       }).dummyMode
     ).toBe(false);
@@ -66,9 +69,11 @@ describe('getAuthDeps', () => {
       AUTH_OTP_TABLE: 'octav-otp-codes',
       AUTH_PROGRESS_TABLE: 'octav-progress',
       AUTH_RATE_LIMITS_TABLE: 'octav-rate-limits',
+      LEARNING_JOURNEY_TABLE: 'octav-learning-journey-events',
       SES_FROM_ADDRESS: 'noreply@octavlearning.com',
     });
     expect(deps.storage).toBeInstanceOf(DynamoAuthStorage);
+    expect(deps.journeyStorage).toBeInstanceOf(DynamoLearningJourneyStorage);
     expect(deps.emailSender).toBeInstanceOf(SesEmailSender);
   });
 
@@ -105,6 +110,7 @@ describe('getAuthDeps', () => {
       const deps = getAuthDeps({});
       expect(deps.leaderboardStorage).toBeInstanceOf(InMemoryLeaderboardStorage);
       expect(deps.leaderboardStorage).toBe(deps.storage);
+      expect(deps.journeyStorage).toBe(deps.storage);
     });
 
     it('dynamodb wiring without LEADERBOARD_TABLE leaves erasure disabled (pre-D7)', () => {
@@ -195,6 +201,7 @@ describe('getAuthDeps', () => {
           AUTH_OTP_TABLE: 'o',
           AUTH_PROGRESS_TABLE: 'p',
           AUTH_RATE_LIMITS_TABLE: 'r',
+  LEARNING_JOURNEY_TABLE: 'j',
         })
       ).toThrow(/refusing dummy wiring/);
     });
@@ -217,6 +224,7 @@ describe('getAuthDeps', () => {
           AUTH_OTP_TABLE: 'o',
           AUTH_PROGRESS_TABLE: 'p',
           AUTH_RATE_LIMITS_TABLE: 'r',
+  LEARNING_JOURNEY_TABLE: 'j',
           SES_FROM_ADDRESS: 'noreply@octavlearning.com',
         })
       ).toThrow(/NODE_ENV=test/);

@@ -3,10 +3,14 @@ import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoSessionStorage } from '../auth/dynamodb-storage';
 import { getSharedDummyUniverse } from '../progress/deps';
 import { DynamoAnalyticsStorage } from './dynamodb-storage';
+import { DynamoLearningJourneyStorage } from './journey-dynamodb';
+import type { LearningJourneyStorage } from './journey';
+import { ANALYTICS_EVENTS_PER_WINDOW } from './types';
 import type { AnalyticsStorage } from './types';
 
 // Dependency wiring for the analytics handler (mirrors src/lib/progress/deps.ts):
 //   ANALYTICS_STORAGE = "dummy" (default) | "dynamodb"
+//   ANALYTICS_TEST_MODE=1 relaxes the per-IP budget ONLY with dummy storage.
 // Defaults to the dummy: local dev and e2e run with zero AWS resources. The
 // terraform analytics_api module (A6) always sets the real wiring. The same
 // fail-closed guards as the auth/progress deps apply: dummy wiring and
@@ -15,6 +19,8 @@ import type { AnalyticsStorage } from './types';
 
 export interface AnalyticsDeps {
   storage: AnalyticsStorage;
+  journeyStorage: LearningJourneyStorage;
+  eventRateLimit?: number;
   /** Comma-separated, case-insensitive admin email allowlist for /summary. */
   adminEmails: string;
 }
@@ -30,6 +36,9 @@ function requiredEnv(env: Record<string, string | undefined>, name: string): str
 export function getAnalyticsDeps(env: Record<string, string | undefined> = process.env): AnalyticsDeps {
   const kind = env.ANALYTICS_STORAGE ?? 'dummy';
   const adminEmails = env.ANALYTICS_ADMIN_EMAILS ?? '';
+  const eventRateLimit = kind === 'dummy' && env.ANALYTICS_TEST_MODE === '1'
+    ? 10_000
+    : ANALYTICS_EVENTS_PER_WINDOW;
 
   // Fail closed (same guard as the auth/progress deps — rule 9).
   const inLambda = Boolean(env.AWS_LAMBDA_FUNCTION_NAME);
@@ -51,7 +60,8 @@ export function getAnalyticsDeps(env: Record<string, string | undefined> = proce
     // InMemoryAnalyticsStorage — one instance serves auth sessions, progress
     // items AND analytics events, so a dummy-OTP login resolves for /summary
     // in dev/e2e (the stand-in for the shared DynamoDB tables).
-    return { storage: getSharedDummyUniverse() as unknown as AnalyticsStorage, adminEmails };
+    const universe = getSharedDummyUniverse() as unknown as AnalyticsStorage & LearningJourneyStorage;
+    return { storage: universe, journeyStorage: universe, eventRateLimit, adminEmails };
   }
   if (kind === 'dynamodb') {
     const documentClient = DynamoDBDocumentClient.from(
@@ -76,6 +86,11 @@ export function getAnalyticsDeps(env: Record<string, string | undefined> = proce
         },
         sessionStore
       ),
+      journeyStorage: new DynamoLearningJourneyStorage(
+        documentClient,
+        requiredEnv(env, 'LEARNING_JOURNEY_TABLE')
+      ),
+      eventRateLimit,
       adminEmails,
     };
   }

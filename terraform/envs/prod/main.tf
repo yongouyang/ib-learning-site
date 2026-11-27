@@ -307,13 +307,14 @@ module "auth_api" {
   # runaway spike elsewhere cannot starve logins.
   reserved_concurrent_executions = 10
 
-  users_table_arn       = module.dynamodb.users_table_arn
-  sessions_table_arn    = module.dynamodb.sessions_table_arn
-  otp_codes_table_arn   = module.dynamodb.otp_codes_table_arn
-  progress_table_arn    = module.dynamodb.progress_table_arn
-  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
-  leaderboard_table_arn = module.dynamodb.leaderboard_table_arn
-  ses_from_address      = var.ses_from_address
+  users_table_arn                   = module.dynamodb.users_table_arn
+  sessions_table_arn                = module.dynamodb.sessions_table_arn
+  otp_codes_table_arn               = module.dynamodb.otp_codes_table_arn
+  progress_table_arn                = module.dynamodb.progress_table_arn
+  rate_limits_table_arn             = module.dynamodb.rate_limits_table_arn
+  leaderboard_table_arn             = module.dynamodb.leaderboard_table_arn
+  learning_journey_events_table_arn = module.dynamodb.learning_journey_events_table_arn
+  ses_from_address                  = var.ses_from_address
 
   environment = merge(
     {
@@ -324,6 +325,7 @@ module "auth_api" {
       AUTH_OTP_TABLE         = module.dynamodb.otp_codes_table_name
       AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      LEARNING_JOURNEY_TABLE = module.dynamodb.learning_journey_events_table_name
       # D5 opt-out erasure (docs/leaderboard-plan.md §7): without this the
       # auth deps leave leaderboardStorage undefined and row deletion is a
       # no-op.
@@ -418,15 +420,17 @@ module "analytics_api" {
 
   cors_allow_origins = var.site_origins
 
-  users_table_arn            = module.dynamodb.users_table_arn
-  sessions_table_arn         = module.dynamodb.sessions_table_arn
-  analytics_events_table_arn = module.dynamodb.analytics_events_table_arn
-  rate_limits_table_arn      = module.dynamodb.rate_limits_table_arn
+  users_table_arn                   = module.dynamodb.users_table_arn
+  sessions_table_arn                = module.dynamodb.sessions_table_arn
+  analytics_events_table_arn        = module.dynamodb.analytics_events_table_arn
+  learning_journey_events_table_arn = module.dynamodb.learning_journey_events_table_arn
+  rate_limits_table_arn             = module.dynamodb.rate_limits_table_arn
 
   environment = merge(
     {
       ANALYTICS_STORAGE      = "dynamodb"
       ANALYTICS_TABLE        = module.dynamodb.analytics_events_table_name
+      LEARNING_JOURNEY_TABLE = module.dynamodb.learning_journey_events_table_name
       AUTH_USERS_TABLE       = module.dynamodb.users_table_name
       AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name

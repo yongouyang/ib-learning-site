@@ -138,7 +138,15 @@ function generateOtpCode(deps: AuthDeps, injected: string | undefined): string {
 
 function publicUser(user: UserRecord): PublicUser {
   const { userId, email, displayName, role, tier, childProfiles } = user;
-  return { userId, email, displayName, role, tier, childProfiles: childProfiles.map((p) => ({ ...p })) };
+  return {
+    userId,
+    email,
+    displayName,
+    role,
+    tier,
+    journeyAnalyticsOptIn: user.journeyAnalyticsOptIn === true,
+    childProfiles: childProfiles.map((p) => ({ ...p })),
+  };
 }
 
 function displayNameFromEmail(email: string): string {
@@ -160,6 +168,7 @@ async function newUserFor(email: string, now: string): Promise<UserRecord> {
     displayName: displayNameFromEmail(email),
     role: 'parent',
     tier: 'free', // Phase E0 — registration default; upgraded manually until E4
+    journeyAnalyticsOptIn: false,
     childProfiles: [defaultChildProfile()],
     createdAt: now,
     lastLoginAt: now,
@@ -460,7 +469,7 @@ function mergeLeaderboardFields(
   return { profiles, erasedProfileIds };
 }
 
-/** POST /api/auth/account — update displayName and/or child profiles (full replace). */
+/** POST /api/auth/account — update profile fields and journey analytics preference. */
 export async function handleAccountPost(req: Request, deps: AuthDeps = getAuthDeps()): Promise<Response> {
   const auth = await requireAuth(req, deps);
   if ('response' in auth) return auth.response;
@@ -470,7 +479,11 @@ export async function handleAccountPost(req: Request, deps: AuthDeps = getAuthDe
 
   const parsed = accountUpdateSchema.safeParse(body);
   if (!parsed.success) return schemaError();
-  if (!parsed.data.displayName && !parsed.data.childProfiles) {
+  if (
+    !parsed.data.displayName &&
+    !parsed.data.childProfiles &&
+    parsed.data.journeyAnalyticsOptIn === undefined
+  ) {
     return json({ error: 'Nothing to update.' }, 400);
   }
 
@@ -492,8 +505,20 @@ export async function handleAccountPost(req: Request, deps: AuthDeps = getAuthDe
   const user = await deps.storage.updateUser(auth.user.userId, {
     displayName: parsed.data.displayName,
     childProfiles,
+    journeyAnalyticsOptIn: parsed.data.journeyAnalyticsOptIn,
   });
   if (!user) return json({ error: 'Not authenticated.' }, 401);
+
+  if (parsed.data.journeyAnalyticsOptIn === false) {
+    if (!deps.journeyStorage) {
+      return withCookie(json({ error: 'Journey analytics is off, but saved events could not be deleted. Please try again.' }, 500), auth.refreshCookie);
+    }
+    try {
+      await deps.journeyStorage.deleteJourneyEventsByUser(auth.user.userId);
+    } catch {
+      return withCookie(json({ error: 'Journey analytics is off, but saved events could not be deleted. Please try again.' }, 500), auth.refreshCookie);
+    }
+  }
 
   // Opt-out erasure (plan §7): a profile that left the leaderboard (or was
   // removed while opted in) loses its leaderboard rows immediately. Erasure
@@ -566,9 +591,10 @@ export async function handleExportGet(req: Request, deps: AuthDeps = getAuthDeps
   const auth = await requireAuth(req, deps);
   if ('response' in auth) return auth.response;
 
-  const [sessions, progress] = await Promise.all([
+  const [sessions, progress, journeyEvents] = await Promise.all([
     deps.storage.listSessionsByUser(auth.user.userId),
     deps.storage.listProgressByUser(auth.user.userId),
+    deps.journeyStorage?.listJourneyEventsByUser(auth.user.userId) ?? Promise.resolve([]),
   ]);
 
   // Session ids are deliberately EXCLUDED (review M2): the export must not be
@@ -583,6 +609,7 @@ export async function handleExportGet(req: Request, deps: AuthDeps = getAuthDeps
       ip: s.ip,
     })),
     progress,
+    journeyEvents,
   });
   return withCookie(res, auth.refreshCookie);
 }
@@ -596,6 +623,7 @@ export async function handleDeleteAccount(req: Request, deps: AuthDeps = getAuth
   await Promise.all(sessions.map((s) => deps.storage.deleteSession(s.sessionId)));
   await deps.storage.deleteOtp(auth.user.email);
   await deps.storage.deleteProgressByUser(auth.user.userId);
+  await deps.journeyStorage?.deleteJourneyEventsByUser(auth.user.userId);
   await deps.storage.deleteUser(auth.user.userId);
 
   return withCookie(json({ message: 'Account deleted.' }), clearedCookieValue(req));

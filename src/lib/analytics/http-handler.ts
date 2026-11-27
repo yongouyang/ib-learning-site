@@ -1,7 +1,9 @@
-import { resolveSession } from '../auth/session';
+import { randomUUID } from 'node:crypto';
+import { resolveSession, sessionTokenFromCookie } from '../auth/session';
 import { devGateDenied, DEV_GATE_ERROR } from '../auth/dev-gate';
 import { getAnalyticsDeps } from './deps';
 import type { AnalyticsDeps } from './deps';
+import { isLearningJourneyEvent } from './journey';
 import {
   ANALYTICS_ADMIN_DAYS,
   ANALYTICS_EVENTS_PER_WINDOW,
@@ -21,7 +23,8 @@ import {
 // Security model: the event endpoint is PUBLIC and unauthenticated (no
 // session lookup — ingest must be fast) but bounded per IP by the fixed-window
 // budget; the summary endpoint requires a session AND an admin allowlist
-// match. Attribution is anonymous-only (locked decision 3).
+// match. The primary event stream is anonymous; a separately stored learning
+// journey copy requires a valid session and explicit account opt-in.
 
 /** Every response is built here so Cache-Control: no-store is uniform. */
 function json(body: unknown, status = 200): Response {
@@ -107,7 +110,7 @@ export async function handleAnalyticsEvent(
   // the bucket key, so the counter resets atomically on rollover.
   const allowed = await deps.storage.incrementAnalyticsEventCount(
     clientIp(req),
-    ANALYTICS_EVENTS_PER_WINDOW,
+    deps.eventRateLimit ?? ANALYTICS_EVENTS_PER_WINDOW,
     ANALYTICS_WINDOW_SECONDS
   );
   if (!allowed) return json({ error: 'Too many events' }, 429);
@@ -133,7 +136,42 @@ export async function handleAnalyticsEvent(
   };
 
   await deps.storage.recordEvent(normalized);
-  return empty(204);
+
+  let refreshCookie: string | null = null;
+  if (isLearningJourneyEvent(event.name) && sessionTokenFromCookie(req)) {
+    try {
+      const auth = await resolveSession(req, deps.storage);
+      if (auth.ok && auth.user.journeyAnalyticsOptIn === true) {
+        const requestedProfileId = event.profileId;
+        const requestedProfileValid = requestedProfileId
+          ? auth.user.childProfiles.some((profile) => profile.profileId === requestedProfileId)
+          : false;
+        const profileId = requestedProfileValid
+          ? requestedProfileId
+          : !requestedProfileId && auth.user.childProfiles.length === 1
+            ? auth.user.childProfiles[0].profileId
+            : undefined;
+        if (!requestedProfileId || requestedProfileValid) {
+          await deps.journeyStorage.recordJourneyEvent({
+            userId: auth.user.userId,
+            ...(profileId ? { profileId } : {}),
+            eventId: event.eventId ?? randomUUID(),
+            name: event.name,
+            props: event.props as Record<string, unknown>,
+            urlPath: normalized.urlPath,
+            host: normalized.host,
+            sessionId: event.sessionId,
+            occurredAt: new Date(event.clientTs).toISOString(),
+            test: event.test,
+          });
+        }
+        refreshCookie = auth.refreshCookie;
+      }
+    } catch (err) {
+      console.error('[analytics] learning journey write failed:', err instanceof Error ? err.message : err);
+    }
+  }
+  return refreshCookie ? withCookie(empty(204), refreshCookie) : empty(204);
 }
 
 /** GET /api/analytics/summary?days=7|30|90 — session-gated, admin allowlist. */
@@ -165,11 +203,13 @@ export async function handleAnalyticsHealth(
   _req: Request,
   deps: AnalyticsDeps = getAnalyticsDeps()
 ): Promise<Response> {
-  // Limit-1 Query on a fixed probe key — exercises the real failure class
-  // (missing table / missing Query grant) with zero data exposure. 200 = the
-  // table AND the IAM grant work; anything else = 500.
+  // Limit-1 fixed-key probes on both stores exercise the missing-table/IAM
+  // failure class with zero data exposure; either failure makes health red.
   try {
-    await deps.storage.probeAnalyticsTable();
+    await Promise.all([
+      deps.storage.probeAnalyticsTable(),
+      deps.journeyStorage.probeJourneyStorage(),
+    ]);
     return json({ ok: true });
   } catch (err) {
     console.error('[analytics] health probe failed:', err instanceof Error ? err.message : err);
